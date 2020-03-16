@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<fx:root stylesheets="@../CSS/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <BorderPane prefHeight="20.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               <top>
+                  <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Файл">
+                        <items>
+                          <MenuItem mnemonicParsing="false" onAction="#handleNew" text="Новый проект" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Открыть" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleOpenCID" text="Открыть CID" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Сохранить" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Сохранить как..." />
+                              <MenuItem mnemonicParsing="false" onAction="#close" text="Выход" />
+                        </items>
+                      </Menu>
+                        <Menu mnemonicParsing="false" text="Библиотека">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#showLibrary" text="Открыть" />
+                           </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Помощь">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="О программе" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </top>
+            </BorderPane>
+         </top>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: -fx-fourth-color;" BorderPane.alignment="CENTER">
+               <center>
+                  <SplitPane dividerPositions="0.20340681362725452, 0.7965931863727455" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <items>
+                        <Accordion maxWidth="200.0" style="-fx-background-color: -fx-fourth-color;">
+                          <panes>
+                            <TitledPane collapsible="false" text="Структура">
+                                 <content>
+                                    <TreeView fx:id="iecTree" prefHeight="256.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: white;" />
+                                 </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                        <BorderPane style="-fx-background-color: -fx-fourth-color;">
+                           <center>
+                              <SplitPane dividerPositions="0.8027522935779816" minWidth="160.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                                <items>
+                                    <TabPane fx:id="tabPane" prefWidth="363.0" style="-fx-background-color: -fx-fourth-color;" />
+                                    <TitledPane animated="false" prefWidth="700.0" text="События">
+                                       <content>
+                                          <BorderPane maxHeight="100.0" minWidth="100.0">
+                                             <center>
+                                                <TextArea fx:id="messageArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets />
+                                                   </BorderPane.margin>
+                                                </TextArea>
+                                             </center>
+                                             <padding>
+                                                <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                                             </padding>
+                                          </BorderPane>
+                                       </content>
+                                    </TitledPane>
+                                </items>
+                              </SplitPane>
+                           </center>
+                        </BorderPane>
+                        <BorderPane maxWidth="200.0">
+                           <center>
+                              <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                                 <items>
+                                    <Accordion prefHeight="150.0" prefWidth="162.0" style="-fx-background-color: -fx-fourth-color;">
+                                       <panes>
+                                        <TitledPane collapsible="false" maxHeight="200.0" prefHeight="157.0" prefWidth="162.0" text="Информация">
+                                          <content>
+                                                <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                                                   <content>
+                                                  <AnchorPane fx:id="infoPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                   </content>
+                                                </ScrollPane>
+                                          </content>
+                                        </TitledPane>
+                                       </panes>
+                                    </Accordion>
+                                    <Accordion prefHeight="250.0" prefWidth="162.0" style="-fx-background-color: -fx-fourth-color;">
+                                      <panes>
+                                        <TitledPane collapsible="false" text="Библиотека">
+                                          <content>
+                                                <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                                                   <content>
+                                                  <AnchorPane fx:id="libraryPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                   </content>
+                                                </ScrollPane>
+                                          </content>
+                                        </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                 </items>
+                              </SplitPane>
+                           </center>
+                        </BorderPane>
+                     </items>
+                  </SplitPane>
+               </center>
+            </BorderPane>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="15.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="zoomLabel" layoutY="-8.0" text="1.0х" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" />
+               </children></AnchorPane>
+         </bottom>
+      </BorderPane>
+      <Label onMouseClicked="#close" text="✕" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <Label layoutX="10.0" layoutY="10.0" onMouseClicked="#maximize" text="☐" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0" />
+      <Label layoutX="20.0" layoutY="20.0" onMouseClicked="#minimize" text="🗕" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="5.0" />
+   </children>
+</fx:root>
