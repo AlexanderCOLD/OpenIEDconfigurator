@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<fx:root type="BorderPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <AnchorPane BorderPane.alignment="CENTER">
-         <children>
-            <TabPane fx:id="tabPane" style="-fx-border-color: GRAY; -fx-border-width: 1;">
-               <tabs>
-                  <Tab closable="false" text="Библиотека">
+<fx:root prefHeight="265.0" prefWidth="275.0" style="-fx-border-color: -fx-first-color; -fx-background-color: BLACK;" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion fx:id="accord" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <panes>
+          <TitledPane collapsible="false" text="       Библиотека">
+               <content>
+                  <ScrollPane fitToHeight="true" fitToWidth="true">
                      <content>
-                        <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
-                           <content>
-                              <FlowPane fx:id="libPane" prefHeight="250.0" prefWidth="380.0" style="-fx-padding: 5,5,5,5; -fx-vgap: 5; -fx-hgap: 5; -fx-background-color: WHITE;" />
-                           </content>
-                        </ScrollPane>
+                        <FlowPane fx:id="libraryPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: -fx-fourth-color;" />
                      </content>
-                  </Tab>
-               </tabs>
-            </TabPane>
-            <Label onMouseClicked="#closeStage" text="X" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0" />
-         </children>
-      </AnchorPane>
-   </center>
+                  </ScrollPane>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <ToggleButton fx:id="lock" mnemonicParsing="false" style="-fx-background-color: transparent;" text="🔒" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="1.0" />
+      <Label onMouseClicked="#close" text="✕" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+   </children>
 </fx:root>

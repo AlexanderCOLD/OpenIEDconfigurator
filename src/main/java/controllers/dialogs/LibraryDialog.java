@@ -1,55 +1,172 @@
 package controllers.dialogs;
 
-import application.Main;
 import application.GUI;
+import application.Main;
+import controllers.ResizeController;
+import controllers.elements.GraphicNode;
+import controllers.object.SVG.FXSVGLoader;
+import controllers.object.SVG.SVG;
+import iec61850.LN;
+import javafx.beans.value.ChangeListener;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
-import javafx.scene.control.TabPane;
-import javafx.scene.layout.BorderPane;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
+import javafx.scene.control.Accordion;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import tools.saveload.SaveLoadObject;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Александр Холодов
  * @created 03/2020
  * @project OpenIEDconfigurator
- * @description
+ * @description - Библиотека (окно)
  */
-public class LibraryDialog extends BorderPane {
+
+public class LibraryDialog extends AnchorPane {
+
+    @FXML private Accordion accord;
+    @FXML private ToggleButton lock;
+    @FXML private FlowPane libraryPane;
 
     private static LibraryDialog self;
-    @FXML private TabPane tabPane;
-    @FXML private FlowPane libPane;
-    private double offsetX, offsetY;
+    private boolean draggable = false;
+    private double dragOffsetX, dragOffsetY; // поправка при перетаскивании на позицию мышки
+    private double localX, localY; // координаты относительно главного окна
+    private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
+    private ChangeListener<? super Number> xListener, yListener;
+    private Stage stage = new Stage();
+    private Scene scene = new Scene(this);
 
-    public LibraryDialog(){
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("/view/FXML/LibraryDialog.fxml"));
-        loader.setRoot(this);
-        loader.setController(this);
-        try { loader.load(); } catch (IOException e) { e.printStackTrace();	}
-        tabPane.setOnMousePressed(e->{ offsetX = e.getX(); offsetY = e.getY(); });
-        tabPane.setOnMouseDragged(e->{ Point2D localCoords = getParent().sceneToLocal(e.getSceneX(), e.getSceneY()); relocate(localCoords.getX()- offsetX, localCoords.getY()- offsetY);  });
+    public LibraryDialog() { self = this; initializeDialog(); }
 
-//        tabPane.getStylesheets().add(this.getClass().getResource("/view/CSS/TabPaneStyle.css").toExternalForm());
-//        ((ScrollPane)tabPane.getTabs().get(0).getContent()).getStylesheets().add(this.getClass().getResource("/view/CSS/ScrollPaneStyle.css").toExternalForm());
-//        libPane.setStyle("-fx-background-color: #8790a5;");
-        setLayoutY(500);
-        setLayoutX(500);
-        setVisible(false);
-        GUI.get().getChildren().add(this);
+    void initializeDialog(){
+        xListener = (e, ov, nv)->{ stage.setX(nv.doubleValue() + GUI.getStage().getWidth() + localX); };
+        yListener = (e, ov, nv)->{ stage.setY(nv.doubleValue() + GUI.getStage().getHeight() + localY); };
+        mousePressed = e->{
+            dragOffsetX = e.getScreenX() - stage.getX(); dragOffsetY = e.getScreenY() - stage.getY();
+            if(dragOffsetY<7 || dragOffsetY>25 || dragOffsetX<7 || dragOffsetX>(stage.getWidth()-7)) draggable = false; else draggable = true; // Границы перетаскивания
+        };
+        mouseDragged = e->{
+            if(!draggable) return;
+            stage.setX(e.getScreenX() - this.dragOffsetX); stage.setY(e.getScreenY() - this.dragOffsetY);
+        };
+
+        FXMLLoader fxmlLoader = new FXMLLoader(	getClass().getResource("/view/FXML/LibraryDialog.fxml") );
+        fxmlLoader.setRoot(this); fxmlLoader.setController(this);
+        try { fxmlLoader.load(); } catch (IOException exception) { throw new RuntimeException(exception); }
+        ImageView icon = new ImageView(new Image(Main.class.getResource("/view/image/Icon.png").toString())); icon.setFitWidth(20); icon.setFitHeight(20); getChildren().add(icon); icon.setLayoutX(4); icon.setLayoutY(5);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(scene);
+        stage.initOwner(GUI.getStage());
+        scene.getStylesheets().add("view/CSS/stylesheet.css");
+        ResizeController.addStage(stage);
     }
 
     @FXML
-    private void initialize() { }
+    private void initialize() {
+        accord.setExpandedPane(accord.getPanes().get(0));
+        stage.addEventFilter(MouseEvent.MOUSE_PRESSED, mousePressed);
+        lock.setOnMouseClicked(e-> setLock(lock.isSelected()) );
+        setLock(false);
+        libraryPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 10; -fx-vgap:10; -fx-padding: 10 10 10 10; -fx-background-color: -fx-fourth-color,\n" +
+                "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
+                "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
-    @FXML
-    private void closeStage(){ hide(); }
 
-    public FlowPane getLibPane() { return libPane; }
-    public static void show(){ if(self==null) self = new LibraryDialog(); self.setVisible(true); }
-    public static void hide(){ if(self==null) self = new LibraryDialog(); self.setVisible(false); }
-    public static LibraryDialog get(){ if(self==null) self = new LibraryDialog(); return self; }
+        GraphicNode gn = new GraphicNode();
+        libraryPane.getChildren().add(gn);
+        LN ln = SaveLoadObject.load(LN.class, new File("library/PDIF.xml"));
+        gn.setUserData(ln);
+
+        gn = new GraphicNode();
+        libraryPane.getChildren().add(gn);
+        ln = SaveLoadObject.load(LN.class, new File("library/PHAR.xml"));
+        gn.setUserData(ln);
+
+        gn = new GraphicNode();
+        libraryPane.getChildren().add(gn);
+        ln = SaveLoadObject.load(LN.class, new File("library/PTRC.xml"));
+        gn.setUserData(ln);
+
+        gn = new GraphicNode();
+        libraryPane.getChildren().add(gn);
+        ln = SaveLoadObject.load(LN.class, new File("library/SVTR.xml"));
+        gn.setUserData(ln);
+    }
+
+    @FXML private void close(){ setShowing(false); }
+    public static boolean isLock(){
+        if(self==null) self = new LibraryDialog();
+        return self.lock.isSelected();
+    }
+    public static void setLock(boolean state){
+        if(self==null) self = new LibraryDialog();
+        self.lock.setSelected(state);
+        if(state) {
+            self.lock.setStyle("-fx-background-color: transparent; -fx-text-fill: RED; ");
+            self.localX =  self.stage.getX() - GUI.getStage().getX() - GUI.getStage().getWidth();
+            self.localY =  self.stage.getY() - GUI.getStage().getY() - GUI.getStage().getHeight();
+            self.stage.removeEventFilter(MouseEvent.MOUSE_DRAGGED, self.mouseDragged);
+            GUI.getStage().xProperty().addListener(self.xListener);
+            GUI.getStage().yProperty().addListener(self.yListener);
+        }
+        else {
+            self.lock.setStyle("-fx-background-color: transparent; -fx-text-fill: WHITE; ");
+            self.stage.addEventFilter(MouseEvent.MOUSE_DRAGGED, self.mouseDragged);
+            GUI.getStage().xProperty().removeListener(self.xListener);
+            GUI.getStage().yProperty().removeListener(self.yListener);
+        }
+    }
+
+    public static void setLayout(double x, double y){
+        if(self==null) self = new LibraryDialog();
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        if(x<screenBounds.getMaxX() && y<screenBounds.getMaxY()){ self.stage.setX(x); self.stage.setY(y); }
+    }
+    public static double[] getLayout(){
+        if(self==null) self = new LibraryDialog();
+        return new double[] { self.stage.getX(), self.stage.getY() };
+    }
+
+    public static void setResolution(double x, double y){
+        if(self==null) self = new LibraryDialog();
+        self.stage.setWidth(x);
+        self.stage.setHeight(y);
+    }
+    public static double[] getResolution(){
+        if(self==null) self = new LibraryDialog();
+        return new double[] { self.stage.getWidth(), self.stage.getHeight() };
+    }
+
+    public static boolean isShowing(){
+        if(self==null) self = new LibraryDialog();
+        return self.stage.isShowing();
+    }
+    public static void setShowing(boolean state){
+        if(self==null) self = new LibraryDialog();
+        if(!state) self.stage.hide(); else self.stage.show();
+    }
+    public static void switchVisibility(){
+        if(self==null) self = new LibraryDialog();
+        if(self.stage.isShowing()) self.stage.hide(); else self.stage.show();
+    }
+
+    public static FlowPane getLibraryPane(){
+        if(self==null) self = new LibraryDialog();
+        return self.libraryPane;
+    }
+
 }

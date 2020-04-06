@@ -16,13 +16,13 @@
 		<xs:attribute name="refreshTime" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="sampleSynchronized" type="xs:boolean" use="optional" fixed="true"/>
 		<xs:attribute name="sampleRate" type="xs:boolean" use="optional" default="false"/>
-		<xs:attribute name="dataSet" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="DS" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="security" type="xs:boolean" use="optional" default="false"/>
 	</xs:attributeGroup>
 	<xs:attributeGroup name="agOptFields">
 		<xs:attribute name="seqNum" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="timeStamp" type="xs:boolean" use="optional" default="false"/>
-		<xs:attribute name="dataSet" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="DS" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="reasonCode" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="dataRef" type="xs:boolean" use="optional" default="false"/>
 		<xs:attribute name="bufOvfl" type="xs:boolean" use="optional" default="false"/>

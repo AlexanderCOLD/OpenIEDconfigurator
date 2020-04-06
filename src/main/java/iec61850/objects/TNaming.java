@@ -11,9 +11,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlSeeAlso({
     TLNodeContainer.class
 })
-public abstract class TNaming
-    extends TBaseElement
-{
+public abstract class TNaming extends TBaseElement {
 
     @XmlAttribute(name = "name", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

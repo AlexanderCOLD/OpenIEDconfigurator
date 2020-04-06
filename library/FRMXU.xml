@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ln>
+    <classType>FRMXU</classType>
+    <dataSetInput>
+        <bufTime>0</bufTime>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>PhV</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>A</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>set</cppPrefix>
+            <dataAttributeName>StrVal1</dataAttributeName>
+            <dataObjectName>real32_T</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>set</cppPrefix>
+            <dataAttributeName>StrVal2</dataAttributeName>
+            <dataObjectName>real32_T</dataObjectName>
+        </dataObject>
+        <description>DataSet for input connections</description>
+        <intgPd>0</intgPd>
+    </dataSetInput>
+    <dataSetOutput>
+        <bufTime>0</bufTime>
+        <dataObject>
+            <cppPrefix>out</cppPrefix>
+            <dataAttributeName>Hz</dataAttributeName>
+            <dataObjectName>MV</dataObjectName>
+        </dataObject>
+        <description>DataSet for output connections</description>
+        <intgPd>0</intgPd>
+    </dataSetOutput>
+    <name>FRMXU</name>
+</ln>

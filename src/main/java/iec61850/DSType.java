@@ -4,12 +4,12 @@ package iec61850;
  * @author Александр Холодов
  * @created 03/2020
  * @project OpenIEDconfigurator
- * @description - типы датасетов
+ * @description - Types of dataset
  */
 public enum DSType {
-    mmsIn,
-    gooseIn,
-    sv,
-    mmsOut,
-    gooseOut
+    GOOSE_Input,
+    GOOSE_Output,
+    MMS_Output,
+    SV,
+    Node
 }

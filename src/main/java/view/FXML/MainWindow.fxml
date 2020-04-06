@@ -9,15 +9,15 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.TextFlow?>
 
-<fx:root stylesheets="@../CSS/stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" style="-fx-border-color: -fx-first-color; -fx-border-color: -fx-first-color; -fx-border-width: 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.5" AnchorPane.topAnchor="0.0">
          <top>
             <BorderPane prefHeight="20.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
                <top>
@@ -33,9 +33,10 @@
                               <MenuItem mnemonicParsing="false" onAction="#close" text="Выход" />
                         </items>
                       </Menu>
-                        <Menu mnemonicParsing="false" text="Библиотека">
+                        <Menu mnemonicParsing="false" text="Вид">
                            <items>
-                              <MenuItem mnemonicParsing="false" onAction="#showLibrary" text="Открыть" />
+                              <MenuItem mnemonicParsing="false" onAction="#switchInfo" text="Параметры" />
+                              <MenuItem mnemonicParsing="false" onAction="#switchLibrary" text="Библиотека" />
                            </items>
                         </Menu>
                       <Menu mnemonicParsing="false" text="Помощь">
@@ -54,31 +55,31 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: -fx-fourth-color;" BorderPane.alignment="CENTER">
                <center>
-                  <SplitPane dividerPositions="0.20340681362725452, 0.7965931863727455" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <SplitPane fx:id="splitPaneV" dividerPositions="0.18036072144288579" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <items>
-                        <Accordion maxWidth="200.0" style="-fx-background-color: -fx-fourth-color;">
+                        <Accordion fx:id="structAccord" maxWidth="500.0" prefWidth="250.0">
                           <panes>
                             <TitledPane collapsible="false" text="Структура">
                                  <content>
-                                    <TreeView fx:id="iecTree" prefHeight="256.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: white;" />
+                                    <TreeView fx:id="tree" prefHeight="256.0" prefWidth="200.0" />
                                  </content>
                             </TitledPane>
                           </panes>
                         </Accordion>
-                        <BorderPane style="-fx-background-color: -fx-fourth-color;">
+                        <BorderPane prefWidth="861.0" style="-fx-background-color: -fx-fourth-color;">
                            <center>
-                              <SplitPane dividerPositions="0.8027522935779816" minWidth="160.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                              <SplitPane fx:id="splitPaneH" dividerPositions="0.8027522935779816" orientation="VERTICAL" BorderPane.alignment="CENTER">
                                 <items>
-                                    <TabPane fx:id="tabPane" prefWidth="363.0" style="-fx-background-color: -fx-fourth-color;" />
-                                    <TitledPane animated="false" prefWidth="700.0" text="События">
+                                    <TabPane fx:id="tabPane" style="-fx-background-color: -fx-fourth-color;" />
+                                    <TitledPane animated="false" text="События">
                                        <content>
-                                          <BorderPane maxHeight="100.0" minWidth="100.0">
+                                          <BorderPane minHeight="100.0">
                                              <center>
-                                                <TextArea fx:id="messageArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER">
-                                                   <BorderPane.margin>
-                                                      <Insets />
-                                                   </BorderPane.margin>
-                                                </TextArea>
+                                                <ScrollPane fx:id="messageScrollPane" fitToHeight="true" fitToWidth="true">
+                                                   <content>
+                                                      <TextFlow fx:id="messageArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                                   </content>
+                                                </ScrollPane>
                                              </center>
                                              <padding>
                                                 <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
@@ -87,40 +88,6 @@
                                        </content>
                                     </TitledPane>
                                 </items>
-                              </SplitPane>
-                           </center>
-                        </BorderPane>
-                        <BorderPane maxWidth="200.0">
-                           <center>
-                              <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
-                                 <items>
-                                    <Accordion prefHeight="150.0" prefWidth="162.0" style="-fx-background-color: -fx-fourth-color;">
-                                       <panes>
-                                        <TitledPane collapsible="false" maxHeight="200.0" prefHeight="157.0" prefWidth="162.0" text="Информация">
-                                          <content>
-                                                <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
-                                                   <content>
-                                                  <AnchorPane fx:id="infoPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                                   </content>
-                                                </ScrollPane>
-                                          </content>
-                                        </TitledPane>
-                                       </panes>
-                                    </Accordion>
-                                    <Accordion prefHeight="250.0" prefWidth="162.0" style="-fx-background-color: -fx-fourth-color;">
-                                      <panes>
-                                        <TitledPane collapsible="false" text="Библиотека">
-                                          <content>
-                                                <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
-                                                   <content>
-                                                  <AnchorPane fx:id="libraryPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                                   </content>
-                                                </ScrollPane>
-                                          </content>
-                                        </TitledPane>
-                                      </panes>
-                                    </Accordion>
-                                 </items>
                               </SplitPane>
                            </center>
                         </BorderPane>

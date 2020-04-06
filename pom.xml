@@ -27,6 +27,7 @@
                     <include>**/*.png</include>
                     <include>**/*.ico</include>
                     <include>**/*.css</include>
+                    <include>**/*.svg</include>
                 </includes>
             </resource>
         </resources>
@@ -44,6 +45,5 @@
             <version>1.18.12</version>
         </dependency>
     </dependencies>
-
 
 </project>

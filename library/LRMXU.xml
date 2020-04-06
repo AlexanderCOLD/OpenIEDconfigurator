@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ln>
+    <classType>LRMXU</classType>
+    <dataSetInput>
+        <bufTime>0</bufTime>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>A1</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>A2</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>A3</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>PhV</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>BlkV</dataAttributeName>
+            <dataObjectName>SPS</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>set</cppPrefix>
+            <dataAttributeName>CompMod1</dataAttributeName>
+            <dataObjectName>boolean_T</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>set</cppPrefix>
+            <dataAttributeName>b</dataAttributeName>
+            <dataObjectName>real32_T</dataObjectName>
+        </dataObject>
+        <description>DataSet for input connections</description>
+        <intgPd>0</intgPd>
+    </dataSetInput>
+    <dataSetOutput>
+        <bufTime>0</bufTime>
+        <dataObject>
+            <cppPrefix>out</cppPrefix>
+            <dataAttributeName>DifAClc</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>out</cppPrefix>
+            <dataAttributeName>Rst</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <description>DataSet for output connections</description>
+        <intgPd>0</intgPd>
+    </dataSetOutput>
+    <name>LRMXU</name>
+</ln>

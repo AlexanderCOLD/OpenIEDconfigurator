@@ -5,27 +5,31 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.Optional;
 import controllers.*;
-import controllers.dialogs.Alerts;
+import controllers.dialogs.AssistDialog;
 import controllers.dialogs.FileChooserDialog;
+import controllers.dialogs.InfoDialog;
 import controllers.dialogs.LibraryDialog;
-import controllers.elements.GraphicNode;
 import iec61850.IED;
 import iec61850.objects.SCL;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import iec61850.IEDExtract;
+import iec61850.IEDExtractor;
+import tools.ProjectLogger;
+import tools.Settings;
 import tools.saveload.SaveLoad;
 import tools.saveload.SaveLoadObject;
 
@@ -42,63 +46,79 @@ public class GUI extends AnchorPane{
 	private boolean ctrl = false;
 	private static GUI self;
 	private double xOffset, yOffset;
+
+	@FXML private Accordion structAccord;
 	@FXML private MenuBar menuBar;
-	@FXML private AnchorPane infoPane, libraryPane;
 	@FXML private Label zoomLabel;
 	@FXML private TabPane tabPane;
-	@FXML private TextArea messageArea;
-	@FXML private TreeView iecTree;
+	@FXML private TreeView tree;
+	@FXML private SplitPane splitPaneH, splitPaneV;
+	@FXML private TextFlow messageArea;
+	@FXML private ScrollPane messageScrollPane;
+
+
+
 
 	public GUI() {
+		ProjectLogger.enable();
 		self = this;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/view/FXML/MainWindow.fxml"));
 		loader.setRoot(this);
 		loader.setController(this);
 		try { loader.load(); } catch (IOException e) { e.printStackTrace(); }
-		Scene mainScene = new Scene(this);
-		mainScene.getStylesheets().add("view/CSS/stylesheet.css");
-		mainScene.setOnKeyPressed(e -> { if (e.getCode() == KeyCode.CONTROL) ctrl = true; });
-		mainScene.setOnKeyReleased(e->{ if (e.getCode() == KeyCode.CONTROL) ctrl = false; });
+		Scene scene = new Scene(this);
+		scene.getStylesheets().add("view/CSS/stylesheet.css");
+		scene.setOnKeyPressed(e -> { if (e.getCode() == KeyCode.CONTROL) ctrl = true; });
+		scene.setOnKeyReleased(e->{ if (e.getCode() == KeyCode.CONTROL) ctrl = false; });
 		stage = new Stage(StageStyle.UNDECORATED);
 		stage.setTitle("OpenIEDconfigurator");
+		stage.setScene(scene);
 		stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/image/Icon.png")));
-		stage.setAlwaysOnTop(false);
-		stage.setScene(mainScene);
-		stage.setOnCloseRequest(e -> { if(exitRequest()){ Platform.exit(); System.exit(0); } else e.consume(); });
-		StageResize.addResizeListener(stage);
+		ImageView icon = new ImageView(new Image(Main.class.getResource("/view/image/Icon.png").toString())); icon.setFitWidth(20); icon.setFitHeight(20); getChildren().add(icon); icon.setLayoutX(6); icon.setLayoutY(5);
+		ResizeController.addStage(stage);
 		menuBar.setOnMousePressed(e -> { xOffset = stage.getX() - e.getScreenX(); yOffset = stage.getY() - e.getScreenY(); });
 		menuBar.setOnMouseDragged(e -> { stage.setX(e.getScreenX() + xOffset); stage.setY(e.getScreenY() + yOffset); });
 		menuBar.setOnMouseClicked(e->{ if(e.getClickCount()==2) maximize(); });
+
+		Platform.runLater(() -> Settings.load());
 	}
 
 	/**
 	 * Открыть окно программы
 	 */
-	public static void showGUI(){
+	public static void show(){
 		if(self==null) new GUI();
-		self.stage.setMinWidth(1200); self.stage.setWidth(1200);
-		self.stage.setMinHeight(750); self.stage.setHeight(750);
+		self.stage.setMinWidth(1200);
+		self.stage.setMinHeight(750);
 		self.stage.show();
-	}
 
+		SCL scl = SaveLoadObject.load(SCL.class, new File("Project.cid"));
+		Optional.ofNullable(scl).ifPresent(ProjectController::setSCL);
+	}
 
 	@FXML private void initialize() {
 		PanelsController.setTabPane(tabPane);
 		ContextMenuController.initializeContextMenu();
-		LibraryController.get().initialize();
-		TreeController.setTree(iecTree);
+		ProjectController.setTree(tree);
 
-		PanelsController.addTab("Test 1");
-		PanelsController.addTab("Test 2");
+		for (int i=0; i<15; i++) PanelsController.createTab("Вкладка "+i);
 
-		GraphicNode gn = new GraphicNode();
-		PanelsController.getCurrentPanel().getChildren().add(gn);
-		gn.relocate(100,100);
+		structAccord.setExpandedPane(structAccord.getPanes().get(0));
+		messageArea.setStyle("-fx-background-color: -fx-fourth-color; -fx-padding: 0 20 0 20");
+		messageArea.heightProperty().addListener((o) -> messageScrollPane.setVvalue(0.99));
+
+		writeMessage("Конфигуратор запущен");
 	}
 
+	public static void writeMessage(String message){ Text text = self.textBuffer(message); text.setFill(Color.WHITE);  self.messageArea.getChildren().add(text); ProjectLogger.fine(message); }
+	public static void writeErrMessage(String message){ Text text = self.textBuffer(message); text.setFill(Color.web("#dc4b48")); self.messageArea.getChildren().add(text); ProjectLogger.warning(message); }
+	private Text textBuffer(String message){ Text text; if(messageArea.getChildren().size()>500) { text = (Text) messageArea.getChildren().get(0); messageArea.getChildren().remove(text); } else text = new Text(); text.setText(String.format("%s    %s\n",self.dateFormat.format(new Date()), message)); return text; }
+
+	private boolean exitRequest(){ return AssistDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
+
 	@FXML private void handleNew() {
-		if(!Alerts.requestDialog("Подтверждение создания нового проекта","Создать новый проект?","Несохраненные данные будут утеряны")) return;
+		if(!AssistDialog.requestConfirm("Подтвер","Создать новый проект?\nНесохраненные данные будут утеряны")) return;
 //		CurrentProject.clear();
 		SaveLoad.setFilePath(null);
 	}
@@ -111,11 +131,12 @@ public class GUI extends AnchorPane{
 		if (file != null) {
 			SCL scl = SaveLoadObject.load(SCL.class, file);
 			if(scl!=null){
-				ArrayList<IED> ieds = IEDExtract.extractIEDList(scl);
-				TreeController.updateTree(ieds);
+				ArrayList<IED> ieds = IEDExtractor.extractIEDList(scl);
+				ProjectController.updateTree(ieds);
 			}
 			else{
-				Alerts.errorDialog("Ошибка", "Невозможно открыть SCL", "Версия SCL отличается от 2006");
+				AssistDialog.requestError("Ошибка", "Невозможно открыть SCL\nВерсия SCL отличается от 2006");
+				writeErrMessage("Невозможно открыть SCL, версия SCL отличается от 2006");
 			}
 		}
 	}
@@ -131,17 +152,21 @@ public class GUI extends AnchorPane{
 			SaveLoad.saveProjectDataToFile(file);
 		}
 	}
-	@FXML private void showLibrary(){ LibraryDialog.show(); }
+	@FXML private void switchInfo(){
+		InfoDialog.switchVisibility();
+	}
+	@FXML private void switchLibrary(){
+		LibraryDialog.switchVisibility();
+	}
 	@FXML private void minimize(){ stage.setIconified(true); }
 	@FXML private void maximize(){ stage.setMaximized(!stage.isMaximized()); }
-	@FXML private void close() { if(exitRequest()){ Platform.exit(); System.exit(0); } }
 
-
-	public static void writeText(String text){ Platform.runLater(() -> { self.messageArea.appendText(self.dateFormat.format(new Date())+"    Сообщение:    "+text+"\n"); }); }
-	private boolean exitRequest(){ return Alerts.requestDialog("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?", "Несохраненные данные могут быть утеряны"); }
+	@FXML private void close() { if(exitRequest()){ Settings.save(); Platform.exit(); System.exit(0); } }
 
 	public static GUI get() { return self; }
 	public static boolean isCtrl(){ return self.ctrl; }
 	public static Label getZoomLabel() { return self.zoomLabel; }
 	public static Stage getStage() { return self.stage; }
+	public SplitPane getSplitPaneH() { return splitPaneH; }
+	public SplitPane getSplitPaneV() { return splitPaneV; }
 }

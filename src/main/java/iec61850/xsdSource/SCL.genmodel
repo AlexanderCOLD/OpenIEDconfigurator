@@ -499,7 +499,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/bufOvfl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/configRef"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/dataRef"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/dataSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/DS"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/entryID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/reasonCode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//OptFieldsType/seqNum"/>
@@ -517,7 +517,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scl.ecore#//SettingGroupsType/confSG"/>
     </genClasses>
     <genClasses ecoreClass="scl.ecore#//SmvOptsType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//SmvOptsType/dataSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//SmvOptsType/DS"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//SmvOptsType/refreshTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//SmvOptsType/sampleRate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scl.ecore#//SmvOptsType/sampleSynchronized"/>
@@ -553,7 +553,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute scl.ecore#//TAnyContentFromOtherNamespace/anyAttribute"/>
     </genClasses>
     <genClasses view.image="false" ecoreClass="scl.ecore#//TAnyLN">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scl.ecore#//TAnyLN/dataSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scl.ecore#//TAnyLN/DS"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scl.ecore#//TAnyLN/reportControl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scl.ecore#//TAnyLN/logControl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scl.ecore#//TAnyLN/dOI"/>

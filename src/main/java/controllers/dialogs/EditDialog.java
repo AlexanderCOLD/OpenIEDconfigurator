@@ -41,7 +41,7 @@ public class EditDialog extends AnchorPane{
 		try { loader.load(); } catch (IOException e) { e.printStackTrace();	}
 		stage = new Stage();
 		stage.setTitle("Параметры элемента... ");
-		stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/image/Icon.png")));
+		stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/image/Icon2.png")));
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setMinWidth(700);
 		stage.setMinHeight(330);

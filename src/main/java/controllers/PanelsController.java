@@ -14,10 +14,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import tools.LOG;
+
 import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 /**
  * @author Александр Холодов
@@ -27,45 +25,33 @@ import java.util.UUID;
  */
 public class PanelsController {
 
-    private static HashMap<Tab, AnchorPane> allPanels = new HashMap<>();
-    private static Tab currentTab;
     private static TabPane tabPane;
-    private static AnchorPane currentPanel;
+    private static HashMap<Tab, AnchorPane> allTabs = new HashMap<>();
+    private static AnchorPane selectedPanel;
+    private static Tab selectedTab;
     private static double scale = 1;
-
-    public static void addTab(String name){
-        Tab tab = createTab(name);
-        if(tab!=null){
-            tabPane.getTabs().add(tab);
-            if(currentTab==null) { currentTab = tab; currentPanel = allPanels.get(tab); }
-        }
-    }
 
     /**
      * Создать новую вкладку
      * @param name - Название
      */
-    public static Tab createTab(String name){
-        for(Map.Entry<Tab, AnchorPane> es:allPanels.entrySet()) if(es.getKey().getId().equals(name)) { LOG.print("Панель уже существует "+name); return null; }
+    public static void createTab(String name){
+        for(Tab tab: allTabs.keySet()) if(tab.getId().equals(name)) { GUI.writeErrMessage("Панель уже существует "+name); return; }
 
-        Tab tab = new Tab(name);
-        tab.setId(UUID.randomUUID().toString());
-
-        AnchorPane pane = new AnchorPane();
-        pane.setId(name);
+        AnchorPane pane = new AnchorPane(); pane.setId(name);
         pane.setPrefHeight(2160); pane.setPrefWidth(3840);
         pane.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         pane.setStyle(" -fx-background-color: #ecf0f1;");
-        ProjectController.addToListening(pane);
+        ProjectController.addPaneToListening(pane);
         pane.setOnContextMenuRequested(e->{ ContextMenuController.showContextMenu(ContextMenuController.getMainContextMenu(), e); });
         pane.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{  ContextMenuController.hideContextMenu(); });
 
-        pane.setStyle("-fx-background-color: #1b2938,\n" +
+        pane.setStyle("-fx-border-color: -fx-first-color; -fx-background-color: -fx-fourth-color,\n" +
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
-        tab.setOnSelectionChanged(e->{ if(((Tab)e.getSource()).isSelected()) { currentTab = (Tab) e.getSource(); currentPanel = allPanels.get(currentTab); } });
-        allPanels.put(tab, pane);
+        Tab tab = new Tab(name); tab.setId(name); tab.setClosable(false); tabPane.getTabs().add(tab);
+        allTabs.put(tab, pane);
 
         ScrollPane scrollPane  = new ScrollPane();
         scrollPane.setOnDragDetected(e -> { scrollPane.setPannable(GUI.isCtrl()); });
@@ -107,11 +93,11 @@ public class PanelsController {
                 scrollPane.setVvalue((valY + adjustment.getY()) / (groupBounds.getHeight() - viewportBounds.getHeight()));
             }
         });
-        return tab;
     }
 
-    public static void setTabPane(TabPane tp) { tabPane = tp; }
-    public static HashMap<Tab, AnchorPane> getAllPanels() { return allPanels; }
-    public static Tab getCurrentTab() { return currentTab; }
-    public static AnchorPane getCurrentPanel() { return currentPanel; }
+    public static void removeTab(String name){ for(Tab tab: allTabs.keySet()) if(tab.getId().equals(name)) { tabPane.getTabs().remove(tab); allTabs.remove(tab); return; } }
+    public static void clear(){ tabPane.getTabs().clear(); allTabs.clear();  }
+
+    public static AnchorPane getSelectedPanel() { return selectedPanel; }
+    public static void setTabPane(TabPane tabPane) { PanelsController.tabPane = tabPane; PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> { selectedTab = nv; selectedPanel = allTabs.get(nv); } );  }
 }

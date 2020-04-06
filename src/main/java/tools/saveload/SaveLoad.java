@@ -7,7 +7,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import application.GUI;
-import controllers.dialogs.Alerts;
+import controllers.dialogs.AssistDialog;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -21,16 +21,14 @@ public class SaveLoad {
 	private static File filePath=null;
 
 	public static void loadProjectDataFromFile(File file) {
-		if(!Alerts.requestDialog("Подтверждение загрузки проекта",
-				"Загрузить новый проект?",
-				"Несохраненные данные будут утеряны")) return;
+		if(!AssistDialog.requestConfirm("Подтверждение загрузки проекта","Загрузить новый проект?\nНесохраненные данные будут утеряны")) return;
 	    try {
 	        JAXBContext context = JAXBContext.newInstance(ProjectWrapper.class);
 	        Unmarshaller um = context.createUnmarshaller();
 
 	        ProjectWrapper p = (ProjectWrapper) um.unmarshal(file);
 	        p.setCurrentProject();
-	        GUI.writeText("Загрузка проекта "+file);
+	        GUI.writeMessage("Загрузка проекта "+file);
 
 	        setFilePath(file);
 	    } catch (Exception e) {
@@ -56,7 +54,7 @@ public class SaveLoad {
 	        m.marshal(p, file);
 
 	        setFilePath(file);
-	        GUI.writeText("Проект успешно сохранен:  "+file);
+	        GUI.writeMessage("Проект успешно сохранен:  "+file);
 	    } catch (Exception e) { e.printStackTrace();
 	        Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Ошибка");

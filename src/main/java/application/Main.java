@@ -9,8 +9,6 @@ public class Main extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) {
-		GUI.showGUI();
-	}
+	public void start(Stage stage) { GUI.show(); }
 	
 }

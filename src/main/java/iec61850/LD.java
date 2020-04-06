@@ -12,15 +12,15 @@ import java.util.ArrayList;
  */
 @Data
 public class LD {
+
     private String name;
     private String description;
-    private ArrayList<LN> lnList = new ArrayList<>();
-    private ArrayList<DataSet> gooseOutputDataSets = new ArrayList<>();
-    private ArrayList<DataSet> gooseInputDataSets = new ArrayList<>();
 
+    private ArrayList<LN> logicalNodeList = new ArrayList<>();
 
-    public String toString(){
-        if(description==null) return name;
-        else return name + " - " + description;
-    }
+    private ArrayList<DS> gooseOutputDS = new ArrayList<>();
+    private ArrayList<DS> gooseInputDS = new ArrayList<>();
+    private ArrayList<DS> mmsOutputDS = new ArrayList<>();
+
+    public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
 }

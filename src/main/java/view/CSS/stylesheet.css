@@ -21,6 +21,9 @@
 .scroll-pane {
     -fx-background-color: -fx-third-color;
 }
+.scroll-bar {
+    -fx-background-color: -fx-third-color;
+}
 /* Скролл-кнопка */
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
@@ -34,6 +37,11 @@
 /* Фоновая панель */
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent; -fx-background-radius: 0em;
+}
+/* Фоновая панель */
+.scroll-bar .track{
     -fx-background-color: transparent;
     -fx-border-color: transparent; -fx-background-radius: 0em;
 }
@@ -88,9 +96,16 @@
 }
 .tab-pane .tab{
     -fx-background-color: -fx-second-color;
+    -fx-cursor: hand;
 }
 .tab-pane .tab:selected{
     -fx-background-color: -fx-first-color;
+}
+.tab-pane .tab:hover{
+    -fx-background-color: -fx-first-color;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
 }
 .tab .tab-label{
     -fx-alignment: CENTER;
@@ -106,11 +121,34 @@
     -fx-padding: 1 1 1 1;
 }
 
+.tab-down-button{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0 0 5 0;
+}
+.tab-down-button:hover{
+    -fx-background-color: -fx-first-color;
+    -fx-color: -fx-third-color;
+}
+.control-buttons-tab{
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+}
+.tab-down-button .arrow{
+    -fx-background-color: -fx-first-color, -fx-second-color;
+    -fx-background-insets: 0 0 -2 0, 1;
+    -fx-padding: 2.857 5 2.857 5;
+    -fx-shape: "M 0 0 H 7 L 3.5 4 z";
+}
+.tab-down-button .arrow:hover{
+    -fx-background-color: -fx-second-color, -fx-first-color;
+}
 /* -------------------------------- MenuBar -------------------------------- */
 .menu-bar{
     -fx-background-color: -fx-third-color;
     -fx-border-color: -fx-first-color;
-    -fx-border-width: 1
+    -fx-border-width: 1;
+    -fx-padding: 0 0 0 25;
 }
 .menu-item:hover, menu-item:focused{
     -fx-background-color: -fx-first-color;
@@ -135,61 +173,111 @@
 }
 
 /* -------------------------------- Accordion -------------------------------- */
-.titled-pane:focused {
-    -fx-color: -fx-first-color;
+.accordion{
+    -fx-border-color: -fx-first-color;
+    -fx-border-width: 1;
+}
+.titled-pane .content{
+    -fx-border-color: -fx-first-color;
+    -fx-border-width: 1;
 }
 .titled-pane > .title {
     -fx-color: -fx-third-color;
+    -fx-background-radius : 0.0;
 }
 .titled-pane > .title:hover {
     -fx-color: -fx-first-color;
+    -fx-background-radius : 0.0;
 }
-.titled-pane > * > * > AnchorPane {
-    -fx-padding: 0;
-}
-
 /* -------------------------------- TextArea -------------------------------- */
 .text-area{
     -fx-border-width: 0;
     -fx-border-radius: 0;
+    -fx-font-family: Consolas;
+    -fx-font-size: 12px;
+    -fx-text-fill: WHITE;
 }
 .text-area .content{
     -fx-background-color: -fx-fourth-color;
 }
+
+/* -------------------------------- TextFlow -------------------------------- */
+.text-flow{
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: -fx-fourth-color;
+}
+/* -------------------------------- TreeView -------------------------------- */
+.tree-view .tree-cell {
+    -fx-background-color: -fx-fourth-color ;
+}
+.tree-view {
+    -fx-background-color: -fx-fourth-color;
+}
+
+.tree-view .tree-cell {
+    -fx-max-height: 20;
+    -fx-background-color: transparent;
+    -fx-font-size: 14;
+}
+
+.tree-view .tree-cell:selected {
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-first-color;
+}
+
+.tree-view .tree-cell:filled:hover {
+    -fx-background-color: -fx-second-color;
+}
+
+.tree-view .tree-cell > .tree-disclosure-node > .arrow  {
+    -fx-background-color: red;
+}
 /* -------------------------------- TableView -------------------------------- */
+.table-view .column-header, .table-view .filler {
+    -fx-size: 20;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-insets: 0 10 1 0;
+
+    /*-fx-background-color: transparent;*/
+    /*-fx-border-color: transparent transparent derive(-fx-first-color, 80%) transparent;*/
+}
+
 .table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
+    -fx-base: -fx-fourth-color;
+    -fx-control-inner-background: transparent;
+    -fx-background-color: -fx-fourth-color;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
-    -fx-padding: 5;
+    -fx-padding: 2;
+    -fx-border-color: -fx-fourth-color;
+    -fx-border-width: 1;
 }
 
 .table-view .column-header-background {
     -fx-background-color: transparent;
 }
 
-.table-view .column-header, .table-view .filler {
-    -fx-size: 35;
-    -fx-border-width: 0 0 1 0;
-    -fx-background-color: transparent;
-    -fx-border-color:
-            transparent
-            transparent
-            derive(-fx-base, 80%)
-            transparent;
-    -fx-border-insets: 0 10 1 0;
-}
-
 .table-view .column-header .label {
-    -fx-font-size: 20pt;
+    -fx-font-size: 12pt;
     -fx-font-family: "Segoe UI Light";
     -fx-text-fill: white;
-    -fx-alignment: center-left;
+    -fx-alignment: center;
     -fx-opacity: 1;
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;
+    -fx-background-color: -fx-first-color;
+}
+
+/* -------------------------------- Button -------------------------------- */
+.button {
+    -fx-background-color: -fx-third-color;
+    -fx-padding: 1 0 1 0;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: -fx-first-color;
 }

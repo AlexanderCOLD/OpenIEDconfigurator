@@ -13,9 +13,7 @@ import java.util.List;
     "services",
     "accessPoint"
 })
-public class TIED
-    extends TNaming
-{
+public class TIED extends TNaming {
 
     @XmlElement(name = "Services", namespace = "http://www.iec.ch/61850/2006/SCL")
     protected TServices services;

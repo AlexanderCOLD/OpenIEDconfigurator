@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: -fx-first-color;" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion fx:id="accord" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <panes>
+          <TitledPane collapsible="false" prefWidth="300.0" text="Информация">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <AnchorPane prefHeight="46.0" prefWidth="280.0" style="-fx-background-color: -fx-third-color;" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextArea fx:id="textArea" prefHeight="52.0" prefWidth="245.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                              <Label fx:id="textInfo" alignment="CENTER" layoutX="14.0" layoutY="30.0" text="Label" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="icon" layoutX="24.0" layoutY="40.0" text="!" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textField" layoutX="70.0" layoutY="30.0" maxHeight="20.0" prefHeight="20.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="30.0" />
+                           </children></AnchorPane>
+                     </center>
+                     <bottom>
+                        <AnchorPane prefHeight="49.0" prefWidth="280.0" style="-fx-background-color: -fx-fourth-color;" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="button2" layoutX="216.0" layoutY="27.0" minWidth="60.0" mnemonicParsing="false" onMouseClicked="#close" text="Отмена" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="button1" minWidth="60.0" mnemonicParsing="false" onMouseClicked="#ok" text="OK" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="80.0" />
+                           </children></AnchorPane>
+                     </bottom>
+                     <padding>
+                        <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                     </padding>
+                  </BorderPane>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <Label onMouseClicked="#close" text="✕" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+   </children>
+</fx:root>

@@ -10,9 +10,9 @@ import java.io.File;
 public class SaveLoadObject {
 
 	/**
-	 * @author Thomas Anderson
+	 * @author Александр Холодов
 	 * @created 02/2020
-	 * @project PokerFace
+	 * @project OpenIEDconfigurator
 	 * @description Сохранение/загрузка проектов
 	 *
 	 * @XmlRootElement определяет корневой элемент для содержимого XML.

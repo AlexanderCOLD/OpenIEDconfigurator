@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ln>
+    <classType>INSTPDIF</classType>
+    <dataSetInput>
+        <bufTime>0</bufTime>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>DifAClc</dataAttributeName>
+            <dataObjectName>WYE</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>in</cppPrefix>
+            <dataAttributeName>Blk</dataAttributeName>
+            <dataObjectName>ACT</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>set</cppPrefix>
+            <dataAttributeName>HiSet</dataAttributeName>
+            <dataObjectName>real32_T</dataObjectName>
+        </dataObject>
+        <description>DataSet for input connections</description>
+        <intgPd>0</intgPd>
+    </dataSetInput>
+    <dataSetOutput>
+        <bufTime>0</bufTime>
+        <dataObject>
+            <cppPrefix>out</cppPrefix>
+            <dataAttributeName>Op</dataAttributeName>
+            <dataObjectName>ACT</dataObjectName>
+        </dataObject>
+        <dataObject>
+            <cppPrefix>out</cppPrefix>
+            <dataAttributeName>Str</dataAttributeName>
+            <dataObjectName>ACD</dataObjectName>
+        </dataObject>
+        <description>DataSet for output connections</description>
+        <intgPd>0</intgPd>
+    </dataSetOutput>
+    <name>INSTPDIF</name>
+</ln>

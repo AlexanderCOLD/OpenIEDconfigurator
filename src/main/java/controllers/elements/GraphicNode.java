@@ -5,15 +5,20 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import controllers.ContextMenuController;
-import controllers.DragContainer;
+import controllers.object.DragContainer;
 import controllers.LinkController;
 import controllers.dialogs.EditDialog;
+import iec61850.DO;
+import iec61850.DS;
+import iec61850.LN;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
@@ -21,8 +26,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
 
 /**
  * @author Александр Холодов
@@ -32,20 +38,28 @@ import javafx.scene.shape.Ellipse;
  */
 public class GraphicNode extends AnchorPane {
 
+    @FXML private Label title_bar;
+    @FXML private AnchorPane mainPanel;
+    @FXML private VBox vbox;
+
     private ContextMenu cmElement;
+    private double currentX, currentY, offsetX, offsetY;
     private EventHandler <MouseEvent> linkHandleDragDetected;
     private EventHandler <DragEvent> linkHandleDragDropped, linkDragOver, linkDragDropped;
-    private EventHandler <MouseEvent> nodeDragDetected;
-    private EventHandler <DragEvent> nodeDragOver, nodeDragDropped;
+    private EventHandler <MouseEvent> mousePressed, mouseDragged;
 
-    protected StringProperty name = new SimpleStringProperty();
-    private double currentX, currentY, offsetX, offsetY;
+    private StringProperty name = new SimpleStringProperty();
+    private BooleanProperty selected = new SimpleBooleanProperty(false);
+    private BooleanProperty draggable = new SimpleBooleanProperty(false);
 
-    private ArrayList<AnchorPane> connectors = new ArrayList<>();
+    private ArrayList<AnchorPane> leftConnectors = new ArrayList<>();
+    private ArrayList<AnchorPane> rightConnectors = new ArrayList<>();
+
     private ClipboardContent content = new ClipboardContent();
     private boolean overPanel = false;
     private ArrayList<Link> links = new ArrayList<>();
-//    private Equipment eq;
+
+    private double x, y;
 
     public GraphicNode() {
         String path = "/view/FXML/GraphicNode.fxml";
@@ -55,35 +69,74 @@ public class GraphicNode extends AnchorPane {
         try { fxmlLoader.load(); } catch (IOException exception) { throw new RuntimeException(exception); }
         setId(UUID.randomUUID().toString());
         content.put(new DataFormat(), new DragContainer());
+
+//        buildNodeHandlers();
+//        buildLinkHandlers();
+//        setOnDragDetected(nodeDragDetected);
+//        buildDragPanelHandlers(this);
+
+        buildHandlers();
+    }
+
+    @Override
+    public void setUserData(Object value) {
+        super.setUserData(value);
+        if(value.getClass()==LN.class){
+            LN ln = (LN) value;
+            int size = Math.max(ln.getDataSetInput().getDataObject().size(), ln.getDataSetOutput().getDataObject().size());
+            for(int i=0; i<size; i++) vbox.getChildren().add(new BorderPane());
+            addConnector(ln.getDataSetInput(), leftConnectors);
+            addConnector(ln.getDataSetOutput(), rightConnectors);
+            title_bar.setText(ln.getName());
+        }
     }
 
     @FXML
     private void initialize() {
-        Node dragPanel = null;
-        buildNodeDragHandlers();
-        buildLinkDragHandlers();
-        setOnDragDetected(nodeDragDetected);
-        for(Node node:getChildren()){
-            String id = node.getId();
-            if(id!=null){
-                if(id.contains("dragPanel")) buildDragPanelHandlers(node);
-                if(id.contains("connector")) buildConnectorHandlers((AnchorPane) node);
-                if(id.contains("title_bar")) { name.set(((Label)node).getText()); ((Label)node).textProperty().bind(name); }
-            }
-        }
-//        name.addListener((o, ov, nv) -> { if(eq !=null) eq.setName(nv); });
 
+        selected.addListener((o, ov, nv) -> { System.out.println("Selected: "+ nv); });
+        draggable.addListener((o, ov, nv) -> { if(nv) addEventFilter(MouseEvent.MOUSE_DRAGGED, mouseDragged); else removeEventFilter(MouseEvent.MOUSE_DRAGGED, mouseDragged); });
     }
+
+    private void addConnector(DS dataSet, ArrayList<AnchorPane> connectorsList){
+        for(DO dataObject:dataSet.getDataObject()){
+            AnchorPane pane = new AnchorPane(); pane.setStyle("-fx-background-color: transparent");
+            AnchorPane connector = new AnchorPane(); connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); connector.setPrefSize(7,7);
+            Label label = new Label(dataObject.getDataAttributeName()!=null ? String.format("%s (%s)", dataObject.getDataAttributeName(), dataObject.getDataObjectName()) : String.format("(%s)", dataObject.getDataObjectName()));
+            label.setTextFill(Color.WHITE); /*label.setFont(Font.font(10.0));*/
+            pane.getChildren().add(connector);
+            pane.getChildren().add(label);
+            BorderPane bp = (BorderPane) vbox.getChildren().get(connectorsList.size());
+
+            AnchorPane.setTopAnchor(connector, 8.0);
+            AnchorPane.setTopAnchor(label, 3.0); AnchorPane.setLeftAnchor(label, 7.0); AnchorPane.setRightAnchor(label, 7.0);
+
+            if(connectorsList==leftConnectors){ AnchorPane.setLeftAnchor(connector, -4.0); label.setAlignment(Pos.CENTER_LEFT); bp.setLeft(pane); }
+            else{ AnchorPane.setRightAnchor(connector, -4.0); label.setAlignment(Pos.CENTER_RIGHT); bp.setRight(pane); }
+
+            connectorsList.add(connector);
+
+            connector.setOnMouseEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5"); connector.setPrefSize(8,8); });
+            connector.setOnMouseExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); connector.setPrefSize(7,7); } );
+            connector.setOnDragEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5"); connector.setPrefSize(8,8); });
+            connector.setOnDragExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); connector.setPrefSize(7,7); } );
+            connector.setOnDragDetected(linkHandleDragDetected);
+            connector.setOnDragDropped(linkHandleDragDropped);
+        }
+    }
+
+    private void buildHandlers(){
+        addEventFilter(MouseEvent.MOUSE_PRESSED, e->{
+            offsetX = e.getX(); offsetY = e.getY();
+        });
+    }
+
 
     /**
      * Обработчики для панели
      * @param dragPanel - прозрачная панель (SVGPath)
      */
     private void buildDragPanelHandlers(Node dragPanel){
-        dragPanel.setOnMouseEntered(e -> onMouseEntered());
-        dragPanel.setOnMouseExited(e -> onMouseExited());
-        dragPanel.setOnDragEntered(e -> onMouseEntered());
-        dragPanel.setOnDragExited(e -> onMouseExited());
         dragPanel.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{ if(e.getButton() == MouseButton.PRIMARY) if(e.getClickCount()==2) openEditor(); });
         dragPanel.setCursor(Cursor.HAND);
         if(cmElement==null){
@@ -101,79 +154,17 @@ public class GraphicNode extends AnchorPane {
     private void openEditor(){ EditDialog.show("тут нужно передать обьект для редактирования"); }
 
     /**
-     * Обработчик для коннекторов
-     * @param c - коннектор
-     */
-    private void buildConnectorHandlers(AnchorPane c){
-        c.setOpacity(0);
-        c.setOnMouseEntered(e->c.setOpacity(1)); c.setOnMouseExited(e->c.setOpacity(0));
-        c.setOnDragEntered(e ->c.setOpacity(1)); c.setOnDragExited(e->setOpacity(1));
-        c.setOnDragDetected(linkHandleDragDetected);
-        c.setOnDragDropped(linkHandleDragDropped);
-        c.setCursor(Cursor.HAND);
-        connectors.add(c);
-    }
-    private void onMouseEntered(){
-        for(Node c:connectors) c.setOpacity(1);
-        for(Node child:getChildren())
-            if(child.getClass()== Ellipse.class) {
-                ((Ellipse)child).setStrokeWidth(2); ((Ellipse)child).setStroke(Color.RED);
-            }
-        overPanel = true;
-    }
-
-    private void onMouseExited(){
-        for(Node c:connectors) c.setOpacity(0);
-        for(Node child:getChildren())
-            if(child.getClass()== Ellipse.class) {
-                ((Ellipse)child).setStrokeWidth(1);
-                ((Ellipse)child).setStroke(Color.BLACK);
-            }
-        overPanel = false;
-    }
-    /**
      * Обработчики перемещения элемента
      */
-    public void buildNodeDragHandlers() {
-        /**
-         *  Обработчик начала перетаскивания элемента
-         */
-        nodeDragDetected = e -> {
-            // если курсор над панелью SVGPath
-            if(overPanel){
-                getParent().setOnDragOver(nodeDragOver);
-                getParent().setOnDragDropped(nodeDragDropped);
-                offsetX = e.getX(); offsetY = e.getY();
-                startDragAndDrop (TransferMode.ANY).setContent(content);
-                e.consume();
-            }
-        };
-
-        /**
-         * Обработчик перемещения элемента в проекте
-         */
-        nodeDragOver = e -> {
-            e.acceptTransferModes(TransferMode.ANY);
-            Point2D localCoords = getParent().sceneToLocal(e.getSceneX(), e.getSceneY());
-            relocate(localCoords.getX()- offsetX, localCoords.getY()- offsetY);
-            e.consume();
-        };
-
-        /**
-         * Обработчик броска элемента в проекте
-         */
-        nodeDragDropped = e -> {
-            getParent().setOnDragOver(null);
-            getParent().setOnDragDropped(null);
-            e.setDropCompleted(true);
-            e.consume();
-        };
+    public void buildNodeHandlers() {
+        mousePressed =  e->{ offsetX = e.getX(); offsetY = e.getY(); };
+        mouseDragged = e->{ relocate(getLayoutX() + (e.getX()-offsetX), getLayoutY() + (e.getY()-offsetY)); };
     }
 
     /**
      * Обработчики соединений
      */
-    private void buildLinkDragHandlers() {
+    private void buildLinkHandlers() {
         /**
          * Обработчик начала соединения
          */
@@ -231,32 +222,25 @@ public class GraphicNode extends AnchorPane {
     public void removeSelf(){
         ArrayList<Link> temp = new ArrayList<>(links);
         for(Link l:temp) l .removeSelf();
-//        CurrentProject.getElements().remove(this);
     }
 
-    /**
-     * Удалить соединения на коннекторе
-     */
-    private void removeConnections(AnchorPane connector){ ArrayList<Link> temp = new ArrayList<>(links); for(Link l:temp) if(l.getSourceConnector()==connector || l.getTargetConnector()==connector) l .removeSelf(); }
-
-//    public EquipmentType getType () { return mType; }
-
-    public void setName(String name) { this.name.set(name); }
-    public String getName() { return this.name.get(); }
 
     @Override
-    public void relocate(double x, double y) {
-        super.relocate(x, y);
-        currentX=x; currentY=y;
-//        if(eq!=null) { eq.setLayoutX(x); eq.setLayoutY(y); }
-    }
+    public void relocate(double x, double y) { super.relocate(x, y); currentX=x; currentY=y; }
 
     public void registerLink(Link link) { links.add(link); }
     public void removeLink(Link link) { links.remove(link); }
 
-    public ArrayList<AnchorPane> getConnectors() { return connectors; }
+    public boolean isSelected() { return selected.get(); }
+    public BooleanProperty selectedProperty() { return selected; }
+    public void setSelected(boolean selected) { this.selected.set(selected); }
 
-//    public Equipment getEquipment() { return eq; }
-//    public void setEquipment(Equipment equipment) { this.eq = equipment; }
+    public boolean isDraggable() { return draggable.get(); }
+    public BooleanProperty draggableProperty() { return draggable; }
+    public void setDraggable(boolean draggable) { this.draggable.set(draggable); }
+
+    public String getName() { return name.get(); }
+    public StringProperty nameProperty() { return name; }
+    public void setName(String name) { this.name.set(name); }
 }
 

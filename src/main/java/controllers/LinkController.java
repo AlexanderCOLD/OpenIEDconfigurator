@@ -43,7 +43,7 @@ public class LinkController {
 	 * @return - true если такое соединение уже существует
 	 */
 	private static boolean connectionExists(){
-		for(Link l: ProjectController.getAllLinks().values()) {
+		for(Link l: ProjectController.getConnections()) {
 			if(link.getSourceConnector()==l.getSourceConnector() && link.getTargetConnector()==l.getTargetConnector()) return true;
 			if(link.getSourceConnector()==l.getTargetConnector() && link.getTargetConnector()==l.getSourceConnector()) return true;
 		}
@@ -56,7 +56,7 @@ public class LinkController {
 	 * @param startY - начальное положение У
 	 */
 	public static void showTemporaryLink(double startX, double startY) {
-		PanelsController.getCurrentPanel().getChildren().add(LinkController.tempLink);
+		PanelsController.getSelectedPanel().getChildren().add(LinkController.tempLink);
 		LinkController.tempLink.setStart(startX, startY);
 		LinkController.tempLink.setVisible(true);
 		LinkController.tempLink.toBack();
