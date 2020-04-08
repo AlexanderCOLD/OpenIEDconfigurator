@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <settings>
-    <infoLayout>1894.0</infoLayout>
-    <infoLayout>332.6666564941406</infoLayout>
+    <infoLayout>1934.6666259765625</infoLayout>
+    <infoLayout>225.3333282470703</infoLayout>
     <infoLock>true</infoLock>
-    <infoResolution>262.0</infoResolution>
-    <infoResolution>304.0</infoResolution>
+    <infoResolution>254.6666717529297</infoResolution>
+    <infoResolution>291.3333435058594</infoResolution>
     <infoVisible>true</infoVisible>
     <lastPath>C:\Users\Hols-\Desktop\IEDconfigurator\cid-icd</lastPath>
-    <libLayout>1894.6666259765625</libLayout>
-    <libLayout>662.0</libLayout>
+    <libLayout>1953.9999898274739</libLayout>
+    <libLayout>527.9999949137369</libLayout>
     <libLock>true</libLock>
-    <libResolution>490.0</libResolution>
-    <libResolution>380.0</libResolution>
+    <libResolution>513.3333129882812</libResolution>
+    <libResolution>649.3333333333334</libResolution>
     <libVisible>true</libVisible>
-    <mainLayout>520.0</mainLayout>
-    <mainLayout>269.3333435058594</mainLayout>
+    <mainLayout>569.3333129882812</mainLayout>
+    <mainLayout>223.3333282470703</mainLayout>
     <mainResolution>1357.3333740234375</mainResolution>
-    <mainResolution>770.0</mainResolution>
-    <spHdivide>0.7929362880886427</spHdivide>
-    <spVdivide>0.21027346637102734</spVdivide>
+    <mainResolution>954.0</mainResolution>
+    <spHdivide>0.859271523178808</spHdivide>
+    <spVdivide>0.2501847745750185</spVdivide>
 </settings>

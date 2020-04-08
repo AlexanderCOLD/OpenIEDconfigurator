@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import application.GUI;
 import controllers.ContextMenuController;
+import controllers.ProjectController;
 import controllers.object.DragContainer;
 import controllers.LinkController;
 import controllers.dialogs.EditDialog;
@@ -15,20 +17,20 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Scale;
 
 /**
  * @author Александр Холодов
@@ -40,13 +42,14 @@ public class GraphicNode extends AnchorPane {
 
     @FXML private Label title_bar;
     @FXML private AnchorPane mainPanel;
-    @FXML private VBox vbox;
 
     private ContextMenu cmElement;
-    private double currentX, currentY, offsetX, offsetY;
-    private EventHandler <MouseEvent> linkHandleDragDetected;
-    private EventHandler <DragEvent> linkHandleDragDropped, linkDragOver, linkDragDropped;
-    private EventHandler <MouseEvent> mousePressed, mouseDragged;
+    private double x, y, offsetX, offsetY;
+    private EventHandler <MouseEvent> linkDragDetected;
+    private EventHandler <DragEvent> linkDragDropped, linkDragOver, linkDragDone;
+
+    private EventHandler <MouseEvent> dragDetected;
+    private EventHandler <DragEvent> dragEvent, dragDone;
 
     private StringProperty name = new SimpleStringProperty();
     private BooleanProperty selected = new SimpleBooleanProperty(false);
@@ -58,8 +61,9 @@ public class GraphicNode extends AnchorPane {
     private ClipboardContent content = new ClipboardContent();
     private boolean overPanel = false;
     private ArrayList<Link> links = new ArrayList<>();
+    private ChangeListener<Boolean> selectionListener;
 
-    private double x, y;
+    private int grid = 30; // Step
 
     public GraphicNode() {
         String path = "/view/FXML/GraphicNode.fxml";
@@ -69,22 +73,25 @@ public class GraphicNode extends AnchorPane {
         try { fxmlLoader.load(); } catch (IOException exception) { throw new RuntimeException(exception); }
         setId(UUID.randomUUID().toString());
         content.put(new DataFormat(), new DragContainer());
-
-//        buildNodeHandlers();
-//        buildLinkHandlers();
-//        setOnDragDetected(nodeDragDetected);
-//        buildDragPanelHandlers(this);
-
-        buildHandlers();
     }
 
     @Override
     public void setUserData(Object value) {
         super.setUserData(value);
+        setMaxHeight(100);
+
         if(value.getClass()==LN.class){
             LN ln = (LN) value;
             int size = Math.max(ln.getDataSetInput().getDataObject().size(), ln.getDataSetOutput().getDataObject().size());
-            for(int i=0; i<size; i++) vbox.getChildren().add(new BorderPane());
+            mainPanel.getChildren().clear();
+            for(int i=0; i<size; i++) {
+                BorderPane borderPane = new BorderPane();
+                mainPanel.getChildren().add(borderPane);
+                AnchorPane.setLeftAnchor(borderPane,0.0);
+                AnchorPane.setRightAnchor(borderPane,0.0);
+                AnchorPane.setTopAnchor(borderPane,15.0*i);
+//                borderPane.setStyle("-fx-border-color: RED; -fx-border-width: 1");
+            }
             addConnector(ln.getDataSetInput(), leftConnectors);
             addConnector(ln.getDataSetOutput(), rightConnectors);
             title_bar.setText(ln.getName());
@@ -92,90 +99,80 @@ public class GraphicNode extends AnchorPane {
     }
 
     @FXML
-    private void initialize() {
+    private void initialize() { }
 
-        selected.addListener((o, ov, nv) -> { System.out.println("Selected: "+ nv); });
-        draggable.addListener((o, ov, nv) -> { if(nv) addEventFilter(MouseEvent.MOUSE_DRAGGED, mouseDragged); else removeEventFilter(MouseEvent.MOUSE_DRAGGED, mouseDragged); });
+    public void prepareHandlers(){
+        buildHandlers();
+        buildClickHandlers(this);
+
+        selectionListener = (o,ov,nv) ->{
+            if(nv) setStyle("-fx-background-color: -fx-second-color; -fx-border-color: RED; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2");
+            else setStyle("-fx-background-color: -fx-second-color; -fx-border-color: -fx-first-color; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 1.5");
+        };
+        draggable.addListener((o, ov, nv) -> {
+            if(nv) {
+                for(AnchorPane connector:leftConnectors) { connector.addEventFilter(MouseEvent.DRAG_DETECTED, linkDragDetected); connector.addEventFilter(DragEvent.DRAG_DROPPED, linkDragDropped); }
+                for(AnchorPane connector:rightConnectors) { connector.addEventFilter(MouseEvent.DRAG_DETECTED, linkDragDetected); connector.addEventFilter(DragEvent.DRAG_DROPPED, linkDragDropped); }
+                addEventHandler(MouseEvent.DRAG_DETECTED, dragDetected);
+                selected.addListener(selectionListener);
+            }
+            else {
+                for(AnchorPane connector:leftConnectors) { connector.removeEventFilter(MouseEvent.DRAG_DETECTED, linkDragDetected); connector.removeEventFilter(DragEvent.DRAG_DROPPED, linkDragDropped); }
+                for(AnchorPane connector:rightConnectors) { connector.removeEventFilter(MouseEvent.DRAG_DETECTED, linkDragDetected); connector.removeEventFilter(DragEvent.DRAG_DROPPED, linkDragDropped); }
+                removeEventHandler(MouseEvent.DRAG_DETECTED, dragDetected);
+                selected.removeListener(selectionListener);
+            }
+        });
     }
 
     private void addConnector(DS dataSet, ArrayList<AnchorPane> connectorsList){
         for(DO dataObject:dataSet.getDataObject()){
             AnchorPane pane = new AnchorPane(); pane.setStyle("-fx-background-color: transparent");
-            AnchorPane connector = new AnchorPane(); connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); connector.setPrefSize(7,7);
+            AnchorPane connector = new AnchorPane(); connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); connector.setPrefSize(7,7); Scale scale = new Scale(); scale.setPivotX(3.5); scale.setPivotY(3.5); connector.getTransforms().add(scale);
             Label label = new Label(dataObject.getDataAttributeName()!=null ? String.format("%s (%s)", dataObject.getDataAttributeName(), dataObject.getDataObjectName()) : String.format("(%s)", dataObject.getDataObjectName()));
             label.setTextFill(Color.WHITE); /*label.setFont(Font.font(10.0));*/
             pane.getChildren().add(connector);
             pane.getChildren().add(label);
-            BorderPane bp = (BorderPane) vbox.getChildren().get(connectorsList.size());
+            BorderPane bp = (BorderPane) mainPanel.getChildren().get(connectorsList.size());
 
-            AnchorPane.setTopAnchor(connector, 8.0);
             AnchorPane.setTopAnchor(label, 3.0); AnchorPane.setLeftAnchor(label, 7.0); AnchorPane.setRightAnchor(label, 7.0);
 
-            if(connectorsList==leftConnectors){ AnchorPane.setLeftAnchor(connector, -4.0); label.setAlignment(Pos.CENTER_LEFT); bp.setLeft(pane); }
-            else{ AnchorPane.setRightAnchor(connector, -4.0); label.setAlignment(Pos.CENTER_RIGHT); bp.setRight(pane); }
+            AnchorPane.setTopAnchor(connector, 8.0);
+            if(connectorsList==leftConnectors){ AnchorPane.setLeftAnchor(connector, -5.0); label.setAlignment(Pos.CENTER_LEFT); bp.setLeft(pane); }
+            else{ AnchorPane.setRightAnchor(connector, -5.0); label.setAlignment(Pos.CENTER_RIGHT); bp.setRight(pane); }
 
             connectorsList.add(connector);
 
-            connector.setOnMouseEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5"); connector.setPrefSize(8,8); });
-            connector.setOnMouseExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); connector.setPrefSize(7,7); } );
-            connector.setOnDragEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5"); connector.setPrefSize(8,8); });
-            connector.setOnDragExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); connector.setPrefSize(7,7); } );
-            connector.setOnDragDetected(linkHandleDragDetected);
-            connector.setOnDragDropped(linkHandleDragDropped);
+            connector.setOnMouseEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5");   ((Scale)connector.getTransforms().get(0)).setX(1.4); ((Scale)connector.getTransforms().get(0)).setY(1.4); });
+            connector.setOnMouseExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); ((Scale)connector.getTransforms().get(0)).setX(1.0); ((Scale)connector.getTransforms().get(0)).setY(1.0); });
+            connector.setOnDragEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5");    ((Scale)connector.getTransforms().get(0)).setX(1.4); ((Scale)connector.getTransforms().get(0)).setY(1.4); });
+            connector.setOnDragExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5");  ((Scale)connector.getTransforms().get(0)).setX(1.0); ((Scale)connector.getTransforms().get(0)).setY(1.0); });
         }
     }
 
     private void buildHandlers(){
-        addEventFilter(MouseEvent.MOUSE_PRESSED, e->{
+
+        dragDetected = e->{
             offsetX = e.getX(); offsetY = e.getY();
-        });
-    }
+            if(offsetY<20 && !GUI.isCtrl()){ getParent().addEventFilter(DragEvent.DRAG_OVER, dragEvent); getParent().addEventFilter(DragEvent.DRAG_DONE, dragDone); startDragAndDrop(TransferMode.ANY).setContent(content); }
+            e.consume();
+        };
+        dragEvent = e->{ relocate(e.getX() - offsetX, e.getY() - offsetY); e.acceptTransferModes(TransferMode.ANY); e.consume(); };
+        dragDone = e->{
+            getParent().removeEventFilter(DragEvent.DRAG_DONE, dragDone); getParent().removeEventFilter(DragEvent.DRAG_OVER, dragEvent);
+            relocate(Math.round(x/grid)*grid, Math.round(y/grid)*grid);
+            e.consume();
+        };
 
 
-    /**
-     * Обработчики для панели
-     * @param dragPanel - прозрачная панель (SVGPath)
-     */
-    private void buildDragPanelHandlers(Node dragPanel){
-        dragPanel.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{ if(e.getButton() == MouseButton.PRIMARY) if(e.getClickCount()==2) openEditor(); });
-        dragPanel.setCursor(Cursor.HAND);
-        if(cmElement==null){
-            cmElement = new ContextMenu();
-            MenuItem parameter = new MenuItem("Параметры");
-            MenuItem remove = new MenuItem("Удалить");
-            cmElement.getItems().addAll(parameter, remove);
-
-            remove.setOnAction(e -> removeSelf());
-            parameter.setOnAction(e -> openEditor());
-        }
-        dragPanel.setOnContextMenuRequested(e -> ContextMenuController.showContextMenu(cmElement, e));
-    }
-
-    private void openEditor(){ EditDialog.show("тут нужно передать обьект для редактирования"); }
-
-    /**
-     * Обработчики перемещения элемента
-     */
-    public void buildNodeHandlers() {
-        mousePressed =  e->{ offsetX = e.getX(); offsetY = e.getY(); };
-        mouseDragged = e->{ relocate(getLayoutX() + (e.getX()-offsetX), getLayoutY() + (e.getY()-offsetY)); };
-    }
-
-    /**
-     * Обработчики соединений
-     */
-    private void buildLinkHandlers() {
         /**
          * Обработчик начала соединения
-         */
-        linkHandleDragDetected = e -> {
+         * */
+        linkDragDetected = e -> {
             AnchorPane connector = (AnchorPane) e.getSource();
-            getParent().setOnDragOver(linkDragOver);
-            getParent().setOnDragDropped(linkDragDropped);
-            double x = getLayoutX() + connector.getLayoutX() + connector.getPrefWidth()/2;
-            double y = getLayoutY() + connector.getLayoutY() + connector.getPrefHeight()/2;
-            LinkController.showTemporaryLink(x,y);
-            LinkController.addSource2Link(this, connector);
+            getParent().setOnDragOver(linkDragOver); getParent().setOnDragDone(linkDragDone);
+            Point2D globalPoint = connector.localToScene(connector.getPrefWidth()/2, connector.getPrefHeight()/2); Point2D parentPoint = getParent().sceneToLocal(globalPoint); // конвертация координат
+            LinkController.addSource2Link(this, connector); LinkController.showTemporaryLink(parentPoint.getX(), parentPoint.getY());
             startDragAndDrop (TransferMode.ANY).setContent(content);
             e.consume();
         };
@@ -183,22 +180,15 @@ public class GraphicNode extends AnchorPane {
         /**
          * Обаботчик перемещения соединения
          */
-        linkDragOver = e -> {
-            e.acceptTransferModes(TransferMode.ANY);
-            LinkController.moveTemporaryLink(e.getX(), e.getY());
-            e.consume();
-        };
+        linkDragOver = e -> { e.acceptTransferModes(TransferMode.ANY); LinkController.moveTemporaryLink(e.getX(), e.getY()); e.consume(); };
 
         /**
-         * Обработчик конца соединения
+         * Обработчик конца соединения (у таргета)
          */
-        linkHandleDragDropped = e -> {
-            getParent().setOnDragOver(null);
-            getParent().setOnDragDropped(null);
+        linkDragDropped = e -> {
+            getParent().setOnDragOver(null); getParent().setOnDragDropped(null);
             AnchorPane connector = ((AnchorPane)e.getSource());
-            LinkController.addTarget2Link(this, connector);
-            LinkController.createConnection();
-            LinkController.clearLink();
+            LinkController.addTarget2Link(this, connector); LinkController.createConnection();
             e.setDropCompleted(true);
             e.consume();
         };
@@ -206,27 +196,42 @@ public class GraphicNode extends AnchorPane {
         /**
          * Обработчик неуспешного соединения
          */
-        linkDragDropped = e -> {
-            getParent().setOnDragOver(null);
-            getParent().setOnDragDropped(null);
-            LinkController.hideTemporaryLink();
-            LinkController.clearLink();
-            e.setDropCompleted(true);
+        linkDragDone = e -> {
+            getParent().setOnDragOver(null); getParent().setOnDragDropped(null);
+            LinkController.createConnection(); LinkController.hideTemporaryLink();
             e.consume();
         };
     }
 
+
+    /**
+     * Обработчики для панели
+     * @param node - панель для обработки
+     */
+    private void buildClickHandlers(Node node){
+        node.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{ if(e.getButton() == MouseButton.PRIMARY) ProjectController.setSelectedNode(this); /*if(e.getClickCount()==2) openEditor();*/ });
+//        node.setCursor(Cursor.HAND);
+        if(cmElement==null){
+            cmElement = new ContextMenu();
+//            MenuItem parameter = new MenuItem("Параметры");
+            MenuItem remove = new MenuItem("Удалить");
+            cmElement.getItems().addAll( remove);
+
+            remove.setOnAction(e -> remove());
+//            parameter.setOnAction(e -> openEditor());
+        }
+        node.setOnContextMenuRequested(e -> ContextMenuController.showContextMenu(cmElement, e));
+    }
+
+    private void openEditor(){ EditDialog.show("тут нужно передать обьект для редактирования"); }
+
     /**
      * Удалить данный элемент из проекта
      */
-    public void removeSelf(){
-        ArrayList<Link> temp = new ArrayList<>(links);
-        for(Link l:temp) l .removeSelf();
-    }
-
+    public void remove(){ ArrayList<Link> temp = new ArrayList<>(links); for(Link l:temp) l .remove(); if(getParent()!=null) ((Pane)getParent()).getChildren().remove(this); }
 
     @Override
-    public void relocate(double x, double y) { super.relocate(x, y); currentX=x; currentY=y; }
+    public void relocate(double x, double y) { super.relocate(x, y); this.x=x; this.y=y; }
 
     public void registerLink(Link link) { links.add(link); }
     public void removeLink(Link link) { links.remove(link); }

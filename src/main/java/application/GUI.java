@@ -11,11 +11,14 @@ import controllers.dialogs.AssistDialog;
 import controllers.dialogs.FileChooserDialog;
 import controllers.dialogs.InfoDialog;
 import controllers.dialogs.LibraryDialog;
+import iec61850.DS;
 import iec61850.IED;
 import iec61850.objects.SCL;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Point2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -55,8 +58,6 @@ public class GUI extends AnchorPane{
 	@FXML private SplitPane splitPaneH, splitPaneV;
 	@FXML private TextFlow messageArea;
 	@FXML private ScrollPane messageScrollPane;
-
-
 
 
 	public GUI() {
@@ -169,4 +170,5 @@ public class GUI extends AnchorPane{
 	public static Stage getStage() { return self.stage; }
 	public SplitPane getSplitPaneH() { return splitPaneH; }
 	public SplitPane getSplitPaneV() { return splitPaneV; }
+	public TabPane getTabPane() { return tabPane; }
 }

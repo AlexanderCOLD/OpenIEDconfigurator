@@ -1,6 +1,7 @@
 package controllers;
 
 import application.Main;
+import controllers.dialogs.InfoDialog;
 import controllers.elements.GraphicNode;
 import controllers.elements.Link;
 import iec61850.*;
@@ -111,7 +112,6 @@ public class ProjectController {
         return item;
     }
 
-
     /**
      * Выделенный граф.элемент
      */
@@ -119,7 +119,7 @@ public class ProjectController {
         if(ProjectController.selectedNode!=selectedNode){
             if(ProjectController.selectedNode!=null) ProjectController.selectedNode.setSelected(false);
             ProjectController.selectedNode = selectedNode;
-            if(ProjectController.selectedNode!=null) ProjectController.selectedNode.setSelected(true);
+            if(ProjectController.selectedNode!=null) { ProjectController.selectedNode.setSelected(true); InfoDialog.setObject(selectedNode.getUserData()); }
         }
     }
     public static GraphicNode getSelectedNode() { return selectedNode; }

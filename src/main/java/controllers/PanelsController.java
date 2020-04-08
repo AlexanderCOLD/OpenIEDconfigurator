@@ -1,6 +1,7 @@
 package controllers;
 
 import application.GUI;
+import controllers.elements.GraphicNode;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
@@ -50,8 +51,7 @@ public class PanelsController {
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
-        Tab tab = new Tab(name); tab.setId(name); tab.setClosable(false); tabPane.getTabs().add(tab);
-        allTabs.put(tab, pane);
+        Tab tab = new Tab(name); tab.setId(name); tab.setClosable(false); allTabs.put(tab, pane); tabPane.getTabs().add(tab);
 
         ScrollPane scrollPane  = new ScrollPane();
         scrollPane.setOnDragDetected(e -> { scrollPane.setPannable(GUI.isCtrl()); });
@@ -70,8 +70,8 @@ public class PanelsController {
                 evt.consume();
 
                 final double zoomFactor = evt.getDeltaY() > 0 ? 1.1 : 1 / 1.1;
-                if(zoomTarget.getScaleX()<0.35 && evt.getDeltaY()<0) return;
-                if(zoomTarget.getScaleX()>4 && evt.getDeltaY()>0) return;
+                if(zoomTarget.getScaleX()<0.2 && evt.getDeltaY()<0) return;
+                if(zoomTarget.getScaleX()>4.0 && evt.getDeltaY()>0) return;
 
                 Bounds groupBounds = group.getLayoutBounds();
                 Bounds viewportBounds = scrollPane.getViewportBounds();
@@ -95,9 +95,19 @@ public class PanelsController {
         });
     }
 
+    public static GraphicNode createNode(Object userData){
+        GraphicNode node = new GraphicNode();
+        node.prepareHandlers();
+        node.setUserData(userData);
+        node.setDraggable(true);
+        selectedPanel.getChildren().add(node);
+        return node;
+    }
+
     public static void removeTab(String name){ for(Tab tab: allTabs.keySet()) if(tab.getId().equals(name)) { tabPane.getTabs().remove(tab); allTabs.remove(tab); return; } }
     public static void clear(){ tabPane.getTabs().clear(); allTabs.clear();  }
 
     public static AnchorPane getSelectedPanel() { return selectedPanel; }
     public static void setTabPane(TabPane tabPane) { PanelsController.tabPane = tabPane; PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> { selectedTab = nv; selectedPanel = allTabs.get(nv); } );  }
+    public static double getScale() { return scale; }
 }

@@ -3,8 +3,6 @@ package controllers.dialogs;
 import application.GUI;
 import application.Main;
 import controllers.ResizeController;
-import controllers.object.SVG.FXSVGLoader;
-import controllers.object.SVG.SVG;
 import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,11 +15,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lombok.Data;
+
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 /**
  * @author Александр Холодов
@@ -44,7 +45,8 @@ public class InfoDialog extends AnchorPane {
     private ChangeListener<? super Number> xListener, yListener;
     private Stage stage = new Stage();
     private Scene scene = new Scene(this);
-    private TableColumn<TableTest, String> name, value;
+    private TableColumn<TableObject, String> name, value;
+    private ArrayList<TableObject> listObject = new ArrayList<>();
 
     public InfoDialog() { self = this; initializeDialog(); }
 
@@ -73,16 +75,16 @@ public class InfoDialog extends AnchorPane {
     }
 
     private void initializeTable(){
-        name = new TableColumn<TableTest, String>("Название");
-        value = new TableColumn<TableTest, String>("Значение");
-
+        name = new TableColumn<TableObject, String>("Название");
+        value = new TableColumn<TableObject, String>("Значение");
         tableView.getColumns().addAll(name, value);
+        for(int i=0; i<100; i++)
 
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         value.setCellValueFactory(new PropertyValueFactory<>("value"));
 
-        TableTest tt1 = new TableTest(); tt1.name = "Test1"; tt1.value = "Test2";
-        TableTest tt2 = new TableTest(); tt2.name = "Test3"; tt2.value = "Test4";
+        TableObject tt1 = new TableObject(); tt1.name = "Test1"; tt1.value = "Test2";
+        TableObject tt2 = new TableObject(); tt2.name = "Test3"; tt2.value = "Test4";
 
         tableView.getItems().addAll(tt1, tt2);
     }
@@ -154,4 +156,36 @@ public class InfoDialog extends AnchorPane {
         if(self.stage.isShowing()) self.stage.hide(); else self.stage.show();
     }
 
+    /**
+     * Show data of object
+     */
+    public static void setObject(Object object){
+        if(self==null) self = new InfoDialog();
+        if(object==null) { GUI.writeErrMessage("Element is empty"); return; }
+        self.tableView.getItems().clear();
+        int numb = 0;
+        for (Field field : object.getClass().getDeclaredFields()) {
+            field.setAccessible(true);
+            try {
+                Object value = field.get(object);
+                if(value!=null) {
+                    if(self.listObject.size()<++numb) self.listObject.add(new TableObject());
+                    TableObject to = self.listObject.get(numb-1);
+                    to.setName(field.getName());
+                    to.setValue(value.toString());
+                    self.tableView.getItems().add(to);
+                }
+            } catch (IllegalAccessException ignored) { }
+        }
+    }
+
+    @Data
+    public static class TableObject{
+        private String name;
+        private String value;
+        public TableObject(){}
+        public TableObject(String name, String value) { this.name = name; this.value = value; }
+    }
+
 }
+

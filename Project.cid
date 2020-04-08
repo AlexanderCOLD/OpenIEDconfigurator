@@ -8,20 +8,6 @@
       <Hitem revision="0" version="V1" what="Draft 1" when="2020-03-02" who="CET850Config"/>
     </History>
   </Header>
-  <Communication>
-    <SubNetwork name="subnetwork1">
-      <ConnectedAP apName="accessPoint1" iedName="TestIED">
-        <Address>
-          <P type="IP">10.0.0.3</P>
-          <P type="IP-SUBNET">255.255.255.0</P>
-          <P type="IP-GATEWAY">10.0.0.101</P>
-          <P type="OSI-TSEL">0001</P>
-          <P type="OSI-PSEL">00000001</P>
-          <P type="OSI-SSEL">0001</P>
-        </Address>
-      </ConnectedAP>
-    </SubNetwork>
-  </Communication>
   <IED name="TestIED" desc="Just first IED" >
     <Services>
       <DynAssociation/>
@@ -144,120 +130,13 @@
             </Inputs>
 		  
 		  </LN0>
-		  <LN inst="1" lnClass="LPHD" lnType="LPHD1" desc="Just LPHD"> </LN>
-          <LN inst="1" lnClass="DGEN" lnType="DGEN1" desc="Just DGEN"> </LN>
-          <LN inst="1" lnClass="DSCH" lnType="DSCH1" desc="Just DSCH"> </LN>
-          <LN inst="1" lnClass="MMXU" lnType="MMXU1" desc="Just MMXU"> </LN>
-          <LN inst="1" lnClass="MMXU" lnType="MMXU2" desc="Just MMXU"> </LN>
+		  <LN inst="1" lnClass="PDIF" lnType="PDIF1" desc="Just PDIF"> </LN>
+          <LN inst="1" lnClass="IRMXU" lnType="IRMXU1" desc="Just IRMXU"> </LN>
+          <LN inst="1" lnClass="PHAR" lnType="PHAR1" desc="Just PHAR"> </LN>
+          <LN inst="1" lnClass="PTRC" lnType="PTRC1" desc="Just PTRC"> </LN>
+          <LN inst="1" lnClass="SVTR" lnType="SVTR1" desc="Just SVTR"> </LN>
         </LDevice>
       </Server>
     </AccessPoint>
   </IED>
-  <DataTypeTemplates>
-    <LNodeType desc="DER unit generator" id="DGEN1" lnClass="DGEN">
-      <DO name="Mod" type="ENC_1_Mod"/>
-      <DO name="Beh" type="ENS_1_Beh"/>
-      <DO name="Health" type="ENS_1_Beh"/>
-      <DO name="NamPlt" type="LPL_2_NamPlt"/>
-      <DO name="OpTmh" type="INS_1_Beh"/>
-      <DO name="GnOpSt" type="ENS_1_Beh"/>
-      <DO name="OpTmsRs" type="INS_1_Beh"/>
-      <DO name="TotWh" type="MV_1_TotWh"/>
-    </LNodeType>
-    <LNodeType desc="Measurement" id="MMXU2" lnClass="MMXU">
-      <DO name="Mod" type="INC_1_Mod"/>
-      <DO name="Beh" type="INS_1_Beh"/>
-      <DO name="Health" type="INS_1_Beh"/>
-      <DO name="NamPlt" type="LPL_2_NamPlt"/>
-      <DO name="TotW" type="MV_1_TotWh"/>
-    </LNodeType>
-    <LNodeType desc="Measurement" id="MMXU1" lnClass="MMXU">
-      <DO name="Mod" type="INC_1_Mod"/>
-      <DO name="Beh" type="INS_1_Beh"/>
-      <DO name="Health" type="INS_1_Beh"/>
-      <DO name="NamPlt" type="LPL_2_NamPlt"/>
-    </LNodeType>
-    <LNodeType desc="DER energy and/or ancillary services schedule" id="DSCH1" lnClass="DSCH">
-      <DO name="Mod" type="ENC_1_Mod"/>
-      <DO name="Beh" type="ENS_1_Beh"/>
-      <DO name="Health" type="ENS_1_Beh"/>
-      <DO name="NamPlt" type="LPL_2_NamPlt"/>
-      <DO name="SchdSt" type="INS_1_Beh"/>
-      <DO name="SchdId" type="ING_1_SchdId"/>
-      <DO name="SchdCat" type="ING_1_SchdId"/>
-      <DO name="SchdTyp" type="ING_1_SchdId"/>
-      <DO name="SchdAbsTm" type="SCA_1_SchdAbsTm"/>
-    </LNodeType>
-    <LNodeType id="LPHD1" lnClass="LPHD">
-      <DO name="PhyNam" type="DPL_1_PhyNam"/>
-      <DO name="PhyHealth" type="INS_1_Beh"/>
-      <DO name="Proxy" type="SPS_1_Proxy"/>
-    </LNodeType>
-    <LNodeType id="LLN01" lnClass="LLN0">
-      <DO name="Mod" type="INC_1_Mod"/>
-      <DO name="Beh" type="INS_1_Beh"/>
-      <DO name="Health" type="INS_1_Beh"/>
-      <DO name="NamPlt" type="LPL_1_NamPlt"/>
-    </LNodeType>
-    <DOType cdc="INC" id="INC_1_Mod">
-      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
-      <DA bType="Timestamp" fc="ST" name="t"/>
-      <DA bType="Enum" fc="CF" name="ctlModel" type="CtlModels"/>
-    </DOType>
-    <DOType cdc="SCA" id="SCA_1_SchdAbsTm">
-      <DA bType="FLOAT32" count="255" dchg="true" fc="SP" name="val"/>
-      <DA bType="Timestamp" count="255" dchg="true" fc="SP" name="time"/>
-    </DOType>
-    <DOType cdc="MV" id="MV_1_TotWh">
-      <DA bType="Struct" dchg="true" fc="MX" name="mag" type="AnalogueValue_1"/>
-      <DA bType="Quality" fc="MX" name="q" qchg="true"/>
-      <DA bType="Timestamp" fc="MX" name="t"/>
-    </DOType>
-    <DOType cdc="INS" id="INS_1_Beh">
-      <DA bType="INT32" dchg="true" fc="ST" name="stVal"/>
-      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
-      <DA bType="Timestamp" fc="ST" name="t"/>
-    </DOType>
-    <DOType cdc="ENC" id="ENC_1_Mod">
-      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
-      <DA bType="Timestamp" fc="ST" name="t"/>
-      <DA bType="Enum" fc="CF" name="ctlModel" type="CtlModels"/>
-    </DOType>
-    <DOType cdc="LPL" id="LPL_2_NamPlt">
-      <DA bType="VisString255" fc="DC" name="vendor"/>
-      <DA bType="VisString255" fc="DC" name="swRev"/>
-      <DA bType="VisString255" fc="DC" name="d"/>
-    </DOType>
-    <DOType cdc="LPL" id="LPL_1_NamPlt">
-      <DA bType="VisString255" fc="DC" name="vendor"/>
-      <DA bType="VisString255" fc="DC" name="swRev"/>
-      <DA bType="VisString255" fc="DC" name="d"/>
-      <DA bType="VisString255" fc="DC" name="configRev"/>
-      <DA bType="VisString255" fc="EX" name="ldNs"/>
-    </DOType>
-    <DOType cdc="ING" id="ING_1_SchdId"/>
-    <DOType cdc="DPL" id="DPL_1_PhyNam">
-      <DA bType="VisString255" fc="DC" name="vendor"/>
-    </DOType>
-    <DOType cdc="ENS" id="ENS_1_Beh">
-      <DA bType="INT32" dchg="true" fc="ST" name="stVal"/>
-      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
-      <DA bType="Timestamp" fc="ST" name="t"/>
-    </DOType>
-    <DOType cdc="SPS" id="SPS_1_Proxy">
-      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal"/>
-      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
-      <DA bType="Timestamp" fc="ST" name="t"/>
-    </DOType>
-    <DAType id="AnalogueValue_1">
-      <BDA bType="FLOAT32" name="f"/>
-    </DAType>
-    <EnumType id="CtlModels">
-      <EnumVal ord="0">status-only</EnumVal>
-      <EnumVal ord="1">direct-with-normal-security</EnumVal>
-      <EnumVal ord="2">sbo-with-normal-security</EnumVal>
-      <EnumVal ord="3">direct-with-enhanced-security</EnumVal>
-      <EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
-    </EnumType>
-  </DataTypeTemplates>
 </SCL>

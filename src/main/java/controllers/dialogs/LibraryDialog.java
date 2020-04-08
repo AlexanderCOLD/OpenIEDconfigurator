@@ -4,8 +4,7 @@ import application.GUI;
 import application.Main;
 import controllers.ResizeController;
 import controllers.elements.GraphicNode;
-import controllers.object.SVG.FXSVGLoader;
-import controllers.object.SVG.SVG;
+import controllers.DragController;
 import iec61850.LN;
 import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
@@ -27,6 +26,7 @@ import tools.saveload.SaveLoadObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Александр Холодов
@@ -85,26 +85,18 @@ public class LibraryDialog extends AnchorPane {
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
+        File library = new File("library/");
+        if(library.exists()){
+            for(File lib:library.listFiles()){
+                GraphicNode graphicNode = new GraphicNode();
+                LN ln = SaveLoadObject.load(LN.class, lib);
+                graphicNode.setUserData(ln);
+                graphicNode.setDraggable(false);
+                libraryPane.getChildren().add(graphicNode);
+                DragController.addToController(graphicNode);
+            }
+        }
 
-        GraphicNode gn = new GraphicNode();
-        libraryPane.getChildren().add(gn);
-        LN ln = SaveLoadObject.load(LN.class, new File("library/PDIF.xml"));
-        gn.setUserData(ln);
-
-        gn = new GraphicNode();
-        libraryPane.getChildren().add(gn);
-        ln = SaveLoadObject.load(LN.class, new File("library/PHAR.xml"));
-        gn.setUserData(ln);
-
-        gn = new GraphicNode();
-        libraryPane.getChildren().add(gn);
-        ln = SaveLoadObject.load(LN.class, new File("library/PTRC.xml"));
-        gn.setUserData(ln);
-
-        gn = new GraphicNode();
-        libraryPane.getChildren().add(gn);
-        ln = SaveLoadObject.load(LN.class, new File("library/SVTR.xml"));
-        gn.setUserData(ln);
     }
 
     @FXML private void close(){ setShowing(false); }
@@ -168,5 +160,8 @@ public class LibraryDialog extends AnchorPane {
         if(self==null) self = new LibraryDialog();
         return self.libraryPane;
     }
-
+    public static AnchorPane get(){
+        if(self==null) self = new LibraryDialog();
+        return self;
+    }
 }

@@ -18,7 +18,7 @@ public class DS {
 
     private String name;
     private String description;
-    private DSType type;
+    private DSType type = DSType.Node;
 
     private String datSetName; // Имя из списка всех датасетов
     private String id; // appID - для Goose, rptID - для MMS
@@ -27,5 +27,7 @@ public class DS {
 
     private ArrayList<DO> dataObject = new ArrayList<>();
 
-    public String toString(){ return String.format("%s (%s)", name, type.toString()); }
+    public String toString(){
+        return String.format("%s (%s)", name, type.toString());
+    }
 }
