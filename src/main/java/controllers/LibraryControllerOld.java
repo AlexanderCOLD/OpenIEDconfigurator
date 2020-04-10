@@ -35,13 +35,10 @@ public class LibraryControllerOld {
 	private DragContainer tempDC =  new DragContainer();
 	private Point2D targetPoint;
 //	private EquipmentType targetType;
-	private ClipboardContent content;
+	private ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}};;
 
 	public void initialize(){
-
 		new Thread(() -> Platform.runLater(() -> loadLibrary())).start();
-		content = new ClipboardContent();
-		content.put(new DataFormat(), new DragContainer());
 	}
 
 	private void loadLibrary(){

@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ln>
+<LN>
+    <name>SCTR</name>
     <classType>SCTR</classType>
     <dataSetInput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>DifAClc</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>Blk</dataAttributeName>
-            <dataObjectName>SPS</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>UnbAlmLev</dataAttributeName>
-            <dataObjectName>real32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>UnbBlkLev</dataAttributeName>
-            <dataObjectName>real32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>AlmD1Tmms</dataAttributeName>
-            <dataObjectName>int32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>BlkD1Tmms</dataAttributeName>
-            <dataObjectName>int32_T</dataObjectName>
-        </dataObject>
         <description>DataSet for input connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>DifAClc</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>SPS</dataObjectName>
+            <dataAttributeName>Blk</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>real32_T</dataObjectName>
+            <dataAttributeName>UnbAlmLev</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>real32_T</dataObjectName>
+            <dataAttributeName>UnbBlkLev</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>int32_T</dataObjectName>
+            <dataAttributeName>AlmD1Tmms</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>int32_T</dataObjectName>
+            <dataAttributeName>BlkD1Tmms</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
     </dataSetInput>
     <dataSetOutput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>BlkOp</dataAttributeName>
-            <dataObjectName>SPS</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>Alm</dataAttributeName>
-            <dataObjectName>SPS</dataObjectName>
-        </dataObject>
         <description>DataSet for output connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>SPS</dataObjectName>
+            <dataAttributeName>BlkOp</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>SPS</dataObjectName>
+            <dataAttributeName>Alm</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
     </dataSetOutput>
-    <name>SCTR</name>
-</ln>
+</LN>

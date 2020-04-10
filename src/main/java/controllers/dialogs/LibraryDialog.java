@@ -4,7 +4,7 @@ import application.GUI;
 import application.Main;
 import controllers.ResizeController;
 import controllers.elements.GraphicNode;
-import controllers.DragController;
+import controllers.DragLibController;
 import iec61850.LN;
 import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
@@ -26,7 +26,6 @@ import tools.saveload.SaveLoadObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * @author Александр Холодов
@@ -93,7 +92,7 @@ public class LibraryDialog extends AnchorPane {
                 graphicNode.setUserData(ln);
                 graphicNode.setDraggable(false);
                 libraryPane.getChildren().add(graphicNode);
-                DragController.addToController(graphicNode);
+                DragLibController.addToController(graphicNode);
             }
         }
 

@@ -2,6 +2,7 @@ package application;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,14 +12,11 @@ import controllers.dialogs.AssistDialog;
 import controllers.dialogs.FileChooserDialog;
 import controllers.dialogs.InfoDialog;
 import controllers.dialogs.LibraryDialog;
-import iec61850.DS;
 import iec61850.IED;
 import iec61850.objects.SCL;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -63,6 +61,9 @@ public class GUI extends AnchorPane{
 	public GUI() {
 		ProjectLogger.enable();
 		self = this;
+
+		URL url = Main.class.getResource("/");
+
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/view/FXML/MainWindow.fxml"));
 		loader.setRoot(this);
@@ -95,7 +96,7 @@ public class GUI extends AnchorPane{
 		self.stage.show();
 
 		SCL scl = SaveLoadObject.load(SCL.class, new File("Project.cid"));
-		Optional.ofNullable(scl).ifPresent(ProjectController::setSCL);
+		Optional.ofNullable(scl).ifPresent(ProjectController::setCID);
 	}
 
 	@FXML private void initialize() {
@@ -123,15 +124,17 @@ public class GUI extends AnchorPane{
 //		CurrentProject.clear();
 		SaveLoad.setFilePath(null);
 	}
-	@FXML private void handleOpen() {
-		File file = FileChooserDialog.openCLDFile();
-		if (file != null) { SaveLoad.loadProjectDataFromFile(file);	}
-	}
-	@FXML private void handleOpenCID(){
+//	@FXML private void handleOpen() {
+//		File file = FileChooserDialog.openCLDFile();
+//		if (file != null) { SaveLoad.loadProjectDataFromFile(file);	}
+//	}
+	@FXML private void handleOpen(){
 		File file = FileChooserDialog.openCIDFile();
 		if (file != null) {
 			SCL scl = SaveLoadObject.load(SCL.class, file);
 			if(scl!=null){
+//				SCL scl = SaveLoadObject.load(SCL.class, new File("Project.cid"));
+//				Optional.ofNullable(scl).ifPresent(ProjectController::setSCL);
 				ArrayList<IED> ieds = IEDExtractor.extractIEDList(scl);
 				ProjectController.updateTree(ieds);
 			}

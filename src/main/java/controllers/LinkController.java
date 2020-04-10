@@ -29,15 +29,21 @@ public class LinkController {
 
 	public static void createConnection() {
 		if(tempLink.getTarget()!=null && tempLink.getSource()!=null && tempLink.getSource() != tempLink.getTarget()) {
-			if(!connectionExists()) {
-				Link link = new Link();
-				link.setSource(tempLink.getSource()); link.setTarget(tempLink.getTarget());
-				link.setSourceConnector(tempLink.getSourceConnector()); link.setTargetConnector(tempLink.getTargetConnector());
-				PanelsController.getSelectedPanel().getChildren().add(link);
-				link.createConnection();
+			if(isOutput2Input()){
+				if(!connectionExists()) {
+					Link link = new Link();
+					link.setSource(tempLink.getSource()); link.setTarget(tempLink.getTarget());
+					link.setSourceConnector(tempLink.getSourceConnector()); link.setTargetConnector(tempLink.getTargetConnector());
+					PanelsController.getSelectedPanel().getChildren().add(link);
+					link.createConnection();
+				}
+				else GUI.writeMessage("Connection already exists");
 			}
-			else System.out.println("Connection already exists");
+			else GUI.writeErrMessage("Please connect only outputs to input connectors");
 			tempLink.setSource(null); tempLink.setTarget(null);
+		}
+		if(tempLink.getTarget()!=null && tempLink.getSource()!=null && tempLink.getSource() == tempLink.getTarget()) {
+			tempLink.setSource(null); tempLink.setTarget(null); GUI.writeErrMessage("Unacceptable connection");
 		}
 	}
 
@@ -52,6 +58,12 @@ public class LinkController {
 			if(tempLink.getSourceConnector()==link.getTargetConnector() && tempLink.getTargetConnector()==link.getSourceConnector()) return true;
 		}
 		return false;
+	}
+
+	private static boolean isOutput2Input(){
+		Point2D sourceLayout = tempLink.getSource().sceneToLocal(tempLink.getSourceConnector().localToScene(0,0));
+		Point2D targetLayout = tempLink.getTarget().sceneToLocal(tempLink.getTargetConnector().localToScene(0,0));
+		return targetLayout.getX() < 0 && sourceLayout.getX() > 20 || sourceLayout.getX() < 0 && targetLayout.getX() > 20;
 	}
 
 	/**

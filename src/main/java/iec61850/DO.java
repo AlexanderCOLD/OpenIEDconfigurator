@@ -2,6 +2,8 @@ package iec61850;
 
 import lombok.Data;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -12,11 +14,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @Data
-@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DO {
 
-    String dataObjectName;     // Op, Str, ...
-    String dataAttributeName;  // phA, general, ...
+    private String dataObjectName;     // Op, Str, ...
+    private String dataAttributeName;  // phA, general, ...
+    private String cppPrefix;
 
     public String toString(){ return String.format("%s (%s)", dataAttributeName, dataObjectName); }
 }

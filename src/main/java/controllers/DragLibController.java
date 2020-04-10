@@ -16,6 +16,9 @@ import tools.BiHashMap;
 import tools.saveload.SaveLoadObject;
 
 import java.io.File;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author Александр Холодов
@@ -23,7 +26,7 @@ import java.io.File;
  * @project MGBuilder
  * @description Класс для создания библиотеки
  */
-public class DragController {
+public class DragLibController {
 
 	/**
 	 * project_pane - панель куда перемещают элемент
@@ -31,27 +34,28 @@ public class DragController {
 	 * rootPane - корневая панель (то над чем его можно перемещать)
 	 */
 
-	private static DragController self;
+	private static DragLibController self;
 	private GraphicNode shadowNode;
 	private BiHashMap<GraphicNode, GraphicNode> shadowNodes = new BiHashMap<>(); // key = Icon, value = shadowIcon
 	private EventHandler<DragEvent> dragEnteredGUI, dragExitedGUI;
 	private EventHandler<DragEvent> dragOverGUI, dragOverLib, dragDropped, dragDone;
 	private double offsetX, offsetY;
-	private ClipboardContent content;
+	private final ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}};
 
-	public DragController(){
-		content = new ClipboardContent(); content.put(new DataFormat(), new DragContainer());
+
+
+	public DragLibController(){
 		buildDragHandlers();
 	}
 
 
 	public static void addToController(GraphicNode node){
-		if(self==null) self = new DragController();
+		if(self==null) self = new DragLibController();
 
-		GraphicNode shadowIcon = new GraphicNode();
-		shadowIcon.setOpacity(0.5);
-		shadowIcon.setUserData(node.getUserData());
-		self.shadowNodes.put(node, shadowIcon);
+		GraphicNode shadowNode = new GraphicNode();
+		shadowNode.setOpacity(0.5);
+		shadowNode.setUserData(node.getUserData());
+		self.shadowNodes.put(node, shadowNode);
 		self.addDragDetection(node);
 	}
 
@@ -132,7 +136,7 @@ boolean added = false;
 			LN ln = SaveLoadObject.load(LN.class, new File(String.format("library/%s.xml",name)));
 			GraphicNode node = PanelsController.createNode(ln);
 			Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());
-			node.relocate(point.getX() - offsetX, point.getY() - offsetY);
+			node.relocate(point.getX() - offsetX, point.getY() - offsetY); node.updateGrid();
 			e.setDropCompleted(true);
 			e.consume();
 		};

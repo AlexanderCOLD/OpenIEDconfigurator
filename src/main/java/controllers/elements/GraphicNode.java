@@ -58,7 +58,7 @@ public class GraphicNode extends AnchorPane {
     private ArrayList<AnchorPane> leftConnectors = new ArrayList<>();
     private ArrayList<AnchorPane> rightConnectors = new ArrayList<>();
 
-    private ClipboardContent content = new ClipboardContent();
+    private ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}};
     private boolean overPanel = false;
     private ArrayList<Link> links = new ArrayList<>();
     private ChangeListener<Boolean> selectionListener;
@@ -72,7 +72,6 @@ public class GraphicNode extends AnchorPane {
         fxmlLoader.setController(this);
         try { fxmlLoader.load(); } catch (IOException exception) { throw new RuntimeException(exception); }
         setId(UUID.randomUUID().toString());
-        content.put(new DataFormat(), new DragContainer());
     }
 
     @Override
@@ -106,7 +105,7 @@ public class GraphicNode extends AnchorPane {
         buildClickHandlers(this);
 
         selectionListener = (o,ov,nv) ->{
-            if(nv) setStyle("-fx-background-color: -fx-second-color; -fx-border-color: RED; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2");
+            if(nv) setStyle("-fx-background-color: -fx-second-color; -fx-border-color: #dc4b48; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2");
             else setStyle("-fx-background-color: -fx-second-color; -fx-border-color: -fx-first-color; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 1.5");
         };
         draggable.addListener((o, ov, nv) -> {
@@ -143,9 +142,9 @@ public class GraphicNode extends AnchorPane {
 
             connectorsList.add(connector);
 
-            connector.setOnMouseEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5");   ((Scale)connector.getTransforms().get(0)).setX(1.4); ((Scale)connector.getTransforms().get(0)).setY(1.4); });
+            connector.setOnMouseEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5");   ((Scale)connector.getTransforms().get(0)).setX(1.4); ((Scale)connector.getTransforms().get(0)).setY(1.4); connector.toFront(); });
             connector.setOnMouseExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5"); ((Scale)connector.getTransforms().get(0)).setX(1.0); ((Scale)connector.getTransforms().get(0)).setY(1.0); });
-            connector.setOnDragEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5");    ((Scale)connector.getTransforms().get(0)).setX(1.4); ((Scale)connector.getTransforms().get(0)).setY(1.4); });
+            connector.setOnDragEntered(e->{ connector.setStyle("-fx-background-color: RED; -fx-background-radius: 5");    ((Scale)connector.getTransforms().get(0)).setX(1.4); ((Scale)connector.getTransforms().get(0)).setY(1.4); connector.toFront(); });
             connector.setOnDragExited(e-> { connector.setStyle("-fx-background-color: WHITE; -fx-background-radius: 5");  ((Scale)connector.getTransforms().get(0)).setX(1.0); ((Scale)connector.getTransforms().get(0)).setY(1.0); });
         }
     }
@@ -160,7 +159,7 @@ public class GraphicNode extends AnchorPane {
         dragEvent = e->{ relocate(e.getX() - offsetX, e.getY() - offsetY); e.acceptTransferModes(TransferMode.ANY); e.consume(); };
         dragDone = e->{
             getParent().removeEventFilter(DragEvent.DRAG_DONE, dragDone); getParent().removeEventFilter(DragEvent.DRAG_OVER, dragEvent);
-            relocate(Math.round(x/grid)*grid, Math.round(y/grid)*grid);
+            updateGrid();
             e.consume();
         };
 
@@ -232,6 +231,8 @@ public class GraphicNode extends AnchorPane {
 
     @Override
     public void relocate(double x, double y) { super.relocate(x, y); this.x=x; this.y=y; }
+    public void updateGrid(){ relocate(Math.round(x/grid)*grid, Math.round(y/grid)*grid); } // округляет координаты до решетки
+
 
     public void registerLink(Link link) { links.add(link); }
     public void removeLink(Link link) { links.remove(link); }

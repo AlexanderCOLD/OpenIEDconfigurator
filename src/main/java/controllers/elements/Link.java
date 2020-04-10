@@ -33,7 +33,7 @@ public class Link extends Polyline {
 
 	public Link(){
 		setStrokeWidth(origWidth);
-		setStroke(Color.RED);
+		setStroke(Color.web("#dc4b48"));
 	}
 
 	public void createConnection() {
@@ -43,7 +43,7 @@ public class Link extends Polyline {
 			source.layoutYProperty().addListener(ys);
 			target.layoutXProperty().addListener(xt);
 			target.layoutYProperty().addListener(yt);
-			setOnMouseEntered(e->{ setStrokeWidth(selWidht); setStroke(Color.RED); toFront(); });
+			setOnMouseEntered(e->{ setStrokeWidth(selWidht); setStroke(Color.web("#dc4b48")); toFront(); });
 			setOnMouseExited(e-> { setStrokeWidth(origWidth); setStroke(Color.WHITE); setCursor(Cursor.DEFAULT); });
 
 			toFront();

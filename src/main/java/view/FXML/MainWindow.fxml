@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.TextFlow?>
 
-<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" style="-fx-border-color: -fx-first-color; -fx-border-color: -fx-first-color; -fx-border-width: 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.5" AnchorPane.topAnchor="0.0">
          <top>
@@ -27,7 +27,6 @@
                         <items>
                           <MenuItem mnemonicParsing="false" onAction="#handleNew" text="Новый проект" />
                               <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Открыть" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleOpenCID" text="Открыть CID" />
                               <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Сохранить" />
                               <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Сохранить как..." />
                               <MenuItem mnemonicParsing="false" onAction="#close" text="Выход" />

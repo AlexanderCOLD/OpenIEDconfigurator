@@ -6,6 +6,7 @@ import controllers.elements.GraphicNode;
 import controllers.elements.Link;
 import iec61850.*;
 import iec61850.objects.SCL;
+import iec61850.Connection;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.collections.ListChangeListener;
 import javafx.scene.Node;
@@ -17,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import tools.BiHashMap;
+
 import java.util.ArrayList;
 
 /**
@@ -30,12 +32,13 @@ public class ProjectController {
     private static TreeItem<Object> root = new TreeItem<>("Project");
     private static Image iedIcon, ldIcon, lnIcon, dsIcon, doIcon;
 
-    private static SCL scl; // Текущий scl
+    private static SCL cid; // Текущий scl
+    private static CLD cld; // Текущий CLD
     private static ArrayList<IED> iedList; // Текущий лист
     private static GraphicNode selectedNode; // Выделенный узел
 
     private static BiHashMap<TreeItem<Object>, Object> project = new BiHashMap<>();    // Ветки и их объекты
-    private static ArrayList<GraphicNode> graphicNodes = new ArrayList<>(); // Граф. элементы
+    private static BiHashMap<GraphicNode, Object> graphicNodes = new BiHashMap<>(); // Граф. элементы и их объекты
     private static ArrayList<Link> connections = new ArrayList<>(); // Соединения
 
     private static void initialize(){
@@ -48,22 +51,50 @@ public class ProjectController {
 
     /**
      * Листнер который вызывается при добавлении/удалении графических элементов
+     * Изменяет содержимое graphicNodes и connections (List)
      */
     private static ListChangeListener<Node> listener = c ->{
         c.next();
-        if(c.wasAdded()) for(Node node:c.getAddedSubList()){ if(node.getClass()== GraphicNode.class) graphicNodes.add((GraphicNode) node); else if(node.getClass()== Link.class) connections.add((Link)node); }
-        if(c.wasRemoved()) for(Node node:c.getRemoved()){ if(node.getClass()== GraphicNode.class) graphicNodes.remove(node); else if(node.getClass()==Link.class) connections.remove(node); }
+        if(c.wasAdded()) for(Node node:c.getAddedSubList()){ if(node.getClass()== GraphicNode.class) graphicNodes.put((GraphicNode) node, node.getUserData()); else if(node.getClass()== Link.class) connections.add((Link)node); }
+        if(c.wasRemoved()) for(Node node:c.getRemoved()){ if(node.getClass()== GraphicNode.class) graphicNodes.removeByKey((GraphicNode) node); else if(node.getClass()==Link.class) connections.remove(node); }
     };
 
-    public static void setSCL(SCL scl) {
-        ArrayList<IED> project = IEDExtractor.extractIEDList(scl);
-        if(project.size()>0){ iedList = project; ProjectController.scl = scl; updateTree(project);  }
+    /**
+     * Задает CID после открытия нового проекта
+     * @param сid - Configured IED Description
+     */
+    public static void setCID(SCL сid) {
+        clearProject();
+        ArrayList<IED> project = IEDExtractor.extractIEDList(сid);
+        if(project.size()>0){
+            iedList = project; ProjectController.cid = сid;
+            updateTree(project);
+            cld = new CLD();
+            cld.setIedList(iedList);
+            testSave(); // Просто для пробы
+        }
+    }
+
+    /**
+     * После загрузки CID загружает и верифицирует CLD
+     * @param cld
+     */
+    public static void setCLD(CLD cld){
+
+    }
+
+    private static void testSave(){
+        Connection connection = new Connection("IED1/LD1/LN1/DS2/DO1", "IED2/LD2/LN2/DS2/DO3");
+        cld.getConnectionList().add(connection);
+        SaveTest.save(cld);
     }
 
 
+    /**
+     * Наполняет дерево элементами
+     * @param ieds - лист из IED
+     */
     public static void updateTree(ArrayList<IED> ieds){
-        clearProject();
-
         for(IED ied:ieds){
             TreeItem<Object> iedItem = createTreeItem(ied); root.getChildren().add(iedItem);
 
@@ -79,10 +110,19 @@ public class ProjectController {
         }
     }
 
+    /**
+     * Удаление всего проекта
+     * (перед открытием нового)
+     */
     private static void clearProject(){
         root.getChildren().clear(); project.clear();
     }
 
+    /**
+     * Установка дерева
+     * (при запуске программы)
+     * @param tree - дерево
+     */
     public static void setTree(TreeView tree) {
         tree.setRoot(root);
         root.setExpanded(true);
@@ -124,7 +164,8 @@ public class ProjectController {
     }
     public static GraphicNode getSelectedNode() { return selectedNode; }
 
-    public static ArrayList<GraphicNode> getGraphicNodes() { return graphicNodes; }
+    public static BiHashMap<GraphicNode, Object> getGraphicNodes() { return graphicNodes; }
+
     public static ArrayList<Link> getConnections() { return connections; }
 
     /**

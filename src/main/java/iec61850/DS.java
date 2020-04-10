@@ -2,6 +2,9 @@ package iec61850;
 
 import lombok.Data;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
@@ -13,7 +16,7 @@ import java.util.ArrayList;
  */
 
 @Data
-@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DS {
 
     private String name;
@@ -25,6 +28,7 @@ public class DS {
 
     private int intgPd, bufTime; // для MMS
 
+    @XmlElement(name = "DO")
     private ArrayList<DO> dataObject = new ArrayList<>();
 
     public String toString(){

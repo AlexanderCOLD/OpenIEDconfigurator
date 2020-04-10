@@ -1,75 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ln>
+<LN>
+    <name>PHAR</name>
     <classType>PHAR</classType>
     <dataSetInput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>A</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>HA</dataAttributeName>
-            <dataObjectName>HWYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>PhStp</dataAttributeName>
-            <dataObjectName>real32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>PhStr</dataAttributeName>
-            <dataObjectName>real32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>NumHar</dataAttributeName>
-            <dataObjectName>uint8_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>HLev</dataAttributeName>
-            <dataObjectName>real32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>HMod</dataAttributeName>
-            <dataObjectName>boolean_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>RsDITmms</dataAttributeName>
-            <dataObjectName>int32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>OpMod</dataAttributeName>
-            <dataObjectName>uint8_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>Ha2Tmms</dataAttributeName>
-            <dataObjectName>int32_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>OpDITmms</dataAttributeName>
-            <dataObjectName>int32_T</dataObjectName>
-        </dataObject>
         <description>DataSet for input connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>A</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>HWYE</dataObjectName>
+            <dataAttributeName>HA</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>real32_T</dataObjectName>
+            <dataAttributeName>PhStp</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>real32_T</dataObjectName>
+            <dataAttributeName>PhStr</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>uint8_T</dataObjectName>
+            <dataAttributeName>NumHar</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>real32_T</dataObjectName>
+            <dataAttributeName>HLev</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>boolean_T</dataObjectName>
+            <dataAttributeName>HMod</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>int32_T</dataObjectName>
+            <dataAttributeName>RsDITmms</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>uint8_T</dataObjectName>
+            <dataAttributeName>OpMod</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>int32_T</dataObjectName>
+            <dataAttributeName>Ha2Tmms</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>int32_T</dataObjectName>
+            <dataAttributeName>OpDITmms</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
     </dataSetInput>
     <dataSetOutput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>Op</dataAttributeName>
-            <dataObjectName>ACT</dataObjectName>
-        </dataObject>
         <description>DataSet for output connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>ACT</dataObjectName>
+            <dataAttributeName>Op</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
     </dataSetOutput>
-    <name>PHAR</name>
-</ln>
+</LN>

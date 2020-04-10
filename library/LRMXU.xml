@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ln>
+<LN>
+    <name>LRMXU</name>
     <classType>LRMXU</classType>
     <dataSetInput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>A1</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>A2</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>A3</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>PhV</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>BlkV</dataAttributeName>
-            <dataObjectName>SPS</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>CompMod1</dataAttributeName>
-            <dataObjectName>boolean_T</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>b</dataAttributeName>
-            <dataObjectName>real32_T</dataObjectName>
-        </dataObject>
         <description>DataSet for input connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>A1</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>A2</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>A3</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>PhV</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>SPS</dataObjectName>
+            <dataAttributeName>BlkV</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>boolean_T</dataObjectName>
+            <dataAttributeName>CompMod1</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>real32_T</dataObjectName>
+            <dataAttributeName>b</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
     </dataSetInput>
     <dataSetOutput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>DifAClc</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>Rst</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
         <description>DataSet for output connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>DifAClc</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>Rst</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
     </dataSetOutput>
-    <name>LRMXU</name>
-</ln>
+</LN>

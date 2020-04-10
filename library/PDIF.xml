@@ -1,70 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ln>
+<LN>
+    <name>PDIF</name>
     <classType>PDIF</classType>
     <dataSetInput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>DIfAClc</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>RstA</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>Str</dataAttributeName>
-            <dataObjectName>ACD</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>Blk1</dataAttributeName>
-            <dataObjectName>ACT</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>Blk2</dataAttributeName>
-            <dataObjectName>ACT</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>Blk3</dataAttributeName>
-            <dataObjectName>ACT</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>Blk</dataAttributeName>
-            <dataObjectName>SPS</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>TmACrv1</dataAttributeName>
-            <dataObjectName>Curve</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>TmACrv2</dataAttributeName>
-            <dataObjectName>Curve</dataObjectName>
-        </dataObject>
         <description>DataSet for input connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>DIfAClc</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>RstA</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>ACD</dataObjectName>
+            <dataAttributeName>Str</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>ACT</dataObjectName>
+            <dataAttributeName>Blk1</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>ACT</dataObjectName>
+            <dataAttributeName>Blk2</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>ACT</dataObjectName>
+            <dataAttributeName>Blk3</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>SPS</dataObjectName>
+            <dataAttributeName>Blk</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>Curve</dataObjectName>
+            <dataAttributeName>TmACrv1</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>Curve</dataObjectName>
+            <dataAttributeName>TmACrv2</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
     </dataSetInput>
     <dataSetOutput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>Str</dataAttributeName>
-            <dataObjectName>ACD</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>Op</dataAttributeName>
-            <dataObjectName>ACT</dataObjectName>
-        </dataObject>
         <description>DataSet for output connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>ACD</dataObjectName>
+            <dataAttributeName>Str</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>ACT</dataObjectName>
+            <dataAttributeName>Op</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
     </dataSetOutput>
-    <name>PDIF</name>
-</ln>
+</LN>

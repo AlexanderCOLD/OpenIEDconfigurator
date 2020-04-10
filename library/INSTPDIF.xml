@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ln>
+<LN>
+    <name>INSTPDIF</name>
     <classType>INSTPDIF</classType>
     <dataSetInput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>DifAClc</dataAttributeName>
-            <dataObjectName>WYE</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>in</cppPrefix>
-            <dataAttributeName>Blk</dataAttributeName>
-            <dataObjectName>ACT</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>set</cppPrefix>
-            <dataAttributeName>HiSet</dataAttributeName>
-            <dataObjectName>real32_T</dataObjectName>
-        </dataObject>
         <description>DataSet for input connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>WYE</dataObjectName>
+            <dataAttributeName>DifAClc</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>ACT</dataObjectName>
+            <dataAttributeName>Blk</dataAttributeName>
+            <cppPrefix>in</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>real32_T</dataObjectName>
+            <dataAttributeName>HiSet</dataAttributeName>
+            <cppPrefix>set</cppPrefix>
+        </DO>
     </dataSetInput>
     <dataSetOutput>
-        <bufTime>0</bufTime>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>Op</dataAttributeName>
-            <dataObjectName>ACT</dataObjectName>
-        </dataObject>
-        <dataObject>
-            <cppPrefix>out</cppPrefix>
-            <dataAttributeName>Str</dataAttributeName>
-            <dataObjectName>ACD</dataObjectName>
-        </dataObject>
         <description>DataSet for output connections</description>
+        <type>Node</type>
         <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <dataObjectName>ACT</dataObjectName>
+            <dataAttributeName>Op</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
+        <DO>
+            <dataObjectName>ACD</dataObjectName>
+            <dataAttributeName>Str</dataAttributeName>
+            <cppPrefix>out</cppPrefix>
+        </DO>
     </dataSetOutput>
-    <name>INSTPDIF</name>
-</ln>
+</LN>

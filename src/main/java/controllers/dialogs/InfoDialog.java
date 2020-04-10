@@ -75,18 +75,12 @@ public class InfoDialog extends AnchorPane {
     }
 
     private void initializeTable(){
-        name = new TableColumn<TableObject, String>("Название");
-        value = new TableColumn<TableObject, String>("Значение");
+        name = new TableColumn<>("Название");
+        value = new TableColumn<>("Значение");
         tableView.getColumns().addAll(name, value);
-        for(int i=0; i<100; i++)
 
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         value.setCellValueFactory(new PropertyValueFactory<>("value"));
-
-        TableObject tt1 = new TableObject(); tt1.name = "Test1"; tt1.value = "Test2";
-        TableObject tt2 = new TableObject(); tt2.name = "Test3"; tt2.value = "Test4";
-
-        tableView.getItems().addAll(tt1, tt2);
     }
 
     @FXML
@@ -94,7 +88,6 @@ public class InfoDialog extends AnchorPane {
         accord.setExpandedPane(accord.getPanes().get(0));
         stage.addEventFilter(MouseEvent.MOUSE_PRESSED, mousePressed);
         lock.setOnMouseClicked(e-> setLock(lock.isSelected()) );
-
 
         setLock(false);
     }
