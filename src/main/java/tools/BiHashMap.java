@@ -1,54 +1,50 @@
 package tools;
 
+import lombok.Data;
 import java.util.*;
 
 /**
  * @author Александр Холодов
  * @created 04/2020
  * @project OpenIEDconfigurator
- * @description - двойной словать (key-value, value-key)
+ * @description - двойной словать на основе ArrayList (key-value, value-key)
  */
 public class BiHashMap<K,V>  {
 
-    private final HashMap<K,V> original = new HashMap<>(16, 0.05f);
-    private final HashMap<V,K> reverse = new HashMap<>(16, 0.05f);
+    private final ArrayList<Set<K,V>> list = new ArrayList<>();
 
-    public void put(K key, V value) {  original.put(key, value); reverse.put(value, key); }
+    public void put(K key, V value) {
+        boolean found = false;
+        for(Set<K,V> s:list) if(s.getKey().equals(key)) { s.setValue(value); found = true; }
+        if(!found) list.add(new Set<K,V>(key,value));
+    }
 
-    public int size(){ return original.size(); }
+    public int size(){ return list.size(); }
 
-    public V getValue(Object key) { reHash(); return original.get(key);  }
-    public K getKey(Object value) { return reverse.get(value); }
+    public V getValue(Object key) { for(Set<K,V> s:list) if(s.getKey().equals(key)) return s.getValue(); return null; }
+    public K getKey(Object value) { for(Set<K,V> s:list) if(s.getValue().equals(value)) return s.getKey(); return null; }
 
-    public void removeByKey(K key){ if(original.containsKey(key)){ Object value = original.get(key); original.remove(key); reverse.remove(value); } }
-    public void removeByValue(V value){ reHash(); if(reverse.containsKey(value)){ Object key = reverse.get(value); original.remove(key); reverse.remove(value); } }
+    public void removeByKey(K key){ for(Set<K,V> s:list) if(s.getKey().equals(key)) { list.remove(s); return; } }
+    public void removeByValue(V value){ for(Set<K,V> s:list) if(s.getValue().equals(value)) { list.remove(s); return; } }
 
-    public void clear(){ original.clear(); reverse.clear(); }
+    public void clear(){ list.clear(); }
 
-    public Set<K> keySet() { reHash(); return original.keySet(); }
-    public Set<V> valueSet() { reHash(); return reverse.keySet(); }
+    public ArrayList<K> keySet() { return new ArrayList<K>(){{ for(Set<K,V> s:list) add(s.getKey()); }}; }
+    public ArrayList<V> valueSet() { return new ArrayList<V>(){{ for(Set<K,V> s:list) add(s.getValue()); }}; }
 
-    public boolean containsKey(Object key) { reHash(); return original.containsKey(key); }
-    public boolean containsValue(Object value) { reHash(); return reverse.containsKey(value); }
+    public boolean containsKey(Object key) { for(Set<K,V> s:list) if(s.getKey().equals(key)) return true; return false; }
+    public boolean containsValue(Object value) { for(Set<K,V> s:list) if(s.getValue().equals(value)) return true; return false; }
 
-    public boolean contains(Object object){ reHash(); return containsKey(object) || containsValue(object); }
+    public boolean contains(Object object){ return containsKey(object) || containsValue(object); }
 
-    public Set<Map.Entry<K,V>> entrySet() { return original.entrySet(); }
-    public Set<Map.Entry<V,K>> entrySetReverse() { return reverse.entrySet(); }
+    public ArrayList<Set<K,V>> entrySet() { return new ArrayList<>(list); }
 
+    @Data
+    private class Set<K,V>{
+        private K key;
+        private V value;
 
-    private void reHash(){
-        ArrayList<K> keyList = new ArrayList<>(original.keySet());
-        ArrayList<V> valueList = new ArrayList<>(original.values());
-
-        original.clear();
-        reverse.clear();
-
-        for (int i=0; i<keyList.size(); i++){
-            original.put(keyList.get(i), valueList.get(i));
-            reverse.put(valueList.get(i), keyList.get(i));
-        }
-
+        public Set(K key, V value) { this.key = key; this.value = value; }
     }
 
 }
