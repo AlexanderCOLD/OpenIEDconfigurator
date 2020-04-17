@@ -2,8 +2,7 @@ package tools;
 
 import application.GUI;
 import controllers.dialogs.InfoDialog;
-import controllers.dialogs.LibraryDialog;
-import tools.saveload.SaveLoadObject;
+import controllers.library.LibraryDialog;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
@@ -19,6 +18,8 @@ import java.io.File;
 public class Settings {
 
 	public static String lastPath; // Для FileChoice
+	public static String lastCIDPath;
+	public static String lastCLDPath;
 
 	public static double[] mainResolution; // размеры главного окна
 	public static double[] mainLayout; // положение главного окна
@@ -117,4 +118,10 @@ public class Settings {
 
 	public double getSpVdivide() { return spVdivide; }
 	public void setSpVdivide(double spVdivide) { Settings.spVdivide = spVdivide; }
+
+	public String getLastCIDPath() { return lastCIDPath; }
+	public void setLastCIDPath(String lastCIDPath) { Settings.lastCIDPath = lastCIDPath; }
+
+	public String getLastCLDPath() { return lastCLDPath; }
+	public void setLastCLDPath(String lastCLDPath) { Settings.lastCLDPath = lastCLDPath; }
 }

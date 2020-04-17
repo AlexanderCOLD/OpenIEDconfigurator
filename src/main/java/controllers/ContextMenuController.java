@@ -10,34 +10,35 @@ import javafx.scene.input.MouseEvent;
  * @author Александр Холодов
  * @created 03/2020
  * @project OpenIEDconfigurator
- * @description
+ * @description - Контроллер контестных меню
  */
+
 public class ContextMenuController {
 
-    private static ContextMenu cmMain;
-    private static ContextMenu context;
+    private static ContextMenu mainContextMenu;
+    private static ContextMenu currentShownContextMenu;
+    private static long dtCM = 0; // Выдержка по времени (Контекстные меню смежных элементов обрабатываются одновременно, wtf)
+
 
     public static void initializeContextMenu(){
-        cmMain = new ContextMenu();
+        mainContextMenu = new ContextMenu();
         GUI.get().addEventFilter(MouseEvent.MOUSE_PRESSED, e -> hideContextMenu());
         MenuItem paramMain = new MenuItem("Параметры");
         paramMain.setOnAction(e ->{	System.out.println("Выполнение..."); });
-        cmMain.getItems().addAll(paramMain);
+        mainContextMenu.getItems().addAll(paramMain);
     }
 
-    private static long dtCM = 0;
-    public static void showContextMenu(ContextMenu cm, ContextMenuEvent e) {
+    public static void showContextMenu(ContextMenu contextMenu, ContextMenuEvent event) {
         long time = System.currentTimeMillis();
         dtCM = time - dtCM;
         if(dtCM>50) {
-            if(context!=null) hideContextMenu();
-            cm.show(GUI.get(),e.getScreenX(), e.getScreenY());
-            context = cm;
+            hideContextMenu();
+            contextMenu.show(GUI.get(),event.getScreenX(), event.getScreenY());
+            currentShownContextMenu = contextMenu;
         }
         dtCM = time;
     }
 
-    public static void hideContextMenu() { if(context!=null) { context.hide(); context=null; } }
-    public static ContextMenu getMainContextMenu() { return cmMain; }
-
+    public static void hideContextMenu() { if(currentShownContextMenu !=null) { currentShownContextMenu.hide(); currentShownContextMenu =null; } }
+    public static ContextMenu getMainContextMenu() { return mainContextMenu; }
 }

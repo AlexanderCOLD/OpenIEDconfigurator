@@ -10,57 +10,68 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>PhV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_PhV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>DEL</dataObjectName>
             <dataAttributeName>PhVV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_DEL</cppObjectName>
+            <cppAttributeName>in_PhVV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SEQ</dataObjectName>
             <dataAttributeName>SeqV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SEQ</cppObjectName>
+            <cppAttributeName>in_SeqV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>OpEx</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_OpEx</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Blk</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Blk</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>BlkV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_BlkV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrVal</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrVal</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>uint8_T</dataObjectName>
             <dataAttributeName>OpMod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>uint8_T</cppObjectName>
+            <cppAttributeName>set_OpMod</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>RsRat</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_RsRat</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>OpDITmms1</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_OpDITmms1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>OpDITmms2</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_OpDITmms2</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -71,17 +82,20 @@
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>Str</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>out_Str</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Op</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>out_Op</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Op2</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>out_Op2</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

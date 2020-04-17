@@ -5,7 +5,9 @@ import lombok.Data;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * @author Александр Холодов
@@ -24,5 +26,9 @@ public class IED {
     private ArrayList<LD> logicalDeviceList = new ArrayList<>();
 
     public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
+
+    @XmlTransient
+    private String ID;
+    public IED(){ ID = UUID.randomUUID().toString(); }
 }
 

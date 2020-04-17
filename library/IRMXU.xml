@@ -10,177 +10,212 @@
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv1_A</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv1_A</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv1_B</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv1_B</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv1_C</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv1_C</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv1_N</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv1_N</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv2_A</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv2_A</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv2_B</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv2_B</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv2_C</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv2_C</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv2_N</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv2_N</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv3_A</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv3_A</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv3_B</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv3_B</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv3_C</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv3_C</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv3_N</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv3_N</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv4_A</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv4_A</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv4_B</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv4_B</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv4_C</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv4_C</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SAV</dataObjectName>
             <dataAttributeName>AmpSv4_N</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SAV</cppObjectName>
+            <cppAttributeName>in_AmpSv4_N</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>MV</dataObjectName>
             <dataAttributeName>Hz1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_MV</cppObjectName>
+            <cppAttributeName>in_Hz1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>MV</dataObjectName>
             <dataAttributeName>Hz2</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_MV</cppObjectName>
+            <cppAttributeName>in_Hz2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>Abase</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_Abase</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>PhVbase</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_PhVbase</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SEQ</dataObjectName>
             <dataAttributeName>SeqA1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SEQ</cppObjectName>
+            <cppAttributeName>in_SeqA1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SEQ</dataObjectName>
             <dataAttributeName>SeqV1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SEQ</cppObjectName>
+            <cppAttributeName>in_SeqV1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Pos</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Pos</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>INS</dataObjectName>
             <dataAttributeName>BlkOpBckUpA11</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_INS</cppObjectName>
+            <cppAttributeName>in_BlkOpBckUpA11</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>INS</dataObjectName>
             <dataAttributeName>BlkOpBckUpA12</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_INS</cppObjectName>
+            <cppAttributeName>in_BlkOpBckUpA12</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>INS</dataObjectName>
             <dataAttributeName>BlkOpBckUpA21</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_INS</cppObjectName>
+            <cppAttributeName>in_BlkOpBckUpA21</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>INS</dataObjectName>
             <dataAttributeName>BlkOpBckUpA22</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_INS</cppObjectName>
+            <cppAttributeName>in_BlkOpBckUpA22</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>Ratamp1</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_Ratamp1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>Ratamp2</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_Ratamp2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>Ratamp3</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_Ratamp3</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>Ratamp4</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_Ratamp4</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>uint8_T</dataObjectName>
             <dataAttributeName>FctModSv</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>uint8_T</cppObjectName>
+            <cppAttributeName>set_FctModSv</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>uint8_T</dataObjectName>
             <dataAttributeName>FctMod1</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>uint8_T</cppObjectName>
+            <cppAttributeName>set_FctMod1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrVal</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrVal</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>OpMod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_OpMod</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -191,32 +226,38 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A1</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_A1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A2</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_A2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A3</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_A3</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>Arms1</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_Arms1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>Arms2</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_Arms2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>Arms3</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_Arms3</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

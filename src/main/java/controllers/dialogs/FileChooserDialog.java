@@ -5,7 +5,6 @@ import javafx.stage.FileChooser;
 import tools.Settings;
 
 import java.io.File;
-import java.util.Set;
 
 /**
  * @author Александр Холодов
@@ -15,37 +14,35 @@ import java.util.Set;
  */
 public class FileChooserDialog {
 
-    private static FileChooserDialog self;
-    private FileChooser fileChooser;
-    private FileChooser.ExtensionFilter extCIDFilter, extCLDFilter;
-    private File file;
+    private static final FileChooser fileChooser = new FileChooser();
+    private static final FileChooser.ExtensionFilter extCIDFilter = new FileChooser.ExtensionFilter("CID IEC61850 files (*.cid)", "*.cid");
+    private static final FileChooser.ExtensionFilter extCLDFilter = new FileChooser.ExtensionFilter("OpenIEDconfigurator files (*.cld)", "*.cld");
+    private static File file;
 
-    public FileChooserDialog(){
-        fileChooser = new FileChooser();
-        extCIDFilter = new FileChooser.ExtensionFilter("CID IEC61850 files (*.cid)", "*.cid");
-        extCLDFilter = new FileChooser.ExtensionFilter("OpenIEDconfigurator files (*.cld)", "*.cld");
-    }
+    public static File openCIDFile(){ fileChooser.getExtensionFilters().clear(); fileChooser.getExtensionFilters().add(extCIDFilter); showOpenDialog(); return file; }
+    public static File saveCLDFile(){ fileChooser.getExtensionFilters().clear(); fileChooser.getExtensionFilters().add(extCLDFilter); showSaveDialog(); return file; }
 
-    public static File openCIDFile(){
-        if(self==null) self = new FileChooserDialog(); self.fileChooser.getExtensionFilters().clear(); self.fileChooser.getExtensionFilters().add(self.extCIDFilter); show(); return self.file;
-    }
-    public static File openCLDFile(){
-        if(self==null) self = new FileChooserDialog(); self.fileChooser.getExtensionFilters().clear(); self.fileChooser.getExtensionFilters().add(self.extCLDFilter); show(); return self.file;
-    }
-    public static File saveCIDFile(){
-        if(self==null) self = new FileChooserDialog(); self.fileChooser.getExtensionFilters().clear(); self.fileChooser.getExtensionFilters().add(self.extCIDFilter); show(); return self.file;
-    }
-    public static File saveCLDFile(){
-        if(self==null) self = new FileChooserDialog(); self.fileChooser.getExtensionFilters().clear(); self.fileChooser.getExtensionFilters().add(self.extCLDFilter); show(); return self.file;
-    }
+    public static File openCLDFile(){ fileChooser.getExtensionFilters().clear(); fileChooser.getExtensionFilters().add(extCLDFilter); showOpenDialog(); return file; }
+    public static File saveCIDFile(){ fileChooser.getExtensionFilters().clear(); fileChooser.getExtensionFilters().add(extCIDFilter); showSaveDialog(); return file; }
 
-    private static void show(){
+    private static void showOpenDialog(){
         if(Settings.lastPath!=null){
             File initDir = new File(Settings.lastPath);
-            if(initDir.exists()) self.fileChooser.setInitialDirectory(new File(Settings.lastPath));
+            if(initDir.exists()) fileChooser.setInitialDirectory(new File(Settings.lastPath));
         }
-        File file = self.fileChooser.showOpenDialog(GUI.getStage());
+        File file = fileChooser.showOpenDialog(GUI.getStage());
         if(file!=null) Settings.lastPath = file.getParent();
-        self.file = file;
+        FileChooserDialog.file = file;
     }
+
+    private static void showSaveDialog(){
+        if(Settings.lastPath!=null){
+            File initDir = new File(Settings.lastPath);
+            if(initDir.exists()) fileChooser.setInitialDirectory(new File(Settings.lastPath));
+        }
+        File file = fileChooser.showSaveDialog(GUI.getStage());
+        if(file!=null) Settings.lastPath = file.getParent();
+        FileChooserDialog.file = file;
+    }
+
 }

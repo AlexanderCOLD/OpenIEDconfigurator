@@ -62,7 +62,8 @@ public class AssistDialog extends AnchorPane {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
-        scene.getStylesheets().add("view/CSS/AssistDialog.css");
+        scene.getStylesheets().add("view/CSS/" + GUI.colorStyle + ".css");
+        scene.getStylesheets().add("view/CSS/stylesheet.css");
         stage.setAlwaysOnTop(true);
         stage.initModality(Modality.APPLICATION_MODAL); // Остальные окна недоступны пока открыто это
         stage.addEventFilter(KeyEvent.KEY_PRESSED, e->{ if(e.getCode()== KeyCode.ESCAPE) close(); if(e.getCode()==KeyCode.ENTER) ok(); });

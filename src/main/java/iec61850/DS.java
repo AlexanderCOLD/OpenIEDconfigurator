@@ -2,11 +2,9 @@ package iec61850;
 
 import lombok.Data;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * @author Александр Холодов
@@ -31,7 +29,9 @@ public class DS {
     @XmlElement(name = "DO")
     private ArrayList<DO> dataObject = new ArrayList<>();
 
-    public String toString(){
-        return String.format("%s (%s)", name, type.toString());
-    }
+    public String toString(){ return String.format("%s (%s)", name, type.toString()); }
+
+    @XmlTransient
+    private String ID;
+    public DS(){ ID = UUID.randomUUID().toString(); }
 }

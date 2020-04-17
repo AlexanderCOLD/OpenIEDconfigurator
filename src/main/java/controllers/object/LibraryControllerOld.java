@@ -1,9 +1,8 @@
-package controllers;
+package controllers.object;
 
 import application.GUI;
-import controllers.dialogs.LibraryDialog;
-import controllers.elements.GraphicNode;
-import controllers.object.DragContainer;
+import controllers.library.LibraryDialog;
+import controllers.graphicNode.GraphicNode;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;

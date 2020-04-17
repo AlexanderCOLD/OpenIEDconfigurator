@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 public class EditDialog extends AnchorPane{
 
 	private static EditDialog self;
-	private Stage stage;
+	private final Stage stage;
 
 	@FXML
 	private TableView<Object> tableOptions;

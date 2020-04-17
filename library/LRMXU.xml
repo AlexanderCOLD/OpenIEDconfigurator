@@ -10,37 +10,44 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_A1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A2</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_A2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A3</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_A3</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>PhV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_PhV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>BlkV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_BlkV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>boolean_T</dataObjectName>
             <dataAttributeName>CompMod1</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>boolean_T</cppObjectName>
+            <cppAttributeName>set_CompMod1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>b</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_b</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -51,12 +58,14 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>DifAClc</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_DifAClc</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>Rst</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>out_Rst</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

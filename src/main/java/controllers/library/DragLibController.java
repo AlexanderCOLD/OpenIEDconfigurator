@@ -1,8 +1,9 @@
-package controllers;
+package controllers.library;
 
 import application.GUI;
-import controllers.dialogs.LibraryDialog;
-import controllers.elements.GraphicNode;
+import controllers.PanelsController;
+import controllers.graphicNode.GraphicNode;
+import controllers.graphicNode.GraphicNodeController;
 import controllers.object.DragContainer;
 import iec61850.LN;
 import javafx.event.EventHandler;
@@ -13,12 +14,9 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
 import tools.BiHashMap;
-import tools.saveload.SaveLoadObject;
+import tools.SaveLoadObject;
 
 import java.io.File;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author Александр Холодов
@@ -28,15 +26,9 @@ import java.util.stream.Stream;
  */
 public class DragLibController {
 
-	/**
-	 * project_pane - панель куда перемещают элемент
-	 * library_pane - панель откуда (библиотека) перемещают элемент
-	 * rootPane - корневая панель (то над чем его можно перемещать)
-	 */
-
 	private static DragLibController self;
 	private GraphicNode shadowNode;
-	private BiHashMap<GraphicNode, GraphicNode> shadowNodes = new BiHashMap<>(); // key = Icon, value = shadowIcon
+	private final BiHashMap<GraphicNode, GraphicNode> shadowNodes = new BiHashMap<>(); // key = Icon, value = shadowIcon
 	private EventHandler<DragEvent> dragEnteredGUI, dragExitedGUI;
 	private EventHandler<DragEvent> dragOverGUI, dragOverLib, dragDropped, dragDone;
 	private double offsetX, offsetY;
@@ -52,14 +44,11 @@ public class DragLibController {
 	public static void addToController(GraphicNode node){
 		if(self==null) self = new DragLibController();
 
-		GraphicNode shadowNode = new GraphicNode();
-		shadowNode.setOpacity(0.5);
-		shadowNode.setUserData(node.getUserData());
+		GraphicNode shadowNode = new GraphicNode(node.getUserData());
+		shadowNode.setOpacity(0.3);
 		self.shadowNodes.put(node, shadowNode);
 		self.addDragDetection(node);
 	}
-
-boolean added = false;
 
 	/**
 	 * Начало перемещения в библиотеке
@@ -134,8 +123,9 @@ boolean added = false;
 		dragDropped = e -> {
 			String name = ((LN) shadowNode.getUserData()).getClassType();
 			LN ln = SaveLoadObject.load(LN.class, new File(String.format("library/%s.xml",name)));
-			GraphicNode node = PanelsController.createNode(ln);
+			GraphicNode node = GraphicNodeController.createGraphicNode(ln);
 			Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());
+			PanelsController.getSelectedPanel().getChildren().add(node);
 			node.relocate(point.getX() - offsetX, point.getY() - offsetY); node.updateGrid();
 			e.setDropCompleted(true);
 			e.consume();

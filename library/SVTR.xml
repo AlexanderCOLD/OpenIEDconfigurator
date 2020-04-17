@@ -10,107 +10,128 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>PhV1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_PhV1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>PhV2</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_PhV2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_A</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SEQ</dataObjectName>
             <dataAttributeName>SeqV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SEQ</cppObjectName>
+            <cppAttributeName>in_SeqV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SEQ</dataObjectName>
             <dataAttributeName>SeqA</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SEQ</cppObjectName>
+            <cppAttributeName>in_SeqA</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Pos</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Pos</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>uint8_T</dataObjectName>
             <dataAttributeName>Mod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>uint8_T</cppObjectName>
+            <cppAttributeName>set_Mod</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>boolean_T</dataObjectName>
             <dataAttributeName>SeqMod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>boolean_T</cppObjectName>
+            <cppAttributeName>set_SeqMod</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>boolean_T</dataObjectName>
             <dataAttributeName>CBMod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>boolean_T</cppObjectName>
+            <cppAttributeName>set_CBMod</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrValVImb</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrValVImb</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>RatA</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_RatA</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>RatB</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_RatB</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>RatC</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_RatC</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>Rat0</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_Rat0</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>RatA1</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_RatA1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrValAMin</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrValAMin</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrValVMin</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrValVMin</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrValNgSeqA</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrValNgSeqA</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrValNgSeqV</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrValNgSeqV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrValZerSeqA</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrValZerSeqA</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrValZerSeqV</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrValZerSeqV</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -121,7 +142,8 @@
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>BlkV</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>out_BlkV</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

@@ -15,9 +15,7 @@ import java.util.List;
     "dataTypeTemplates"
 })
 @XmlRootElement(name = "SCL", namespace = "http://www.iec.ch/61850/2006/SCL")
-public class SCL
-    extends TBaseElement
-{
+public class SCL extends TBaseElement {
 
     @XmlElement(name = "Header", namespace = "http://www.iec.ch/61850/2006/SCL", required = true)
     protected THeader header;

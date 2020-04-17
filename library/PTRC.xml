@@ -10,117 +10,140 @@
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef2</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef3</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef3</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef4</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef4</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef5</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef5</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef6</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef6</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef7</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef7</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>InRef8</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_InRef8</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef9</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef9</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef10</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef10</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef11</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef11</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef12</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef12</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef13</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef13</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef14</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef14</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef15</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef15</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>InRef16</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_InRef16</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Blk1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Blk1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Blk2</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Blk2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Blk3</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Blk3</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Blk4</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Blk4</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>uint8_T</dataObjectName>
             <dataAttributeName>TrMod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>uint8_T</cppObjectName>
+            <cppAttributeName>set_TrMod</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>TrPlsTmms</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_TrPlsTmms</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>TrPlsTmms2</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_TrPlsTmms2</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -131,12 +154,14 @@
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Op</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>out_Op</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>Str</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>out_Str</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

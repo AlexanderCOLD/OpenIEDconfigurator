@@ -1,10 +1,9 @@
-package controllers.dialogs;
+package controllers.library;
 
 import application.GUI;
 import application.Main;
 import controllers.ResizeController;
-import controllers.elements.GraphicNode;
-import controllers.DragLibController;
+import controllers.graphicNode.GraphicNode;
 import iec61850.LN;
 import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
@@ -22,7 +21,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import tools.saveload.SaveLoadObject;
+import tools.SaveLoadObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,8 +45,8 @@ public class LibraryDialog extends AnchorPane {
     private double localX, localY; // координаты относительно главного окна
     private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
     private ChangeListener<? super Number> xListener, yListener;
-    private Stage stage = new Stage();
-    private Scene scene = new Scene(this);
+    private final Stage stage = new Stage();
+    private final Scene scene = new Scene(this);
 
     public LibraryDialog() { self = this; initializeDialog(); }
 
@@ -70,6 +69,7 @@ public class LibraryDialog extends AnchorPane {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.initOwner(GUI.getStage());
+        scene.getStylesheets().add("view/CSS/" + GUI.colorStyle + ".css");
         scene.getStylesheets().add("view/CSS/stylesheet.css");
         ResizeController.addStage(stage);
     }
@@ -87,10 +87,8 @@ public class LibraryDialog extends AnchorPane {
         File library = new File("library/");
         if(library.exists()){
             for(File lib:library.listFiles()){
-                GraphicNode graphicNode = new GraphicNode();
                 LN ln = SaveLoadObject.load(LN.class, lib);
-                graphicNode.setUserData(ln);
-                graphicNode.setDraggable(false);
+                GraphicNode graphicNode = new GraphicNode(ln);
                 libraryPane.getChildren().add(graphicNode);
                 DragLibController.addToController(graphicNode);
             }

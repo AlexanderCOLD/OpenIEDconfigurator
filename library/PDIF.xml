@@ -10,47 +10,56 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>DIfAClc</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_DIfAClc</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>RstA</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_RstA</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>Str</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>in_Str</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Blk1</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_Blk1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Blk2</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_Blk2</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Blk3</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_Blk3</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Blk</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Blk</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>Curve</dataObjectName>
             <dataAttributeName>TmACrv1</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>iec_Curve</cppObjectName>
+            <cppAttributeName>set_TmACrv1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>Curve</dataObjectName>
             <dataAttributeName>TmACrv2</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>iec_Curve</cppObjectName>
+            <cppAttributeName>set_TmACrv2</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -61,12 +70,14 @@
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>Str</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>out_Str</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Op</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>out_Op</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

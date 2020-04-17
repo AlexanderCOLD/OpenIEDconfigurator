@@ -2,17 +2,17 @@ package application;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
+
 import controllers.*;
 import controllers.dialogs.AssistDialog;
 import controllers.dialogs.FileChooserDialog;
 import controllers.dialogs.InfoDialog;
-import controllers.dialogs.LibraryDialog;
-import iec61850.IED;
+import controllers.library.LibraryDialog;
+import controllers.tree.TreeController;
 import iec61850.objects.SCL;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -28,11 +28,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import iec61850.IEDExtractor;
 import tools.ProjectLogger;
 import tools.Settings;
-import tools.saveload.SaveLoad;
-import tools.saveload.SaveLoadObject;
+import tools.SaveLoadObject;
 
 /**
  * @author Александр Холодов
@@ -43,6 +41,7 @@ import tools.saveload.SaveLoadObject;
 public class GUI extends AnchorPane{
 
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MMMM.yyyy HH.mm.ss");
+	public static final String colorStyle = "blueStyle"; //Name of .css (blackStyle, blueStyle,...)
 	private Stage stage;
 	private boolean ctrl = false;
 	private static GUI self;
@@ -57,19 +56,17 @@ public class GUI extends AnchorPane{
 	@FXML private TextFlow messageArea;
 	@FXML private ScrollPane messageScrollPane;
 
-
 	public GUI() {
 		ProjectLogger.enable();
 		self = this;
-
-		URL url = Main.class.getResource("/");
-
 		FXMLLoader loader = new FXMLLoader();
+//		loader.setResources(ResourceBundle.getBundle("i18n/oic", new UTF8Control()));
 		loader.setLocation(Main.class.getResource("/view/FXML/MainWindow.fxml"));
 		loader.setRoot(this);
 		loader.setController(this);
 		try { loader.load(); } catch (IOException e) { e.printStackTrace(); }
 		Scene scene = new Scene(this);
+		scene.getStylesheets().add("view/CSS/" + colorStyle + ".css");
 		scene.getStylesheets().add("view/CSS/stylesheet.css");
 		scene.setOnKeyPressed(e -> { if (e.getCode() == KeyCode.CONTROL) ctrl = true; });
 		scene.setOnKeyReleased(e->{ if (e.getCode() == KeyCode.CONTROL) ctrl = false; });
@@ -83,7 +80,8 @@ public class GUI extends AnchorPane{
 		menuBar.setOnMouseDragged(e -> { stage.setX(e.getScreenX() + xOffset); stage.setY(e.getScreenY() + yOffset); });
 		menuBar.setOnMouseClicked(e->{ if(e.getClickCount()==2) maximize(); });
 
-		Platform.runLater(() -> Settings.load());
+		Platform.runLater(Settings::load);
+		new Thread(() -> { try { Thread.sleep(1000); } catch (Exception ignored) {} Platform.runLater(this::openLastProject); }).start();
 	}
 
 	/**
@@ -94,17 +92,14 @@ public class GUI extends AnchorPane{
 		self.stage.setMinWidth(1200);
 		self.stage.setMinHeight(750);
 		self.stage.show();
-
-		SCL scl = SaveLoadObject.load(SCL.class, new File("Project.cid"));
-		Optional.ofNullable(scl).ifPresent(ProjectController::setCID);
 	}
 
 	@FXML private void initialize() {
 		PanelsController.setTabPane(tabPane);
 		ContextMenuController.initializeContextMenu();
-		ProjectController.setTree(tree);
+		TreeController.setTree(tree);
 
-		for (int i=0; i<15; i++) PanelsController.createTab("Вкладка "+i);
+		PanelsController.createTab("Project");
 
 		structAccord.setExpandedPane(structAccord.getPanes().get(0));
 		messageArea.setStyle("-fx-background-color: -fx-fourth-color; -fx-padding: 0 20 0 20");
@@ -119,24 +114,31 @@ public class GUI extends AnchorPane{
 
 	private boolean exitRequest(){ return AssistDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
 
+	/**
+	 * Загрузить предудущий проект
+	 */
+	private void openLastProject(){
+		if(Settings.lastCIDPath!=null) {
+			File file = new File(Settings.lastCIDPath);
+			if(file.exists()){
+				SCL scl = SaveLoadObject.load(SCL.class, file);
+				if(scl!=null) ProjectController.setScl(scl);
+			}
+		}
+	}
+
 	@FXML private void handleNew() {
 		if(!AssistDialog.requestConfirm("Подтвер","Создать новый проект?\nНесохраненные данные будут утеряны")) return;
-//		CurrentProject.clear();
-		SaveLoad.setFilePath(null);
+		handleOpen();
 	}
-//	@FXML private void handleOpen() {
-//		File file = FileChooserDialog.openCLDFile();
-//		if (file != null) { SaveLoad.loadProjectDataFromFile(file);	}
-//	}
+
 	@FXML private void handleOpen(){
 		File file = FileChooserDialog.openCIDFile();
 		if (file != null) {
 			SCL scl = SaveLoadObject.load(SCL.class, file);
-			if(scl!=null){
-//				SCL scl = SaveLoadObject.load(SCL.class, new File("Project.cid"));
-//				Optional.ofNullable(scl).ifPresent(ProjectController::setSCL);
-				ArrayList<IED> ieds = IEDExtractor.extractIEDList(scl);
-				ProjectController.updateTree(ieds);
+			if(scl!=null) {
+				ProjectController.setScl(scl);
+				Settings.lastCIDPath = file.getPath();
 			}
 			else{
 				AssistDialog.requestError("Ошибка", "Невозможно открыть SCL\nВерсия SCL отличается от 2006");
@@ -144,24 +146,35 @@ public class GUI extends AnchorPane{
 			}
 		}
 	}
+
 	@FXML private void handleSave() {
-		File projectFile = SaveLoad.getFilePath();
-		if (projectFile != null) { SaveLoad.saveProjectDataToFile(projectFile); }
-		else { handleSaveAs(); }
+		if(ProjectController.getCld()==null) { GUI.writeErrMessage("Нечего сохранять"); return; }
+		File cldFile = ProjectController.getFileCLD();
+		if (cldFile != null) SaveLoadObject.save(ProjectController.getFileCLD(), cldFile); else handleSaveAs();
 	}
+
 	@FXML public void handleSaveAs() {
+		if(ProjectController.getCld()==null) { GUI.writeErrMessage("Нечего сохранять"); return; }
 		File file = FileChooserDialog.saveCLDFile();
 		if (file != null) {
-			if (!file.getPath().endsWith(".cld")) { file = new File(file.getPath() + ".cld"); }
-			SaveLoad.saveProjectDataToFile(file);
+			String path = file.getParent();
+			String name = file.getName().replaceAll(".cld","");
+			File newDir = new File(path+"\\"+name); if(!newDir.exists()) newDir.mkdirs();
+
+			File newCIDFile = new File(path + "\\" + name + "\\" + name + ".cid");
+			File oldCIDFile = ProjectController.getFileCID();
+			try { Files.copy(oldCIDFile.toPath(), newCIDFile.toPath(), StandardCopyOption.REPLACE_EXISTING); } catch (IOException e) { e.printStackTrace();	}
+
+			File newCLDFile = new File(path + "\\" + name + "\\" + name + ".cld");
+			SaveLoadObject.save(ProjectController.getCld(), newCLDFile);
+
+			ProjectController.setFileCID(newCIDFile);
+			ProjectController.setFileCLD(newCLDFile);
 		}
 	}
-	@FXML private void switchInfo(){
-		InfoDialog.switchVisibility();
-	}
-	@FXML private void switchLibrary(){
-		LibraryDialog.switchVisibility();
-	}
+
+	@FXML private void switchInfo(){ InfoDialog.switchVisibility();	}
+	@FXML private void switchLibrary(){ LibraryDialog.switchVisibility(); }
 	@FXML private void minimize(){ stage.setIconified(true); }
 	@FXML private void maximize(){ stage.setMaximized(!stage.isMaximized()); }
 

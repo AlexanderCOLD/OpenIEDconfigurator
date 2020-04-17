@@ -10,17 +10,20 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>DifAClc</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_DifAClc</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Blk</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>in_Blk</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>HiSet</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_HiSet</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -31,12 +34,14 @@
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Op</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>out_Op</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>ACD</dataObjectName>
             <dataAttributeName>Str</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACD</cppObjectName>
+            <cppAttributeName>out_Str</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <settings>
-    <infoLayout>1872.0</infoLayout>
-    <infoLayout>200.6666819254557</infoLayout>
+    <infoLayout>1887.3333740234375</infoLayout>
+    <infoLayout>138.0</infoLayout>
     <infoLock>true</infoLock>
     <infoResolution>254.6666717529297</infoResolution>
     <infoResolution>291.3333435058594</infoResolution>
     <infoVisible>true</infoVisible>
-    <lastPath>C:\Users\Hols-\Desktop\IEDconfigurator\cid-icd</lastPath>
-    <libLayout>1891.3333740234375</libLayout>
-    <libLayout>503.3333536783854</libLayout>
+    <lastCIDPath>C:\Users\Hols-\eclipse-workspace\OpenIEDconfigurator\Project.cid</lastCIDPath>
+    <lastPath>C:\Users\Hols-\eclipse-workspace\OpenIEDconfigurator</lastPath>
+    <libLayout>1885.3333740234375</libLayout>
+    <libLayout>442.0</libLayout>
     <libLock>true</libLock>
     <libResolution>513.3333129882812</libResolution>
-    <libResolution>649.3333129882812</libResolution>
+    <libResolution>855.3333129882812</libResolution>
     <libVisible>true</libVisible>
-    <mainLayout>506.6666564941406</mainLayout>
-    <mainLayout>198.6666717529297</mainLayout>
-    <mainResolution>1360.0</mainResolution>
-    <mainResolution>962.6666870117188</mainResolution>
-    <spHdivide>0.8540983606557377</spHdivide>
-    <spVdivide>0.2334070796460177</spVdivide>
+    <mainLayout>327.3333435058594</mainLayout>
+    <mainLayout>84.66666412353516</mainLayout>
+    <mainResolution>1553.3333740234375</mainResolution>
+    <mainResolution>1211.3333740234375</mainResolution>
+    <spHdivide>0.8904639175257731</spHdivide>
+    <spVdivide>0.19657843770174305</spVdivide>
 </settings>

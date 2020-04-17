@@ -1,11 +1,19 @@
 package controllers;
 
 import application.GUI;
-import controllers.elements.GraphicNode;
+import controllers.graphicNode.GraphicNode;
+import controllers.graphicNode.GraphicNodeController;
+import controllers.link.Link;
+import controllers.link.LinkController;
+import iec61850.IED;
+import iec61850.LD;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.ListChangeListener;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -15,8 +23,9 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import tools.BiHashMap;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * @author Александр Холодов
@@ -27,29 +36,57 @@ import java.util.HashMap;
 public class PanelsController {
 
     private static TabPane tabPane;
-    private static HashMap<Tab, AnchorPane> allTabs = new HashMap<>();
+    private static final BiHashMap<Object, Tab> tabList = new BiHashMap<>();     // Вкладка и объект который ей соотвествует (LD)
+    private static final BiHashMap<Tab, AnchorPane> allTabs = new BiHashMap<>(); // Вкладка и панель которая в ней лежит
+
     private static AnchorPane selectedPanel;
     private static Tab selectedTab;
-    private static double scale = 1;
+
+    /**
+     * Создать вкладки в ссотвествие с листом объектов
+     * @param objectList
+     */
+    public static void createTabs(Object... objectList){
+        clearTabs();
+        for (Object object:objectList) createTab(object);
+    }
+
+    /**
+     * Создать вкладки при загрузке нового проекта
+     * @param iedList
+     */
+    public static void updateTabObjects(ArrayList<IED> iedList){
+        clearTabs();
+        for(IED ied:iedList) for(LD ld:ied.getLogicalDeviceList())
+            PanelsController.createTab(ld); // Добавляем вкладки
+    }
+
+    /**
+     * Создать одну вкладку
+     * @param object
+     */
+    public static void createTab(Object object){
+        if(tabList.contains(object)) { GUI.writeErrMessage("Вкладка существует"); return; }
+        Tab newTab = createNewTab(object.toString());
+        tabList.put(object, newTab);
+    }
 
     /**
      * Создать новую вкладку
      * @param name - Название
      */
-    public static void createTab(String name){
-        for(Tab tab: allTabs.keySet()) if(tab.getId().equals(name)) { GUI.writeErrMessage("Панель уже существует "+name); return; }
-
+    private static Tab createNewTab(String name){
         AnchorPane pane = new AnchorPane(); pane.setId(name);
         pane.setPrefHeight(2160); pane.setPrefWidth(3840);
         pane.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         pane.setStyle(" -fx-background-color: #ecf0f1;");
-        ProjectController.addPaneToListening(pane);
+        pane.getChildren().addListener(panelChangeListener);
         pane.setOnContextMenuRequested(e->{ ContextMenuController.showContextMenu(ContextMenuController.getMainContextMenu(), e); });
         pane.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{  ContextMenuController.hideContextMenu(); });
 
         pane.setStyle("-fx-border-color: -fx-first-color; -fx-background-color: -fx-fourth-color,\n" +
-                "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
-                "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
+                "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 5%, transparent 0%),\n" +
+                "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 5%, transparent 0%);");
 
         Tab tab = new Tab(name); tab.setId(name); tab.setClosable(false); allTabs.put(tab, pane); tabPane.getTabs().add(tab);
 
@@ -63,7 +100,7 @@ public class PanelsController {
 
         StackPane content = new StackPane(group); content.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null))); scrollPane.setContent(content);
         scrollPane.viewportBoundsProperty().addListener((observable, oldBounds, newBounds) -> {  content.setPrefSize(newBounds.getWidth(), newBounds.getHeight());  });
-        content.setStyle("-fx-background-color: linear-gradient(to bottom, #1b2938, #1b2938);");
+        content.setStyle("-fx-background-color: linear-gradient(to bottom, -fx-third-color, -fx-fourth-color);");
 
         content.setOnScroll(evt -> {
             if (evt.isControlDown()) {
@@ -84,7 +121,7 @@ public class PanelsController {
 
                 zoomTarget.setScaleX(zoomFactor * zoomTarget.getScaleX());
                 zoomTarget.setScaleY(zoomFactor * zoomTarget.getScaleY());
-                scale = 1/zoomTarget.getScaleX();
+                double scale = 1/zoomTarget.getScaleX();
                 GUI.getZoomLabel().setText((((double)Math.round(100/scale))/100)+"x");
                 scrollPane.layout(); // refresh ScrollPane scroll positions & content bounds
 
@@ -93,21 +130,51 @@ public class PanelsController {
                 scrollPane.setVvalue((valY + adjustment.getY()) / (groupBounds.getHeight() - viewportBounds.getHeight()));
             }
         });
+        return tab;
     }
 
-    public static GraphicNode createNode(Object userData){
-        GraphicNode node = new GraphicNode();
-        node.prepareHandlers();
-        node.setUserData(userData);
-        node.setDraggable(true);
-        selectedPanel.getChildren().add(node);
-        return node;
+    public static void clearTabs(){
+        for(AnchorPane pane:allTabs.valueSet()) pane.getChildren().removeListener(panelChangeListener);
+        tabPane.getTabs().clear();
+        allTabs.clear();
+        tabList.clear();
     }
 
-    public static void removeTab(String name){ for(Tab tab: allTabs.keySet()) if(tab.getId().equals(name)) { tabPane.getTabs().remove(tab); allTabs.remove(tab); return; } }
-    public static void clear(){ tabPane.getTabs().clear(); allTabs.clear();  }
+    /**
+     * Листнер который вызывается при добавлении/удалении графических элементов
+     * Изменяет содержимое graphicNodes и connections (List)
+     */
+    private static final ListChangeListener<Node> panelChangeListener = c ->{
+        c.next();
+        if(c.wasAdded()) for(Node node:c.getAddedSubList()){
+            if(node.getClass()== GraphicNode.class) GraphicNodeController.getActiveNodeList().put( node.getUserData(),(GraphicNode) node);
+            else if(node.getClass()== Link.class) LinkController.getConnections().add((Link)node);
+        }
+        if(c.wasRemoved()) for(Node node:c.getRemoved()){
+            if(node.getClass()== GraphicNode.class) GraphicNodeController.getActiveNodeList().removeByValue((GraphicNode) node);
+            else if(node.getClass()==Link.class) LinkController.getConnections().remove(node);
+        }
+    };
+
+    /**
+     * Листнер который вызывается при изменении активной вкладки
+     */
+    private static final ChangeListener<Tab> tabChangeListener = (o, ov, tabSelection) -> {
+        selectedTab = tabSelection;
+        selectedPanel = allTabs.getValue(tabSelection);
+        System.out.println("Tab changed: " + selectedTab);
+    };
+
+    /**
+     * Перейти на вкладку содержищую объект (LD)
+     * @param object
+     */
+    public static void setSelectedObject(Object object){
+        if(object==null) return;
+        Tab selection = tabList.getValue(object);
+        if(selection!=null && selectedTab != selection) tabPane.getSelectionModel().select(selection);
+    }
 
     public static AnchorPane getSelectedPanel() { return selectedPanel; }
-    public static void setTabPane(TabPane tabPane) { PanelsController.tabPane = tabPane; PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> { selectedTab = nv; selectedPanel = allTabs.get(nv); } );  }
-    public static double getScale() { return scale; }
+    public static void setTabPane(TabPane tabPane) { PanelsController.tabPane = tabPane; PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener(tabChangeListener); }
 }

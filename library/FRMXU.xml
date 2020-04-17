@@ -10,22 +10,26 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>PhV</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_PhV</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_A</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrVal1</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrVal1</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>StrVal2</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_StrVal2</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -36,7 +40,8 @@
         <DO>
             <dataObjectName>MV</dataObjectName>
             <dataAttributeName>Hz</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_MV</cppObjectName>
+            <cppAttributeName>out_Hz</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

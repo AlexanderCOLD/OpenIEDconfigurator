@@ -10,32 +10,38 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>DifAClc</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_DifAClc</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Blk</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>in_Blk</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>UnbAlmLev</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_UnbAlmLev</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>UnbBlkLev</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_UnbBlkLev</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>AlmD1Tmms</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_AlmD1Tmms</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>BlkD1Tmms</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_BlkD1Tmms</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -46,12 +52,14 @@
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>BlkOp</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>out_BlkOp</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>SPS</dataObjectName>
             <dataAttributeName>Alm</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_SPS</cppObjectName>
+            <cppAttributeName>out_Alm</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>

@@ -43,10 +43,9 @@ public class InfoDialog extends AnchorPane {
     private double localX, localY; // координаты относительно главного окна
     private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
     private ChangeListener<? super Number> xListener, yListener;
-    private Stage stage = new Stage();
-    private Scene scene = new Scene(this);
-    private TableColumn<TableObject, String> name, value;
-    private ArrayList<TableObject> listObject = new ArrayList<>();
+    private final Stage stage = new Stage();
+    private final Scene scene = new Scene(this);
+    private final ArrayList<TableObject> listObject = new ArrayList<>();
 
     public InfoDialog() { self = this; initializeDialog(); }
 
@@ -69,14 +68,15 @@ public class InfoDialog extends AnchorPane {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.initOwner(GUI.getStage());
+        scene.getStylesheets().add("view/CSS/" + GUI.colorStyle + ".css");
         scene.getStylesheets().add("view/CSS/stylesheet.css");
         ResizeController.addStage(stage);
         initializeTable();
     }
 
     private void initializeTable(){
-        name = new TableColumn<>("Название");
-        value = new TableColumn<>("Значение");
+        TableColumn<TableObject, String> name = new TableColumn<>("Название");
+        TableColumn<TableObject, String> value = new TableColumn<>("Значение");
         tableView.getColumns().addAll(name, value);
 
         name.setCellValueFactory(new PropertyValueFactory<>("name"));

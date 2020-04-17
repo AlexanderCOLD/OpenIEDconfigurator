@@ -10,57 +10,68 @@
         <DO>
             <dataObjectName>WYE</dataObjectName>
             <dataAttributeName>A</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_WYE</cppObjectName>
+            <cppAttributeName>in_A</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>HWYE</dataObjectName>
             <dataAttributeName>HA</dataAttributeName>
-            <cppPrefix>in</cppPrefix>
+            <cppObjectName>iec_HWYE</cppObjectName>
+            <cppAttributeName>in_HA</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>PhStp</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_PhStp</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>PhStr</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_PhStr</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>uint8_T</dataObjectName>
             <dataAttributeName>NumHar</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>uint8_T</cppObjectName>
+            <cppAttributeName>set_NumHar</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>real32_T</dataObjectName>
             <dataAttributeName>HLev</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>real32_T</cppObjectName>
+            <cppAttributeName>set_HLev</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>boolean_T</dataObjectName>
             <dataAttributeName>HMod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>boolean_T</cppObjectName>
+            <cppAttributeName>set_HMod</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>RsDITmms</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_RsDITmms</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>uint8_T</dataObjectName>
             <dataAttributeName>OpMod</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>uint8_T</cppObjectName>
+            <cppAttributeName>set_OpMod</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>Ha2Tmms</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_Ha2Tmms</cppAttributeName>
         </DO>
         <DO>
             <dataObjectName>int32_T</dataObjectName>
             <dataAttributeName>OpDITmms</dataAttributeName>
-            <cppPrefix>set</cppPrefix>
+            <cppObjectName>int32_T</cppObjectName>
+            <cppAttributeName>set_OpDITmms</cppAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -71,7 +82,8 @@
         <DO>
             <dataObjectName>ACT</dataObjectName>
             <dataAttributeName>Op</dataAttributeName>
-            <cppPrefix>out</cppPrefix>
+            <cppObjectName>iec_ACT</cppObjectName>
+            <cppAttributeName>out_Op</cppAttributeName>
         </DO>
     </dataSetOutput>
 </LN>
