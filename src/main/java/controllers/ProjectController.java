@@ -6,6 +6,7 @@ import controllers.tree.TreeController;
 import iec61850.CLD;
 import iec61850.IED;
 import iec61850.IEDExtractor;
+import iec61850.LN;
 import iec61850.objects.SCL;
 import tools.Settings;
 import java.io.File;
@@ -37,6 +38,15 @@ public class ProjectController {
         GraphicNodeController.updateNodeObjects(cld.getIedList()); // Создаем граф. элементы
     }
 
+    /**
+     * Добавить новый элемент при добавлении граф. элемента из библиотеки
+     * @param object
+     */
+    public static void addObjectToProject(Object object){
+        if(object.getClass()== LN.class){
+
+        }
+    }
 
     /**
      * Задает активный элемент

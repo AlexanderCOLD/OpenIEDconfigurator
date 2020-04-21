@@ -15,7 +15,7 @@ import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
-import tools.BiHashMap;
+import tools.ArrayMap;
 
 /**
  * @author Александр Холодов
@@ -28,8 +28,8 @@ public class DragTreeController {
 	private static DragTreeController self;
 	private static TreeView tree;
 	private GraphicNode currentGraphicNode;
-	private final BiHashMap<Object, GraphicNode> graphicNodeList = new BiHashMap<>(); // key = Icon, value = shadowIcon
-	private EventHandler<DragEvent> dragOverGUI, dragDroppedToProject, dragDone;
+	private final ArrayMap<Object, GraphicNode> graphicNodeList = new ArrayMap<>(); // key = Icon, value = shadowIcon
+	private EventHandler<DragEvent> dragOverGUI, dragDropped, dragDone;
 	private final ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}};;
 
 	public DragTreeController(){ buildDragHandlers(); }
@@ -50,12 +50,12 @@ public class DragTreeController {
 				currentGraphicNode = GraphicNodeController.getProjectNodeList().getValue(object);
 				if(currentGraphicNode.getParent() == null){
 
-					GUI.get().addEventFilter(DragEvent.DRAG_OVER, dragOverGUI); 			// Перемещение над GUI
-					GUI.get().addEventFilter(DragEvent.DRAG_DROPPED, dragDroppedToProject); // Если иконка брошена в текущую панель
-//					GUI.get().addEventFilter(DragEvent.DRAG_DONE, dragDone); 				// Окончание перемещения
+					GUI.get().addEventHandler(DragEvent.DRAG_OVER, dragOverGUI);    // Перемещение над GUI
+					GUI.get().addEventHandler(DragEvent.DRAG_DROPPED, dragDropped); // Иконка брошена
+					GUI.get().addEventHandler(DragEvent.DRAG_DONE, dragDone);       // После перемещения
 
 					GUI.get().getChildren().add(currentGraphicNode);
-					currentGraphicNode.startDragAndDrop(TransferMode.COPY).setContent(content);
+					currentGraphicNode.startDragAndDrop(TransferMode.ANY).setContent(content);
 					currentGraphicNode.setOpacity(0.3);
 					currentGraphicNode.relocate(e.getSceneX(), e.getSceneY());
 					currentGraphicNode.setMouseTransparent(true);
@@ -74,22 +74,13 @@ public class DragTreeController {
 	private void buildDragHandlers() {
 
 		/* Перемещение над главным окном GUI */
-		dragOverGUI = e -> {
-			Point2D point = GUI.get().getTabPane().sceneToLocal(e.getSceneX(), e.getSceneY());
+		dragOverGUI = e -> { e.acceptTransferModes(TransferMode.ANY); currentGraphicNode.relocate(e.getSceneX() - 50, e.getSceneY() - 10); e.consume(); };
 
-			if(point.getY() > 0 && point.getY() < GUI.get().getTabPane().getHeight()-35){
-				currentGraphicNode.setVisible(true);
-				e.acceptTransferModes(TransferMode.COPY);
-				currentGraphicNode.relocate(e.getSceneX() - 50, e.getSceneY() - 10);
-			}
-			else currentGraphicNode.setVisible(false);
-			e.consume();
-		};
+		/* Элемент брошен */
+		dragDropped = e -> {
+			removeHandlers();
 
-		/* Элемент брошен в проект */
-		dragDroppedToProject = e -> {
 			Point2D point = GUI.get().getTabPane().sceneToLocal(e.getSceneX(), e.getSceneY());
-			currentGraphicNode.setVisible(true);
 
 			/* Если брошен над активной панелью */
 			if((point.getX() > 0 && point.getX() < GUI.get().getTabPane().getWidth()) && (point.getY() > 0 && point.getY() < GUI.get().getTabPane().getHeight()-35)){
@@ -100,32 +91,26 @@ public class DragTreeController {
 				currentGraphicNode.setOpacity(1.0);
 				currentGraphicNode.toFront();
 				currentGraphicNode.updateGrid();
-				GraphicNodeController.addHandlers(currentGraphicNode);
+				currentGraphicNode.setMouseTransparent(false);
 			}
-			else{ Pane pane = (Pane) currentGraphicNode.getParent(); if(pane != null) pane.getChildren().remove(currentGraphicNode); }
-
-			System.out.println("Ивенты удалены");
-			GUI.get().removeEventFilter(DragEvent.DRAG_OVER, dragOverGUI); 			   // Перемещение над GUI
-			GUI.get().removeEventFilter(DragEvent.DRAG_DROPPED, dragDroppedToProject); // Если иконка брошена в текущую панель
-			GUI.get().removeEventFilter(DragEvent.DRAG_DONE, dragDone); 			   // Окончание перемещения
-
 			currentGraphicNode = null;
 			e.setDropCompleted(true);
 			e.consume();
 		};
 
-
-		/* Когда перетаскивание закончено - удаляем все обработчики */
-		dragDone = e -> {
-//			System.out.println("DONE");
-//			GUI.get().removeEventFilter(DragEvent.DRAG_OVER, dragOverGUI); 			   // Перемещение над GUI
-//			GUI.get().removeEventFilter(DragEvent.DRAG_DROPPED, dragDroppedToProject); // Если иконка брошена в текущую панель
-//			GUI.get().removeEventFilter(DragEvent.DRAG_DONE, dragDone); 			   // Окончание перемещения
-//			e.consume();
-		};
-
+		/* После окончания перемещения */
+		dragDone = e->{ removeHandlers(); e.consume(); };
 	}
 
+	/**
+	 * Удалить обработчики после перемещения
+	 */
+	private void removeHandlers(){
+		if(currentGraphicNode!=null) { Pane parent = (Pane) currentGraphicNode.getParent();	if(parent != PanelsController.getSelectedPanel()) parent.getChildren().remove(currentGraphicNode); }
+		GUI.get().removeEventHandler(DragEvent.DRAG_OVER, dragOverGUI);
+		GUI.get().removeEventHandler(DragEvent.DRAG_DROPPED, dragDropped);
+		GUI.get().removeEventHandler(DragEvent.DRAG_DROPPED, dragDone);
+	}
 
 	public static DragTreeController get(){ if(self==null) self = new DragTreeController(); return self; }
 }

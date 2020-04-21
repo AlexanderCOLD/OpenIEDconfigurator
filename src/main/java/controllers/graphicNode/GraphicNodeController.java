@@ -9,7 +9,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
-import tools.BiHashMap;
+import tools.ArrayMap;
 import tools.SaveLoadObject;
 
 import java.io.File;
@@ -22,11 +22,10 @@ import java.util.Optional;
  * @project OpenIEDconfigurator
  * @description - Контроллер с обработчиками графического элемента
  */
-
 public class GraphicNodeController {
 
-    private static final BiHashMap<Object, GraphicNode> projectNodeList = new BiHashMap<>(); // Граф. элементы созданные при загрузке CID
-    private static final BiHashMap<Object, GraphicNode> activeNodeList = new BiHashMap<>(); // Лист с текущими графическими элементами (Во всех вкладках) (Брошенные в проект)
+    private static final ArrayMap<Object, GraphicNode> projectNodeList = new ArrayMap<>(); // Граф. элементы созданные при загрузке CID
+    private static final ArrayMap<Object, GraphicNode> activeNodeList = new ArrayMap<>(); // Лист с текущими графическими элементами (Во всех вкладках) (Брошенные в проект)
     private static ArrayList<LN> templateList;
 
     private static GraphicNode selectedGraphicNode; // Активный граф. элемент
@@ -41,9 +40,7 @@ public class GraphicNodeController {
     private static final ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}}; // для обработчиков
 
     /**
-     * Создать графический элемент,
-     * поместить в него Object
-     * привязать обработчики
+     * Создает графический элемент, добавляет обработчики (Drag/mouse)
      *
      * @param userData - объект
      * @return - графический элемент
@@ -63,8 +60,8 @@ public class GraphicNodeController {
      */
     public static void updateNodeObjects(ArrayList<IED> iedList) {
         if(dragDetected==null) initialize();
-        for (GraphicNode node:activeNodeList.valueSet()) { removeHandlers(node); for(Connector connector:node.getConnectors()) LinkController.removeConnectorHandlers(connector); }
-        for (GraphicNode node:projectNodeList.valueSet()) { removeHandlers(node); for(Connector connector:node.getConnectors()) LinkController.removeConnectorHandlers(connector); }
+        for (GraphicNode node:activeNodeList.values()) { removeHandlers(node); for(Connector connector:node.getConnectors()) LinkController.removeConnectorHandlers(connector); }
+        for (GraphicNode node:projectNodeList.values()) { removeHandlers(node); for(Connector connector:node.getConnectors()) LinkController.removeConnectorHandlers(connector); }
         activeNodeList.clear();
         projectNodeList.clear();
 
@@ -74,9 +71,7 @@ public class GraphicNodeController {
             for(DS ds:ld.getGooseOutputDS()) projectNodeList.put(ds, createGraphicNode(ds));
             for(DS ds:ld.getGooseInputDS()) projectNodeList.put(ds, createGraphicNode(ds));
             for(DS ds:ld.getMmsOutputDS()) projectNodeList.put(ds, createGraphicNode(ds));
-            for(LN ln:ld.getLogicalNodeList()) {
-                fillByTemplate(ln);
-                projectNodeList.put(ln, createGraphicNode(ln)); }
+            for(LN ln:ld.getLogicalNodeList()) { fillByTemplate(ln); projectNodeList.put(ln, createGraphicNode(ln)); }
         }
     }
 
@@ -94,10 +89,8 @@ public class GraphicNodeController {
      * @param ln
      */
     private static void fillByTemplate(LN ln){
-        boolean templateFound = false;
         for(LN lnTemplate:templateList){
-            if(lnTemplate.getClassType().contains(ln.getClassType())){
-                templateFound = true;
+            if(lnTemplate.getClassType().equals(ln.getClassType())){
                 DS templateDSInput = lnTemplate.getDataSetInput(), templateDSOutput = lnTemplate.getDataSetOutput();
                 DS dsInput = ln.getDataSetInput(), dsOutput = ln.getDataSetOutput();
 
@@ -128,9 +121,11 @@ public class GraphicNodeController {
                     dataObject.setCppObjectName(doTemplate.getCppObjectName());
                     dsOutput.getDataObject().add(dataObject);
                 }
+
+                return;
             }
         }
-        if(!templateFound) GUI.writeErrMessage("Реализация для узла " + ln.getClassType() + " не найдена");
+        GUI.writeErrMessage("Реализация для узла " + ln.getClassType() + " не найдена");
     }
 
     /**
@@ -143,17 +138,13 @@ public class GraphicNodeController {
     private static void initialize() {
 
         /* Выделить активный элемент в проекте при нажатии мышкой */
-        mouseClicked = e-> {
-            System.out.println("MOUSE CLICKED");
-            ProjectController.setSelectedObject(((GraphicNode) e.getSource()).getUserData());
-        };
+        mouseClicked = e-> { ((GraphicNode) e.getSource()).toFront(); ProjectController.setSelectedObject(((GraphicNode) e.getSource()).getUserData()); };
 
-        /**
-         * Начало перемещения элемента
-         */
+        /* Начало перемещения элемента */
         dragDetected = e->{
             offsetX = e.getX(); offsetY = e.getY();
             graphicNode = (GraphicNode) e.getSource();
+            graphicNode.toFront();
             ProjectController.setSelectedObject(graphicNode.getUserData());
 
             if(offsetY<20 && !GUI.isCtrl()){
@@ -164,18 +155,14 @@ public class GraphicNodeController {
             e.consume();
         };
 
-        /**
-         * Перемещение элемента
-         */
+        /* Перемещение элемента */
         dragEvent = e->{
             graphicNode.relocate(e.getX() - offsetX, e.getY() - offsetY);
             e.acceptTransferModes(TransferMode.ANY);
             e.consume();
         };
 
-        /**
-         * Перемещение закончено
-         */
+        /* Перемещение закончено */
         dragDone = e->{
             Pane pane = (Pane) e.getSource();
             GraphicNode node = (GraphicNode) e.getTarget();
@@ -191,7 +178,7 @@ public class GraphicNodeController {
         if(!nodeList.contains(node)){
             nodeList.add(node);
             node.addEventHandler(MouseEvent.DRAG_DETECTED, dragDetected);
-            node.addEventFilter(MouseEvent.MOUSE_CLICKED, mouseClicked);
+            node.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseClicked);
         }
     }
 
@@ -215,6 +202,6 @@ public class GraphicNodeController {
         }
     }
 
-    public static BiHashMap<Object, GraphicNode> getActiveNodeList() { return activeNodeList; }
-    public static BiHashMap<Object, GraphicNode> getProjectNodeList() { return projectNodeList; }
+    public static ArrayMap<Object, GraphicNode> getActiveNodeList() { return activeNodeList; }
+    public static ArrayMap<Object, GraphicNode> getProjectNodeList() { return projectNodeList; }
 }

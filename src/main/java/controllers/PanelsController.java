@@ -5,6 +5,7 @@ import controllers.graphicNode.GraphicNode;
 import controllers.graphicNode.GraphicNodeController;
 import controllers.link.Link;
 import controllers.link.LinkController;
+import controllers.tree.TreeController;
 import iec61850.IED;
 import iec61850.LD;
 import javafx.beans.value.ChangeListener;
@@ -23,7 +24,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import tools.BiHashMap;
+import tools.ArrayMap;
 
 import java.util.ArrayList;
 
@@ -36,8 +37,8 @@ import java.util.ArrayList;
 public class PanelsController {
 
     private static TabPane tabPane;
-    private static final BiHashMap<Object, Tab> tabList = new BiHashMap<>();     // Вкладка и объект который ей соотвествует (LD)
-    private static final BiHashMap<Tab, AnchorPane> allTabs = new BiHashMap<>(); // Вкладка и панель которая в ней лежит
+    private static final ArrayMap<Object, Tab> tabList = new ArrayMap<>();     // Вкладка и объект который ей соотвествует (LD)
+    private static final ArrayMap<Tab, AnchorPane> allTabs = new ArrayMap<>(); // Вкладка и панель которая в ней лежит
 
     private static AnchorPane selectedPanel;
     private static Tab selectedTab;
@@ -67,7 +68,7 @@ public class PanelsController {
      */
     public static void createTab(Object object){
         if(tabList.contains(object)) { GUI.writeErrMessage("Вкладка существует"); return; }
-        Tab newTab = createNewTab(object.toString());
+        Tab newTab = createNewTab(object.toString()); newTab.setUserData(object);
         tabList.put(object, newTab);
     }
 
@@ -134,7 +135,7 @@ public class PanelsController {
     }
 
     public static void clearTabs(){
-        for(AnchorPane pane:allTabs.valueSet()) pane.getChildren().removeListener(panelChangeListener);
+        for(AnchorPane pane:allTabs.values()) pane.getChildren().removeListener(panelChangeListener);
         tabPane.getTabs().clear();
         allTabs.clear();
         tabList.clear();
@@ -147,12 +148,12 @@ public class PanelsController {
     private static final ListChangeListener<Node> panelChangeListener = c ->{
         c.next();
         if(c.wasAdded()) for(Node node:c.getAddedSubList()){
-            if(node.getClass()== GraphicNode.class) GraphicNodeController.getActiveNodeList().put( node.getUserData(),(GraphicNode) node);
-            else if(node.getClass()== Link.class) LinkController.getConnections().add((Link)node);
+            if(node.getClass()== GraphicNode.class) { GraphicNodeController.getActiveNodeList().put( node.getUserData(),(GraphicNode) node); TreeController.graphicNodeAdded(node.getUserData()); }
+            else if(node.getClass() == Link.class) LinkController.getConnections().add((Link)node);
         }
         if(c.wasRemoved()) for(Node node:c.getRemoved()){
-            if(node.getClass()== GraphicNode.class) GraphicNodeController.getActiveNodeList().removeByValue((GraphicNode) node);
-            else if(node.getClass()==Link.class) LinkController.getConnections().remove(node);
+            if(node.getClass() == GraphicNode.class) { GraphicNodeController.getActiveNodeList().removeByValue((GraphicNode) node); TreeController.graphicNodeRemoved(node.getUserData()); }
+            else if(node.getClass() == Link.class) LinkController.getConnections().remove(node);
         }
     };
 
@@ -162,7 +163,6 @@ public class PanelsController {
     private static final ChangeListener<Tab> tabChangeListener = (o, ov, tabSelection) -> {
         selectedTab = tabSelection;
         selectedPanel = allTabs.getValue(tabSelection);
-        System.out.println("Tab changed: " + selectedTab);
     };
 
     /**

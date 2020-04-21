@@ -36,14 +36,17 @@ public class LinkController {
 
 			if(sourceGraphicNode != targetGraphicNode) {
 				if(isOutput2Input()){
-					if(!connectionExists()) {
-						Link link = new Link();
-						link.setSourceConnector(tempLink.getSourceConnector());
-						link.setTargetConnector(tempLink.getTargetConnector());
-						PanelsController.getSelectedPanel().getChildren().add(link);
-						link.createConnection();
+					if(isEqualType()){
+						if(!connectionExists()) {
+							Link link = new Link();
+							link.setSourceConnector(tempLink.getSourceConnector());
+							link.setTargetConnector(tempLink.getTargetConnector());
+							PanelsController.getSelectedPanel().getChildren().add(link);
+							link.createConnection();
+						}
+						else GUI.writeMessage("Connection already exists");
 					}
-					else GUI.writeMessage("Connection already exists");
+					else GUI.writeErrMessage("Different DO types");
 				}
 				else GUI.writeErrMessage("Please connect only outputs to input connectors");
 			}
@@ -66,10 +69,24 @@ public class LinkController {
 		return false;
 	}
 
+	/**
+	 * Проверка совдинения "вход на выход"
+	 * @return
+	 */
 	private static boolean isOutput2Input(){
 		ConnectorType sourceType = tempLink.getSourceConnector().getConnectorType();
 		ConnectorType targetType = tempLink.getTargetConnector().getConnectorType();
 		return sourceType!=targetType;
+	}
+
+	/**
+	 * Проверка типов по концам
+	 * @return
+	 */
+	private static boolean isEqualType(){
+		String sourceDOName = tempLink.getSourceConnector().getDataObject().getDataObjectName();
+		String targetDOName = tempLink.getTargetConnector().getDataObject().getDataObjectName();
+		return sourceDOName.equals(targetDOName);
 	}
 
 	/**
@@ -118,10 +135,10 @@ public class LinkController {
 	public static void addConnectorHandlers(Connector connector){
 		if(linkDragDetected==null) initialize();
 		if(!connectorList.contains(connector)){
-			connector.addEventFilter(MouseEvent.DRAG_DETECTED, linkDragDetected);
-			connector.addEventFilter(DragEvent.DRAG_DROPPED, linkDragDropped);
-			connector.addEventFilter(MouseEvent.MOUSE_ENTERED, connectorMouseEntered);
-			connector.addEventFilter(MouseEvent.MOUSE_EXITED, connectorMouseExited);
+			connector.addEventHandler(MouseEvent.DRAG_DETECTED, linkDragDetected);
+			connector.addEventHandler(DragEvent.DRAG_DROPPED, linkDragDropped);
+			connector.addEventHandler(MouseEvent.MOUSE_ENTERED, connectorMouseEntered);
+			connector.addEventHandler(MouseEvent.MOUSE_EXITED, connectorMouseExited);
 			connector.addEventHandler(DragEvent.DRAG_ENTERED, connectorDragMouseEntered);
 			connector.addEventHandler(DragEvent.DRAG_EXITED, connectorDragMouseExited);
 			connectorList.add(connector);
@@ -131,12 +148,12 @@ public class LinkController {
 	public static void removeConnectorHandlers(Connector connector){
 		if(linkDragDetected==null) initialize();
 		if(connectorList.contains(connector)){
-			connector.removeEventFilter(MouseEvent.DRAG_DETECTED, linkDragDetected);
-			connector.removeEventFilter(DragEvent.DRAG_DROPPED, linkDragDropped);
-			connector.removeEventFilter(MouseEvent.MOUSE_ENTERED, connectorMouseEntered);
-			connector.removeEventFilter(MouseEvent.MOUSE_EXITED, connectorMouseExited);
-			connector.removeEventFilter(DragEvent.DRAG_ENTERED, connectorDragMouseEntered);
-			connector.removeEventFilter(DragEvent.DRAG_EXITED, connectorDragMouseExited);
+			connector.removeEventHandler(MouseEvent.DRAG_DETECTED, linkDragDetected);
+			connector.removeEventHandler(DragEvent.DRAG_DROPPED, linkDragDropped);
+			connector.removeEventHandler(MouseEvent.MOUSE_ENTERED, connectorMouseEntered);
+			connector.removeEventHandler(MouseEvent.MOUSE_EXITED, connectorMouseExited);
+			connector.removeEventHandler(DragEvent.DRAG_ENTERED, connectorDragMouseEntered);
+			connector.removeEventHandler(DragEvent.DRAG_EXITED, connectorDragMouseExited);
 			connectorList.remove(connector);
 		}
 	}
@@ -208,7 +225,6 @@ public class LinkController {
 			LinkController.hideTemporaryLink();
 			e.consume();
 		};
-
 	}
 
 

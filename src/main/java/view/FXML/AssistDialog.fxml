@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="150.0" prefWidth="300.0" style="-fx-border-color: -fx-first-color;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="150.0" prefWidth="450.0" style="-fx-border-color: -fx-first-color;" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Accordion fx:id="accord" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <panes>
@@ -21,7 +21,7 @@
                      <center>
                         <AnchorPane prefHeight="46.0" prefWidth="280.0" style="-fx-background-color: -fx-third-color;" BorderPane.alignment="CENTER">
                            <children>
-                              <TextArea fx:id="textArea" prefHeight="52.0" prefWidth="245.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                              <TextArea fx:id="textArea" prefHeight="52.0" prefWidth="245.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="48.66666666666666" AnchorPane.topAnchor="10.0" />
                               <Label fx:id="textInfo" alignment="CENTER" layoutX="14.0" layoutY="30.0" text="Label" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
                                  <font>
                                     <Font size="14.0" />

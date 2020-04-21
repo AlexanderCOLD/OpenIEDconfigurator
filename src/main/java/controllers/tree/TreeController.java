@@ -8,9 +8,12 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import tools.BiHashMap;
+import javafx.scene.paint.Color;
+import tools.ArrayMap;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
@@ -26,7 +29,7 @@ public class TreeController {
     private static TreeItem<Object> root = new TreeItem<>("Project");
     private static Image iedIcon, ldIcon, lnIcon, dsIcon, doIcon;
 
-    private static final BiHashMap<Object, TreeItem<Object>> treeList = new BiHashMap<>(); // Ветки и их объекты
+    private static final ArrayMap<Object, TreeItem<Object>> treeList = new ArrayMap<>(); // Ветки и их объекты
 
     private static Object selectedItem; // for dragging
     private static Object selectedObject; // selected LN/DS
@@ -76,6 +79,7 @@ public class TreeController {
         tree.setRoot(root);
         root.setExpanded(true);
         ImageView rootIcon = new ImageView(new Image(Main.class.getResource("/view/image/Icon.png").toString())); rootIcon.setFitWidth(20); rootIcon.setFitHeight(20);
+        rootIcon.setEffect(new DropShadow( 10, Color.AQUA ));
         root.setGraphic(new Label("Project", rootIcon));
         if(iedIcon==null) initialize();
 
@@ -97,11 +101,11 @@ public class TreeController {
      */
     private static TreeItem<Object> createTreeItem(Object object){
         ImageView image = null;
+        if(object.getClass()==LN.class) image = new ImageView(lnIcon){{ setEffect(new DropShadow( 10, Color.RED )); }};
+        if(object.getClass()==DS.class) image = new ImageView(dsIcon){{ setEffect(new DropShadow( 10, Color.RED )); }};
+        if(object.getClass()==LD.class) image = new ImageView(ldIcon){{ setEffect(new DropShadow( 10, Color.AQUA )); }};
+        if(object.getClass()==IED.class) image = new ImageView(iedIcon){{ setEffect(new DropShadow( 10, Color.AQUA )); }};
         if(object.getClass()==DO.class) image = new ImageView(doIcon);
-        if(object.getClass()==LN.class) image = new ImageView(lnIcon);
-        if(object.getClass()==DS.class) image = new ImageView(dsIcon);
-        if(object.getClass()==LD.class) image = new ImageView(ldIcon);
-        if(object.getClass()==IED.class) image = new ImageView(iedIcon);
         image.setFitWidth(20); image.setFitHeight(20);
         TreeItem<Object> item = new TreeItem(object, image); item.setExpanded(true);
         treeList.put(object, item);
@@ -121,14 +125,12 @@ public class TreeController {
 
             Platform.runLater(() -> tree.getSelectionModel().select(treeList.getValue(selectedObject)));
 
-            System.out.println("");
-            System.out.println(" selectedObject: " + selectedObject);
-            System.out.println(" selectedIED: " + selectedIED);
-            System.out.println(" selectedLD: " + selectedLD);
-            System.out.println(" selectedLN: " + selectedLN);
-            System.out.println(" selectedDS: " + selectedDS);
-            System.out.println(" Tree List:   " + treeList + "   SIZE: " + treeList.size());
-//            for(Object object:treeList.keySet()){ System.out.println("Last hash of: "+ object + " hash: " + object.hashCode()); }
+//            System.out.println("");
+//            System.out.println(" selectedObject: " + selectedObject);
+//            System.out.println(" selectedIED: " + selectedIED);
+//            System.out.println(" selectedLD: " + selectedLD);
+//            System.out.println(" selectedLN: " + selectedLN);
+//            System.out.println(" selectedDS: " + selectedDS);
 
         }
     }
@@ -151,6 +153,15 @@ public class TreeController {
         }
         return null;
     }
+
+    /**
+     * Элемент добавлен на панель
+     */
+    public static void graphicNodeAdded(Object object){ TreeItem<Object> item = treeList.getValue(object); if(item!=null) item.getGraphic().setEffect(new DropShadow( 10, Color.AQUA )); }
+    /**
+     * Элемент удален с панели
+     */
+    public static void graphicNodeRemoved(Object object){ TreeItem<Object> item = treeList.getValue(object); if(item!=null) item.getGraphic().setEffect(new DropShadow( 10, Color.RED )); }
 
     /**
      * Индекс ветки

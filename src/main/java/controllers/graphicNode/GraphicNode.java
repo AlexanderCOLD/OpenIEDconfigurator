@@ -16,10 +16,11 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
@@ -35,7 +36,9 @@ public class GraphicNode extends AnchorPane {
     @FXML private AnchorPane mainPanel;
 
     private static final String selectedStyle = "-fx-background-color: -fx-second-color; -fx-border-color: #dc4b48; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2";
-    private static final String unselectedStyle = "-fx-background-color: -fx-second-color; -fx-border-color: -fx-first-color; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 1.5";
+    private static final String style = "-fx-background-color: -fx-second-color; -fx-border-color: -fx-first-color; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 1.5";
+    private static final DropShadow selectedShadow = new DropShadow( BlurType.ONE_PASS_BOX, Color.RED, 10, 0.0, 0, 0);
+    private static final DropShadow shadow = new DropShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0,0.8), 15, 0.0, 0, 0);
 
     private final ContextMenu contextMenu = new ContextMenu();
 
@@ -59,7 +62,8 @@ public class GraphicNode extends AnchorPane {
         fxmlLoader.setController(this);
         try { fxmlLoader.load(); } catch (IOException exception) { throw new RuntimeException(exception); }
         setId(UUID.randomUUID().toString());
-        setStyle(unselectedStyle);
+        setStyle(style);
+        setEffect(shadow);
     }
 
     /**
@@ -73,7 +77,6 @@ public class GraphicNode extends AnchorPane {
         setMaxHeight(100);
         mainPanel.getChildren().clear();
         mainPanel.setStyle("-fx-background-color: -fx-third-color");
-
 
         if(value.getClass()==LN.class){
             LN ln = (LN) value;
@@ -94,15 +97,18 @@ public class GraphicNode extends AnchorPane {
 
                 if(inputDOList.size()>0){
                     DO inputDO = inputDOList.get(0); inputDOList.remove(0);
-                    borderPane.setLeft(createLNConnector(ln.getDataSetInput(), inputDO, ConnectorType.inputConnector, ConnectorType.inputConnector));
+                    Connector connector = new Connector(this, inputDO, ln.getDataSetInput(), ConnectorType.inputConnector, ConnectorPosition.left);
+                    borderPane.setLeft(connector.getConnectorPane());
+                    connectors.add(connector);
                 }
                 if(outputDOList.size()>0){
                     DO outputDO = outputDOList.get(0); outputDOList.remove(0);
-                    borderPane.setRight(createLNConnector(ln.getDataSetOutput(), outputDO, ConnectorType.outputConnector, ConnectorType.outputConnector));
+                    Connector connector = new Connector(this, outputDO, ln.getDataSetOutput(), ConnectorType.outputConnector, ConnectorPosition.right);
+                    borderPane.setRight(connector.getConnectorPane());
+                    connectors.add(connector);
                 }
 
             }
-            title_bar.setText(ln.getName());
         }
         else if(value.getClass()==DS.class){
             DS ds = (DS) value;
@@ -117,48 +123,24 @@ public class GraphicNode extends AnchorPane {
 //                borderPane.setStyle("-fx-border-color: RED; -fx-border-width: 1");
 
                 if(ds.getType() == DSType.GOOSE_Output || ds.getType() == DSType.MMS_Output) {
-                    borderPane.setLeft(createLNConnector(ds, ds.getDataObject().get(i), ConnectorType.outputConnector, ConnectorType.inputConnector));
+                    Connector connector = new Connector(this, ds.getDataObject().get(i), ds, ConnectorType.inputConnector, ConnectorPosition.left);
+                    borderPane.setLeft(connector.getConnectorPane());
+                    connectors.add(connector);
                 }
                 else if(ds.getType() == DSType.GOOSE_Input) {
-                    borderPane.setRight(createLNConnector(ds, ds.getDataObject().get(i), ConnectorType.inputConnector, ConnectorType.outputConnector));
+                    Connector connector = new Connector(this, ds.getDataObject().get(i), ds, ConnectorType.outputConnector, ConnectorPosition.right);
+                    borderPane.setRight(connector.getConnectorPane());
+                    connectors.add(connector);
                 }
             }
-            title_bar.setText(ds.getName());
         }
-    }
-
-    /**
-     * Создает панель с коннектором и лейблом
-     * @param dataSet - датасет
-     * @param connectorType - тип датаСета (входной, выходной)
-     * @param position - позиция (нужна т.к. у DS коннекторы с противоположной стороны)
-     */
-    private AnchorPane createLNConnector(DS dataSet, DO dataObject, ConnectorType connectorType, ConnectorType position){
-        AnchorPane connectorPane = new AnchorPane(); connectorPane.setStyle("-fx-background-color: transparent");
-
-        Connector connector = new Connector(this, dataObject, dataSet, connectorType);
-        connectorPane.getChildren().add(connector);
-
-        Label label = new Label(String.format("%s (%s)", dataObject.getDataAttributeName(), dataObject.getDataObjectName())); label.setTextFill(Color.WHITE); /*label.setFont(Font.font(10.0));*/
-        connectorPane.getChildren().add(label);
-        AnchorPane.setTopAnchor(label, 3.0); AnchorPane.setLeftAnchor(label, 7.0); AnchorPane.setRightAnchor(label, 7.0);
-
-        AnchorPane.setTopAnchor(connector, 8.0);
-        if(position==ConnectorType.inputConnector){ AnchorPane.setLeftAnchor(connector, -5.0); label.setAlignment(Pos.CENTER_LEFT); }
-        else{ AnchorPane.setRightAnchor(connector, -5.0); label.setAlignment(Pos.CENTER_RIGHT); }
-
-        connectors.add(connector);
-        return connectorPane;
+        title_bar.setText(value.toString());
     }
 
     @FXML
     private void initialize() {
-        selected.addListener((o, ov, nv) ->{ if(nv) setStyle(selectedStyle); else setStyle(unselectedStyle); });
+        selected.addListener((o, ov, nv) ->{ if(nv) { setEffect(selectedShadow); setStyle(selectedStyle); } else { setEffect(shadow); setStyle(style); } });
 
-//        node.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{ if(e.getButton() == MouseButton.PRIMARY) ProjectController.setSelectedNode(this); /*if(e.getClickCount()==2) openEditor();*/ });
-//        node.setCursor(Cursor.HAND);
-
-//        MenuItem parameter = new MenuItem("Параметры");
         MenuItem remove = new MenuItem("Удалить");
         contextMenu.getItems().addAll( remove);
         remove.setOnAction(e -> remove());

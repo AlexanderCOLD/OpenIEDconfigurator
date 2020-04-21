@@ -24,6 +24,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
@@ -81,7 +82,7 @@ public class GUI extends AnchorPane{
 		menuBar.setOnMouseClicked(e->{ if(e.getClickCount()==2) maximize(); });
 
 		Platform.runLater(Settings::load);
-		new Thread(() -> { try { Thread.sleep(1000); } catch (Exception ignored) {} Platform.runLater(this::openLastProject); }).start();
+		openLastProject();
 	}
 
 	/**
@@ -118,13 +119,20 @@ public class GUI extends AnchorPane{
 	 * Загрузить предудущий проект
 	 */
 	private void openLastProject(){
-		if(Settings.lastCIDPath!=null) {
-			File file = new File(Settings.lastCIDPath);
-			if(file.exists()){
-				SCL scl = SaveLoadObject.load(SCL.class, file);
-				if(scl!=null) ProjectController.setScl(scl);
+		new Thread(() -> {
+			try { Thread.sleep(2000); } catch (Exception ignored) {}
+			if(Settings.lastCIDPath!=null) {
+				File file = new File(Settings.lastCIDPath);
+				if(file.exists()){
+					Platform.runLater(() -> {
+						writeMessage("Найден предыдущий проект: " + file.getPath());
+						if(!AssistDialog.requestConfirm("Найден предыдущий проект", String.format("Хотите открыть предыдущий проект? \n%s", file.getPath()))) return;
+						SCL scl = SaveLoadObject.load(SCL.class, file);
+						if(scl!=null) { ProjectController.setScl(scl); ProjectController.setFileCID(file); }
+					});
+				}
 			}
-		}
+		}){{ start(); }};
 	}
 
 	@FXML private void handleNew() {
@@ -138,7 +146,7 @@ public class GUI extends AnchorPane{
 			SCL scl = SaveLoadObject.load(SCL.class, file);
 			if(scl!=null) {
 				ProjectController.setScl(scl);
-				Settings.lastCIDPath = file.getPath();
+				ProjectController.setFileCID(file);
 			}
 			else{
 				AssistDialog.requestError("Ошибка", "Невозможно открыть SCL\nВерсия SCL отличается от 2006");

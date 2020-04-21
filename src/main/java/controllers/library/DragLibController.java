@@ -13,7 +13,7 @@ import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
-import tools.BiHashMap;
+import tools.ArrayMap;
 import tools.SaveLoadObject;
 
 import java.io.File;
@@ -28,7 +28,7 @@ public class DragLibController {
 
 	private static DragLibController self;
 	private GraphicNode shadowNode;
-	private final BiHashMap<GraphicNode, GraphicNode> shadowNodes = new BiHashMap<>(); // key = Icon, value = shadowIcon
+	private final ArrayMap<GraphicNode, GraphicNode> shadowNodes = new ArrayMap<>(); // key = Icon, value = shadowIcon
 	private EventHandler<DragEvent> dragEnteredGUI, dragExitedGUI;
 	private EventHandler<DragEvent> dragOverGUI, dragOverLib, dragDropped, dragDone;
 	private double offsetX, offsetY;
@@ -60,14 +60,14 @@ public class DragLibController {
 		 */
 		dragNode.setOnDragDetected (e -> {
 
-			GUI.get().addEventFilter(DragEvent.DRAG_ENTERED, dragEnteredGUI);  // Добавить теневую иконку если затащили на GUI
-			GUI.get().addEventFilter(DragEvent.DRAG_EXITED, dragExitedGUI);  // Удалить теневую иконку если вышли из GUI
+			GUI.get().addEventHandler(DragEvent.DRAG_ENTERED, dragEnteredGUI);  // Добавить теневую иконку если затащили на GUI
+			GUI.get().addEventHandler(DragEvent.DRAG_EXITED, dragExitedGUI);  // Удалить теневую иконку если вышли из GUI
 
-			GUI.get().addEventFilter(DragEvent.DRAG_OVER, dragOverGUI); // Перемещение над GUI
-			LibraryDialog.get().addEventFilter(DragEvent.DRAG_OVER, dragOverLib); // Перемещение над библиотекой
+			GUI.get().addEventHandler(DragEvent.DRAG_OVER, dragOverGUI); // Перемещение над GUI
+			LibraryDialog.get().addEventHandler(DragEvent.DRAG_OVER, dragOverLib); // Перемещение над библиотекой
 
-			GUI.get().addEventFilter(DragEvent.DRAG_DROPPED, dragDropped); // Если иконка брошена в текущую панель
-			LibraryDialog.get().addEventFilter(DragEvent.DRAG_DONE, dragDone); // Окончание перемещения
+			GUI.get().addEventHandler(DragEvent.DRAG_DROPPED, dragDropped); // Если иконка брошена в текущую панель
+			LibraryDialog.get().addEventHandler(DragEvent.DRAG_DONE, dragDone); // Окончание перемещения
 
 			offsetX = e.getX(); offsetY = e.getY();
 			if(offsetX > ((GraphicNode)e.getSource()).getWidth() || offsetY > 20){ e.consume(); return; } // Только заголовок
@@ -138,14 +138,14 @@ public class DragLibController {
 		dragDone = e -> {
 			if(shadowNode.getParent()!=null) ((Pane) shadowNode.getParent()).getChildren().remove(shadowNode);
 
-			GUI.get().removeEventFilter(DragEvent.DRAG_ENTERED, dragEnteredGUI);
-			GUI.get().removeEventFilter(DragEvent.DRAG_EXITED, dragExitedGUI);
+			GUI.get().removeEventHandler(DragEvent.DRAG_ENTERED, dragEnteredGUI);
+			GUI.get().removeEventHandler(DragEvent.DRAG_EXITED, dragExitedGUI);
 
-			GUI.get().removeEventFilter(DragEvent.DRAG_OVER, dragOverGUI);
-			LibraryDialog.get().removeEventFilter(DragEvent.DRAG_OVER, dragOverLib);
+			GUI.get().removeEventHandler(DragEvent.DRAG_OVER, dragOverGUI);
+			LibraryDialog.get().removeEventHandler(DragEvent.DRAG_OVER, dragOverLib);
 
-			LibraryDialog.get().removeEventFilter(DragEvent.DRAG_DONE, dragDone);
-			GUI.get().removeEventFilter(DragEvent.DRAG_DROPPED, dragDropped);
+			LibraryDialog.get().removeEventHandler(DragEvent.DRAG_DONE, dragDone);
+			GUI.get().removeEventHandler(DragEvent.DRAG_DROPPED, dragDropped);
 			e.consume();
 		};
 

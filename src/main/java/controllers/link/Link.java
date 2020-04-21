@@ -2,6 +2,7 @@ package controllers.link;
 
 import controllers.ContextMenuController;
 import controllers.graphicNode.Connector;
+import controllers.graphicNode.ConnectorType;
 import controllers.graphicNode.GraphicNode;
 import javafx.beans.value.ChangeListener;
 import javafx.geometry.Point2D;
@@ -35,7 +36,7 @@ public class Link extends Polyline {
 
 	public void createConnection() {
 		if(sourceConnector!=null && targetConnector!=null && !connected){
-			if(sourceGraphicNode.getLayoutX() > targetGraphicNode.getLayoutX()) reverse();
+			if(sourceConnector.getConnectorType()==ConnectorType.inputConnector) reverse(); // source - выход, target - вход
 			sourceGraphicNode.layoutXProperty().addListener(xs);
 			sourceGraphicNode.layoutYProperty().addListener(ys);
 			targetGraphicNode.layoutXProperty().addListener(xt);
@@ -52,7 +53,7 @@ public class Link extends Polyline {
 			targetGraphicNode.getConnections().add(this);
 			Point2D srsPoint = sourceGraphicNode.sceneToLocal(sourceConnector.localToScene(sourceConnector.getWidth()/2,sourceConnector.getHeight()/2));
 			Point2D trgPoint = targetGraphicNode.sceneToLocal(targetConnector.localToScene(targetConnector.getWidth()/2,targetConnector.getHeight()/2));
-			offset = Math.max(srsPoint.getY(), trgPoint.getY())/2;
+			connectorOffset = Math.max(srsPoint.getY(), trgPoint.getY())/2;
 			updatePosition();
 			connected = true;
 		}
@@ -112,7 +113,7 @@ public class Link extends Polyline {
 
 	public void draw() {
 		getPoints().clear();
-		if(sourceGraphicNode.getLayoutX() > sourcePoint.getX()- 10) { buildPath(sourcePoint, targetPoint);	}
+		if(sourceGraphicNode.getLayoutX() > sourcePoint.getX()-10) { buildPath(sourcePoint, targetPoint);	}
 		else { buildPath(targetPoint, sourcePoint); Collections.reverse(path); }
 		path.forEach(p -> getPoints().addAll(p.getX(), p.getY()));
 	}
@@ -124,35 +125,37 @@ public class Link extends Polyline {
 	 * upButtomOffset - смещение Average над или под элементом
 	 * totalOffset - итоговое смещение
 	 */
-	private double minExtension = 30, offset = 0, averOffset = 0.4, upButtomOffset = 10;
+	private final double minExtension = 30, averOffset = 0.45, upButtomOffset = 10;
+	private double connectorOffset = 0;
 
 	/**
 	 * Построение пути
 	 */
 	private void buildPath(Point2D start, Point2D end) {
+
 		path.clear();
 		path.add(start);
 
-		if (start.getX() - minExtension >=  end.getX() + minExtension + Math.abs(start.getX() - end.getX())*averOffset - offset ) {
+		if (start.getX() - minExtension >=  end.getX() + minExtension + Math.abs(start.getX() - end.getX())*averOffset - connectorOffset) {
 
 			double averageX = (start.getX() + end.getX()) / 2; // на момент соединения
 			if(sourceGraphicNode !=null && targetGraphicNode !=null) { averageX = (start.getX() + end.getX()) / 2 - Math.abs(start.getX() - end.getX())*averOffset; }
 
-			path.add(new Point2D(averageX + offset, start.getY()));
-			path.add(new Point2D(averageX + offset, end.getY()));
+			path.add(new Point2D(averageX + connectorOffset, start.getY()));
+			path.add(new Point2D(averageX + connectorOffset, end.getY()));
 		}
 		else{
-			double offset = this.offset;
+			double offset = this.connectorOffset;
 			double averageY = (start.getY() + end.getY()) / 2; // на момент соединения
 			if(sourceGraphicNode !=null && targetGraphicNode !=null) {
 				if(sourceGraphicNode.getLayoutY() < targetGraphicNode.getLayoutY() + targetGraphicNode.getHeight()/2)  { averageY = targetGraphicNode.getLayoutY() - upButtomOffset; offset*=-1; }
 				else { averageY = targetGraphicNode.getLayoutY() + targetGraphicNode.getHeight() + upButtomOffset; }
 			}
 
-			path.add(new Point2D(start.getX() - minExtension - this.offset, start.getY()));
-			path.add(new Point2D(start.getX() - minExtension - this.offset, averageY + offset));
-			path.add(new Point2D(end.getX() + minExtension + this.offset, averageY + offset));
-			path.add(new Point2D(end.getX() + minExtension + this.offset, end.getY()));
+			path.add(new Point2D(start.getX() - minExtension - this.connectorOffset, start.getY()));
+			path.add(new Point2D(start.getX() - minExtension - this.connectorOffset, averageY + offset));
+			path.add(new Point2D(end.getX() + minExtension + this.connectorOffset, averageY + offset));
+			path.add(new Point2D(end.getX() + minExtension + this.connectorOffset, end.getY()));
 		}
 		path.add(end);
 	}
@@ -163,4 +166,8 @@ public class Link extends Polyline {
 	}
 	public void setSourceConnector(Connector sourceConnector) {	this.sourceConnector = sourceConnector;	sourceGraphicNode = sourceConnector==null ? null : sourceConnector.getGraphicNode(); }
 	public void setTargetConnector(Connector targetConnector) {	this.targetConnector = targetConnector;	targetGraphicNode = targetConnector==null ? null : targetConnector.getGraphicNode(); }
+
+	public Point2D getSourcePoint() { return sourcePoint; }
+	public Point2D getTargetPoint() { return targetPoint; }
+	public double getConnectorOffset() { return connectorOffset; }
 }

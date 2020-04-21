@@ -38,8 +38,8 @@ public class AssistDialog extends AnchorPane {
     private boolean draggable = false;
     private double dragOffsetX, dragOffsetY; // поправка при перетаскивании на позицию мышки
     private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
-    private Stage stage = new Stage();
-    private Scene scene = new Scene(this);
+    private final Stage stage = new Stage();
+    private final Scene scene = new Scene(this);
 //    private String warning = "⚠";
     private boolean conform;
     private String text;
