@@ -18,9 +18,6 @@ public class CLD {
 
     @XmlElement(name = "IED")
     private ArrayList<IED> iedList = new ArrayList<>();
-    @XmlElement(name = "Connection")
-    private ArrayList<Connection> connectionList = new ArrayList<>();
-
 
 }
 

@@ -43,10 +43,10 @@ public class ArrayMap<K,V>  {
     public boolean containsValue(Object value) { for(Set<K,V> s:list) if(s.getValue().equals(value)) return true; return false; }
     public boolean contains(Object object){ return containsKey(object) || containsValue(object); }
 
-    public ArrayList<Set<K,V>> entrySet() { return new ArrayList<>(list); }
+    public ArrayList<Set<K,V>> entrySet() { return new ArrayList<Set<K,V>>(list); }
 
     @Data
-    private class Set<K,V>{
+    public class Set<K,V>{
         private K key;
         private V value;
 

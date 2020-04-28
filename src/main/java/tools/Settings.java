@@ -17,7 +17,6 @@ import java.io.File;
 @XmlRootElement
 public class Settings {
 
-	public static String lastPath; // Для FileChoice
 	public static String lastCIDPath;
 	public static String lastCLDPath;
 
@@ -79,9 +78,6 @@ public class Settings {
 
 		SaveLoadObject.save(new Settings(), new File("settings.xml"));
 	}
-
-	public String getLastPath() { return lastPath; }
-	public void setLastPath(String lastPath) { Settings.lastPath = lastPath; }
 
 	public double[] getMainResolution() {return mainResolution;	}
 	public void setMainResolution(double[] mainResolution) { Settings.mainResolution = mainResolution; }

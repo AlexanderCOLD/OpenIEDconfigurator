@@ -27,6 +27,9 @@ public class IED {
 
     public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
 
+    @XmlElement(name = "Connection")
+    private ArrayList<Connection> connectionList = new ArrayList<>(); // Пока не используется
+
     @XmlTransient
     private String ID;
     public IED(){ ID = UUID.randomUUID().toString(); }

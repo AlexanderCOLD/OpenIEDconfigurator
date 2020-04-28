@@ -175,6 +175,16 @@ public class PanelsController {
         if(selection!=null && selectedTab != selection) tabPane.getSelectionModel().select(selection);
     }
 
+    /**
+     * @param object - объект (в основном LD) который соотвсествует вкладке
+     * @return - панель для построения элементов
+     */
+    public static AnchorPane getPanel(Object object){
+        Tab tab = tabList.getValue(object);
+        if(tab != null) return allTabs.getValue(tab);
+        return null;
+    }
+
     public static AnchorPane getSelectedPanel() { return selectedPanel; }
     public static void setTabPane(TabPane tabPane) { PanelsController.tabPane = tabPane; PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener(tabChangeListener); }
 }

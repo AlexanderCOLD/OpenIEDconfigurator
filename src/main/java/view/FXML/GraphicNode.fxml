@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<fx:root focusTraversable="true" minWidth="-Infinity" style="-fx-background-radius: 7; -fx-background-color: #3e5366; -fx-border-color: #506c86; -fx-border-radius: 7; -fx-border-width: 1.5;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root focusTraversable="true" minWidth="-Infinity" style="-fx-background-radius: 7; -fx-background-color: #3e5366; -fx-border-color: #506c86; -fx-border-radius: 7; -fx-border-width: 1.5;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>

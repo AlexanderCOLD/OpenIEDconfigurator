@@ -25,6 +25,8 @@ public class LN {
     private String description;
     private String classType;
 
+    private double layoutX = -1, layoutY = -1; // Координаты
+
     private DS dataSetInput = new DS();   // connections
     private DS dataSetOutput = new DS();  // connections
 

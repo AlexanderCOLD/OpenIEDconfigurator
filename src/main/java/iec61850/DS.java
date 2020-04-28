@@ -24,6 +24,8 @@ public class DS {
     private String datSetName; // Имя из списка всех датасетов
     private String id; // appID - для Goose, rptID - для MMS
 
+    private double layoutX = -1, layoutY = -1; // Координаты
+
     private int intgPd, bufTime; // для MMS
 
     @XmlElement(name = "DO")

@@ -32,6 +32,10 @@ public class LD {
     @XmlElement(name = "MMSOutputDataSet")
     private ArrayList<DS> mmsOutputDS = new ArrayList<>();
 
+    @XmlElement(name = "Connection")
+    private ArrayList<Connection> connectionList = new ArrayList<>();
+
+
     public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
 
 

@@ -27,17 +27,6 @@ public class ProjectController {
 
     private static Object selectedObject;
 
-    private static void createNewProject(SCL scl){
-        CLD cld = new CLD();
-        ArrayList<IED> iedList = IEDExtractor.extractIEDList(scl);
-        cld.setIedList(iedList);
-        ProjectController.cld = cld;
-
-        TreeController.updateTreeObjects(cld.getIedList()); // Строим дерево
-        PanelsController.updateTabObjects(cld.getIedList()); // Создаем вкладки
-        GraphicNodeController.updateNodeObjects(cld.getIedList()); // Создаем граф. элементы
-    }
-
     /**
      * Добавить новый элемент при добавлении граф. элемента из библиотеки
      * @param object
@@ -53,13 +42,13 @@ public class ProjectController {
      * @param object
      */
     public static void setSelectedObject(Object object){
+        if(object != null) InfoDialog.setObject(object);                        // Отображаем параметры элемента
         if(object != null && object != selectedObject){
             selectedObject = object;
 
             GraphicNodeController.setSelectedObject(object);                    // Выделяем графический элемент
             TreeController.setSelectedObject(object);                           // Выделяем ветку дерева
             PanelsController.setSelectedObject(TreeController.getSelectedLD()); // Переходим на нужную вкладку
-            InfoDialog.setObject(object);                                       // Отображаем параметры элемента
         }
     }
 
@@ -74,5 +63,5 @@ public class ProjectController {
     public static void setCld(CLD cld) { ProjectController.cld = cld; }
 
     public static SCL getScl() { return scl; }
-    public static void setScl(SCL scl) { ProjectController.scl = scl; if(scl!=null) createNewProject(scl); }
+    public static void setScl(SCL scl) { ProjectController.scl = scl; }
 }

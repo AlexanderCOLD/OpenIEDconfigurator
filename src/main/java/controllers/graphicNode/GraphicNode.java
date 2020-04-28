@@ -151,12 +151,40 @@ public class GraphicNode extends AnchorPane {
     /**
      * Удалить данный элемент из проекта
      */
-    public void remove(){ ArrayList<Link> temp = new ArrayList<>(connections); for(Link l:temp) l .remove(); if(getParent()!=null) ((Pane)getParent()).getChildren().remove(this); }
+    public void remove(){
+        ArrayList<Link> temp = new ArrayList<>(connections);
+        for(Link l:temp) l .remove();
+        if(getParent()!=null) ((Pane)getParent()).getChildren().remove(this);
+        writeLayout2UserData(-1.0, -1.0);
+    }
 
     /**
      * Округлить координаты
      */
-    public void updateGrid(){ int grid = 30; relocate(Math.round(getLayoutX()/ grid)* grid, Math.round(getLayoutY()/ grid)* grid); }
+    public void updateGrid(){
+        int grid = 30;
+        relocate(Math.round(getLayoutX()/ grid)* grid, Math.round(getLayoutY()/ grid)* grid);
+        writeLayout2UserData(getLayoutX(), getLayoutY());
+    }
+
+    /**
+     * Обновить координаты
+     */
+    public void updatePosition() {
+        relocate(getLayoutX() + 1, getLayoutY() + 1);
+        updateGrid();
+    }
+
+    /**
+     * Записать текущие координаты в объект
+     * @param layoutX - координата X
+     * @param layoutY - координата Y
+     */
+    private void writeLayout2UserData(double layoutX, double layoutY){
+        if(getUserData().getClass()==LN.class) { LN ln = (LN) getUserData(); ln.setLayoutX(layoutX); ln.setLayoutY(layoutY); }
+        else if (getUserData().getClass()==DS.class) { DS ds = (DS) getUserData(); ds.setLayoutX(layoutX); ds.setLayoutY(layoutY); }
+        else System.err.println("Layout is not updated");
+    }
 
     public ArrayList<Link> getConnections() { return connections; }
     public ArrayList<Connector> getConnectors() { return connectors; }
@@ -169,5 +197,6 @@ public class GraphicNode extends AnchorPane {
     public String getName() { return name.get(); }
     public StringProperty nameProperty() { return name; }
     public void setName(String name) { this.name.set(name); }
+
 }
 

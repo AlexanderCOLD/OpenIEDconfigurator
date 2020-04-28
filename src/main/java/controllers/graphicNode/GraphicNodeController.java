@@ -24,8 +24,8 @@ import java.util.Optional;
  */
 public class GraphicNodeController {
 
-    private static final ArrayMap<Object, GraphicNode> projectNodeList = new ArrayMap<>(); // Граф. элементы созданные при загрузке CID
-    private static final ArrayMap<Object, GraphicNode> activeNodeList = new ArrayMap<>(); // Лист с текущими графическими элементами (Во всех вкладках) (Брошенные в проект)
+    private static final ArrayMap<Object, GraphicNode> projectNodeList = new ArrayMap<>(); // Граф. элементы созданные при загрузке CID (Не важно брошены или нет)
+    private static final ArrayMap<Object, GraphicNode> activeNodeList = new ArrayMap<>(); // Лист с текущими графическими элементами (Во всех вкладках, брошенные в проект)
     private static ArrayList<LN> templateList;
 
     private static GraphicNode selectedGraphicNode; // Активный граф. элемент
@@ -169,6 +169,7 @@ public class GraphicNodeController {
             pane.removeEventFilter(DragEvent.DRAG_DONE, dragDone);
             pane.removeEventFilter(DragEvent.DRAG_OVER, dragEvent);
             node.updateGrid();
+            ProjectController.setSelectedObject(node.getUserData());
             e.consume();
         };
     }
