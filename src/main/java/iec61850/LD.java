@@ -19,6 +19,9 @@ import java.util.UUID;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class LD {
 
+    @XmlTransient
+    private String UID = UUID.randomUUID().toString();
+
     private String name;
     private String description;
 
@@ -35,11 +38,5 @@ public class LD {
     @XmlElement(name = "Connection")
     private ArrayList<Connection> connectionList = new ArrayList<>();
 
-
     public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
-
-
-    @XmlTransient
-    private String ID;
-    public LD(){ ID = UUID.randomUUID().toString(); }
 }

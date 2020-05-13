@@ -3,6 +3,7 @@ package tools;
 import application.GUI;
 import controllers.dialogs.InfoDialog;
 import controllers.library.LibraryDialog;
+import javafx.application.Platform;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
@@ -35,6 +36,16 @@ public class Settings {
 
 	public static double spHdivide; // положение горизонтальных окон
 	public static double spVdivide; // положение вертикальных окон
+
+
+	/**
+	 * Загрузить настройки
+	 * (При стерте программы)
+	 */
+	public static void loadSettings(){
+		new Thread(() -> { try { Thread.sleep(500); } catch (Exception ignored) {} Platform.runLater(Settings::load);	}) {{ start(); }};
+	}
+
 
 	public static void load() {
 		File sttng = new File("settings.xml");

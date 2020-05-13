@@ -87,7 +87,9 @@ public class LibraryDialog extends AnchorPane {
         File library = new File("library/");
         if(library.exists()){
             for(File lib:library.listFiles()){
+                if(lib.isDirectory()) continue;
                 LN ln = SaveLoadObject.load(LN.class, lib);
+                if(ln == null) continue;
                 GraphicNode graphicNode = new GraphicNode(ln);
                 libraryPane.getChildren().add(graphicNode);
                 DragLibController.addToController(graphicNode);

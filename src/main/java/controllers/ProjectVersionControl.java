@@ -14,6 +14,8 @@ import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import tools.SaveLoadObject;
+import tools.Settings;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -28,6 +30,26 @@ import java.util.Objects;
  * @description - сохранение проекта (CID + CLD)
  */
 public class ProjectVersionControl {
+
+    /**
+     * Загрузить предудущий проект
+     * (Во время запуска программы)
+     */
+    public static void openLastProject(){
+        new Thread(() -> {
+            try { Thread.sleep(2000); } catch (Exception ignored) {}
+            if(Settings.lastCIDPath!=null) {
+                File file = new File(Settings.lastCIDPath);
+                if(file.exists()){
+                    Platform.runLater(() -> {
+                        GUI.writeMessage("Найден предыдущий проект: " + file.getPath());
+                        if(!AssistDialog.requestConfirm("Найден предыдущий проект", String.format("Хотите открыть предыдущий проект? \n%s", file.getPath()))) return;
+                        ProjectVersionControl.openNewCID(file);
+                    });
+                }
+            }
+        }){{ start(); }};
+    }
 
 
     /**

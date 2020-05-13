@@ -20,18 +20,18 @@ import java.util.UUID;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class IED {
 
+    @XmlTransient
+    private String UID = UUID.randomUUID().toString();
+
     private String name;
     private String description;
     @XmlElement(name = "LD")
     private ArrayList<LD> logicalDeviceList = new ArrayList<>();
 
-    public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
 
+    public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
     @XmlElement(name = "Connection")
     private ArrayList<Connection> connectionList = new ArrayList<>(); // Пока не используется
 
-    @XmlTransient
-    private String ID;
-    public IED(){ ID = UUID.randomUUID().toString(); }
 }
 

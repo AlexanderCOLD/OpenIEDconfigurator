@@ -1,149 +1,574 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LN>
     <name>SVTR</name>
+    <description>SVTR Model</description>
     <classType>SVTR</classType>
+    <layoutX>-1.0</layoutX>
+    <layoutY>-1.0</layoutY>
     <dataSetInput>
+        <name>InputDS</name>
         <description>DataSet for input connections</description>
         <type>Node</type>
         <intgPd>0</intgPd>
         <bufTime>0</bufTime>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <cppType>ExtU_SVTRADVANCED_T</cppType>
+        <cppName>SVTRADVANCED_U</cppName>
         <DO>
-            <dataObjectName>WYE</dataObjectName>
-            <dataAttributeName>PhV1</dataAttributeName>
-            <cppObjectName>iec_WYE</cppObjectName>
-            <cppAttributeName>in_PhV1</cppAttributeName>
+            <dataObjectName>iec_WYE</dataObjectName>
+            <dataAttributeName>in_PhV1</dataAttributeName>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>WYE</dataObjectName>
-            <dataAttributeName>PhV2</dataAttributeName>
-            <cppObjectName>iec_WYE</cppObjectName>
-            <cppAttributeName>in_PhV2</cppAttributeName>
+            <dataObjectName>iec_WYE</dataObjectName>
+            <dataAttributeName>in_PhV2</dataAttributeName>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>WYE</dataObjectName>
-            <dataAttributeName>A</dataAttributeName>
-            <cppObjectName>iec_WYE</cppObjectName>
-            <cppAttributeName>in_A</cppAttributeName>
+            <dataObjectName>iec_WYE</dataObjectName>
+            <dataAttributeName>in_A</dataAttributeName>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>SEQ</dataObjectName>
-            <dataAttributeName>SeqV</dataAttributeName>
-            <cppObjectName>iec_SEQ</cppObjectName>
-            <cppAttributeName>in_SeqV</cppAttributeName>
+            <dataObjectName>iec_SEQ</dataObjectName>
+            <dataAttributeName>in_SeqV</dataAttributeName>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>c1</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>c2</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>c3</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>SEQ</dataObjectName>
-            <dataAttributeName>SeqA</dataAttributeName>
-            <cppObjectName>iec_SEQ</cppObjectName>
-            <cppAttributeName>in_SeqA</cppAttributeName>
+            <dataObjectName>iec_SEQ</dataObjectName>
+            <dataAttributeName>in_SeqA</dataAttributeName>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>c1</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>c2</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
+            <DO>
+                <dataObjectName>iec_CMV</dataObjectName>
+                <dataAttributeName>c3</dataAttributeName>
+                <DO>
+                    <dataObjectName>iec_Vector</dataObjectName>
+                    <dataAttributeName>cVal</dataAttributeName>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>mag</dataAttributeName>
+                    </DO>
+                    <DO>
+                        <dataObjectName>float</dataObjectName>
+                        <dataAttributeName>ang</dataAttributeName>
+                    </DO>
+                </DO>
+                <DO>
+                    <dataObjectName>iec_Quality</dataObjectName>
+                    <dataAttributeName>q</dataAttributeName>
+                    <DO>
+                        <dataObjectName>unsigned char</dataObjectName>
+                        <dataAttributeName>validity</dataAttributeName>
+                    </DO>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>SPS</dataObjectName>
-            <dataAttributeName>Pos</dataAttributeName>
-            <cppObjectName>iec_SPS</cppObjectName>
-            <cppAttributeName>in_Pos</cppAttributeName>
+            <dataObjectName>iec_SPS</dataObjectName>
+            <dataAttributeName>in_Pos</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>stVal</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>uint8_T</dataObjectName>
-            <dataAttributeName>Mod</dataAttributeName>
-            <cppObjectName>uint8_T</cppObjectName>
-            <cppAttributeName>set_Mod</cppAttributeName>
+            <dataObjectName>unsigned char</dataObjectName>
+            <dataAttributeName>set_Mod</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>boolean_T</dataObjectName>
-            <dataAttributeName>SeqMod</dataAttributeName>
-            <cppObjectName>boolean_T</cppObjectName>
-            <cppAttributeName>set_SeqMod</cppAttributeName>
+            <dataObjectName>unsigned char</dataObjectName>
+            <dataAttributeName>set_SeqMod</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>boolean_T</dataObjectName>
-            <dataAttributeName>CBMod</dataAttributeName>
-            <cppObjectName>boolean_T</cppObjectName>
-            <cppAttributeName>set_CBMod</cppAttributeName>
+            <dataObjectName>unsigned char</dataObjectName>
+            <dataAttributeName>set_CBMod</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>StrValVImb</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_StrValVImb</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_StrValVImb</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>RatA</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_RatA</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_RatA</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>RatB</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_RatB</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_RatB</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>RatC</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_RatC</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_RatC</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>Rat0</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_Rat0</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_Rat0</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>RatA1</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_RatA1</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_RatA1</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>StrValAMin</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_StrValAMin</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_StrValAMin</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>StrValVMin</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_StrValVMin</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_StrValVMin</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>StrValNgSeqA</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_StrValNgSeqA</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_StrValNgSeqA</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>StrValNgSeqV</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_StrValNgSeqV</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_StrValNgSeqV</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>StrValZerSeqA</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_StrValZerSeqA</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_StrValZerSeqA</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>real32_T</dataObjectName>
-            <dataAttributeName>StrValZerSeqV</dataAttributeName>
-            <cppObjectName>real32_T</cppObjectName>
-            <cppAttributeName>set_StrValZerSeqV</cppAttributeName>
+            <dataObjectName>float</dataObjectName>
+            <dataAttributeName>set_StrValZerSeqV</dataAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
+        <name>OutputDS</name>
         <description>DataSet for output connections</description>
         <type>Node</type>
         <intgPd>0</intgPd>
         <bufTime>0</bufTime>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <cppType>ExtY_SVTRADVANCED_T</cppType>
+        <cppName>SVTRADVANCED_Y</cppName>
         <DO>
-            <dataObjectName>SPS</dataObjectName>
-            <dataAttributeName>BlkV</dataAttributeName>
-            <cppObjectName>iec_SPS</cppObjectName>
-            <cppAttributeName>out_BlkV</cppAttributeName>
+            <dataObjectName>iec_SPS</dataObjectName>
+            <dataAttributeName>out_BlkV</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>stVal</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
     </dataSetOutput>
 </LN>

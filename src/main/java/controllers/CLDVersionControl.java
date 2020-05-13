@@ -117,7 +117,7 @@ public class CLDVersionControl {
                 currentDS.setLayoutX(newDS.getLayoutX());
                 currentDS.setLayoutY(newDS.getLayoutY());
                 currentDS.setBufTime(newDS.getBufTime());
-                currentDS.setId(newDS.getId());
+                currentDS.setID(newDS.getID());
 
                 return true;
             }

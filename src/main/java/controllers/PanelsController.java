@@ -92,8 +92,8 @@ public class PanelsController {
         Tab tab = new Tab(name); tab.setId(name); tab.setClosable(false); allTabs.put(tab, pane); tabPane.getTabs().add(tab);
 
         ScrollPane scrollPane  = new ScrollPane();
-        scrollPane.setOnDragDetected(e -> { scrollPane.setPannable(GUI.isCtrl()); });
-        scrollPane.setOnMouseClicked(e->{ scrollPane.setPannable(GUI.isCtrl()); });
+        scrollPane.setOnDragDetected(e -> { scrollPane.setPannable(e.isControlDown()); });
+        scrollPane.setOnMouseClicked(e->{ scrollPane.setPannable(e.isControlDown()); });
         tab.setContent(scrollPane);
 
         StackPane zoomTarget = new StackPane(pane); zoomTarget.setAlignment(Pos.CENTER);

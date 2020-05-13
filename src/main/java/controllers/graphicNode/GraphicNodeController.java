@@ -91,41 +91,37 @@ public class GraphicNodeController {
     private static void fillByTemplate(LN ln){
         for(LN lnTemplate:templateList){
             if(lnTemplate.getClassType().equals(ln.getClassType())){
-                DS templateDSInput = lnTemplate.getDataSetInput(), templateDSOutput = lnTemplate.getDataSetOutput();
-                DS dsInput = ln.getDataSetInput(), dsOutput = ln.getDataSetOutput();
 
-                dsInput.setName(templateDSInput.getName());
-                dsInput.setType(templateDSInput.getType());
-                dsInput.setDatSetName(templateDSInput.getDatSetName());
-                dsInput.setDescription(templateDSInput.getDescription());
+                /* Копирование входного датасета */
+                copyDS(lnTemplate.getDataSetInput(), ln.getDataSetInput());
 
-                for(DO doTemplate:templateDSInput.getDataObject()){
-                    DO dataObject = new DO();
-                    dataObject.setDataAttributeName(doTemplate.getDataAttributeName());
-                    dataObject.setDataObjectName(doTemplate.getDataObjectName());
-                    dataObject.setCppAttributeName(doTemplate.getCppAttributeName());
-                    dataObject.setCppObjectName(doTemplate.getCppObjectName());
-                    dsInput.getDataObject().add(dataObject);
-                }
-
-                dsOutput.setName(templateDSOutput.getName());
-                dsOutput.setType(templateDSOutput.getType());
-                dsOutput.setDatSetName(templateDSOutput.getDatSetName());
-                dsOutput.setDescription(templateDSOutput.getDescription());
-
-                for(DO doTemplate:templateDSOutput.getDataObject()){
-                    DO dataObject = new DO();
-                    dataObject.setDataAttributeName(doTemplate.getDataAttributeName());
-                    dataObject.setDataObjectName(doTemplate.getDataObjectName());
-                    dataObject.setCppAttributeName(doTemplate.getCppAttributeName());
-                    dataObject.setCppObjectName(doTemplate.getCppObjectName());
-                    dsOutput.getDataObject().add(dataObject);
-                }
+                /* Копирование выходного датасета */
+                copyDS(lnTemplate.getDataSetOutput(), ln.getDataSetOutput());
 
                 return;
             }
         }
         GUI.writeErrMessage("Реализация для узла " + ln.getClassType() + " не найдена");
+    }
+
+    /**
+     * Создать копию датасета
+     */
+    private static void copyDS(DS source, DS target){
+        target.setName(source.getName());
+        target.setType(source.getType());
+        target.setDatSetName(source.getDatSetName());
+        target.setDescription(source.getDescription());
+
+        for(DO doTemplate:source.getDataObject()){
+            DO dataObject = new DO(doTemplate.getDataObjectName(), doTemplate.getDataAttributeName());
+            dataObject.setDescription(doTemplate.getDescription());
+
+            for(DO doCont:doTemplate.getContent())
+                dataObject.getContent().add(new DO(doCont.getDataObjectName(), doCont.getDataAttributeName()));
+
+            target.getDataObject().add(dataObject);
+        }
     }
 
     /**
@@ -147,7 +143,7 @@ public class GraphicNodeController {
             graphicNode.toFront();
             ProjectController.setSelectedObject(graphicNode.getUserData());
 
-            if(offsetY<20 && !GUI.isCtrl()){
+            if(offsetY<20 && !e.isControlDown()){
                 graphicNode.getParent().addEventFilter(DragEvent.DRAG_OVER, dragEvent);
                 graphicNode.getParent().addEventFilter(DragEvent.DRAG_DONE, dragDone);
                 graphicNode.startDragAndDrop(TransferMode.ANY).setContent(content);

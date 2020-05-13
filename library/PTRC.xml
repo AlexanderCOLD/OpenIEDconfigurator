@@ -1,167 +1,862 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LN>
     <name>PTRC</name>
+    <description>PTRC Model</description>
     <classType>PTRC</classType>
+    <layoutX>-1.0</layoutX>
+    <layoutY>-1.0</layoutY>
     <dataSetInput>
+        <name>InputDS</name>
         <description>DataSet for input connections</description>
         <type>Node</type>
         <intgPd>0</intgPd>
         <bufTime>0</bufTime>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <cppType>ExtU_PTRCADVANCED_T</cppType>
+        <cppName>PTRCADVANCED_U</cppName>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef1</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef1</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef1</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef2</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef2</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef2</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef3</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef3</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef3</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef4</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef4</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef4</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef5</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef5</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef5</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef6</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef6</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef6</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef7</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef7</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef7</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>InRef8</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>in_InRef8</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>in_InRef8</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef9</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef9</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef9</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef10</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef10</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef10</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef11</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef11</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef11</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef12</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef12</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef12</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef13</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef13</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef13</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef14</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef14</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef14</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef15</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef15</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef15</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>InRef16</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>in_InRef16</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>in_InRef16</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>SPS</dataObjectName>
-            <dataAttributeName>Blk1</dataAttributeName>
-            <cppObjectName>iec_SPS</cppObjectName>
-            <cppAttributeName>in_Blk1</cppAttributeName>
+            <dataObjectName>iec_SPS</dataObjectName>
+            <dataAttributeName>in_Blk1</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>stVal</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>SPS</dataObjectName>
-            <dataAttributeName>Blk2</dataAttributeName>
-            <cppObjectName>iec_SPS</cppObjectName>
-            <cppAttributeName>in_Blk2</cppAttributeName>
+            <dataObjectName>iec_SPS</dataObjectName>
+            <dataAttributeName>in_Blk2</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>stVal</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>SPS</dataObjectName>
-            <dataAttributeName>Blk3</dataAttributeName>
-            <cppObjectName>iec_SPS</cppObjectName>
-            <cppAttributeName>in_Blk3</cppAttributeName>
+            <dataObjectName>iec_SPS</dataObjectName>
+            <dataAttributeName>in_Blk3</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>stVal</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>SPS</dataObjectName>
-            <dataAttributeName>Blk4</dataAttributeName>
-            <cppObjectName>iec_SPS</cppObjectName>
-            <cppAttributeName>in_Blk4</cppAttributeName>
+            <dataObjectName>iec_SPS</dataObjectName>
+            <dataAttributeName>in_Blk4</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>stVal</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>uint8_T</dataObjectName>
-            <dataAttributeName>TrMod</dataAttributeName>
-            <cppObjectName>uint8_T</cppObjectName>
-            <cppAttributeName>set_TrMod</cppAttributeName>
+            <dataObjectName>unsigned char</dataObjectName>
+            <dataAttributeName>set_TrMod</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>int32_T</dataObjectName>
-            <dataAttributeName>TrPlsTmms</dataAttributeName>
-            <cppObjectName>int32_T</cppObjectName>
-            <cppAttributeName>set_TrPlsTmms</cppAttributeName>
+            <dataObjectName>int</dataObjectName>
+            <dataAttributeName>set_TrPlsTmms</dataAttributeName>
         </DO>
         <DO>
-            <dataObjectName>int32_T</dataObjectName>
-            <dataAttributeName>TrPlsTmms2</dataAttributeName>
-            <cppObjectName>int32_T</cppObjectName>
-            <cppAttributeName>set_TrPlsTmms2</cppAttributeName>
+            <dataObjectName>int</dataObjectName>
+            <dataAttributeName>set_TrPlsTmms2</dataAttributeName>
         </DO>
     </dataSetInput>
     <dataSetOutput>
+        <name>OutputDS</name>
         <description>DataSet for output connections</description>
         <type>Node</type>
         <intgPd>0</intgPd>
         <bufTime>0</bufTime>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <cppType>ExtY_PTRCADVANCED_T</cppType>
+        <cppName>PTRCADVANCED_Y</cppName>
         <DO>
-            <dataObjectName>ACT</dataObjectName>
-            <dataAttributeName>Op</dataAttributeName>
-            <cppObjectName>iec_ACT</cppObjectName>
-            <cppAttributeName>out_Op</cppAttributeName>
+            <dataObjectName>iec_ACT</dataObjectName>
+            <dataAttributeName>out_Op</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
         <DO>
-            <dataObjectName>ACD</dataObjectName>
-            <dataAttributeName>Str</dataAttributeName>
-            <cppObjectName>iec_ACD</cppObjectName>
-            <cppAttributeName>out_Str</cppAttributeName>
+            <dataObjectName>iec_ACD</dataObjectName>
+            <dataAttributeName>out_Str</dataAttributeName>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>general</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirGeneral</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsA</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsB</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>phsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirPhsC</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>neut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>unsigned char</dataObjectName>
+                <dataAttributeName>dirNeut</dataAttributeName>
+            </DO>
+            <DO>
+                <dataObjectName>iec_Quality</dataObjectName>
+                <dataAttributeName>q</dataAttributeName>
+                <DO>
+                    <dataObjectName>unsigned char</dataObjectName>
+                    <dataAttributeName>validity</dataAttributeName>
+                </DO>
+            </DO>
         </DO>
     </dataSetOutput>
 </LN>

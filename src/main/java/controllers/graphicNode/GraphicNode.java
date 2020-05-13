@@ -83,7 +83,7 @@ public class GraphicNode extends AnchorPane {
 
             ArrayList<DO> inputDOList = new ArrayList<>();
             ArrayList<DO> outputDOList = new ArrayList<>(ln.getDataSetOutput().getDataObject());
-            for(DO inputDO: ln.getDataSetInput().getDataObject()) if(!inputDO.getCppAttributeName().contains("set_")) inputDOList.add(inputDO); else settings.add(inputDO); // Отфильтровываем ненужное, выделяем уставки
+            for(DO inputDO: ln.getDataSetInput().getDataObject()) if(!inputDO.getDataAttributeName().contains("set_")) inputDOList.add(inputDO); else settings.add(inputDO); // Отфильтровываем ненужное, выделяем уставки
 
             int size = Math.max(inputDOList.size(), outputDOList.size());
 

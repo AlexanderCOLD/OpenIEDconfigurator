@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <settings>
-    <infoLayout>1430.0</infoLayout>
-    <infoLayout>183.0</infoLayout>
+    <infoLayout>1437.0</infoLayout>
+    <infoLayout>168.0</infoLayout>
     <infoLock>true</infoLock>
     <infoResolution>284.0</infoResolution>
     <infoResolution>286.0</infoResolution>
     <infoVisible>true</infoVisible>
-    <lastCIDPath>C:\Users\ALEXCOLD\Desktop\cidTest\cidTest.cid</lastCIDPath>
-    <lastCLDPath>C:\Users\ALEXCOLD\Desktop\cidTest\cidTest.cld</lastCLDPath>
-    <libLayout>1399.0</libLayout>
-    <libLayout>485.0</libLayout>
+    <lastCIDPath>C:\Users\ALEXCOLD\Desktop\testCLD\testCLD.cid</lastCIDPath>
+    <lastCLDPath>C:\Users\ALEXCOLD\Desktop\testCLD\testCLD.cld</lastCLDPath>
+    <libLayout>1406.0</libLayout>
+    <libLayout>470.0</libLayout>
     <libLock>true</libLock>
     <libResolution>355.0</libResolution>
     <libResolution>433.0</libResolution>
     <libVisible>true</libVisible>
-    <mainLayout>197.0</mainLayout>
-    <mainLayout>101.0</mainLayout>
+    <mainLayout>204.0</mainLayout>
+    <mainLayout>152.0</mainLayout>
     <mainResolution>1200.0</mainResolution>
-    <mainResolution>816.0</mainResolution>
-    <spHdivide>0.833984375</spHdivide>
+    <mainResolution>750.0</mainResolution>
+    <spHdivide>0.8183760683760684</spHdivide>
     <spVdivide>0.2495819397993311</spVdivide>
 </settings>

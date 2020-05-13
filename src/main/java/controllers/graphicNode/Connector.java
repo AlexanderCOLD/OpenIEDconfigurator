@@ -45,7 +45,7 @@ public class Connector extends AnchorPane {
         setSelected(false);
 
         Label label = new Label(){{
-            setText(String.format("%s (%s)", dataObject.getDataAttributeName(), dataObject.getDataObjectName()));
+            setText(String.format("%s (%s)", dataObject.getDataAttributeName().replaceAll("[in_-out_]",""), dataObject.getDataObjectName().replaceAll("iec_", "")));
             setTextFill(Color.WHITE);
             /*label.setFont(Font.font(10.0));*/
         }};

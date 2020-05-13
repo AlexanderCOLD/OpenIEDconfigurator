@@ -81,7 +81,7 @@ public class IEDExtractor {
                 ds.setName(gseCtrlBlock.getName()!=null ? gseCtrlBlock.getName() : "unknown");
                 ds.setDatSetName(gseCtrlBlock.getDatSet()!=null ? gseCtrlBlock.getDatSet() : "unknown");
                 ds.setDescription(gseCtrlBlock.getDesc()!=null ? gseCtrlBlock.getDesc() : "unknown");
-                ds.setId(gseCtrlBlock.getAppID()!=null ? gseCtrlBlock.getAppID() : "unknown");
+                ds.setID(gseCtrlBlock.getAppID()!=null ? gseCtrlBlock.getAppID() : "unknown");
 
                 for(TDataSet tDataSet:tDataSetList){
                     if(ds.getDatSetName().equals(tDataSet.getName())){
@@ -144,7 +144,7 @@ public class IEDExtractor {
                 ds.setName(reportCtrlBlock.getName()!=null ? reportCtrlBlock.getName() : "unknown");
                 ds.setDatSetName(reportCtrlBlock.getDatSet()!=null ? reportCtrlBlock.getDatSet() : "unknown");
                 ds.setDescription(reportCtrlBlock.getDesc()!=null ? reportCtrlBlock.getDesc() : "unknown");
-                ds.setId(reportCtrlBlock.getRptID()!=null ? reportCtrlBlock.getRptID() : "unknown");
+                ds.setID(reportCtrlBlock.getRptID()!=null ? reportCtrlBlock.getRptID() : "unknown");
 
                 for(TDataSet tDataSet:tDataSetList){
                     if(ds.getDatSetName().equals(tDataSet.getName())){

@@ -5,3 +5,8 @@ Project is contains new CLD (Configured IED Description) file, which allows maki
 
 
 ![alt text](screenshot.png "Open IED Configurator GUI")
+
+Версия 0.9 изменения
+1. Добавлена поддержка CLD
+2. Расширена обьектная модель DO 
+3. Мелкие исправления

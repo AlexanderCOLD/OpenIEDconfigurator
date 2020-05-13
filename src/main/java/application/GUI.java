@@ -40,8 +40,7 @@ public class GUI extends AnchorPane{
 	public static final String colorStyle = "blueStyle"; //Name of .css (blackStyle, blueStyle,...)
 	private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MMMM.yyyy HH.mm.ss");
 	private final Stage stage = new Stage(StageStyle.UNDECORATED);
-	private boolean ctrl = false;
-	private static GUI self;
+	private static GUI self = new GUI();
 	private double xOffset, yOffset;
 
 	@FXML private Accordion structAccord;
@@ -54,8 +53,8 @@ public class GUI extends AnchorPane{
 	@FXML private ScrollPane messageScrollPane;
 
 	public GUI() {
-		ProjectLogger.enable();
 		self = this;
+		ProjectLogger.enable();
 		FXMLLoader loader = new FXMLLoader();
 //		loader.setResources(ResourceBundle.getBundle("i18n/oic", new UTF8Control()));
 		loader.setLocation(Main.class.getResource("/view/FXML/MainWindow.fxml"));
@@ -65,8 +64,7 @@ public class GUI extends AnchorPane{
 		Scene scene = new Scene(this);
 		scene.getStylesheets().add("view/CSS/" + colorStyle + ".css");
 		scene.getStylesheets().add("view/CSS/stylesheet.css");
-		scene.setOnKeyPressed(e -> { if (e.getCode() == KeyCode.CONTROL) ctrl = true; if (e.getCode() == KeyCode.S && e.isControlDown()) handleSave(); });
-		scene.setOnKeyReleased(e->{ if (e.getCode() == KeyCode.CONTROL) ctrl = false; });
+		scene.setOnKeyPressed(e -> { if (e.getCode() == KeyCode.S && e.isControlDown()) handleSave(); });
 		stage.setTitle("OpenIEDconfigurator");
 		stage.setScene(scene);
 		stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/image/Icon.png")));
@@ -76,14 +74,14 @@ public class GUI extends AnchorPane{
 		menuBar.setOnMouseDragged(e -> { stage.setX(e.getScreenX() + xOffset); stage.setY(e.getScreenY() + yOffset); });
 		menuBar.setOnMouseClicked(e->{ if(e.getClickCount()==2) maximize(); });
 
-		loadSettings();
-		try2OpenLastProject();
+		Settings.loadSettings();
+		ProjectVersionControl.openLastProject();
 	}
 
 	/**
 	 * Открыть окно программы
 	 */
-	public static void show(){ if(self==null) new GUI(); self.stage.setMinWidth(1200); self.stage.setMinHeight(750); self.stage.show();	}
+	public static void show(){ self.stage.setMinWidth(1200); self.stage.setMinHeight(750); self.stage.show();	}
 
 	@FXML private void initialize() {
 		PanelsController.setTabPane(tabPane);
@@ -105,36 +103,6 @@ public class GUI extends AnchorPane{
 
 	private boolean exitRequest(){ return AssistDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
 
-	/**
-	 * Загрузить предудущий проект
-	 */
-	private void try2OpenLastProject(){
-		new Thread(() -> {
-			try { Thread.sleep(2000); } catch (Exception ignored) {}
-			if(Settings.lastCIDPath!=null) {
-				File file = new File(Settings.lastCIDPath);
-				if(file.exists()){
-					Platform.runLater(() -> {
-						writeMessage("Найден предыдущий проект: " + file.getPath());
-						if(!AssistDialog.requestConfirm("Найден предыдущий проект", String.format("Хотите открыть предыдущий проект? \n%s", file.getPath()))) return;
-						ProjectVersionControl.openNewCID(file);
-					});
-				}
-			}
-		}){{ start(); }};
-	}
-
-	/**
-	 * Загрузить настройки
-	 */
-	private void loadSettings(){
-		new Thread(() -> {
-			try { Thread.sleep(100); } catch (Exception ignored) {}
-			Platform.runLater(Settings::load);
-			Platform.runLater(() -> { stage.setX(stage.getX()+1); stage.setY(stage.getY()+1); });
-		}) {{ start(); }};
-	}
-
 	@FXML private void handleNew() { if(!AssistDialog.requestConfirm("Подтвер","Создать новый проект?\nНесохраненные данные будут утеряны")) return;	handleOpen(); }
 	@FXML private void handleOpen(){ ProjectVersionControl.openNewCID(FileChooserDialog.openCIDFile()); }
 	@FXML public void handleOpenCLD(){ ProjectVersionControl.openNewCLD(FileChooserDialog.openCLDFile()); }
@@ -142,13 +110,12 @@ public class GUI extends AnchorPane{
 	@FXML public void handleSaveAs() { if(ProjectController.getCld()==null) { GUI.writeErrMessage("Nothing to save"); return; } ProjectVersionControl.saveProject(FileChooserDialog.saveCLDFile()); }
 	@FXML private void switchInfo(){ InfoDialog.switchVisibility();	}
 	@FXML private void switchLibrary(){ LibraryDialog.switchVisibility(); }
+	@FXML private void aboutProgram(){ AboutProgramDialog.show();}
 	@FXML private void minimize(){ stage.setIconified(true); }
 	@FXML private void maximize(){ stage.setMaximized(!stage.isMaximized()); }
 	@FXML private void close() { if(exitRequest()){ Settings.save(); Platform.exit(); System.exit(0); } }
-	@FXML private void aboutProgram(){ AboutProgramDialog.show();}
 
 	public static GUI get() { return self; }
-	public static boolean isCtrl(){ return self.ctrl; }
 	public static Label getZoomLabel() { return self.zoomLabel; }
 	public static Stage getStage() { return self.stage; }
 	public SplitPane getSplitPaneH() { return splitPaneH; }
