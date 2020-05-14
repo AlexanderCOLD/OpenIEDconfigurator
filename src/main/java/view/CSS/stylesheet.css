@@ -272,7 +272,7 @@
 
 .table-view .column-header .label {
     -fx-font-size: 12pt;
-    -fx-font-family: "Segoe UI Light";
+    -fx-font-family: "Arial";
     -fx-text-fill: white;
     -fx-alignment: center;
     -fx-opacity: 1;
@@ -282,6 +282,54 @@
     -fx-background-color: -fx-first-color;
 }
 
+/* -------------------------------- TreeTableView -------------------------------- */
+.tree-table-view{
+    -fx-base: -fx-fourth-color;
+    -fx-control-inner-background: transparent;
+    -fx-background-color: -fx-fourth-color;
+    -fx-table-cell-border-color: -fx-second-color;
+    -fx-table-header-border-color: white;
+    -fx-padding: 2;
+    -fx-border-color: -fx-fourth-color;
+    -fx-border-width: 1;
+}
+.tree-table-view .column-header, .table-view .filler {
+    -fx-size: 25;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-insets: 0 1 1 0;
+    -fx-border-color: -fx-second-color;
+    -fx-background-color: -fx-fourth-color;
+}
+
+.tree-table-view .column-header .label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.tree-table-row-cell {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.tree-table-row-cell:odd {
+    -fx-background-color: -fx-fourth-color, derive(-fx-fourth-color,-10%);
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.tree-table-row-cell:selected {
+    -fx-background-color: -fx-second-color, -fx-third-color, -fx-fourth-color;
+    -fx-background-insets: 0, 1, 20;
+}
+
+.tree-table-row-cell:selected:odd {
+    -fx-background-color: -fx-second-color, -fx-third-color, -fx-fourth-color;
+    -fx-background-insets: 0, 1, 20;
+}
 /* -------------------------------- Button -------------------------------- */
 .button {
     -fx-background-color: -fx-third-color;

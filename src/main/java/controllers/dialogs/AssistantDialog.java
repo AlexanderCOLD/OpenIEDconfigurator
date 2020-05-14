@@ -5,10 +5,8 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -25,8 +23,7 @@ import java.io.IOException;
  * @project OpenIEDconfigurator
  * @description - Вспомогательное окошко
  */
-
-public class AssistDialog extends AnchorPane {
+public class AssistantDialog extends AnchorPane {
 
     @FXML private Accordion accord;
     @FXML private TextField textField;
@@ -34,7 +31,7 @@ public class AssistDialog extends AnchorPane {
     @FXML private Button button1, button2;
     @FXML private TextArea textArea;
 
-    private static AssistDialog self;
+    private static AssistantDialog self;
     private boolean draggable = false;
     private double dragOffsetX, dragOffsetY; // поправка при перетаскивании на позицию мышки
     private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
@@ -44,7 +41,7 @@ public class AssistDialog extends AnchorPane {
     private boolean conform;
     private String text;
 
-    public AssistDialog() {
+    public AssistantDialog() {
         self = this;
         mousePressed = e->{
             dragOffsetX = e.getScreenX() - stage.getX(); dragOffsetY = e.getScreenY() - stage.getY();
@@ -89,7 +86,7 @@ public class AssistDialog extends AnchorPane {
      * @param info - текст ошибки
      */
     public static void requestError(String title, String info){
-        if(self==null) self = new AssistDialog();
+        if(self==null) self = new AssistantDialog();
         self.icon.setText("❌");
         self.textArea.setVisible(true);
         self.textField.setVisible(false);
@@ -113,7 +110,7 @@ public class AssistDialog extends AnchorPane {
      * @return - boolean true/false
      */
     public static boolean requestConfirm(String title, String info){
-        if(self==null) self = new AssistDialog();
+        if(self==null) self = new AssistantDialog();
         self.icon.setText("?");
         self.textArea.setVisible(true);
         self.textField.setVisible(false);
@@ -139,7 +136,7 @@ public class AssistDialog extends AnchorPane {
      * @return - String text
      */
     public static String requestText(String title, String info){
-        if(self==null) self = new AssistDialog();
+        if(self==null) self = new AssistantDialog();
         self.icon.setText("");
         self.textArea.setVisible(false);
         self.textField.setVisible(true);
@@ -166,7 +163,7 @@ public class AssistDialog extends AnchorPane {
      * @return - String text
      */
     public static String requestText(String title, String info, String initText){
-        if(self==null) self = new AssistDialog();
+        if(self==null) self = new AssistantDialog();
         self.icon.setText("");
         self.textArea.setVisible(false);
         self.textField.setVisible(true);

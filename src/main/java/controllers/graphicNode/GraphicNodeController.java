@@ -116,9 +116,10 @@ public class GraphicNodeController {
         for(DO doTemplate:source.getDataObject()){
             DO dataObject = new DO(doTemplate.getDataObjectName(), doTemplate.getDataAttributeName());
             dataObject.setDescription(doTemplate.getDescription());
+            dataObject.setValue(doTemplate.getValue());
 
             for(DO doCont:doTemplate.getContent())
-                dataObject.getContent().add(new DO(doCont.getDataObjectName(), doCont.getDataAttributeName()));
+                dataObject.getContent().add(new DO(doCont.getDataObjectName(), doCont.getDataAttributeName()){{ setValue(doCont.getValue()); setDescription(doCont.getDescription()); }});
 
             target.getDataObject().add(dataObject);
         }

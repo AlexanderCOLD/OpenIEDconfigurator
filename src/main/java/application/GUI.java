@@ -7,7 +7,7 @@ import java.util.*;
 
 import controllers.*;
 import controllers.dialogs.AboutProgramDialog;
-import controllers.dialogs.AssistDialog;
+import controllers.dialogs.AssistantDialog;
 import controllers.dialogs.FileChooserDialog;
 import controllers.dialogs.InfoDialog;
 import controllers.library.LibraryDialog;
@@ -101,9 +101,9 @@ public class GUI extends AnchorPane{
 	public static void writeErrMessage(String message){ Text text = self.textBuffer(message); text.setFill(Color.web("#dc4b48")); self.messageArea.getChildren().add(text); ProjectLogger.warning(message); }
 	private Text textBuffer(String message){ Text text; if(messageArea.getChildren().size()>500) { text = (Text) messageArea.getChildren().get(0); messageArea.getChildren().remove(text); } else text = new Text(); text.setText(String.format("%s    %s\n",self.dateFormat.format(new Date()), message)); return text; }
 
-	private boolean exitRequest(){ return AssistDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
+	private boolean exitRequest(){ return AssistantDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
 
-	@FXML private void handleNew() { if(!AssistDialog.requestConfirm("Подтвер","Создать новый проект?\nНесохраненные данные будут утеряны")) return;	handleOpen(); }
+	@FXML private void handleNew() { if(!AssistantDialog.requestConfirm("Подтвер","Создать новый проект?\nНесохраненные данные будут утеряны")) return;	handleOpen(); }
 	@FXML private void handleOpen(){ ProjectVersionControl.openNewCID(FileChooserDialog.openCIDFile()); }
 	@FXML public void handleOpenCLD(){ ProjectVersionControl.openNewCLD(FileChooserDialog.openCLDFile()); }
 	@FXML private void handleSave() { if(ProjectController.getCld()==null) { GUI.writeErrMessage("Nothing to save"); return; }	File cldFile = ProjectController.getFileCLD(); if (cldFile != null) ProjectVersionControl.saveProject(cldFile); else handleSaveAs(); }

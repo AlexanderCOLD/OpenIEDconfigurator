@@ -82,7 +82,7 @@ public class PanelsController {
         pane.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         pane.setStyle(" -fx-background-color: #ecf0f1;");
         pane.getChildren().addListener(panelChangeListener);
-        pane.setOnContextMenuRequested(e->{ ContextMenuController.showContextMenu(ContextMenuController.getMainContextMenu(), e); });
+//        pane.setOnContextMenuRequested(e->{ ContextMenuController.showContextMenu(ContextMenuController.getMainContextMenu(), e); });
         pane.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{  ContextMenuController.hideContextMenu(); });
 
         pane.setStyle("-fx-border-color: -fx-first-color; -fx-background-color: -fx-fourth-color,\n" +

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import controllers.ContextMenuController;
+import controllers.dialogs.TripPointDialog;
 import controllers.link.Link;
 import iec61850.DO;
 import iec61850.DS;
@@ -142,10 +143,20 @@ public class GraphicNode extends AnchorPane {
         selected.addListener((o, ov, nv) ->{ if(nv) { setEffect(selectedShadow); setStyle(selectedStyle); } else { setEffect(shadow); setStyle(style); } });
 
         MenuItem remove = new MenuItem("Удалить");
-        contextMenu.getItems().addAll( remove);
-        remove.setOnAction(e -> remove());
+        MenuItem settings = new MenuItem("Параметры");
 
-       setOnContextMenuRequested(e -> ContextMenuController.showContextMenu(contextMenu, e));
+//        contextMenu.setOnShowing(e -> {
+//            System.out.println("SHOWING");
+//            contextMenu.getItems().clear();
+//            if(this.settings.isEmpty()) contextMenu.getItems().add(remove);
+//            else contextMenu.getItems().addAll(settings, remove);
+//        });
+        contextMenu.getItems().addAll(settings, remove);
+
+        remove.setOnAction(e -> remove());
+        settings.setOnAction(e -> { if(getUserData().getClass()==LN.class) TripPointDialog.show((LN) getUserData()); });
+
+        setOnContextMenuRequested(e -> ContextMenuController.showContextMenu(contextMenu, e));
     }
 
     /**

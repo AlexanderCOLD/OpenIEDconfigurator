@@ -1,7 +1,7 @@
 package controllers;
 
 import application.GUI;
-import controllers.dialogs.AssistDialog;
+import controllers.dialogs.AssistantDialog;
 import controllers.graphicNode.Connector;
 import controllers.graphicNode.GraphicNode;
 import controllers.graphicNode.GraphicNodeController;
@@ -43,7 +43,7 @@ public class ProjectVersionControl {
                 if(file.exists()){
                     Platform.runLater(() -> {
                         GUI.writeMessage("Найден предыдущий проект: " + file.getPath());
-                        if(!AssistDialog.requestConfirm("Найден предыдущий проект", String.format("Хотите открыть предыдущий проект? \n%s", file.getPath()))) return;
+                        if(!AssistantDialog.requestConfirm("Найден предыдущий проект", String.format("Хотите открыть предыдущий проект? \n%s", file.getPath()))) return;
                         ProjectVersionControl.openNewCID(file);
                     });
                 }
@@ -76,11 +76,11 @@ public class ProjectVersionControl {
 
                     String path = file.getParent(), name = file.getName().replaceAll(".cid",".cld");
                     File cldFile = new File(path + "\\" + name);
-                    if(cldFile.exists()) if(AssistDialog.requestConfirm("Найден CLD", String.format("Хотите открыть? \n%s", cldFile.getPath()))) openNewCLD(cldFile);
+                    if(cldFile.exists()) if(AssistantDialog.requestConfirm("Найден CLD", String.format("Хотите открыть? \n%s", cldFile.getPath()))) openNewCLD(cldFile);
                     else GUI.get().handleOpenCLD();
                 }
                 else{
-                    AssistDialog.requestError("Ошибка", "Невозможно открыть SCL\nВерсия SCL отличается от 2006");
+                    AssistantDialog.requestError("Ошибка", "Невозможно открыть SCL\nВерсия SCL отличается от 2006");
                     GUI.writeErrMessage("Невозможно открыть SCL, версия SCL отличается от 2006");
                 }
             });

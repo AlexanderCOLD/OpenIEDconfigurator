@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -18,12 +19,12 @@ import java.util.HashMap;
  * @description - контроллер для изменения размера окна
  */
 public class ResizeController implements EventHandler<MouseEvent> {
+
     private Stage stage;
     private Cursor cursorEvent = Cursor.DEFAULT;
-    private int border = 7;
+    private final int border = 7;
     private double startX = 0, startY = 0;
-    private AnchorPane glassPane = new AnchorPane();
-    private AnchorPane rootPane;
+    private final AnchorPane glassPane = new AnchorPane();
 
     public static void addStage(Stage stage){ ResizeController listener = new ResizeController(); listener.setStage(stage); }
 
@@ -36,8 +37,7 @@ public class ResizeController implements EventHandler<MouseEvent> {
 //        stage.getScene().addEventFilter(MouseEvent.MOUSE_EXITED, this);
 //        stage.getScene().addEventFilter(MouseEvent.MOUSE_EXITED_TARGET, this);
 
-        rootPane = (AnchorPane)stage.getScene().getRoot();
-        rootPane.getChildren().add(glassPane);
+        ((Pane)stage.getScene().getRoot()).getChildren().add(glassPane);
         AnchorPane.setTopAnchor(glassPane, 0.0);
         AnchorPane.setLeftAnchor(glassPane, 0.0);
         AnchorPane.setRightAnchor(glassPane, 0.0);

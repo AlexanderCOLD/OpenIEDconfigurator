@@ -26,6 +26,8 @@ public class DO {
     private String dataAttributeName;  // Название экземпляра С++
     private String description;        // Описание
 
+    private String value;              // Значение
+
     public DO() { }
     public DO(String dataObjectName, String dataAttributeName) { this.dataObjectName = dataObjectName; this.dataAttributeName = dataAttributeName; }
 

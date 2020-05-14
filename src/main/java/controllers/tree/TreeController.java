@@ -25,9 +25,10 @@ import java.util.ArrayList;
  */
 
 public class TreeController {
-    private static TreeView tree; // Главное дерево
-    private static TreeItem<Object> root = new TreeItem<>("Project");
+
+    private static final TreeItem<Object> root = new TreeItem<>("Project");
     private static Image iedIcon, ldIcon, lnIcon, dsIcon, doIcon;
+    private static TreeView tree; // Главное дерево
 
     private static final ArrayMap<Object, TreeItem<Object>> treeList = new ArrayMap<>(); // Ветки и их объекты
 
@@ -80,7 +81,7 @@ public class TreeController {
         root.setExpanded(true);
         ImageView rootIcon = new ImageView(new Image(Main.class.getResource("/view/image/Icon.png").toString())); rootIcon.setFitWidth(20); rootIcon.setFitHeight(20);
         rootIcon.setEffect(new DropShadow( 10, Color.AQUA ));
-        root.setGraphic(new Label("Project", rootIcon));
+        root.setGraphic(new Label(){{ setGraphic(rootIcon); }});
         if(iedIcon==null) initialize();
 
         /* Выделить активный элемент в проекте при нажатии мышкой */

@@ -27,10 +27,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -39,6 +41,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -51,10 +54,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -63,6 +68,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -75,10 +81,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -87,6 +95,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -99,10 +108,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -111,6 +122,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -121,6 +133,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -128,24 +141,29 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_UnbAlmLev</dataAttributeName>
+            <value>0.0</value>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_UnbBlkLev</dataAttributeName>
+            <value>0.0</value>
         </DO>
         <DO>
             <dataObjectName>int</dataObjectName>
             <dataAttributeName>set_AlmD1Tmms</dataAttributeName>
+            <value>0</value>
         </DO>
         <DO>
             <dataObjectName>int</dataObjectName>
             <dataAttributeName>set_BlkD1Tmms</dataAttributeName>
+            <value>0</value>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -164,6 +182,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -171,6 +190,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -180,6 +200,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -187,6 +208,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>

@@ -21,22 +21,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -44,6 +49,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -53,22 +59,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -76,6 +87,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -85,22 +97,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -108,6 +125,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -117,22 +135,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -140,6 +163,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -149,22 +173,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -172,6 +201,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -181,22 +211,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -204,6 +239,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -213,22 +249,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -236,6 +277,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -245,22 +287,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -268,6 +315,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -277,42 +325,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -320,6 +378,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -329,42 +388,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -372,6 +441,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -381,42 +451,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -424,6 +504,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -433,42 +514,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -476,6 +567,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -485,42 +577,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -528,6 +630,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -537,42 +640,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -580,6 +693,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -589,42 +703,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -632,6 +756,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -641,42 +766,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -684,6 +819,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -693,6 +829,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -700,6 +837,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -709,6 +847,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -716,6 +855,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -725,6 +865,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -732,6 +873,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -741,6 +883,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -748,20 +891,24 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
         <DO>
             <dataObjectName>unsigned char</dataObjectName>
             <dataAttributeName>set_TrMod</dataAttributeName>
+            <value>0</value>
         </DO>
         <DO>
             <dataObjectName>int</dataObjectName>
             <dataAttributeName>set_TrPlsTmms</dataAttributeName>
+            <value>0</value>
         </DO>
         <DO>
             <dataObjectName>int</dataObjectName>
             <dataAttributeName>set_TrPlsTmms2</dataAttributeName>
+            <value>0</value>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -780,22 +927,27 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -803,6 +955,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -812,42 +965,52 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>general</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirGeneral</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsA</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsB</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>phsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirPhsC</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>neut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>dirNeut</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -855,6 +1018,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>

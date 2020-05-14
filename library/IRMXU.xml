@@ -21,6 +21,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -28,6 +29,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -37,6 +39,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -44,6 +47,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -53,6 +57,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -60,6 +65,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -69,6 +75,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -76,6 +83,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -85,6 +93,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -92,6 +101,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -101,6 +111,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -108,6 +119,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -117,6 +129,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -124,6 +137,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -133,6 +147,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -140,6 +155,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -149,6 +165,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -156,6 +173,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -165,6 +183,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -172,6 +191,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -181,6 +201,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -188,6 +209,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -197,6 +219,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -204,6 +227,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -213,6 +237,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -220,6 +245,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -229,6 +255,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -236,6 +263,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -245,6 +273,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -252,6 +281,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -261,6 +291,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>instMag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -268,6 +299,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -277,6 +309,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>mag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -284,6 +317,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -293,6 +327,7 @@
             <DO>
                 <dataObjectName>float</dataObjectName>
                 <dataAttributeName>mag</dataAttributeName>
+                <value>0.0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -300,6 +335,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -315,10 +351,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -327,6 +365,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -339,10 +378,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -351,6 +392,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -363,10 +405,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -375,6 +419,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -387,10 +432,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -399,6 +446,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -415,10 +463,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -427,6 +477,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -439,10 +490,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -451,6 +504,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -463,10 +517,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -475,6 +531,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -487,10 +544,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -499,6 +558,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -515,10 +575,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -527,6 +589,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -539,10 +602,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -551,6 +616,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -563,10 +629,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -575,6 +643,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -591,10 +660,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -603,6 +674,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -615,10 +687,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -627,6 +701,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -639,10 +714,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -651,6 +728,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -661,6 +739,7 @@
             <DO>
                 <dataObjectName>unsigned char</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -668,6 +747,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -677,6 +757,7 @@
             <DO>
                 <dataObjectName>int</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -684,6 +765,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -693,6 +775,7 @@
             <DO>
                 <dataObjectName>int</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -700,6 +783,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -709,6 +793,7 @@
             <DO>
                 <dataObjectName>int</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -716,6 +801,7 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
@@ -725,6 +811,7 @@
             <DO>
                 <dataObjectName>int</dataObjectName>
                 <dataAttributeName>stVal</dataAttributeName>
+                <value>0</value>
             </DO>
             <DO>
                 <dataObjectName>iec_Quality</dataObjectName>
@@ -732,40 +819,49 @@
                 <DO>
                     <dataObjectName>unsigned char</dataObjectName>
                     <dataAttributeName>validity</dataAttributeName>
+                    <value>0</value>
                 </DO>
             </DO>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_Ratamp1</dataAttributeName>
+            <value>0.0</value>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_Ratamp2</dataAttributeName>
+            <value>0.0</value>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_Ratamp3</dataAttributeName>
+            <value>0.0</value>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_Ratamp4</dataAttributeName>
+            <value>0.0</value>
         </DO>
         <DO>
             <dataObjectName>unsigned char</dataObjectName>
             <dataAttributeName>set_FctModSv</dataAttributeName>
+            <value>0</value>
         </DO>
         <DO>
             <dataObjectName>unsigned char</dataObjectName>
             <dataAttributeName>set_FctMod1</dataAttributeName>
+            <value>0</value>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_StrVal</dataAttributeName>
+            <value>0.0</value>
         </DO>
         <DO>
             <dataObjectName>float</dataObjectName>
             <dataAttributeName>set_OpMod</dataAttributeName>
+            <value>0.0</value>
         </DO>
     </dataSetInput>
     <dataSetOutput>
@@ -790,10 +886,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -802,6 +900,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -814,10 +913,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -826,6 +927,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -838,10 +940,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -850,6 +954,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -862,10 +967,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -874,6 +981,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -890,10 +998,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -902,6 +1012,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -914,10 +1025,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -926,6 +1039,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -938,10 +1052,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -950,6 +1066,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -962,10 +1079,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -974,6 +1093,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -990,10 +1110,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1002,6 +1124,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1014,10 +1137,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1026,6 +1151,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1038,10 +1164,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1050,6 +1178,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1062,10 +1191,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1074,6 +1205,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1090,10 +1222,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1102,6 +1236,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1114,10 +1249,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1126,6 +1263,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1138,10 +1276,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1150,6 +1290,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1162,10 +1303,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1174,6 +1317,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1190,10 +1334,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1202,6 +1348,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1214,10 +1361,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1226,6 +1375,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1238,10 +1388,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1250,6 +1402,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1262,10 +1415,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1274,6 +1429,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1290,10 +1446,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1302,6 +1460,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1314,10 +1473,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1326,6 +1487,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1338,10 +1500,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1350,6 +1514,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
@@ -1362,10 +1527,12 @@
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>mag</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                     <DO>
                         <dataObjectName>float</dataObjectName>
                         <dataAttributeName>ang</dataAttributeName>
+                        <value>0.0</value>
                     </DO>
                 </DO>
                 <DO>
@@ -1374,6 +1541,7 @@
                     <DO>
                         <dataObjectName>unsigned char</dataObjectName>
                         <dataAttributeName>validity</dataAttributeName>
+                        <value>0</value>
                     </DO>
                 </DO>
             </DO>
