@@ -74,7 +74,7 @@ public class TripPointDialog extends AnchorPane{
 
 		stage.setScene(scene);
 		stage.initStyle(StageStyle.UNDECORATED);
-//		stage.initOwner(GUI.getStage());
+		stage.initOwner(GUI.getStage());
 		stage.setTitle("Параметры элемента");
 		stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/image/Icon.png")));
 		stage.initModality(Modality.APPLICATION_MODAL);

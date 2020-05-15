@@ -145,13 +145,13 @@ public class GraphicNode extends AnchorPane {
         MenuItem remove = new MenuItem("Удалить");
         MenuItem settings = new MenuItem("Параметры");
 
-//        contextMenu.setOnShowing(e -> {
-//            System.out.println("SHOWING");
-//            contextMenu.getItems().clear();
-//            if(this.settings.isEmpty()) contextMenu.getItems().add(remove);
-//            else contextMenu.getItems().addAll(settings, remove);
-//        });
         contextMenu.getItems().addAll(settings, remove);
+
+        contextMenu.setOnShowing(e -> {
+            contextMenu.getItems().clear();
+            if(this.settings.isEmpty()) contextMenu.getItems().add(remove);
+            else contextMenu.getItems().addAll(settings, remove);
+        });
 
         remove.setOnAction(e -> remove());
         settings.setOnAction(e -> { if(getUserData().getClass()==LN.class) TripPointDialog.show((LN) getUserData()); });

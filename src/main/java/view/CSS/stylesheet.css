@@ -271,7 +271,7 @@
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 12pt;
+    -fx-font-size: 10pt;
     -fx-font-family: "Arial";
     -fx-text-fill: white;
     -fx-alignment: center;

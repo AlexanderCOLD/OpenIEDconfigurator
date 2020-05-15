@@ -1,6 +1,7 @@
 package controllers.library;
 
 import application.GUI;
+import controllers.CLDVersionControl;
 import controllers.PanelsController;
 import controllers.graphicNode.GraphicNode;
 import controllers.graphicNode.GraphicNodeController;
@@ -123,10 +124,17 @@ public class DragLibController {
 		dragDropped = e -> {
 			String name = ((LN) shadowNode.getUserData()).getClassType();
 			LN ln = SaveLoadObject.load(LN.class, new File(String.format("library/%s.xml",name)));
+
+			/* Установка значений parentDO */
+			CLDVersionControl.findParentsDO(ln.getDataSetInput().getDataObject());
+			CLDVersionControl.findParentsDO(ln.getDataSetOutput().getDataObject());
+
+			/* Создание граф. элемента и установка в панель */
 			GraphicNode node = GraphicNodeController.createGraphicNode(ln);
 			Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());
 			PanelsController.getSelectedPanel().getChildren().add(node);
 			node.relocate(point.getX() - offsetX, point.getY() - offsetY); node.updateGrid();
+
 			e.setDropCompleted(true);
 			e.consume();
 		};

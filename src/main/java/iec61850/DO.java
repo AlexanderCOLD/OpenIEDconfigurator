@@ -1,6 +1,9 @@
 package iec61850;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,7 +18,7 @@ import java.util.UUID;
  * @description - Data Object (Connector)
  */
 
-@Data
+@Getter @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DO {
 
@@ -32,9 +35,14 @@ public class DO {
     public DO(String dataObjectName, String dataAttributeName) { this.dataObjectName = dataObjectName; this.dataAttributeName = dataAttributeName; }
 
     @XmlElement(name = "DO")
-    private ArrayList<DO> content = new ArrayList<>(); // Содержание (пустое для простых типов)
+    private ArrayList<DO> content = new ArrayList<>(); // Вложенные классы
+
+    @XmlTransient
+    private DO parentDO;                // Родительский DO (для построения иерархии)
 
     public String toString(){
-        return String.format("%s (%s)", dataAttributeName.replaceAll("[in_-out_]",""), dataObjectName.replaceAll("iec_", ""));
+        String daName = dataAttributeName != null ? dataAttributeName.replaceAll("[in_-out_]","") : "emptyDA";
+        String doName = dataObjectName != null ? dataObjectName.replaceAll("iec_", "") : "emptyDO";
+        return String.format("%s (%s)", daName,doName);
     }
 }

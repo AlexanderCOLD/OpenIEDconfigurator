@@ -17,12 +17,6 @@ public class Main extends Application {
 	public static void main(String[] args) { launch(args); }
 
 	@Override
-	public void start(Stage stage) {
-
-//		LN ln = SaveLoadObject.load(LN.class, new File("library/PDIF.xml"));
-//		TripPointDialog.show(ln);
-		GUI.show();
-
-	}
+	public void start(Stage stage) { GUI.show(); }
 	
 }

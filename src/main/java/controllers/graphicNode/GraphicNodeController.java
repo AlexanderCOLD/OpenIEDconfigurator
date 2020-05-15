@@ -1,6 +1,7 @@
 package controllers.graphicNode;
 
 import application.GUI;
+import controllers.CLDVersionControl;
 import controllers.ProjectController;
 import controllers.link.LinkController;
 import controllers.object.DragContainer;
@@ -10,11 +11,10 @@ import javafx.scene.Node;
 import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import tools.ArrayMap;
-import tools.SaveLoadObject;
-
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Optional;
+import org.apache.commons.io.FilenameUtils;
+import tools.SaveLoadObject;
 
 /**
  * @author Александр Холодов
@@ -26,7 +26,6 @@ public class GraphicNodeController {
 
     private static final ArrayMap<Object, GraphicNode> projectNodeList = new ArrayMap<>(); // Граф. элементы созданные при загрузке CID (Не важно брошены или нет)
     private static final ArrayMap<Object, GraphicNode> activeNodeList = new ArrayMap<>(); // Лист с текущими графическими элементами (Во всех вкладках, брошенные в проект)
-    private static ArrayList<LN> templateList;
 
     private static GraphicNode selectedGraphicNode; // Активный граф. элемент
 
@@ -37,7 +36,9 @@ public class GraphicNodeController {
 
     private static double offsetX, offsetY; // для обработчиков
     private static GraphicNode graphicNode; // для обработчиков
-    private static final ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}}; // для обработчиков
+    private static final ClipboardContent content = new ClipboardContent(){{ put(new DataFormat(), new DragContainer()); }}; // для обработчиков
+
+    private static final File[] templateList = new File("library/"){{ if(!exists()) mkdirs(); }}.listFiles(); // Лист шаблонов библиотеки
 
     /**
      * Создает графический элемент, добавляет обработчики (Drag/mouse)
@@ -65,8 +66,6 @@ public class GraphicNodeController {
         activeNodeList.clear();
         projectNodeList.clear();
 
-        if(templateList==null) loadTemplates();
-
         for (IED ied:iedList) for(LD ld:ied.getLogicalDeviceList()){
             for(DS ds:ld.getGooseOutputDS()) projectNodeList.put(ds, createGraphicNode(ds));
             for(DS ds:ld.getGooseInputDS()) projectNodeList.put(ds, createGraphicNode(ds));
@@ -76,27 +75,22 @@ public class GraphicNodeController {
     }
 
     /**
-     * Загрузить шаблоны логических узлов
-     */
-    private static void loadTemplates(){
-        templateList = new ArrayList<>();
-        File library = new File("library/");
-        if(library.exists()) for(File lib:library.listFiles()) Optional.ofNullable(SaveLoadObject.load(LN.class, lib)).ifPresent(templateList::add);
-    }
-
-    /**
      * Дополнить LN списком входящих и выходящих сигналов
      * @param ln
      */
     private static void fillByTemplate(LN ln){
-        for(LN lnTemplate:templateList){
-            if(lnTemplate.getClassType().equals(ln.getClassType())){
+        for(File template:templateList){
+            String templateName = FilenameUtils.removeExtension(template.getName());
+            if(templateName.equals(ln.getClassType())){
+                LN temp = SaveLoadObject.load(LN.class, template);
 
-                /* Копирование входного датасета */
-                copyDS(lnTemplate.getDataSetInput(), ln.getDataSetInput());
+                /* Внесение DS из шаблона */
+                ln.setDataSetInput(temp.getDataSetInput());
+                ln.setDataSetOutput(temp.getDataSetOutput());
 
-                /* Копирование выходного датасета */
-                copyDS(lnTemplate.getDataSetOutput(), ln.getDataSetOutput());
+                /* Установка значений parentDO */
+                CLDVersionControl.findParentsDO(ln.getDataSetInput().getDataObject());
+                CLDVersionControl.findParentsDO(ln.getDataSetOutput().getDataObject());
 
                 return;
             }
@@ -105,33 +99,10 @@ public class GraphicNodeController {
     }
 
     /**
-     * Создать копию датасета
-     */
-    private static void copyDS(DS source, DS target){
-        target.setName(source.getName());
-        target.setType(source.getType());
-        target.setDatSetName(source.getDatSetName());
-        target.setDescription(source.getDescription());
-
-        for(DO doTemplate:source.getDataObject()){
-            DO dataObject = new DO(doTemplate.getDataObjectName(), doTemplate.getDataAttributeName());
-            dataObject.setDescription(doTemplate.getDescription());
-            dataObject.setValue(doTemplate.getValue());
-
-            for(DO doCont:doTemplate.getContent())
-                dataObject.getContent().add(new DO(doCont.getDataObjectName(), doCont.getDataAttributeName()){{ setValue(doCont.getValue()); setDescription(doCont.getDescription()); }});
-
-            target.getDataObject().add(dataObject);
-        }
-    }
-
-    /**
      * /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      * /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      * 									     Обработчики граф. элементов
      */
-
-
     private static void initialize() {
 
         /* Выделить активный элемент в проекте при нажатии мышкой */

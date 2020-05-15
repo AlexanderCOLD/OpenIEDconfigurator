@@ -8,6 +8,7 @@ Project is contains new CLD (Configured Logic Description) file, which allows ma
 
 Версия 0.91 изменения
 1. Добавлен редактор уставок
+2. Добавлена синхронизация уставок CLD
 
 Версия 0.9 изменения
 1. Добавлена поддержка CLD
@@ -15,4 +16,4 @@ Project is contains new CLD (Configured Logic Description) file, which allows ma
 3. Мелкие исправления
 
 Список работ
-1. Дописать синхронизацию уставок из CID В CLD и при загрузке
+1. Добавить элементы преобразования данных

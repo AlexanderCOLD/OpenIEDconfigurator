@@ -1,6 +1,8 @@
 package iec61850;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -16,7 +18,7 @@ import java.util.UUID;
  * @description - Intelligent electronic device
  */
 
-@Data
+@Getter @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
 public class IED {
 
