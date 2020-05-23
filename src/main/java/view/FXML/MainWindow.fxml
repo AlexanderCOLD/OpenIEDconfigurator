@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.input.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
@@ -15,7 +21,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.TextFlow?>
 
-<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" style="-fx-border-color: -fx-first-color; -fx-border-color: -fx-first-color; -fx-border-width: 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.5" AnchorPane.topAnchor="0.0">
          <top>
@@ -25,18 +31,17 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="Файл">
                         <items>
-                          <MenuItem mnemonicParsing="false" onAction="#handleNew" text="Новый проект" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Открыть CID" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleOpenCLD" text="Импортировать CLD" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Сохранить    Ctrl+S" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Сохранить как..." />
-                              <MenuItem mnemonicParsing="false" onAction="#close" text="Выход" />
+                          <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="  CTRL+O">       <graphic> <Label text="Открыть CID" /> </graphic> </MenuItem>
+                          <MenuItem mnemonicParsing="false" onAction="#handleImportCLD" text="  CTRL+I">  <graphic> <Label text="Импорт CLD" /> </graphic> </MenuItem>
+                          <MenuItem mnemonicParsing="false" onAction="#handleSave" text="  CTRL+S">       <graphic> <Label text="Сохранить" /> </graphic> </MenuItem>
+                          <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text=" ">            <graphic> <Label text="Сохранить как..." /> </graphic> </MenuItem>
+                          <MenuItem mnemonicParsing="false" onAction="#close" text="  CTRL+W">            <graphic> <Label text="Выход" /> </graphic> </MenuItem>
                         </items>
                       </Menu>
                         <Menu mnemonicParsing="false" text="Вид">
                            <items>
-                              <MenuItem mnemonicParsing="false" onAction="#switchInfo" text="Параметры" />
-                              <MenuItem mnemonicParsing="false" onAction="#switchLibrary" text="Библиотека" />
+                               <MenuItem mnemonicParsing="false" onAction="#switchLibrary" text="CTRL+L">  <graphic> <Label text="Библиотека" /> </graphic> </MenuItem>
+                               <MenuItem mnemonicParsing="false" onAction="#switchInfo" text="CTRL+P">     <graphic> <Label text="Свойства" /> </graphic> </MenuItem>
                            </items>
                         </Menu>
                       <Menu mnemonicParsing="false" text="Помощь">

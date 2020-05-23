@@ -1,14 +1,12 @@
 package iec61850;
 
-import lombok.Data;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import java.util.UUID;
 
 /**
  * @author Александр Холодов
@@ -20,19 +18,17 @@ import java.util.UUID;
 @Getter @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "LN")
-public class LN {
+public class LN extends IECObject {
 
-    @XmlTransient
-    private String UID = UUID.randomUUID().toString();
+    /** Датасет с входящими объектами */
+    private final ObservableList<DS> dataSetInput = FXCollections.observableArrayList(); { dataSetInput.addListener(this::listChanged); }
 
-    private String name;
-    private String description;
-    private String classType;
+    /** Датасет с исходящими объектами */
+    private final ObservableList<DS> dataSetOutput = FXCollections.observableArrayList(); { dataSetOutput.addListener(this::listChanged); }
 
-    private double layoutX = -1, layoutY = -1; // Координаты
 
-    private DS dataSetInput = new DS();        // Входящий датасет
-    private DS dataSetOutput = new DS();       // Исходящий датасет
 
-    public String toString(){ if(classType!=null && !classType.equals("unknown")) return String.format("%s (%s)", name, classType); else return name; }
+    public String toString(){
+        return String.format("%s %s", (name!=null && !name.equals("unknown"))?name: type, (type !=null && !type.equals("unknown"))?("("+ type +")"):"");
+    }
 }

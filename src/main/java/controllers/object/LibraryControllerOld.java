@@ -1,7 +1,7 @@
 package controllers.object;
 
 import application.GUI;
-import controllers.library.LibraryDialog;
+import controllers.dialogs.library.LibraryDialog;
 import controllers.graphicNode.GraphicNode;
 import javafx.application.Platform;
 import javafx.event.EventHandler;

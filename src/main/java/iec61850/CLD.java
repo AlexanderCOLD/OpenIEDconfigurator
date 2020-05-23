@@ -1,9 +1,11 @@
 package iec61850;
 
-import lombok.Data;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import lombok.Getter;
+import lombok.Setter;
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
+import java.io.File;
 
 /**
  * @author Александр Холодов
@@ -13,11 +15,20 @@ import java.util.ArrayList;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "CLD")
-@Data
-public class CLD {
+@Getter @Setter
+public class CLD extends IECObject{
 
+    @XmlTransient
+    private File cidFile;
+
+    /** Все IED содержащиеся в проекте */
     @XmlElement(name = "IED")
-    private ArrayList<IED> iedList = new ArrayList<>();
+    private final ObservableList<IED> iedList = FXCollections.observableArrayList(); { iedList.addListener(this::listChanged); }
 
+
+
+    @Override
+    public String toString() { if(cidFile==null) return null; else return cidFile.getAbsolutePath(); }
 }
+
 

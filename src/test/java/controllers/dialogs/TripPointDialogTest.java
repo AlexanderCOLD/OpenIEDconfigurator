@@ -9,7 +9,7 @@ class TripPointDialogTest {
 
     @Test
     void showDialog() {
-		LN ln = SaveLoadObject.load(LN.class, new File("library/PDIF.xml"));
+		LN ln = SaveLoadObject.load(LN.class, new File("library/LN/PDIF.xml"));
 		TripPointDialog.show(ln);
     }
 }

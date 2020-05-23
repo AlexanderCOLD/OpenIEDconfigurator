@@ -6,6 +6,7 @@ import controllers.graphicNode.GraphicNode;
 import controllers.graphicNode.GraphicNodeController;
 import controllers.object.DragContainer;
 import iec61850.DS;
+import iec61850.IECObject;
 import iec61850.LN;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
@@ -15,7 +16,6 @@ import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
-import tools.ArrayMap;
 
 /**
  * @author Александр Холодов
@@ -28,7 +28,6 @@ public class DragTreeController {
 	private static DragTreeController self;
 	private static TreeView tree;
 	private GraphicNode currentGraphicNode;
-	private final ArrayMap<Object, GraphicNode> graphicNodeList = new ArrayMap<>(); // key = Icon, value = shadowIcon
 	private EventHandler<DragEvent> dragOverGUI, dragDropped, dragDone;
 	private final ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}};;
 
@@ -47,7 +46,7 @@ public class DragTreeController {
 			Object object = TreeController.getSelectedItem();
 			if(object.getClass()==LN.class || object.getClass()== DS.class){
 
-				currentGraphicNode = GraphicNodeController.getProjectNodeList().getValue(object);
+				currentGraphicNode = GraphicNodeController.getProjectNodeList().get(((IECObject) object).getUID());
 				if(currentGraphicNode.getParent() == null){
 
 					GUI.get().addEventHandler(DragEvent.DRAG_OVER, dragOverGUI);    // Перемещение над GUI

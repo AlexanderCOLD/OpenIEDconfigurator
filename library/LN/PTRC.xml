@@ -1,0 +1,2508 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>PTRC</name>
+    <type>PTRC</type>
+    <description>PTRC node</description>
+    <layoutX>-1.0</layoutX>
+    <layoutY>-1.0</layoutY>
+    <dataSetInput>
+        <name>InputDS</name>
+        <description>DataSet for input connections</description>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <name>in_InRef1</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef2</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef3</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef4</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef5</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef6</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef7</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef8</name>
+            <type>ACT</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef9</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef10</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef11</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef12</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef13</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef14</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef15</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_InRef16</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_Blk1</name>
+            <type>SPS</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_SPS</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>stVal</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_Blk2</name>
+            <type>SPS</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_SPS</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>stVal</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_Blk3</name>
+            <type>SPS</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_SPS</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>stVal</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>in_Blk4</name>
+            <type>SPS</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_SPS</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>stVal</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DA>
+            <name>set_TrMod</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>set_TrPlsTmms</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppType>int</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>set_TrPlsTmms2</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppType>int</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </dataSetInput>
+    <dataSetOutput>
+        <name>OutputDS</name>
+        <description>DataSet for output connections</description>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <name>out_Op</name>
+            <type>BOOLEAN</type>
+            <description>Сигнал срабатывания</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>out_Str</name>
+            <type>ACD</type>
+            <description>Описание отсутствует</description>
+            <cppType>iec_ACD</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirGeneral</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirPhsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>dirNeut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+    </dataSetOutput>
+</LN>

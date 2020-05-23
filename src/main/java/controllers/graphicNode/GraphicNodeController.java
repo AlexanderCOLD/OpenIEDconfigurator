@@ -1,18 +1,21 @@
 package controllers.graphicNode;
 
 import application.GUI;
-import controllers.CLDVersionControl;
 import controllers.ProjectController;
 import controllers.link.LinkController;
 import controllers.object.DragContainer;
 import iec61850.*;
+import javafx.collections.FXCollections;
+import javafx.collections.MapChangeListener;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
-import tools.ArrayMap;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.apache.commons.io.FilenameUtils;
 import tools.SaveLoadObject;
 
@@ -24,30 +27,29 @@ import tools.SaveLoadObject;
  */
 public class GraphicNodeController {
 
-    private static final ArrayMap<Object, GraphicNode> projectNodeList = new ArrayMap<>(); // Граф. элементы созданные при загрузке CID (Не важно брошены или нет)
-    private static final ArrayMap<Object, GraphicNode> activeNodeList = new ArrayMap<>(); // Лист с текущими графическими элементами (Во всех вкладках, брошенные в проект)
+    /** Элементы которые содержатся в дереве */
+    private static final ObservableMap<String, GraphicNode> projectNodeList = FXCollections.observableHashMap();
 
-    private static GraphicNode selectedGraphicNode; // Активный граф. элемент
+    /** Элементы которые перетащили в панель */
+    private static final ObservableMap<String, GraphicNode> activeNodeList = FXCollections.observableHashMap();
 
-    private static final ArrayList<Node> nodeList = new ArrayList<>();
-    private static EventHandler<MouseEvent> dragDetected;
-    private static EventHandler <DragEvent> dragEvent, dragDone;
-    private static EventHandler<MouseEvent> mouseClicked;
+    /** Активный граф. элемент */
+    private static GraphicNode selectedGraphicNode;
 
-    private static double offsetX, offsetY; // для обработчиков
-    private static GraphicNode graphicNode; // для обработчиков
-    private static final ClipboardContent content = new ClipboardContent(){{ put(new DataFormat(), new DragContainer()); }}; // для обработчиков
+    /** Лист шаблонов библиотеки */
+    private static final ArrayList<File> templateList = new ArrayList<File>(){{
+        File lnLib = new File("library/LN/"); if(lnLib.exists()) for(File file:lnLib.listFiles()) add(file);
+        File addLnLib = new File("library/AddLN/"); if(addLnLib.exists()) for(File file:addLnLib.listFiles()) add(file);
+    }};
 
-    private static final File[] templateList = new File("library/"){{ if(!exists()) mkdirs(); }}.listFiles(); // Лист шаблонов библиотеки
 
     /**
      * Создает графический элемент, добавляет обработчики (Drag/mouse)
-     *
-     * @param userData - объект
+     * @param iecObject - объект МЭК 61850
      * @return - графический элемент
      */
-    public static GraphicNode createGraphicNode(Object userData){
-        GraphicNode node = new GraphicNode(userData);
+    public static GraphicNode createGraphicNode(IECObject iecObject){
+        GraphicNode node = new GraphicNode(iecObject);
 
         GraphicNodeController.addHandlers(node);
         for (Connector connector:node.getConnectors()) LinkController.addConnectorHandlers(connector);
@@ -57,20 +59,24 @@ public class GraphicNodeController {
 
     /**
      * Задать новый проект
-     * @param iedList
+     * @param cld - новый CLD
      */
-    public static void updateNodeObjects(ArrayList<IED> iedList) {
-        if(dragDetected==null) initialize();
+    public static void updateNodeObjects(CLD cld) {
+        /* Удаляем обработчики у текущих элементов */
         for (GraphicNode node:activeNodeList.values()) { removeHandlers(node); for(Connector connector:node.getConnectors()) LinkController.removeConnectorHandlers(connector); }
         for (GraphicNode node:projectNodeList.values()) { removeHandlers(node); for(Connector connector:node.getConnectors()) LinkController.removeConnectorHandlers(connector); }
+
         activeNodeList.clear();
         projectNodeList.clear();
 
-        for (IED ied:iedList) for(LD ld:ied.getLogicalDeviceList()){
-            for(DS ds:ld.getGooseOutputDS()) projectNodeList.put(ds, createGraphicNode(ds));
-            for(DS ds:ld.getGooseInputDS()) projectNodeList.put(ds, createGraphicNode(ds));
-            for(DS ds:ld.getMmsOutputDS()) projectNodeList.put(ds, createGraphicNode(ds));
-            for(LN ln:ld.getLogicalNodeList()) { fillByTemplate(ln); projectNodeList.put(ln, createGraphicNode(ln)); }
+        /* Элемнеты которые будут строиться (DS и LN) */
+        ArrayList<IECObject> iecObjects = new ArrayList<>();
+        for(IED ied:cld.getIedList()) for(LD ld:ied.getLogicalDeviceList()) iecObjects.addAll(ld.getChildren());
+
+        /* Создаем графические элементы */
+        for(IECObject iecObject:iecObjects){
+            if(iecObject.getClass()==DS.class){ projectNodeList.put(iecObject.getUID(), createGraphicNode(iecObject)); }
+            if(iecObject.getClass()==LN.class){ fillByTemplate((LN) iecObject); projectNodeList.put(iecObject.getUID(), createGraphicNode(iecObject)); }
         }
     }
 
@@ -78,24 +84,20 @@ public class GraphicNodeController {
      * Дополнить LN списком входящих и выходящих сигналов
      * @param ln
      */
-    private static void fillByTemplate(LN ln){
+    public static void fillByTemplate(LN ln){
         for(File template:templateList){
             String templateName = FilenameUtils.removeExtension(template.getName());
-            if(templateName.equals(ln.getClassType())){
+            if(templateName.equals(ln.getType())){
                 LN temp = SaveLoadObject.load(LN.class, template);
 
                 /* Внесение DS из шаблона */
-                ln.setDataSetInput(temp.getDataSetInput());
-                ln.setDataSetOutput(temp.getDataSetOutput());
-
-                /* Установка значений parentDO */
-                CLDVersionControl.findParentsDO(ln.getDataSetInput().getDataObject());
-                CLDVersionControl.findParentsDO(ln.getDataSetOutput().getDataObject());
+                ln.getDataSetInput().clear(); for(DS ds:temp.getDataSetInput()) ln.getDataSetInput().add(ds);
+                ln.getDataSetOutput().clear(); for(DS ds:temp.getDataSetOutput()) ln.getDataSetOutput().add(ds);
 
                 return;
             }
         }
-        GUI.writeErrMessage("Реализация для узла " + ln.getClassType() + " не найдена");
+        GUI.writeErrMessage("Реализация для узла " + ln.getType() + " не найдена");
     }
 
     /**
@@ -103,17 +105,26 @@ public class GraphicNodeController {
      * /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      * 									     Обработчики граф. элементов
      */
-    private static void initialize() {
+    private static final ArrayList<Node> nodeList = new ArrayList<>();                   // Граф. элементы которым добавили обработчики
+    private static EventHandler<MouseEvent> dragDetected;
+    private static EventHandler<DragEvent> dragEvent, dragDone;
+    private static EventHandler<MouseEvent> mouseClicked;
+
+    private static double offsetX, offsetY; // для обработчиков
+    private static GraphicNode graphicNode; // для обработчиков
+    private static final ClipboardContent content = new ClipboardContent(){{ put(new DataFormat(), new DragContainer()); }}; // для обработчиков
+
+    static {
 
         /* Выделить активный элемент в проекте при нажатии мышкой */
-        mouseClicked = e-> { ((GraphicNode) e.getSource()).toFront(); ProjectController.setSelectedObject(((GraphicNode) e.getSource()).getUserData()); };
+        mouseClicked = e-> { ((GraphicNode) e.getSource()).toFront(); ProjectController.setSelectedObject(((GraphicNode) e.getSource()).getIecObject()); };
 
         /* Начало перемещения элемента */
         dragDetected = e->{
             offsetX = e.getX(); offsetY = e.getY();
             graphicNode = (GraphicNode) e.getSource();
             graphicNode.toFront();
-            ProjectController.setSelectedObject(graphicNode.getUserData());
+            ProjectController.setSelectedObject(graphicNode.getIecObject());
 
             if(offsetY<20 && !e.isControlDown()){
                 graphicNode.getParent().addEventFilter(DragEvent.DRAG_OVER, dragEvent);
@@ -137,13 +148,11 @@ public class GraphicNodeController {
             pane.removeEventFilter(DragEvent.DRAG_DONE, dragDone);
             pane.removeEventFilter(DragEvent.DRAG_OVER, dragEvent);
             node.updateGrid();
-            ProjectController.setSelectedObject(node.getUserData());
             e.consume();
         };
     }
 
     public static void addHandlers(GraphicNode node){
-        if(dragDetected==null) initialize();
         if(!nodeList.contains(node)){
             nodeList.add(node);
             node.addEventHandler(MouseEvent.DRAG_DETECTED, dragDetected);
@@ -152,7 +161,6 @@ public class GraphicNodeController {
     }
 
     public static void removeHandlers(GraphicNode node){
-        if(dragDetected==null) initialize();
         if(nodeList.contains(node)){
             nodeList.remove(node);
             node.removeEventHandler(MouseEvent.DRAG_DETECTED, dragDetected);
@@ -160,9 +168,12 @@ public class GraphicNodeController {
         }
     }
 
-    public static void setSelectedObject(Object object){
-        if(object == null && selectedGraphicNode != null) { selectedGraphicNode.setSelected(false); selectedGraphicNode = null; return; }
-        GraphicNode selection = projectNodeList.getValue(object);
+    /**
+     * Выделить графический элемент
+     */
+    public static void setSelectedObject(IECObject iecObject){
+        if(iecObject == null && selectedGraphicNode != null) { selectedGraphicNode.setSelected(false); selectedGraphicNode = null; return; }
+        GraphicNode selection = projectNodeList.get(iecObject.getUID());
         if(selection == null) return;
         if(selection != selectedGraphicNode){
             if(selectedGraphicNode != null) selectedGraphicNode.setSelected(false);
@@ -171,6 +182,6 @@ public class GraphicNodeController {
         }
     }
 
-    public static ArrayMap<Object, GraphicNode> getActiveNodeList() { return activeNodeList; }
-    public static ArrayMap<Object, GraphicNode> getProjectNodeList() { return projectNodeList; }
+    public static ObservableMap<String, GraphicNode> getActiveNodeList() { return activeNodeList; }
+    public static ObservableMap<String, GraphicNode> getProjectNodeList() { return projectNodeList; }
 }

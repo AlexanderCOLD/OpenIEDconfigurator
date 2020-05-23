@@ -2,9 +2,9 @@ package iec61850;
 
 import application.GUI;
 import iec61850.objects.*;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,17 +14,17 @@ import java.util.Optional;
  * @project OpenIEDconfigurator
  * @description Извлечение необходимых данных из CID (IED, LD, LN, DS, DO)
  */
-public class IEDExtractor {
+public class CLDBuilder {
 
     /**
      * Извлекает IED лист из SCL
      * @param scl - Искомый SCL
-     * @return - IED лист
+     * @return - CLD
      */
-    public static ArrayList<IED> extractIEDList(SCL scl){
-        ArrayList<IED> iedList = new ArrayList<>();
-        if(scl.getIED()!=null) for(TIED ied:scl.getIED()) Optional.ofNullable(extractIED(ied)).ifPresent(iedList::add);
-        return iedList;
+    public static CLD buildCLD(SCL scl){
+        CLD cld = new CLD();
+        if(scl.getIED()!=null) for(TIED ied:scl.getIED()) Optional.ofNullable(extractIED(ied)).ifPresent(cld.getIedList()::add);
+        return cld;
     }
 
     /**
@@ -71,13 +71,13 @@ public class IEDExtractor {
         /* Извлечение исходящих гусей */
         if(outputGooseList!=null && tDataSetList!=null){
 
-            ArrayList<DS> dataSetList = ld.getGooseOutputDS();
+            ObservableList<DS> dataSetList = ld.getGooseOutputDS();
 
             for(TGSEControl gseCtrlBlock:outputGooseList){
                 DS ds = new DS();
                 if(gseCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain name", DSType.GOOSE_Output.toString(), StringOf(gseCtrlBlock)));
                 if(gseCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain DatSet name", DSType.GOOSE_Output.toString(), StringOf(gseCtrlBlock)));
-                ds.setType(DSType.GOOSE_Output);
+                ds.setType(DSType.GOOSE_Output.toString());
                 ds.setName(gseCtrlBlock.getName()!=null ? gseCtrlBlock.getName() : "unknown");
                 ds.setDatSetName(gseCtrlBlock.getDatSet()!=null ? gseCtrlBlock.getDatSet() : "unknown");
                 ds.setDescription(gseCtrlBlock.getDesc()!=null ? gseCtrlBlock.getDesc() : "unknown");
@@ -86,20 +86,20 @@ public class IEDExtractor {
                 for(TDataSet tDataSet:tDataSetList){
                     if(ds.getDatSetName().equals(tDataSet.getName())){
 
-                        ArrayList<DO> dataObjectList = new ArrayList<>();
+                        ObservableList<DO> dataObjectList = FXCollections.observableArrayList();
                         for(Object obj:tDataSet.getFCDAOrFCCB()){
                             if(obj.getClass()==TFCDA.class){
                                 TFCDA tfcda = ((TFCDA) obj);
                                 DO dataObject = new DO();
                                 if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_Output.toString(), StringOf(tfcda)));
                                 if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_Output.toString(), StringOf(tfcda)));
-                                dataObject.setDataObjectName(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
-                                dataObject.setDataAttributeName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
+                                dataObject.setType(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
+                                dataObject.setName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
                                 dataObjectList.add(dataObject);
                             }
                         }
 
-                        ds.setDataObject(dataObjectList);
+                        for(DO doc:dataObjectList) ds.getDataObject().add(doc);
                         dataSetList.add(ds);
 
                         break;
@@ -112,18 +112,18 @@ public class IEDExtractor {
         if(source.getLN0().getInputs()!=null && source.getLN0().getInputs().getExtRef()!=null){
             List<TExtRef> extRefList = source.getLN0().getInputs().getExtRef();
 
-            ArrayList<DS> dataSetList = ld.getGooseInputDS();
+            ObservableList<DS> dataSetList = ld.getGooseInputDS();
 
             DS dataSet = new DS();
-            dataSet.setType(DSType.GOOSE_Input);
+            dataSet.setType(DSType.GOOSE_Input.toString());
             dataSet.setName("GOOSE_IN");
 
             for(TExtRef tExtRef:extRefList){
                 DO dataObject = new DO();
                 if(tExtRef.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_Input.toString(), StringOf(tExtRef)));
                 if(tExtRef.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_Input.toString(), StringOf(tExtRef)));
-                dataObject.setDataObjectName(tExtRef.getDoName()!=null ? tExtRef.getDoName(): "unknown");
-                dataObject.setDataAttributeName(tExtRef.getDaName()!=null ? tExtRef.getDaName(): "unknown");
+                dataObject.setType(tExtRef.getDoName()!=null ? tExtRef.getDoName(): "unknown");
+                dataObject.setName(tExtRef.getDaName()!=null ? tExtRef.getDaName(): "unknown");
                 dataSet.getDataObject().add(dataObject);
             }
 
@@ -133,11 +133,11 @@ public class IEDExtractor {
         /* Извлечение исходящих отчетов (MMS) */
         if(outputMMSList!=null && tDataSetList!=null){
 
-            ArrayList<DS> dataSetList = ld.getMmsOutputDS();
+            ObservableList<DS> dataSetList = ld.getMmsOutputDS();
 
             for(TReportControl reportCtrlBlock:outputMMSList){
                 DS ds = new DS();
-                ds.setType(DSType.MMS_Output);
+                ds.setType(DSType.MMS_Output.toString());
 
                 if(reportCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain name", DSType.MMS_Output.toString(), StringOf(reportCtrlBlock)));
                 if(reportCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain DatSet name", DSType.MMS_Output.toString(), StringOf(reportCtrlBlock)));
@@ -149,20 +149,20 @@ public class IEDExtractor {
                 for(TDataSet tDataSet:tDataSetList){
                     if(ds.getDatSetName().equals(tDataSet.getName())){
 
-                        ArrayList<DO> dataObjectList = new ArrayList<>();
+                        ObservableList<DO> dataObjectList = FXCollections.observableArrayList();
                         for(Object obj:tDataSet.getFCDAOrFCCB()){
                             if(obj.getClass()==TFCDA.class){
                                 TFCDA tfcda = ((TFCDA) obj);
                                 DO dataObject = new DO();
                                 if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.MMS_Output.toString(), StringOf(tfcda)));
                                 if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.MMS_Output.toString(), StringOf(tfcda)));
-                                dataObject.setDataObjectName(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
-                                dataObject.setDataAttributeName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
+                                dataObject.setType(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
+                                dataObject.setName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
                                 dataObjectList.add(dataObject);
                             }
                         }
 
-                        ds.setDataObject(dataObjectList);
+                        for(DO doc:dataObjectList) ds.getDataObject().add(doc);
                         dataSetList.add(ds);
 
                         break;
@@ -181,8 +181,8 @@ public class IEDExtractor {
     private static LN extractLN(TLN source){
         LN ln = new LN();
         if(source.getLnType()==null) { GUI.writeErrMessage("LN:  "+ StringOf(source) + "- is not contain type"); }
-        ln.setClassType((source.getLnClass()!=null && source.getLnClass().size()>0 && source.getLnClass().get(0)!=null) ? source.getLnClass().get(0) : "unknown");
-        ln.setName(source.getLnType()!=null ? source.getLnType() : ln.getClassType());
+        ln.setType((source.getLnClass()!=null && source.getLnClass().size()>0 && source.getLnClass().get(0)!=null) ? source.getLnClass().get(0) : "unknown");
+        ln.setName(source.getLnType()!=null ? source.getLnType() : ln.getType());
         ln.setDescription(source.getDesc()!=null ? source.getDesc() : "unknown");
         return ln;
     }

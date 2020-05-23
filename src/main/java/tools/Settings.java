@@ -2,7 +2,7 @@ package tools;
 
 import application.GUI;
 import controllers.dialogs.InfoDialog;
-import controllers.library.LibraryDialog;
+import controllers.dialogs.library.LibraryDialog;
 import javafx.application.Platform;
 
 import javax.xml.bind.annotation.XmlRootElement;

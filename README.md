@@ -6,6 +6,12 @@ Project is contains new CLD (Configured Logic Description) file, which allows ma
 
 ![alt text](screenshot.png "Open IED Configurator GUI")
 
+Версия 0.92 изменения
+1. Улучшен редактор уставок
+2. Добавлена поддержка СПЛ
+3. Изменена структура объектной модели
+4. Множжество мелких исправлений
+
 Версия 0.91 изменения
 1. Добавлен редактор уставок
 2. Добавлена синхронизация уставок CLD

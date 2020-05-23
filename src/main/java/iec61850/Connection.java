@@ -19,9 +19,6 @@ public class Connection {
     private String targetID;
 
     public Connection() {}
-    public Connection(String sourceID, String targetID) {
-        this.sourceID = sourceID;
-        this.targetID = targetID;
-    }
+    public Connection(String sourceID, String targetID) { this.sourceID = sourceID; this.targetID = targetID; }
 }
 

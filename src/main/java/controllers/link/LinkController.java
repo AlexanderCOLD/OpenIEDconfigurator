@@ -84,8 +84,8 @@ public class LinkController {
 	 * @return
 	 */
 	private static boolean isEqualType(){
-		String sourceDOName = tempLink.getSourceConnector().getDataObject().getDataObjectName();
-		String targetDOName = tempLink.getTargetConnector().getDataObject().getDataObjectName();
+		String sourceDOName = tempLink.getSourceConnector().getIecObject().getType();
+		String targetDOName = tempLink.getTargetConnector().getIecObject().getType();
 		return sourceDOName.equals(targetDOName);
 	}
 

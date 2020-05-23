@@ -1,6 +1,7 @@
 package iec61850;
 
-import lombok.Data;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,26 +20,29 @@ import java.util.UUID;
  */
 @Getter @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LD {
+public class LD extends IECObject {
 
-    @XmlTransient
-    private String UID = UUID.randomUUID().toString();
-
-    private String name;
-    private String description;
-
+    /** Список логических узлов */
     @XmlElement(name = "LN")
-    private ArrayList<LN> logicalNodeList = new ArrayList<>();
+    private final ObservableList<LN> logicalNodeList = FXCollections.observableArrayList(); { logicalNodeList.addListener(this::listChanged); }
 
+    /** Список исходящих GOOSE датасетов */
     @XmlElement(name = "GOOSEOutputDataSet")
-    private ArrayList<DS> gooseOutputDS = new ArrayList<>();
-    @XmlElement(name = "GOOSEInputDataSet")
-    private ArrayList<DS> gooseInputDS = new ArrayList<>();
-    @XmlElement(name = "MMSOutputDataSet")
-    private ArrayList<DS> mmsOutputDS = new ArrayList<>();
+    private final ObservableList<DS> gooseOutputDS = FXCollections.observableArrayList(); { gooseOutputDS.addListener(this::listChanged); }
 
+    /** Список входящих GOOSE датасетов */
+    @XmlElement(name = "GOOSEInputDataSet")
+    private final ObservableList<DS> gooseInputDS = FXCollections.observableArrayList(); { gooseInputDS.addListener(this::listChanged); }
+
+    /** Список входящих MMS сообщений */
+    @XmlElement(name = "MMSOutputDataSet")
+    private final ObservableList<DS> mmsOutputDS = FXCollections.observableArrayList(); { mmsOutputDS.addListener(this::listChanged); }
+
+    /** Список соединений */
     @XmlElement(name = "Connection")
-    private ArrayList<Connection> connectionList = new ArrayList<>();
+    private final ObservableList<Connection> connectionList = FXCollections.observableArrayList();
+
+
 
     public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
 }

@@ -1,13 +1,14 @@
 package iec61850;
 
-import lombok.Data;
+import iec61850.objects.SCL;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.annotation.PostConstruct;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -15,34 +16,26 @@ import java.util.UUID;
  * @author Александр Холодов
  * @created 03/2020
  * @project OpenIEDconfigurator
- * @description - Data Object (Connector)
+ * @description - Data Object
  */
-
 @Getter @Setter
+@XmlRootElement(name = "DO")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DO {
+public class DO  extends IECObject {
 
-    @XmlTransient
-    private String UID = UUID.randomUUID().toString();
-
-    private String dataObjectName;     // Тип данных C++
-    private String dataAttributeName;  // Название экземпляра С++
-    private String description;        // Описание
-
-    private String value;              // Значение
-
-    public DO() { }
-    public DO(String dataObjectName, String dataAttributeName) { this.dataObjectName = dataObjectName; this.dataAttributeName = dataAttributeName; }
-
+    /** Вложенные объекты */
     @XmlElement(name = "DO")
-    private ArrayList<DO> content = new ArrayList<>(); // Вложенные классы
+    private final ObservableList<DO> content = FXCollections.observableArrayList(); { content.addListener(this::listChanged); }
 
-    @XmlTransient
-    private DO parentDO;                // Родительский DO (для построения иерархии)
+    /** Атрибуты объекта */
+    @XmlElement(name = "DA")
+    private final ObservableList<DA> attributes = FXCollections.observableArrayList(); { attributes.addListener(this::listChanged); }
+
+
 
     public String toString(){
-        String daName = dataAttributeName != null ? dataAttributeName.replaceAll("[in_-out_]","") : "emptyDA";
-        String doName = dataObjectName != null ? dataObjectName.replaceAll("iec_", "") : "emptyDO";
-        return String.format("%s (%s)", daName,doName);
+        String type = this.type!=null ? "{"+this.type.replaceAll("iec_","")+"}":"(err)";
+        String name = this.name!=null ? this.name.replaceAll("in_","").replaceAll("out_",""):"(err)";
+        return String.format("%s %s", type, name);
     }
 }

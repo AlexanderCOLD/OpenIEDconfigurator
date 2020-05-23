@@ -1,6 +1,7 @@
 package controllers.link;
 
-import controllers.ContextMenuController;
+import application.GUI;
+import controllers.MainContextMenu;
 import controllers.graphicNode.Connector;
 import controllers.graphicNode.ConnectorType;
 import controllers.graphicNode.GraphicNode;
@@ -73,7 +74,11 @@ public class Link extends Polyline {
 		MenuItem remove = new MenuItem("Удалить");
 		cmElement.getItems().addAll(remove);
 		remove.setOnAction(e -> remove());
-		setOnContextMenuRequested(e-> ContextMenuController.showContextMenu(cmElement, e));
+		setOnContextMenuRequested(e-> {
+			if(GUI.getCurrentContextMenu()!=null) GUI.getCurrentContextMenu().hide();
+			cmElement.show(GUI.get(), e.getScreenX(), e.getScreenY());
+			GUI.setCurrentContextMenu(cmElement);
+		});
 	}
 
 	/**

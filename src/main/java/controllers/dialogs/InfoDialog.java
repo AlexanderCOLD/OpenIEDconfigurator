@@ -3,6 +3,7 @@ package controllers.dialogs;
 import application.GUI;
 import application.Main;
 import controllers.ResizeController;
+import iec61850.IECObject;
 import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -157,6 +158,19 @@ public class InfoDialog extends AnchorPane {
         if(object==null) { GUI.writeErrMessage("Element is empty"); return; }
         self.tableView.getItems().clear();
         int numb = 0;
+        for (Field field : IECObject.class.getDeclaredFields()) {
+            field.setAccessible(true);
+            try {
+                Object value = field.get(object);
+                if(value!=null) {
+                    if(self.listObject.size()<++numb) self.listObject.add(new TableObject());
+                    TableObject to = self.listObject.get(numb-1);
+                    to.setName(field.getName());
+                    to.setValue(value.toString());
+                    self.tableView.getItems().add(to);
+                }
+            } catch (IllegalAccessException ignored) { }
+        }
         for (Field field : object.getClass().getDeclaredFields()) {
             field.setAccessible(true);
             try {

@@ -6,6 +6,8 @@ import controllers.graphicNode.GraphicNodeController;
 import controllers.link.Link;
 import controllers.link.LinkController;
 import controllers.tree.TreeController;
+import iec61850.CLD;
+import iec61850.IECObject;
 import iec61850.IED;
 import iec61850.LD;
 import javafx.beans.value.ChangeListener;
@@ -18,15 +20,13 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import tools.ArrayMap;
-
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Александр Холодов
@@ -37,63 +37,59 @@ import java.util.ArrayList;
 public class PanelsController {
 
     private static TabPane tabPane;
-    private static final ArrayMap<Object, Tab> tabList = new ArrayMap<>();     // Вкладка и объект который ей соотвествует (LD)
-    private static final ArrayMap<Tab, AnchorPane> allTabs = new ArrayMap<>(); // Вкладка и панель которая в ней лежит
-
-    private static AnchorPane selectedPanel;
     private static Tab selectedTab;
 
-    /**
-     * Создать вкладки в ссотвествие с листом объектов
-     * @param objectList
-     */
-    public static void createTabs(Object... objectList){
-        clearTabs();
-        for (Object object:objectList) createTab(object);
-    }
+    /* Вкладка и UID объекта (LD) */
+    private static final HashMap<String, Tab> tabs = new HashMap<>();
+
+    /* Панель которая в ней лежит и UID объекта (LD) */
+    private static final HashMap<String, AnchorPane> panels = new HashMap<>();
+
+    /* Объекты МЭК 61850 (LD) */
+    private static final HashMap<String, IECObject> iecObjects = new HashMap<>();
 
     /**
      * Создать вкладки при загрузке нового проекта
-     * @param iedList
+     * @param cld - новый CLD
      */
-    public static void updateTabObjects(ArrayList<IED> iedList){
+    public static void updateTabObjects(CLD cld){
         clearTabs();
-        for(IED ied:iedList) for(LD ld:ied.getLogicalDeviceList())
-            PanelsController.createTab(ld); // Добавляем вкладки
+        for(IED ied:cld.getIedList()) for(LD ld:ied.getLogicalDeviceList()) createTab(ld); // Добавляем вкладки
     }
 
     /**
      * Создать одну вкладку
-     * @param object
+     * @param iecObject - объект МЭК 61850 (LD)
      */
-    public static void createTab(Object object){
-        if(tabList.contains(object)) { GUI.writeErrMessage("Вкладка существует"); return; }
-        Tab newTab = createNewTab(object.toString()); newTab.setUserData(object);
-        tabList.put(object, newTab);
+    public static void createTab(IECObject iecObject){
+        if(tabs.containsKey(iecObject.getUID())) { GUI.writeErrMessage("Вкладка существует"); return; }
+        createNewTab(iecObject.toString(), iecObject.getUID());
+        iecObjects.put(iecObject.getUID(), iecObject);
     }
 
     /**
      * Создать новую вкладку
      * @param name - Название
      */
-    private static Tab createNewTab(String name){
-        AnchorPane pane = new AnchorPane(); pane.setId(name);
+    public static Tab createNewTab(String name, String id){
+        AnchorPane pane = new AnchorPane(); pane.setId(id);
         pane.setPrefHeight(2160); pane.setPrefWidth(3840);
         pane.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         pane.setStyle(" -fx-background-color: #ecf0f1;");
         pane.getChildren().addListener(panelChangeListener);
 //        pane.setOnContextMenuRequested(e->{ ContextMenuController.showContextMenu(ContextMenuController.getMainContextMenu(), e); });
-        pane.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->{  ContextMenuController.hideContextMenu(); });
 
         pane.setStyle("-fx-border-color: -fx-first-color; -fx-background-color: -fx-fourth-color,\n" +
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 5%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 5%, transparent 0%);");
 
-        Tab tab = new Tab(name); tab.setId(name); tab.setClosable(false); allTabs.put(tab, pane); tabPane.getTabs().add(tab);
+        Tab tab = new Tab(name); tab.setId(id); tab.setClosable(false);
+        panels.put(id, pane); tabs.put(id, tab);
+        tabPane.getTabs().add(tab);
 
         ScrollPane scrollPane  = new ScrollPane();
-        scrollPane.setOnDragDetected(e -> { scrollPane.setPannable(e.isControlDown()); });
-        scrollPane.setOnMouseClicked(e->{ scrollPane.setPannable(e.isControlDown()); });
+        scrollPane.setOnDragDetected(e -> { if(e.getButton()== MouseButton.MIDDLE) { scrollPane.setPannable(true); scrollPane.startFullDrag(); } e.consume(); });
+        scrollPane.setOnMouseDragReleased(e -> { scrollPane.setPannable(false); e.consume(); });
         tab.setContent(scrollPane);
 
         StackPane zoomTarget = new StackPane(pane); zoomTarget.setAlignment(Pos.CENTER);
@@ -135,10 +131,11 @@ public class PanelsController {
     }
 
     public static void clearTabs(){
-        for(AnchorPane pane:allTabs.values()) pane.getChildren().removeListener(panelChangeListener);
+        for(AnchorPane pane:panels.values()) pane.getChildren().removeListener(panelChangeListener);
         tabPane.getTabs().clear();
-        allTabs.clear();
-        tabList.clear();
+        iecObjects.clear();
+        panels.clear();
+        tabs.clear();
     }
 
     /**
@@ -148,11 +145,17 @@ public class PanelsController {
     private static final ListChangeListener<Node> panelChangeListener = c ->{
         c.next();
         if(c.wasAdded()) for(Node node:c.getAddedSubList()){
-            if(node.getClass()== GraphicNode.class) { GraphicNodeController.getActiveNodeList().put( node.getUserData(),(GraphicNode) node); TreeController.graphicNodeAdded(node.getUserData()); }
+            if(node.getClass()== GraphicNode.class) {
+                GraphicNodeController.getActiveNodeList().put( node.getId(),(GraphicNode) node);
+                TreeController.graphicNodeAdded(((GraphicNode) node).getIecObject());
+            }
             else if(node.getClass() == Link.class) LinkController.getConnections().add((Link)node);
         }
         if(c.wasRemoved()) for(Node node:c.getRemoved()){
-            if(node.getClass() == GraphicNode.class) { GraphicNodeController.getActiveNodeList().removeByValue((GraphicNode) node); TreeController.graphicNodeRemoved(node.getUserData()); }
+            if(node.getClass() == GraphicNode.class) {
+                GraphicNodeController.getActiveNodeList().remove(node.getId());
+                TreeController.graphicNodeRemoved(((GraphicNode) node).getIecObject());
+            }
             else if(node.getClass() == Link.class) LinkController.getConnections().remove(node);
         }
     };
@@ -160,31 +163,44 @@ public class PanelsController {
     /**
      * Листнер который вызывается при изменении активной вкладки
      */
-    private static final ChangeListener<Tab> tabChangeListener = (o, ov, tabSelection) -> {
-        selectedTab = tabSelection;
-        selectedPanel = allTabs.getValue(tabSelection);
+    private static final ChangeListener<Tab> tabChangeListener = (o, ov, tab) -> {
+        if(tab==null) return;
+        selectedTab = tab;
     };
 
     /**
      * Перейти на вкладку содержищую объект (LD)
-     * @param object
+     * @param iecObject - Объект МЭК 61850
      */
-    public static void setSelectedObject(Object object){
-        if(object==null) return;
-        Tab selection = tabList.getValue(object);
+    public static void setSelectedObject(IECObject iecObject){
+        if(iecObject==null) return;
+        Tab selection = tabs.get(iecObject.getUID());
         if(selection!=null && selectedTab != selection) tabPane.getSelectionModel().select(selection);
     }
 
     /**
-     * @param object - объект (в основном LD) который соотвсествует вкладке
+     * @param iecObject - объект (в основном LD) который соотвсествует вкладке
      * @return - панель для построения элементов
      */
-    public static AnchorPane getPanel(Object object){
-        Tab tab = tabList.getValue(object);
-        if(tab != null) return allTabs.getValue(tab);
-        return null;
+    public static AnchorPane getPanel(IECObject iecObject){
+        return panels.get(iecObject.getUID());
     }
 
-    public static AnchorPane getSelectedPanel() { return selectedPanel; }
-    public static void setTabPane(TabPane tabPane) { PanelsController.tabPane = tabPane; PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener(tabChangeListener); }
+    /**
+     * Текущая открытая панель
+     */
+    public static AnchorPane getSelectedPanel() { if(selectedTab!=null) return panels.get(selectedTab.getId()); return null; }
+
+    /**
+     * Текущий элемент МЭК 61850 (LD)
+     */
+    public static IECObject getSelectedIECObject(){ if(selectedTab!=null) return iecObjects.get(selectedTab.getId()); return null; }
+
+    /**
+     * Задать TabPane (Во время старта программы)
+     */
+    public static void setTabPane(TabPane tabPane) {
+        PanelsController.tabPane = tabPane;
+        PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener(tabChangeListener);
+    }
 }

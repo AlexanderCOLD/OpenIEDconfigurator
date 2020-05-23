@@ -1,6 +1,5 @@
 package application;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -10,7 +9,7 @@ import controllers.dialogs.AboutProgramDialog;
 import controllers.dialogs.AssistantDialog;
 import controllers.dialogs.FileChooserDialog;
 import controllers.dialogs.InfoDialog;
-import controllers.library.LibraryDialog;
+import controllers.dialogs.library.LibraryDialog;
 import controllers.tree.TreeController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -20,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -38,9 +38,10 @@ import tools.Settings;
 public class GUI extends AnchorPane{
 
 	public static final String colorStyle = "blueStyle"; //Name of .css (blackStyle, blueStyle,...)
+	private static GUI self = new GUI();
+	private static ContextMenu currentContextMenu;
 	private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MMMM.yyyy HH.mm.ss");
 	private final Stage stage = new Stage(StageStyle.UNDECORATED);
-	private static GUI self = new GUI();
 	private double xOffset, yOffset;
 
 	@FXML private Accordion structAccord;
@@ -64,7 +65,17 @@ public class GUI extends AnchorPane{
 		Scene scene = new Scene(this);
 		scene.getStylesheets().add("view/CSS/" + colorStyle + ".css");
 		scene.getStylesheets().add("view/CSS/stylesheet.css");
-		scene.setOnKeyPressed(e -> { if (e.getCode() == KeyCode.S && e.isControlDown()) handleSave(); });
+		scene.setOnKeyPressed(e -> {
+			if(e.isControlDown()){
+				if(e.getCode()==KeyCode.O) handleOpen();
+				if(e.getCode()==KeyCode.I) handleImportCLD();
+				if(e.getCode()==KeyCode.S) handleSave();
+				if(e.getCode()==KeyCode.W) close();
+				if(e.getCode()==KeyCode.P) switchInfo();
+				if(e.getCode()==KeyCode.L) switchLibrary();
+			}
+		});
+
 		stage.setTitle("OpenIEDconfigurator");
 		stage.setScene(scene);
 		stage.getIcons().add(new Image(getClass().getResourceAsStream("/view/image/Icon.png")));
@@ -75,7 +86,7 @@ public class GUI extends AnchorPane{
 		menuBar.setOnMouseClicked(e->{ if(e.getClickCount()==2) maximize(); });
 
 		Settings.loadSettings();
-		ProjectVersionControl.openLastProject();
+		ProjectController.openLastProject();
 	}
 
 	/**
@@ -84,11 +95,11 @@ public class GUI extends AnchorPane{
 	public static void show(){ self.stage.setMinWidth(1200); self.stage.setMinHeight(750); self.stage.show();	}
 
 	@FXML private void initialize() {
+		addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {if(currentContextMenu!=null) { currentContextMenu.hide(); currentContextMenu = null; }});
 		PanelsController.setTabPane(tabPane);
-		ContextMenuController.initializeContextMenu();
 		TreeController.setTree(tree);
 
-		PanelsController.createTab("Project");
+		PanelsController.createNewTab("Project", "PROJECT");
 
 		structAccord.setExpandedPane(structAccord.getPanes().get(0));
 		messageArea.setStyle("-fx-background-color: -fx-fourth-color; -fx-padding: 0 20 0 20");
@@ -103,11 +114,11 @@ public class GUI extends AnchorPane{
 
 	private boolean exitRequest(){ return AssistantDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
 
-	@FXML private void handleNew() { if(!AssistantDialog.requestConfirm("Подтвер","Создать новый проект?\nНесохраненные данные будут утеряны")) return;	handleOpen(); }
-	@FXML private void handleOpen(){ ProjectVersionControl.openNewCID(FileChooserDialog.openCIDFile()); }
-	@FXML public void handleOpenCLD(){ ProjectVersionControl.openNewCLD(FileChooserDialog.openCLDFile()); }
-	@FXML private void handleSave() { if(ProjectController.getCld()==null) { GUI.writeErrMessage("Nothing to save"); return; }	File cldFile = ProjectController.getFileCLD(); if (cldFile != null) ProjectVersionControl.saveProject(cldFile); else handleSaveAs(); }
-	@FXML public void handleSaveAs() { if(ProjectController.getCld()==null) { GUI.writeErrMessage("Nothing to save"); return; } ProjectVersionControl.saveProject(FileChooserDialog.saveCLDFile()); }
+
+	@FXML private void handleOpen(){ if(!AssistantDialog.requestConfirm("Подтверждение","Создать новый проект?\nНесохраненные данные будут утеряны")) return;  ProjectController.openNewCID(FileChooserDialog.openCIDFile()); }
+	@FXML public void handleImportCLD(){ if(!AssistantDialog.requestConfirm("Подтверждение","Импортировать CLD?\nНесохраненные данные будут утеряны")) return; ProjectController.importCLD(FileChooserDialog.openCLDFile()); }
+	@FXML private void handleSave() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } if(ProjectController.fileCLD != null) ProjectController.saveProject(ProjectController.fileCLD); else handleSaveAs(); }
+	@FXML public void handleSaveAs() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } ProjectController.saveProject(FileChooserDialog.saveCLDFile()); }
 	@FXML private void switchInfo(){ InfoDialog.switchVisibility();	}
 	@FXML private void switchLibrary(){ LibraryDialog.switchVisibility(); }
 	@FXML private void aboutProgram(){ AboutProgramDialog.show();}
@@ -121,4 +132,6 @@ public class GUI extends AnchorPane{
 	public SplitPane getSplitPaneH() { return splitPaneH; }
 	public SplitPane getSplitPaneV() { return splitPaneV; }
 	public TabPane getTabPane() { return tabPane; }
+	public static ContextMenu getCurrentContextMenu() { return currentContextMenu; }
+	public static void setCurrentContextMenu(ContextMenu currentContextMenu) { GUI.currentContextMenu = currentContextMenu; }
 }

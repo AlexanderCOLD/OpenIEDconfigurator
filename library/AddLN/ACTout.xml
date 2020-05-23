@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>ACTout</name>
+    <type>ACTout</type>
+    <description>ACTout node</description>
+    <layoutX>-1.0</layoutX>
+    <layoutY>-1.0</layoutY>
+    <dataSetInput>
+        <name>InputDS</name>
+        <description>DataSet for input connections</description>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DA>
+            <name>in_general</name>
+            <type>BOOLEAN</type>
+            <description>Общий сигнал срабатывания</description>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+        </DA>
+        <DA>
+            <name>in_phsA</name>
+            <type>BOOLEAN</type>
+            <description>Сигнал срабатывания фазы А</description>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+        </DA>
+        <DA>
+            <name>in_phsB</name>
+            <type>BOOLEAN</type>
+            <description>Сигнал срабатывания фазы B</description>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+        </DA>
+        <DA>
+            <name>in_phsC</name>
+            <type>BOOLEAN</type>
+            <description>Сигнал срабатывания фазы C</description>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+        </DA>
+        <DA>
+            <name>in_neut</name>
+            <type>BOOLEAN</type>
+            <description>Сигнал срабатывания по нулевому контуру</description>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+        </DA>
+        <DA>
+            <name>in_validity</name>
+            <type>uint8</type>
+            <description>Атрибут качества</description>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+        </DA>
+    </dataSetInput>
+    <dataSetOutput>
+        <name>OutputDS</name>
+        <description>DataSet for output connections</description>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <intgPd>0</intgPd>
+        <bufTime>0</bufTime>
+        <DO>
+            <name>out_ACT</name>
+            <type>ACT</type>
+            <description>Сигнал срабатывания</description>
+            <cppType>iec_ACT</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppType>iec_Quality</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED CHAR</type>
+                    <description>Описание отсутствует</description>
+                    <cppType>unsigned char</cppType>
+                    <layoutX>-1.0</layoutX>
+                    <layoutY>-1.0</layoutY>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DA>
+                <name>general</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsA</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsB</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>phsC</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>neut</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppType>unsigned char</cppType>
+                <layoutX>-1.0</layoutX>
+                <layoutY>-1.0</layoutY>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+    </dataSetOutput>
+</LN>

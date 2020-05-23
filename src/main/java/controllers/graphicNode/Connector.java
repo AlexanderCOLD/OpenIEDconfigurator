@@ -1,10 +1,10 @@
 package controllers.graphicNode;
 
-import iec61850.DO;
 import iec61850.DS;
+import iec61850.IECObject;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Scale;
@@ -25,14 +25,19 @@ public class Connector extends AnchorPane {
     private static final String selectedStyle = "-fx-background-color: RED; -fx-background-radius: 5";
     private final Scale scale = new Scale();
     private GraphicNode graphicNode;
-    private DO dataObject;
-    private DS dataSet;
+    private IECObject iecObject;
     private ConnectorType connectorType;
     private ConnectorPosition position;
     private AnchorPane connectorPane;
 
-    public Connector(GraphicNode graphicNode, DO dataObject, DS dataSet, ConnectorType connectorType, ConnectorPosition position) {
-        this.graphicNode = graphicNode; this.dataObject = dataObject; this.connectorType = connectorType; this.dataSet = dataSet; this.position = position;
+    /**
+     * Создать коннектор для графического элемента
+     * @param iecObject - DO/DA
+     * @param connectorType - входящее/исходящее
+     * @param position - слева/справа
+     */
+    public Connector(GraphicNode graphicNode, IECObject iecObject, ConnectorType connectorType, ConnectorPosition position) {
+        this.graphicNode = graphicNode; this.iecObject = iecObject; this.connectorType = connectorType; this.position = position;
         initialize();
     }
 
@@ -45,9 +50,19 @@ public class Connector extends AnchorPane {
         setSelected(false);
 
         Label label = new Label(){{
-            setText(String.format("%s (%s)", dataObject.getDataAttributeName().replaceAll("[in_-out_]",""), dataObject.getDataObjectName().replaceAll("iec_", "")));
             setTextFill(Color.WHITE);
             /*label.setFont(Font.font(10.0));*/
+            textProperty().bind(new SimpleStringProperty(){
+                @Override
+                public String get() {
+                    String type = Connector.this.iecObject.getType();
+                    String name = Connector.this.iecObject.getName();
+                    type = type!=null ? "("+type.replaceAll("iec_","")+")" : "(err)";
+                    name = name!=null ? name.replaceAll("in_","").replaceAll("out_","") : "(err)";
+                    if(Connector.this.position==ConnectorPosition.left) return String.format("%s %s", name, type);
+                    else return String.format("%s %s", type, name);
+                }
+            });
         }};
 
         /* Прозрачная панелька на которой лежит коннектор */
@@ -69,5 +84,5 @@ public class Connector extends AnchorPane {
      */
     public void setSelected(boolean value){ if(value) { setStyle(selectedStyle); scale.setX(1.5); scale.setY(1.5); toFront(); } else { setStyle(unselectedStyle); scale.setX(1.0); scale.setY(1.0); }  }
 
-    public String toString(){ if(dataObject!=null) return dataObject.toString(); else return "unknown"; }
+    public String toString(){ if(iecObject !=null) return iecObject.toString(); else return "unknown"; }
 }

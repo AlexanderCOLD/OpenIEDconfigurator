@@ -1,11 +1,13 @@
-package controllers.library;
+package controllers.dialogs.library;
 
 import application.GUI;
-import controllers.CLDVersionControl;
+import iec61850.CLDUtils;
 import controllers.PanelsController;
 import controllers.graphicNode.GraphicNode;
 import controllers.graphicNode.GraphicNodeController;
 import controllers.object.DragContainer;
+import iec61850.IECObject;
+import iec61850.LD;
 import iec61850.LN;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
@@ -14,10 +16,10 @@ import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
-import tools.ArrayMap;
 import tools.SaveLoadObject;
 
 import java.io.File;
+import java.util.HashMap;
 
 /**
  * @author Александр Холодов
@@ -29,25 +31,21 @@ public class DragLibController {
 
 	private static DragLibController self;
 	private GraphicNode shadowNode;
-	private final ArrayMap<GraphicNode, GraphicNode> shadowNodes = new ArrayMap<>(); // key = Icon, value = shadowIcon
+	private final HashMap<String, GraphicNode> shadowNodes = new HashMap<>(); // key = UID, теневые иконки
+
 	private EventHandler<DragEvent> dragEnteredGUI, dragExitedGUI;
 	private EventHandler<DragEvent> dragOverGUI, dragOverLib, dragDropped, dragDone;
 	private double offsetX, offsetY;
 	private final ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}};
 
-
-
-	public DragLibController(){
-		buildDragHandlers();
-	}
-
-
+	/**
+	 * Добавить иконку для перемещений
+	 */
 	public static void addToController(GraphicNode node){
 		if(self==null) self = new DragLibController();
 
-		GraphicNode shadowNode = new GraphicNode(node.getUserData());
-		shadowNode.setOpacity(0.3);
-		self.shadowNodes.put(node, shadowNode);
+		GraphicNode shadowNode = new GraphicNode(node.getIecObject()); shadowNode.setOpacity(0.3);
+		self.shadowNodes.put(node.getId(), shadowNode);
 		self.addDragDetection(node);
 	}
 
@@ -55,25 +53,24 @@ public class DragLibController {
 	 * Начало перемещения в библиотеке
 	 */
 	private void addDragDetection(GraphicNode dragNode) {
-
 		/**
 		 * Начало перемещения
 		 */
 		dragNode.setOnDragDetected (e -> {
 
-			GUI.get().addEventHandler(DragEvent.DRAG_ENTERED, dragEnteredGUI);  // Добавить теневую иконку если затащили на GUI
-			GUI.get().addEventHandler(DragEvent.DRAG_EXITED, dragExitedGUI);  // Удалить теневую иконку если вышли из GUI
-
-			GUI.get().addEventHandler(DragEvent.DRAG_OVER, dragOverGUI); // Перемещение над GUI
-			LibraryDialog.get().addEventHandler(DragEvent.DRAG_OVER, dragOverLib); // Перемещение над библиотекой
-
-			GUI.get().addEventHandler(DragEvent.DRAG_DROPPED, dragDropped); // Если иконка брошена в текущую панель
-			LibraryDialog.get().addEventHandler(DragEvent.DRAG_DONE, dragDone); // Окончание перемещения
-
 			offsetX = e.getX(); offsetY = e.getY();
 			if(offsetX > ((GraphicNode)e.getSource()).getWidth() || offsetY > 20){ e.consume(); return; } // Только заголовок
 
-			shadowNode = shadowNodes.getValue(e.getSource());
+			GUI.get().addEventHandler(DragEvent.DRAG_ENTERED, dragEnteredGUI);     // Добавить теневую иконку если затащили на GUI
+			GUI.get().addEventHandler(DragEvent.DRAG_EXITED, dragExitedGUI);       // Удалить теневую иконку если вышли из GUI
+
+			GUI.get().addEventHandler(DragEvent.DRAG_OVER, dragOverGUI);           // Перемещение над GUI
+			LibraryDialog.get().addEventHandler(DragEvent.DRAG_OVER, dragOverLib); // Перемещение над библиотекой
+
+			GUI.get().addEventHandler(DragEvent.DRAG_DROPPED, dragDropped);        // Если иконка брошена в текущую панель
+			LibraryDialog.get().addEventHandler(DragEvent.DRAG_DONE, dragDone);    // Окончание перемещения
+
+			shadowNode = shadowNodes.get(((GraphicNode) e.getSource()).getId());
 			if(!LibraryDialog.get().getChildren().contains(shadowNode)) LibraryDialog.get().getChildren().add(shadowNode);
 			shadowNode.startDragAndDrop(TransferMode.COPY).setContent(content);
 			shadowNode.relocate(e.getSceneX(), e.getSceneY());
@@ -87,8 +84,7 @@ public class DragLibController {
 	/**
 	 * Инициализация обработчиков перемещения
 	 */
-	private void buildDragHandlers() {
-
+	{
 		/**
 		 * Перебрасывание теневой иконки
 		 */
@@ -122,17 +118,29 @@ public class DragLibController {
 		 * Элемент брошен в проект
 		 */
 		dragDropped = e -> {
-			String name = ((LN) shadowNode.getUserData()).getClassType();
-			LN ln = SaveLoadObject.load(LN.class, new File(String.format("library/%s.xml",name)));
+			String name = ((LN) shadowNode.getIecObject()).getType();
 
-			/* Установка значений parentDO */
-			CLDVersionControl.findParentsDO(ln.getDataSetInput().getDataObject());
-			CLDVersionControl.findParentsDO(ln.getDataSetOutput().getDataObject());
+			File lib = new File(String.format("library/AddLN/%s.xml",name));
+			if(!lib.exists()) lib = new File(String.format("library/LN/%s.xml",name));
+
+			if(!lib.exists()){ System.err.println("Library: " + name + " is not found"); return; }
+
+			/* Создаем LN и добавляем в текущий LD */
+			LN ln = SaveLoadObject.load(LN.class, lib);
+			LD ld = (LD) PanelsController.getSelectedIECObject();
+
+			if(ln==null || ld==null) { System.err.println("Error of element creating"); return; }
+
+			ld.getLogicalNodeList().add(ln);
+			ln.getTags().add("additional");
+			for(IECObject iecObject: CLDUtils.objectListOf(ln)) iecObject.getTags().add("additional");
 
 			/* Создание граф. элемента и установка в панель */
 			GraphicNode node = GraphicNodeController.createGraphicNode(ln);
-			Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());
+			GraphicNodeController.getProjectNodeList().put(ln.getUID(), node);
 			PanelsController.getSelectedPanel().getChildren().add(node);
+
+			Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());
 			node.relocate(point.getX() - offsetX, point.getY() - offsetY); node.updateGrid();
 
 			e.setDropCompleted(true);

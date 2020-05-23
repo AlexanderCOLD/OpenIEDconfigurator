@@ -2,11 +2,14 @@ package controllers.dialogs;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
 import application.GUI;
 import application.Main;
 import controllers.ResizeController;
+import iec61850.DA;
 import iec61850.DO;
 import iec61850.LN;
 import javafx.application.Platform;
@@ -37,7 +40,9 @@ import javafx.util.converter.DefaultStringConverter;
 public class TripPointDialog extends AnchorPane{
 
 	private static final TripPointDialog self = new TripPointDialog();
+	private final Image lnIcon = new Image(Main.class.getResource("/view/image/LNIcon.png").toString());
 	private final Image doIcon = new Image(Main.class.getResource("/view/image/DOIcon.png").toString());
+	private final Image daIcon = new Image(Main.class.getResource("/view/image/DAIcon.png").toString());
 
 	private boolean draggable = false;
 	private double dragOffsetX, dragOffsetY; // поправка при перетаскивании на позицию мышки
@@ -46,19 +51,29 @@ public class TripPointDialog extends AnchorPane{
 
 	@FXML private Accordion accordion;
 	@FXML private TitledPane titledPane;
-	@FXML private TreeTableView<DO> treeTableView;
-	@FXML private TreeTableColumn<DO,String> doColumn, daColumn, valueColumn;
+	@FXML private TreeTableView<Object> treeTableView;
+	@FXML private TreeTableColumn<Object,String> nameColumn, typeColumn, descColumn, valueColumn, minColumn, maxColumn, stepColumn;
 
-	private final TreeItem<DO> rootItem = new TreeItem<>();
+	/* Корневой элемент LogicalNode */
+	private final TreeItem<Object> rootItem = new TreeItem<Object>(){{
+		setGraphic(new ImageView(lnIcon){{ setFitWidth(20); setFitHeight(20); }});
+	}};
 
-	/* Буффер из вложений */
-	private final ArrayList<TreeItem<DO>> itemsList = new ArrayList<>();
-	private ArrayList<TreeItem<DO>> itemsBuffer;
-
+	/* Буффер из вложений DO / DA */
+	private ArrayList<TreeItem<Object>> itemsDOBuffer, itemsDABuffer;
+	private final ArrayList<TreeItem<Object>> itemsDOList = new ArrayList<TreeItem<Object>>(){{
+		IntStream.range(0, 50).forEach(i -> this.add(new TreeItem<Object>(){{
+			ImageView iv = new ImageView(doIcon){{ setFitHeight(20); setFitWidth(20); }}; setGraphic(iv); setExpanded(true);
+		}} ));
+	}};
+	private final ArrayList<TreeItem<Object>> itemsDAList = new ArrayList<TreeItem<Object>>(){{
+		IntStream.range(0, 200).forEach(i -> this.add(new TreeItem<Object>(){{
+			ImageView iv = new ImageView(daIcon){{ setFitHeight(20); setFitWidth(20); }}; setGraphic(iv); setExpanded(true);
+		}} ));
+	}};
 	/* Логический узел и Уставки */
 	private LN logicalNode;
-	private ArrayList<DO> dataObjects;
-
+	private final ArrayList<Object> objectList = new ArrayList<>();
 
 	public TripPointDialog() {
 		FXMLLoader loader = new FXMLLoader();
@@ -80,75 +95,103 @@ public class TripPointDialog extends AnchorPane{
 		stage.initModality(Modality.APPLICATION_MODAL);
 		ResizeController.addStage(stage);
 
+		/* Перетаскивание главного окна */
 		addEventFilter(MouseEvent.MOUSE_PRESSED,e->{
 			dragOffsetX = e.getScreenX() - stage.getX(); dragOffsetY = e.getScreenY() - stage.getY();
 			draggable = !(dragOffsetY<7 || dragOffsetY>25 || dragOffsetX<7 || dragOffsetX>(stage.getWidth()-7)); // Границы перетаскивания
 		});
 		addEventFilter(MouseEvent.MOUSE_DRAGGED, e->{ if(draggable){ stage.setX(e.getScreenX() - this.dragOffsetX); stage.setY(e.getScreenY() - this.dragOffsetY); } });
+
+		/* Редактирование по однократноу нажатию */
+		treeTableView.setOnMouseClicked(e -> { editCurrentCell(); e.consume(); });
+
+		/* Редактирование по изменению фокуса */
+		treeTableView.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> editCurrentCell());
+
+		/* Фокусировка по нажатию кнопок */
+		scene.addEventFilter(KeyEvent.KEY_PRESSED, e-> {
+			if(e.getCode()==KeyCode.UP || e.getCode()==KeyCode.DOWN || e.getCode()==KeyCode.ENTER) treeTableView.requestFocus();
+		});
 	}
 
 	@FXML
 	private void initialize() {
-		stage.setMinWidth(500); stage.setMinHeight(250);
-		stage.setWidth(550); stage.setHeight(250);
+		stage.setMinWidth(900); stage.setMinHeight(300);
+		stage.setWidth(900); stage.setHeight(300);
 		stage.setOnShowing(event -> onShowing()); stage.setOnHiding(event -> onHiding());
 		accordion.setExpandedPane(titledPane);
 		treeTableView.setRoot(rootItem);
 		treeTableView.setEditable(true);
 
-		/* Наполнение буффера строк */
-		IntStream.range(0, 100).forEach(i -> itemsList.add(new TreeItem<DO>(){{
-			ImageView iv = new ImageView(doIcon){{ setFitHeight(20); setFitWidth(20); }}; setGraphic(iv); setExpanded(true);
-		}} ));
-
-		daColumn.setStyle("-fx-alignment: CENTER;");
-		valueColumn.setStyle("-fx-alignment: CENTER;");
-
 		/* Внесение данных из объекта в таблицу */
-		doColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getDataObjectName().replaceAll("iec_", "").toUpperCase()));
-		daColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getDataAttributeName().replaceAll("[in_-out_]","")));
-		valueColumn.setCellValueFactory(new TreeItemPropertyValueFactory<DO, String>("value"));
+		nameColumn.setCellValueFactory(p -> {
+			if(p.getValue().getValue().getClass()==LN.class) return new SimpleStringProperty(((LN) p.getValue().getValue()).getName());
+			if(p.getValue().getValue().getClass()==DO.class) return new SimpleStringProperty(((DO) p.getValue().getValue()).getName().replaceAll("set_",""));
+			if(p.getValue().getValue().getClass()==DA.class) return new SimpleStringProperty(((DA) p.getValue().getValue()).getName().replaceAll("set_",""));
+			return null;
+		});
+		typeColumn.setCellValueFactory(p -> {
+			if(p.getValue().getValue().getClass()==LN.class) return new SimpleStringProperty(((LN) p.getValue().getValue()).getType());
+			if(p.getValue().getValue().getClass()==DO.class) return new SimpleStringProperty(((DO) p.getValue().getValue()).getType().replaceAll("iec_",""));
+			if(p.getValue().getValue().getClass()==DA.class) return new SimpleStringProperty(((DA) p.getValue().getValue()).getType().replaceAll("iec_",""));
+			return null;
+		});
+		descColumn.setCellValueFactory(new TreeItemPropertyValueFactory<>("description"));
+		valueColumn.setCellValueFactory(new TreeItemPropertyValueFactory<>("value"));
+		minColumn.setCellValueFactory(new TreeItemPropertyValueFactory<>("minValue"));
+		maxColumn.setCellValueFactory(new TreeItemPropertyValueFactory<>("maxValue"));
+		stepColumn.setCellValueFactory(new TreeItemPropertyValueFactory<>("step"));
+
+//		nameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getName()));
 
 		/* Тип объекта в таблице (TextField) */
 //		valueColumn.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn());
-		valueColumn.setCellFactory(param -> new TextFieldTreeTableCell<DO, String>(new DefaultStringConverter()){
+		valueColumn.setCellFactory(param -> new TextFieldTreeTableCell<Object, String>(new DefaultStringConverter()){
 			@Override
 			public void updateItem(String item, boolean empty) {
-				TreeItem<DO> currentItem = getTreeTableRow().getTreeItem();
-				String doN = null;
-				if(currentItem != null) doN = currentItem.getValue().getDataObjectName();
-				/* Редактируемы только простые типы данных */
-				if(doN != null && (
-						doN.contains("float") ||
-						doN.contains("double") ||
-						doN.contains("int") ||
-						doN.contains("long") ||
-						doN.contains("short") ||
-						doN.contains("char"))
-				) super.updateItem(item, empty);
+				TreeItem<Object> currentItem = getTreeTableRow().getTreeItem();
+
+				/* Если это DA - делаем ячейку редактируемой */
+				if(currentItem != null && currentItem.getValue().getClass()==DA.class) super.updateItem(item, empty);
 				else super.updateItem(null, true);
 			}
+
+			{
+				/* Горячие клавиши для навигации */
+				addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+					if (event.getCode() == KeyCode.ESCAPE) { cancelEdit(); event.consume(); }
+					else if (event.getCode() == KeyCode.UP || event.getCode() == KeyCode.LEFT) {
+						cancelEdit();	treeTableView.getSelectionModel().selectAboveCell(); editCurrentCell(); event.consume();
+					}
+					else if (event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.RIGHT) {
+						cancelEdit(); treeTableView.getSelectionModel().selectBelowCell(); editCurrentCell(); event.consume();
+					}
+				});
+			}
+
 		});
 
 		/* Вызывается при внесении изменений */
 		valueColumn.setOnEditCommit(event -> {
-			DO dataObject = event.getRowValue().getValue();
-			String doN = dataObject.getDataObjectName();
+			DA da = (DA) event.getRowValue().getValue();
+			String doN = da.getCppType();
 			String value = event.getNewValue();
 			if(doN.contains("float") || doN.contains("double")) value = parseNumber(Double.class, value);
 			if(doN.contains("int") || doN.contains("long") || doN.contains("short")) value = parseNumber(Integer.class, value);
-			if(doN.contains("char")) value = parseNumber(Byte.class, value);
-			dataObject.setValue(value);
+//			if(doN.contains("char")) value = parseNumber(Byte.class, value);
+			da.setValue(value);
 			event.getTreeTableView().refresh();
 		});
+	}
 
-		/* Редактирование по однократноу нажатию */
-		treeTableView.getSelectionModel().selectedItemProperty().addListener((o, os, newSelection) -> {
-			if (newSelection != null) {
-				int row = treeTableView.getSelectionModel().getSelectedCells().get(0).getRow();
-				Platform.runLater(() -> treeTableView.edit(row, valueColumn));
-			}
-		});
+	/**
+	 * Редактировать выделенный элемент
+	 */
+	private void editCurrentCell(){
+		if(!treeTableView.getSelectionModel().getSelectedCells().isEmpty()){
+			int row = treeTableView.getSelectionModel().getSelectedCells().get(0).getRow();
+			Platform.runLater(() -> treeTableView.edit(row, valueColumn));
+		}
 	}
 
 	/**
@@ -174,26 +217,41 @@ public class TripPointDialog extends AnchorPane{
 	 */
 	private void onShowing(){
 		titledPane.setText("Параметры - " + logicalNode.getName());
-		itemsBuffer = new ArrayList<>(itemsList);
-		for(TreeItem<DO> item:itemsBuffer) item.getChildren().clear();
+		itemsDOBuffer = new ArrayList<>(itemsDOList);
+		itemsDABuffer = new ArrayList<>(itemsDAList);
+		for(TreeItem<Object> item: itemsDOBuffer) item.getChildren().clear();
+		for(TreeItem<Object> item: itemsDABuffer) item.getChildren().clear();
 		rootItem.getChildren().clear();
 
-		/* Наполнение таблицы параметрами */
-		for(DO dataObject:dataObjects){
-			TreeItem<DO> localRoot = getItem(dataObject);
-			rootItem.getChildren().add(localRoot);
-			fillItem(localRoot, dataObject.getContent());
-		}
+		rootItem.setValue(logicalNode); rootItem.setExpanded(true);
 
+		/* Наполнение таблицы параметрами */
+		for(Object dataObject: objectList){
+			if(dataObject.getClass()==DO.class){
+				TreeItem<Object> localRoot = getDOItem(dataObject);
+				rootItem.getChildren().add(localRoot);
+				fillItem(localRoot, (DO) dataObject);
+			}
+			else if(dataObject.getClass()==DA.class){
+				TreeItem<Object> localRoot = getDAItem(dataObject);
+				rootItem.getChildren().add(localRoot);
+			}
+		}
 	}
 
 	/**
 	 * Наполнить верку (рекурсия)
 	 */
-	private void fillItem(TreeItem<DO> root, ArrayList<DO> dataObjects){
-		if(dataObjects.isEmpty()) return;
-		for(DO dataObject:dataObjects){	TreeItem<DO> item = getItem(dataObject); item.setExpanded(true); root.getChildren().add(item); }
-		for(TreeItem<DO> doItem:root.getChildren()) fillItem(doItem, doItem.getValue().getContent());
+	private void fillItem(TreeItem<Object> root, DO dataObject){
+		root.setExpanded(true);
+		for(DO doCont:dataObject.getContent()){ TreeItem<Object> doItem = getDOItem(doCont); doItem.setExpanded(true); root.getChildren().add(doItem); }
+		for(DA daCont:dataObject.getAttributes()){ TreeItem<Object> daItem = getDAItem(daCont); root.setExpanded(true); root.getChildren().add(daItem); }
+
+		for(TreeItem<Object> doItem:root.getChildren())
+			if(doItem.getValue().getClass()==DO.class) {
+				DO doCont = (DO) doItem.getValue();
+				if(!doCont.getAttributes().isEmpty() || !doCont.getContent().isEmpty()) fillItem(doItem, doCont);
+			}
 	}
 
 	/**
@@ -204,15 +262,22 @@ public class TripPointDialog extends AnchorPane{
 	/**
 	 * Взять элемент из буффера
 	 */
-	public TreeItem<DO> getItem(DO dataObject){ TreeItem<DO> item = itemsBuffer.get(0); itemsBuffer.remove(item); item.setValue(dataObject); return item; }
+	public TreeItem<Object> getDOItem(Object dataObject){ TreeItem<Object> item = itemsDOBuffer.get(0); itemsDOBuffer.remove(item); item.setValue(dataObject); return item; }
+	public TreeItem<Object> getDAItem(Object dataObject){ TreeItem<Object> item = itemsDABuffer.get(0); itemsDABuffer.remove(item); item.setValue(dataObject); return item; }
 
 	/**
 	 * Показать окно
 	 */
 	public static void show(LN logicalNode) {
-		self.dataObjects = new ArrayList<>(logicalNode.getDataSetInput().getDataObject().stream()
-				.filter(aDo -> aDo.getDataAttributeName().contains("set_"))
-				.collect(Collectors.toList()));
+
+		List<DO> doList = logicalNode.getDataSetInput().get(0).getDataObject().stream()
+				.filter(aDo -> aDo.getName().contains("set_"))
+				.collect(Collectors.toList());
+		List<DA> daList = logicalNode.getDataSetInput().get(0).getAttributes().stream()
+				.filter(aDo -> aDo.getName().contains("set_"))
+				.collect(Collectors.toList());
+
+		self.objectList.clear(); self.objectList.addAll(doList); self.objectList.addAll(daList);
 		self.logicalNode = logicalNode;
 		self.stage.showAndWait();
 	}

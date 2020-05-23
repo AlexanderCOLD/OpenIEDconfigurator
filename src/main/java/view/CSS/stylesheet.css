@@ -302,7 +302,7 @@
 }
 
 .tree-table-view .column-header .label {
-    -fx-font-size: 11pt;
+    -fx-font-size: 10pt;
     -fx-font-family: "Arial";
     -fx-text-fill: white;
     -fx-font-weight: bold;

@@ -1,5 +1,7 @@
 package iec61850;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,20 +22,18 @@ import java.util.UUID;
 
 @Getter @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
-public class IED {
+public class IED extends IECObject{
 
-    @XmlTransient
-    private String UID = UUID.randomUUID().toString();
-
-    private String name;
-    private String description;
+    /** Список логических устройств */
     @XmlElement(name = "LD")
-    private ArrayList<LD> logicalDeviceList = new ArrayList<>();
+    private ObservableList<LD> logicalDeviceList = FXCollections.observableArrayList(); { logicalDeviceList.addListener(this::listChanged); }
 
-
-    public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
+    /** Список внутренних соединений */
     @XmlElement(name = "Connection")
     private ArrayList<Connection> connectionList = new ArrayList<>(); // Пока не используется
 
+
+
+    public String toString(){ if(description!=null && !description.equals("unknown")) return String.format("%s (%s)", name, description); else return name; }
 }
 

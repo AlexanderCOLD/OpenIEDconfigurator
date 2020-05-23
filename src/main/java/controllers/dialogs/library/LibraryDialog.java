@@ -1,4 +1,4 @@
-package controllers.library;
+package controllers.dialogs.library;
 
 import application.GUI;
 import application.Main;
@@ -37,7 +37,7 @@ public class LibraryDialog extends AnchorPane {
 
     @FXML private Accordion accord;
     @FXML private ToggleButton lock;
-    @FXML private FlowPane libraryPane;
+    @FXML private FlowPane libraryPane, addLibraryPane;
 
     private static LibraryDialog self;
     private boolean draggable = false;
@@ -80,11 +80,28 @@ public class LibraryDialog extends AnchorPane {
         stage.addEventFilter(MouseEvent.MOUSE_PRESSED, mousePressed);
         lock.setOnMouseClicked(e-> setLock(lock.isSelected()) );
         setLock(false);
+
         libraryPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 10; -fx-vgap:10; -fx-padding: 10 10 10 10; -fx-background-color: -fx-fourth-color,\n" +
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
-        File library = new File("library/");
+        addLibraryPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 10; -fx-vgap:10; -fx-padding: 10 10 10 10; -fx-background-color: -fx-fourth-color,\n" +
+                "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
+                "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
+
+        File addLibrary = new File("library/AddLN/");
+        if(addLibrary.exists()){
+            for(File lib:addLibrary.listFiles()){
+                if(lib.isDirectory()) continue;
+                LN ln = SaveLoadObject.load(LN.class, lib);
+                if(ln == null) continue;
+                GraphicNode graphicNode = new GraphicNode(ln);
+                addLibraryPane.getChildren().add(graphicNode);
+                DragLibController.addToController(graphicNode);
+            }
+        }
+
+        File library = new File("library/LN/");
         if(library.exists()){
             for(File lib:library.listFiles()){
                 if(lib.isDirectory()) continue;

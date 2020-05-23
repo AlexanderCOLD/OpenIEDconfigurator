@@ -1,14 +1,13 @@
 package iec61850;
 
-import lombok.Data;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
-import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -20,26 +19,26 @@ import java.util.UUID;
 
 @Getter @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DS {
+public class DS extends IECObject {
 
-    @XmlTransient
-    private String UID = UUID.randomUUID().toString();
+    /** Название датасета из CID (список всех датасетов)*/
+    private String datSetName;
 
-    private String name;
-    private String description;
-    private DSType type = DSType.Node;
+    /** ID датасета (appID - для GOOSE, rptID - для ММС)*/
+    private String ID;
 
-    private String datSetName;                 // Имя из списка всех датасетов
-    private String ID;                         // appID - для Goose, rptID - для MMS
+    /** Параметры ММС */
+    private int intgPd, bufTime;
 
-    private int intgPd, bufTime;               // для MMS
-
-    private double layoutX = -1, layoutY = -1; // Координаты
-
-    private String cppType, cppName;           // Оригинальное название типа (структуры) C++, Оригинальное название экземпляра структуры
-
+    /** Вложенные объекты */
     @XmlElement(name = "DO")
-    private ArrayList<DO> dataObject = new ArrayList<>();
+    private final ObservableList<DO> dataObject = FXCollections.observableArrayList(); { dataObject.addListener(this::listChanged); }
 
-    public String toString(){ return String.format("%s (%s)", name, type.toString()); }
+    /** Атрибуты датасета */
+    @XmlElement(name = "DA")
+    private final ObservableList<DA> attributes = FXCollections.observableArrayList(); { attributes.addListener(this::listChanged); }
+
+
+
+    public String toString(){ return String.format("{%s} %s", type, name); }
 }
