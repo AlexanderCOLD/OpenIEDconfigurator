@@ -5,10 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import controllers.*;
-import controllers.dialogs.AboutProgramDialog;
-import controllers.dialogs.AssistantDialog;
-import controllers.dialogs.FileChooserDialog;
-import controllers.dialogs.InfoDialog;
+import controllers.dialogs.*;
 import controllers.dialogs.library.LibraryDialog;
 import controllers.tree.TreeController;
 import javafx.application.Platform;
@@ -103,7 +100,7 @@ public class GUI extends AnchorPane{
 
 		structAccord.setExpandedPane(structAccord.getPanes().get(0));
 		messageArea.setStyle("-fx-background-color: -fx-fourth-color; -fx-padding: 0 20 0 20");
-		messageArea.heightProperty().addListener((o) -> messageScrollPane.setVvalue(0.99));
+		messageArea.heightProperty().addListener((o) -> messageScrollPane.setVvalue(1.99));
 
 		writeMessage("Конфигуратор запущен");
 	}
@@ -119,7 +116,7 @@ public class GUI extends AnchorPane{
 	@FXML public void handleImportCLD(){ if(!AssistantDialog.requestConfirm("Подтверждение","Импортировать CLD?\nНесохраненные данные будут утеряны")) return; ProjectController.importCLD(FileChooserDialog.openCLDFile()); }
 	@FXML private void handleSave() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } if(ProjectController.fileCLD != null) ProjectController.saveProject(ProjectController.fileCLD); else handleSaveAs(); }
 	@FXML public void handleSaveAs() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } ProjectController.saveProject(FileChooserDialog.saveCLDFile()); }
-	@FXML private void switchInfo(){ InfoDialog.switchVisibility();	}
+	@FXML private void switchInfo(){ IECInfoDialog.switchVisibility();	}
 	@FXML private void switchLibrary(){ LibraryDialog.switchVisibility(); }
 	@FXML private void aboutProgram(){ AboutProgramDialog.show();}
 	@FXML private void minimize(){ stage.setIconified(true); }

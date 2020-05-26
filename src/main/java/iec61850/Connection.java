@@ -1,9 +1,7 @@
 package iec61850;
 
 import lombok.Data;
-
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
 
 /**
  * @author Александр Холодов

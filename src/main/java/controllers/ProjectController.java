@@ -2,6 +2,7 @@ package controllers;
 
 import application.GUI;
 import controllers.dialogs.AssistantDialog;
+import controllers.dialogs.IECInfoDialog;
 import controllers.dialogs.InfoDialog;
 import controllers.graphicNode.Connector;
 import controllers.graphicNode.GraphicNode;
@@ -50,13 +51,17 @@ public class ProjectController {
      * @param iecObject - объект МЭК 61850
      */
     public static void setSelectedObject(IECObject iecObject){
-        if(iecObject != null) InfoDialog.setObject(iecObject);                   // Отображаем параметры элемента
+        if(iecObject != null) IECInfoDialog.setObject(iecObject);       // Отображаем параметры элемента
         if(iecObject != null && iecObject != selectedObject){
             selectedObject = iecObject;
 
-            GraphicNodeController.setSelectedObject(iecObject);                  // Выделяем графический элемент
-            TreeController.setSelectedObject(iecObject);                         // Выделяем ветку дерева
-            PanelsController.setSelectedObject(TreeController.getSelectedLD());  // Переходим на нужную вкладку
+            LD tab = CLDUtils.parentOf(LD.class, iecObject);
+            IECObject iecObjectGE = CLDUtils.parentOf(LN.class, iecObject);
+            if(iecObject==null) iecObjectGE = CLDUtils.parentOf(DS.class, iecObject);
+
+            GraphicNodeController.setSelectedObject(iecObjectGE);       // Выделяем графический элемент
+            TreeController.setSelectedObject(iecObject);                // Выделяем ветку дерева
+            PanelsController.setSelectedObject(tab);                    // Переходим на нужную вкладку
         }
     }
 
@@ -94,9 +99,9 @@ public class ProjectController {
                     CLD cld = CLDBuilder.buildCLD(scl);           // Извлекаем данные из SCL
                     cld.setCidFile(file);
 
-                    TreeController.updateTreeObjects(cld);        // Строим дерево
+                    GraphicNodeController.updateNodeObjects(cld); // Создаем граф. элементы (сначало это - т.к. напоняется ОМ)
                     PanelsController.updateTabObjects(cld);       // Создаем вкладки
-                    GraphicNodeController.updateNodeObjects(cld); // Создаем граф. элементы
+                    TreeController.updateTreeObjects(cld);        // Строим дерево
 
                     ProjectController.scl = scl;
                     ProjectController.cld = cld;
@@ -132,19 +137,15 @@ public class ProjectController {
         /* Удаляем такущие графические элементы (с панелей), если элемент дополнительный - будет удален навсегда */
         for(GraphicNode graphicNode: new ArrayList<>(GraphicNodeController.getActiveNodeList().values())) graphicNode.remove();
 
-        /* Скопировать данные из нового CLD */
-        CLDUtils.syncCLD(newCld, cld);
 
-
-        /* Добавить в проект дополнительные элементы */
+        /* Добавить в проект дополнительные (графические) элементы */
         ObservableList<IECObject> appendedList = CLDUtils.appendCLD(newCld, cld);
         for(IECObject iecObject:appendedList){
-            if(iecObject.getClass()==LN.class){
-                GraphicNodeController.fillByTemplate((LN) iecObject);
-                GraphicNodeController.getProjectNodeList().put(iecObject.getUID(), GraphicNodeController.createGraphicNode(iecObject));
-            }
+            if(iecObject.getClass()==LN.class) GraphicNodeController.getProjectNodeList().put(iecObject.getUID(), GraphicNodeController.createGraphicNode(iecObject));
         }
 
+        /* Скопировать данные из нового CLD */
+        CLDUtils.syncCLD(newCld, cld);
 
         /* Отрисовать графические элементы (ProjectNodeList - все текущие элементы)*/
         for(GraphicNode graphicNode:GraphicNodeController.getProjectNodeList().values()){
@@ -172,7 +173,7 @@ public class ProjectController {
         /* Все коннекторы (с адресами) */
         HashMap<String, Connector> connectorMap = new HashMap<>();
         for(GraphicNode node:GraphicNodeController.getActiveNodeList().values())
-            for(Connector connector:node.getConnectors()) connectorMap.put(CLDUtils.addressOf(connector.getIecObject()), connector);
+            for(Connector connector:node.getConnectors()) connectorMap.put(connector.getIecObject().getAddress().fullWithSlash(), connector);
 
         /* Поиск коннекторов и восстановление */
         for(Connection connection:connectionList){
@@ -194,6 +195,7 @@ public class ProjectController {
      */
     public static void saveProject(File file){
 
+        if(file==null) return;
         if(fileCID == null) { GUI.writeErrMessage("CID file is not opened"); return; }
 
         try {
@@ -218,7 +220,7 @@ public class ProjectController {
 
             /* Создаем новые */
             for(Link link: LinkController.getConnections()){
-                Connection connection = new Connection(CLDUtils.addressOf(link.getSourceConnector().getIecObject()), CLDUtils.addressOf(link.getTargetConnector().getIecObject()));
+                Connection connection = new Connection(link.getSourceConnector().getIecObject().getAddress().fullWithSlash(), link.getTargetConnector().getIecObject().getAddress().fullWithSlash());
                 LD currentLD = CLDUtils.parentOf(LD.class, (IECObject) link.getSourceConnector().getGraphicNode().getIecObject()); // Берем LD в котором находится данное соединение
                 if(currentLD != null) currentLD.getConnectionList().add(connection); else System.err.println("Connection: LD is not found");
             }

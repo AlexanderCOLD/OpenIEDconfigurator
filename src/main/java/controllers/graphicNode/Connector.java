@@ -1,6 +1,5 @@
 package controllers.graphicNode;
 
-import iec61850.DS;
 import iec61850.IECObject;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Pos;
@@ -8,7 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Scale;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Александр Холодов
@@ -17,7 +17,7 @@ import lombok.Data;
  * @description - Коннектор, graphicNode - узел в котором лежит, dataObject - объект, который представляет, dataSet - датасет к которому относится DO
  */
 
-@Data
+@Getter @Setter
 public class Connector extends AnchorPane {
 
     private static final double size = 7;

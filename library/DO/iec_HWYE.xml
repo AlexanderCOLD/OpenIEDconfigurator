@@ -3,27 +3,34 @@
     <cppType>iec_HWYE</cppType>
     <layoutX>-1.0</layoutX>
     <layoutY>-1.0</layoutY>
+    <tags></tags>
     <DO>
         <name>phsAHar[16]</name>
         <type>CMV</type>
         <description>Описание отсутствует</description>
+        <cppName>phsAHar[16]</cppName>
         <cppType>iec_CMV</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <DO>
             <name>cVal</name>
             <type>Vector</type>
             <description>Описание отсутствует</description>
+            <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>mag</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>mag</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -34,9 +41,11 @@
                 <name>ang</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>ang</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -48,16 +57,20 @@
             <name>q</name>
             <type>Quality</type>
             <description>Описание отсутствует</description>
+            <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>UNSIGNED CHAR</type>
                 <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -70,23 +83,29 @@
         <name>phsBHar[16]</name>
         <type>CMV</type>
         <description>Описание отсутствует</description>
+        <cppName>phsBHar[16]</cppName>
         <cppType>iec_CMV</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <DO>
             <name>cVal</name>
             <type>Vector</type>
             <description>Описание отсутствует</description>
+            <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>mag</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>mag</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -97,9 +116,11 @@
                 <name>ang</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>ang</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -111,16 +132,20 @@
             <name>q</name>
             <type>Quality</type>
             <description>Описание отсутствует</description>
+            <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>UNSIGNED CHAR</type>
                 <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -133,23 +158,29 @@
         <name>phsCHar[16]</name>
         <type>CMV</type>
         <description>Описание отсутствует</description>
+        <cppName>phsCHar[16]</cppName>
         <cppType>iec_CMV</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <DO>
             <name>cVal</name>
             <type>Vector</type>
             <description>Описание отсутствует</description>
+            <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>mag</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>mag</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -160,9 +191,11 @@
                 <name>ang</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>ang</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -174,16 +207,20 @@
             <name>q</name>
             <type>Quality</type>
             <description>Описание отсутствует</description>
+            <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>UNSIGNED CHAR</type>
                 <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -196,23 +233,29 @@
         <name>neutHar[16]</name>
         <type>CMV</type>
         <description>Описание отсутствует</description>
+        <cppName>neutHar[16]</cppName>
         <cppType>iec_CMV</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <DO>
             <name>cVal</name>
             <type>Vector</type>
             <description>Описание отсутствует</description>
+            <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>mag</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>mag</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -223,9 +266,11 @@
                 <name>ang</name>
                 <type>FLOAT</type>
                 <description>Описание отсутствует</description>
+                <cppName>ang</cppName>
                 <cppType>float</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -237,16 +282,20 @@
             <name>q</name>
             <type>Quality</type>
             <description>Описание отсутствует</description>
+            <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
+            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>UNSIGNED CHAR</type>
                 <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>

@@ -91,8 +91,8 @@ public class GraphicNodeController {
                 LN temp = SaveLoadObject.load(LN.class, template);
 
                 /* Внесение DS из шаблона */
-                ln.getDataSetInput().clear(); for(DS ds:temp.getDataSetInput()) ln.getDataSetInput().add(ds);
-                ln.getDataSetOutput().clear(); for(DS ds:temp.getDataSetOutput()) ln.getDataSetOutput().add(ds);
+                ln.getDataObjects().clear(); for(DO dos:temp.getDataObjects()) ln.getDataObjects().add(dos);
+                ln.getAttributes().clear(); for(DA das:temp.getAttributes()) ln.getAttributes().add(das);
 
                 return;
             }
@@ -126,7 +126,7 @@ public class GraphicNodeController {
             graphicNode.toFront();
             ProjectController.setSelectedObject(graphicNode.getIecObject());
 
-            if(offsetY<20 && !e.isControlDown()){
+            if(offsetX > 10 && offsetX < graphicNode.getWidth() - 10 && !e.isControlDown()){
                 graphicNode.getParent().addEventFilter(DragEvent.DRAG_OVER, dragEvent);
                 graphicNode.getParent().addEventFilter(DragEvent.DRAG_DONE, dragDone);
                 graphicNode.startDragAndDrop(TransferMode.ANY).setContent(content);
@@ -172,7 +172,9 @@ public class GraphicNodeController {
      * Выделить графический элемент
      */
     public static void setSelectedObject(IECObject iecObject){
-        if(iecObject == null && selectedGraphicNode != null) { selectedGraphicNode.setSelected(false); selectedGraphicNode = null; return; }
+        if(iecObject == null && selectedGraphicNode != null) { selectedGraphicNode.setSelected(false); selectedGraphicNode = null; }
+        if(iecObject == null) return;
+
         GraphicNode selection = projectNodeList.get(iecObject.getUID());
         if(selection == null) return;
         if(selection != selectedGraphicNode){

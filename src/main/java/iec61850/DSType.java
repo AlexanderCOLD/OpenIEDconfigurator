@@ -7,9 +7,8 @@ package iec61850;
  * @description - Types of dataset
  */
 public enum DSType {
-    GOOSE_Input,
-    GOOSE_Output,
-    MMS_Output,
-    SV,
-    Node
+    GOOSE_IN,
+    GOOSE_OUT,
+    MMS_OUT,
+    SV
 }

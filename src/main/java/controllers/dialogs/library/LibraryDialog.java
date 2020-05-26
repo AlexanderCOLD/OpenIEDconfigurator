@@ -5,12 +5,17 @@ import application.Main;
 import controllers.ResizeController;
 import controllers.graphicNode.GraphicNode;
 import iec61850.LN;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
@@ -18,6 +23,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -25,6 +33,7 @@ import tools.SaveLoadObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Александр Холодов
@@ -85,7 +94,7 @@ public class LibraryDialog extends AnchorPane {
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
-        addLibraryPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 10; -fx-vgap:10; -fx-padding: 10 10 10 10; -fx-background-color: -fx-fourth-color,\n" +
+        addLibraryPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 5; -fx-vgap:5; -fx-padding: 5 5 5 5; -fx-background-color: -fx-fourth-color,\n" +
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
@@ -113,6 +122,26 @@ public class LibraryDialog extends AnchorPane {
             }
         }
 
+//        Platform.runLater(this::changeScale);
+    }
+
+    private void changeScale(){
+        for(Node node: new ArrayList<>(addLibraryPane.getChildren())){
+            if(node.getClass()!=GraphicNode.class) return;
+
+            GraphicNode graphicNode = (GraphicNode) node;
+
+            double scaleFactor = 0.5;
+            Scale scale = new Scale(scaleFactor, scaleFactor, 0.0, 0.0);
+            graphicNode.getTransforms().add(scale);
+
+            StackPane extPanel = new StackPane(graphicNode);
+            extPanel.setPadding(Insets.EMPTY);
+            extPanel.setStyle("-fx-border-width: 2; -fx-border-color: RED");
+            addLibraryPane.getChildren().add(extPanel);
+
+            System.out.println(1);
+        }
     }
 
     @FXML private void close(){ setShowing(false); }

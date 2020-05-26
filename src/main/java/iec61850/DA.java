@@ -2,11 +2,8 @@ package iec61850;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
-import java.util.UUID;
 
 /**
  * @author Александр Холодов
@@ -36,8 +33,8 @@ public class DA extends IECObject {
 
 
     public String toString(){
-        String type = this.type!=null ? "{"+this.type.replaceAll("iec_","")+"}":"(err)";
-        String name = this.name!=null ? this.name.replaceAll("in_","").replaceAll("out_",""):"(err)";
-        return String.format("%s %s", type, name);
+        String type = this.type!=null ? this.type.replaceAll("iec_","") : "err";
+        String name = this.name!=null ? this.name.replaceAll("in_","").replaceAll("out_","").replaceAll("set_","") : "err";
+        return String.format("%s (%s)", name, type);
     }
 }

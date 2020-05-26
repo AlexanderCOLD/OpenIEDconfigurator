@@ -3,10 +3,8 @@ package iec61850;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlList;
@@ -37,6 +35,10 @@ public class IECObject {
     @XmlTransient
     protected final ObservableList<IECObject> children = FXCollections.observableArrayList();
 
+    /** Адрес объекта */
+    @XmlTransient
+    protected final IECAddress address = new IECAddress(this);
+
     /** Уникальное имя */
     protected String name;
 
@@ -45,6 +47,9 @@ public class IECObject {
 
     /** Описание объекта */
     protected String description;
+
+    /** Название С++ */
+    protected String cppName;
 
     /** Класс С++ */
     protected String cppType;

@@ -3,13 +3,16 @@
     <cppType>iec_Curve</cppType>
     <layoutX>-1.0</layoutX>
     <layoutY>-1.0</layoutY>
+    <tags></tags>
     <DA>
         <name>setCharact</name>
         <type>UNSIGNED CHAR</type>
         <description>Описание отсутствует</description>
+        <cppName>setCharact</cppName>
         <cppType>unsigned char</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
         <maxValue>0</maxValue>
@@ -20,9 +23,11 @@
         <name>setParA</name>
         <type>FLOAT</type>
         <description>Описание отсутствует</description>
+        <cppName>setParA</cppName>
         <cppType>float</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
         <maxValue>0</maxValue>
@@ -33,9 +38,11 @@
         <name>setParB</name>
         <type>FLOAT</type>
         <description>Описание отсутствует</description>
+        <cppName>setParB</cppName>
         <cppType>float</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
         <maxValue>0</maxValue>
@@ -46,9 +53,11 @@
         <name>setParC</name>
         <type>FLOAT</type>
         <description>Описание отсутствует</description>
+        <cppName>setParC</cppName>
         <cppType>float</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
         <maxValue>0</maxValue>
@@ -59,9 +68,11 @@
         <name>setParD</name>
         <type>FLOAT</type>
         <description>Описание отсутствует</description>
+        <cppName>setParD</cppName>
         <cppType>float</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
         <maxValue>0</maxValue>
@@ -72,9 +83,11 @@
         <name>setParE</name>
         <type>FLOAT</type>
         <description>Описание отсутствует</description>
+        <cppName>setParE</cppName>
         <cppType>float</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
         <maxValue>0</maxValue>
@@ -85,9 +98,11 @@
         <name>setParF</name>
         <type>FLOAT</type>
         <description>Описание отсутствует</description>
+        <cppName>setParF</cppName>
         <cppType>float</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
+        <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
         <maxValue>0</maxValue>

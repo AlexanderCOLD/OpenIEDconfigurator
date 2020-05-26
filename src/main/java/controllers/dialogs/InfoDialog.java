@@ -38,19 +38,18 @@ public class InfoDialog extends AnchorPane {
     @FXML private ToggleButton lock;
     @FXML private TableView tableView;
 
-    private static InfoDialog self;
+    private static InfoDialog self = new InfoDialog();
     private boolean draggable = false;
     private double dragOffsetX, dragOffsetY; // поправка при перетаскивании на позицию мышки
     private double localX, localY; // координаты относительно главного окна
-    private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
-    private ChangeListener<? super Number> xListener, yListener;
+    private final EventHandler<? super MouseEvent> mouseDragged, mousePressed;
+    private final ChangeListener<? super Number> xListener, yListener;
     private final Stage stage = new Stage();
-    private final Scene scene = new Scene(this);
     private final ArrayList<TableObject> listObject = new ArrayList<>();
 
-    public InfoDialog() { self = this; initializeDialog(); }
+    public InfoDialog() {
+        self = this;
 
-    void initializeDialog(){
         xListener = (e, ov, nv)->{ stage.setX(nv.doubleValue() + GUI.getStage().getWidth() + localX); };
         yListener = (e, ov, nv)->{ stage.setY(nv.doubleValue() + GUI.getStage().getHeight() + localY); };
         mousePressed = e->{
@@ -67,15 +66,21 @@ public class InfoDialog extends AnchorPane {
         try { fxmlLoader.load(); } catch (IOException exception) { throw new RuntimeException(exception); }
         ImageView icon = new ImageView(new Image(Main.class.getResource("/view/image/Icon.png").toString())); icon.setFitWidth(20); icon.setFitHeight(20); getChildren().add(icon); icon.setLayoutX(4); icon.setLayoutY(5);
         stage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(this);
         stage.setScene(scene);
         stage.initOwner(GUI.getStage());
         scene.getStylesheets().add("view/CSS/" + GUI.colorStyle + ".css");
         scene.getStylesheets().add("view/CSS/stylesheet.css");
         ResizeController.addStage(stage);
-        initializeTable();
     }
 
-    private void initializeTable(){
+    @FXML
+    private void initialize() {
+        accord.setExpandedPane(accord.getPanes().get(0));
+        stage.addEventFilter(MouseEvent.MOUSE_PRESSED, mousePressed);
+        lock.setOnMouseClicked(e-> setLock(lock.isSelected()) );
+        setLock(false);
+
         TableColumn<TableObject, String> name = new TableColumn<>("Название");
         TableColumn<TableObject, String> value = new TableColumn<>("Значение");
         tableView.getColumns().addAll(name, value);
@@ -84,22 +89,9 @@ public class InfoDialog extends AnchorPane {
         value.setCellValueFactory(new PropertyValueFactory<>("value"));
     }
 
-    @FXML
-    private void initialize() {
-        accord.setExpandedPane(accord.getPanes().get(0));
-        stage.addEventFilter(MouseEvent.MOUSE_PRESSED, mousePressed);
-        lock.setOnMouseClicked(e-> setLock(lock.isSelected()) );
-
-        setLock(false);
-    }
-
     @FXML private void close(){ setShowing(false); }
-    public static boolean isLock(){
-        if(self==null) self = new InfoDialog();
-        return self.lock.isSelected();
-    }
+    public static boolean isLock(){ return self.lock.isSelected(); }
     public static void setLock(boolean state){
-        if(self==null) self = new InfoDialog();
         self.lock.setSelected(state);
         if(state) {
             self.lock.setStyle("-fx-background-color: transparent; -fx-text-fill: RED; ");
@@ -118,43 +110,21 @@ public class InfoDialog extends AnchorPane {
     }
 
     public static void setLayout(double x, double y){
-        if(self==null) self = new InfoDialog();
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
         if(x<screenBounds.getMaxX() && y<screenBounds.getMaxY()){ self.stage.setX(x); self.stage.setY(y); }
     }
-    public static double[] getLayout(){
-        if(self==null) self = new InfoDialog();
-        return new double[] { self.stage.getX(), self.stage.getY() };
-    }
+    public static double[] getLayout(){ return new double[] { self.stage.getX(), self.stage.getY() }; }
 
-    public static void setResolution(double x, double y){
-        if(self==null) self = new InfoDialog();
-        self.stage.setWidth(x);
-        self.stage.setHeight(y);
-    }
-    public static double[] getResolution(){
-        if(self==null) self = new InfoDialog();
-        return new double[] { self.stage.getWidth(), self.stage.getHeight() };
-    }
+    public static void setResolution(double x, double y){ self.stage.setWidth(x); self.stage.setHeight(y); }
+    public static double[] getResolution(){ return new double[] { self.stage.getWidth(), self.stage.getHeight() }; }
 
-    public static boolean isShowing(){
-        if(self==null) self = new InfoDialog();
-        return self.stage.isShowing();
-    }
-    public static void setShowing(boolean state){
-        if(self==null) self = new InfoDialog();
-        if(!state) self.stage.hide(); else self.stage.show();
-    }
-    public static void switchVisibility(){
-        if(self==null) self = new InfoDialog();
-        if(self.stage.isShowing()) self.stage.hide(); else self.stage.show();
-    }
+    public static boolean isShowing(){ return self.stage.isShowing(); }
+    public static void setShowing(boolean state){ if(!state) self.stage.hide(); else self.stage.show(); }
 
-    /**
-     * Show data of object
-     */
+    public static void switchVisibility(){ if(self.stage.isShowing()) self.stage.hide(); else self.stage.show(); }
+
+    /** Show data of object */
     public static void setObject(Object object){
-        if(self==null) self = new InfoDialog();
         if(object==null) { GUI.writeErrMessage("Element is empty"); return; }
         self.tableView.getItems().clear();
         int numb = 0;

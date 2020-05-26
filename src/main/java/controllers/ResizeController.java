@@ -44,7 +44,7 @@ public class ResizeController implements EventHandler<MouseEvent> {
         AnchorPane.setBottomAnchor(glassPane, 0.0);
 
         glassPane.setStyle("-fx-background-color: RED"); glassPane.setOpacity(0.0);
-        glassPane.setVisible(false);
+        glassPane.toBack();
     }
 
     @Override
@@ -70,8 +70,7 @@ public class ResizeController implements EventHandler<MouseEvent> {
         }
 //        else if(MouseEvent.MOUSE_EXITED.equals(mouseEventType) || MouseEvent.MOUSE_EXITED_TARGET.equals(mouseEventType)) scene.setCursor(Cursor.DEFAULT);
 
-        if(scene.getCursor()==Cursor.DEFAULT) { glassPane.setVisible(false); return; }
-        else{ glassPane.setVisible(true); }
+        if(scene.getCursor()==Cursor.DEFAULT) { glassPane.toBack(); return; } else{ glassPane.toFront(); }
 
         if (MouseEvent.MOUSE_PRESSED.equals(mouseEventType)) { startX = stage.getWidth() - mouseEventX; startY = stage.getHeight() - mouseEventY; }
         else if (MouseEvent.MOUSE_DRAGGED.equals(mouseEventType)) {

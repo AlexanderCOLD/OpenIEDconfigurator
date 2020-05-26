@@ -1,6 +1,7 @@
 package controllers.dialogs.library;
 
 import application.GUI;
+import controllers.dialogs.AssistantDialog;
 import iec61850.CLDUtils;
 import controllers.PanelsController;
 import controllers.graphicNode.GraphicNode;
@@ -59,7 +60,7 @@ public class DragLibController {
 		dragNode.setOnDragDetected (e -> {
 
 			offsetX = e.getX(); offsetY = e.getY();
-			if(offsetX > ((GraphicNode)e.getSource()).getWidth() || offsetY > 20){ e.consume(); return; } // Только заголовок
+//			if(offsetX > ((GraphicNode)e.getSource()).getWidth() || offsetY > 20){ e.consume(); return; } // Только заголовок
 
 			GUI.get().addEventHandler(DragEvent.DRAG_ENTERED, dragEnteredGUI);     // Добавить теневую иконку если затащили на GUI
 			GUI.get().addEventHandler(DragEvent.DRAG_EXITED, dragExitedGUI);       // Удалить теневую иконку если вышли из GUI
@@ -122,8 +123,10 @@ public class DragLibController {
 
 			File lib = new File(String.format("library/AddLN/%s.xml",name));
 			if(!lib.exists()) lib = new File(String.format("library/LN/%s.xml",name));
-
 			if(!lib.exists()){ System.err.println("Library: " + name + " is not found"); return; }
+
+			String objectName = AssistantDialog.requestText("Введите название", "Введите уникальное название элемента", shadowNode.getIecObject().getName());
+			if(objectName==null) return;
 
 			/* Создаем LN и добавляем в текущий LD */
 			LN ln = SaveLoadObject.load(LN.class, lib);
@@ -131,8 +134,9 @@ public class DragLibController {
 
 			if(ln==null || ld==null) { System.err.println("Error of element creating"); return; }
 
-			ld.getLogicalNodeList().add(ln);
 			ln.getTags().add("additional");
+			ln.setName(objectName);
+			ld.getLogicalNodeList().add(ln);
 			for(IECObject iecObject: CLDUtils.objectListOf(ln)) iecObject.getTags().add("additional");
 
 			/* Создание граф. элемента и установка в панель */

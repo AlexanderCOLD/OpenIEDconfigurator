@@ -71,13 +71,11 @@ public class CLDBuilder {
         /* Извлечение исходящих гусей */
         if(outputGooseList!=null && tDataSetList!=null){
 
-            ObservableList<DS> dataSetList = ld.getGooseOutputDS();
-
             for(TGSEControl gseCtrlBlock:outputGooseList){
                 DS ds = new DS();
-                if(gseCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain name", DSType.GOOSE_Output.toString(), StringOf(gseCtrlBlock)));
-                if(gseCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain DatSet name", DSType.GOOSE_Output.toString(), StringOf(gseCtrlBlock)));
-                ds.setType(DSType.GOOSE_Output.toString());
+                if(gseCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain name", DSType.GOOSE_OUT.toString(), StringOf(gseCtrlBlock)));
+                if(gseCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain DatSet name", DSType.GOOSE_OUT.toString(), StringOf(gseCtrlBlock)));
+                ds.setType(DSType.GOOSE_OUT.toString());
                 ds.setName(gseCtrlBlock.getName()!=null ? gseCtrlBlock.getName() : "unknown");
                 ds.setDatSetName(gseCtrlBlock.getDatSet()!=null ? gseCtrlBlock.getDatSet() : "unknown");
                 ds.setDescription(gseCtrlBlock.getDesc()!=null ? gseCtrlBlock.getDesc() : "unknown");
@@ -91,16 +89,16 @@ public class CLDBuilder {
                             if(obj.getClass()==TFCDA.class){
                                 TFCDA tfcda = ((TFCDA) obj);
                                 DO dataObject = new DO();
-                                if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_Output.toString(), StringOf(tfcda)));
-                                if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_Output.toString(), StringOf(tfcda)));
+                                if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_OUT.toString(), StringOf(tfcda)));
+                                if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_OUT.toString(), StringOf(tfcda)));
                                 dataObject.setType(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
                                 dataObject.setName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
                                 dataObjectList.add(dataObject);
                             }
                         }
 
-                        for(DO doc:dataObjectList) ds.getDataObject().add(doc);
-                        dataSetList.add(ds);
+                        for(DO doc:dataObjectList) ds.getDataObjects().add(doc);
+                        ld.getDataSets().add(ds);
 
                         break;
                     }
@@ -112,35 +110,31 @@ public class CLDBuilder {
         if(source.getLN0().getInputs()!=null && source.getLN0().getInputs().getExtRef()!=null){
             List<TExtRef> extRefList = source.getLN0().getInputs().getExtRef();
 
-            ObservableList<DS> dataSetList = ld.getGooseInputDS();
-
             DS dataSet = new DS();
-            dataSet.setType(DSType.GOOSE_Input.toString());
+            dataSet.setType(DSType.GOOSE_IN.toString());
             dataSet.setName("GOOSE_IN");
 
             for(TExtRef tExtRef:extRefList){
                 DO dataObject = new DO();
-                if(tExtRef.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_Input.toString(), StringOf(tExtRef)));
-                if(tExtRef.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_Input.toString(), StringOf(tExtRef)));
+                if(tExtRef.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_IN.toString(), StringOf(tExtRef)));
+                if(tExtRef.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_IN.toString(), StringOf(tExtRef)));
                 dataObject.setType(tExtRef.getDoName()!=null ? tExtRef.getDoName(): "unknown");
                 dataObject.setName(tExtRef.getDaName()!=null ? tExtRef.getDaName(): "unknown");
-                dataSet.getDataObject().add(dataObject);
+                dataSet.getDataObjects().add(dataObject);
             }
 
-            dataSetList.add(dataSet);
+            ld.getDataSets().add(dataSet);
         }
 
         /* Извлечение исходящих отчетов (MMS) */
         if(outputMMSList!=null && tDataSetList!=null){
 
-            ObservableList<DS> dataSetList = ld.getMmsOutputDS();
-
             for(TReportControl reportCtrlBlock:outputMMSList){
                 DS ds = new DS();
-                ds.setType(DSType.MMS_Output.toString());
+                ds.setType(DSType.MMS_OUT.toString());
 
-                if(reportCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain name", DSType.MMS_Output.toString(), StringOf(reportCtrlBlock)));
-                if(reportCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain DatSet name", DSType.MMS_Output.toString(), StringOf(reportCtrlBlock)));
+                if(reportCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain name", DSType.MMS_OUT.toString(), StringOf(reportCtrlBlock)));
+                if(reportCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain DatSet name", DSType.MMS_OUT.toString(), StringOf(reportCtrlBlock)));
                 ds.setName(reportCtrlBlock.getName()!=null ? reportCtrlBlock.getName() : "unknown");
                 ds.setDatSetName(reportCtrlBlock.getDatSet()!=null ? reportCtrlBlock.getDatSet() : "unknown");
                 ds.setDescription(reportCtrlBlock.getDesc()!=null ? reportCtrlBlock.getDesc() : "unknown");
@@ -154,16 +148,16 @@ public class CLDBuilder {
                             if(obj.getClass()==TFCDA.class){
                                 TFCDA tfcda = ((TFCDA) obj);
                                 DO dataObject = new DO();
-                                if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.MMS_Output.toString(), StringOf(tfcda)));
-                                if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.MMS_Output.toString(), StringOf(tfcda)));
+                                if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.MMS_OUT.toString(), StringOf(tfcda)));
+                                if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.MMS_OUT.toString(), StringOf(tfcda)));
                                 dataObject.setType(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
                                 dataObject.setName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
                                 dataObjectList.add(dataObject);
                             }
                         }
 
-                        for(DO doc:dataObjectList) ds.getDataObject().add(doc);
-                        dataSetList.add(ds);
+                        for(DO doc:dataObjectList) ds.getDataObjects().add(doc);
+                        ld.getDataSets().add(ds);
 
                         break;
                     }

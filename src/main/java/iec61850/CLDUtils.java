@@ -3,9 +3,7 @@ package iec61850;
 import application.GUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,8 +31,7 @@ public class CLDUtils {
         for(Map.Entry<String, IECObject> sourceEntry:sourceMap.entrySet()){
             IECObject targetIEC = targetMap.get(sourceEntry.getKey());
             if(targetIEC != null) syncObject(sourceEntry.getValue(), targetIEC);
-            else if(!sourceEntry.getValue().getTags().contains("additional"))
-                GUI.writeErrMessage(String.format("Object %s is not found", sourceEntry.getKey()));
+            else GUI.writeErrMessage(String.format("Object %s is not found", sourceEntry.getKey()));
         }
     }
 
@@ -45,11 +42,14 @@ public class CLDUtils {
      */
     public static void syncObject(IECObject source, IECObject target){
 
+        /* Если это объект перенесенный из нового CLD */
+        if(source==target) return;
+
         /* Синхронизация координат */
         target.setLayoutX(source.getLayoutX()); target.setLayoutY(source.getLayoutY());
 
         /* Синхронизация тегов */
-        target.getTags().addAll(source.getTags());
+        target.getTags().clear(); target.getTags().addAll(source.getTags());
 
         /* Синхронизация атрибутов  */
         if(source.getClass()==DA.class) { ((DA) target).setValue(((DA) source).getValue()); }
@@ -100,12 +100,14 @@ public class CLDUtils {
     private static boolean appendObject(HashMap<String, IECObject> objectList, Map.Entry<String, IECObject> object){
         if(object.getValue().getClass()==LN.class){
             String ldPath = new File(object.getKey()).getParent();
-            for(Map.Entry<String, IECObject> entry:objectList.entrySet()){
-                if(entry.getValue().getClass()==LD.class && entry.getKey().contains(ldPath)){
-                    ((LD) entry.getValue()).getLogicalNodeList().add((LN) object.getValue());
-                    GUI.writeMessage("Логический узел: " + object.getKey() + " добавлен в проект");
-                    return true;
-                }
+            try {
+                LD ld = (LD) objectList.get(ldPath);
+                ld.getLogicalNodeList().add((LN) object.getValue());
+                return true;
+            }
+            catch (Exception e) {
+                GUI.writeErrMessage("Невозможно добавить объект " + object.getValue().getName()+ ", путь не найден " + ldPath);
+                return false;
             }
         }
         return false;
@@ -121,7 +123,7 @@ public class CLDUtils {
     private static HashMap<String, IECObject> mapOf(CLD cld){  return fillObjectMap(new HashMap<>(), cld.getChildren()); }
     /** Наполнить словать объектами (рекурсия) */
     private static HashMap<String, IECObject> fillObjectMap(HashMap<String, IECObject> map, ObservableList<IECObject> objectList){
-        for(IECObject object:objectList) map.put(advAddressOf(object), object);
+        for(IECObject object:objectList) map.put(object.getAddress().fullWithSlash(), object);
         for(IECObject object:objectList) if(!object.getChildren().isEmpty()) fillObjectMap(map, object.getChildren());
         return map;
     }
@@ -159,43 +161,6 @@ public class CLDUtils {
         for(IECObject object:objectList) if(!object.getChildren().isEmpty()) fillObjectList(targetList, object.getChildren());
         return targetList;
     }
-
-
-
-
-
-    /**
-     * Абсолютный адрес объекта
-     * прим. iedName\ldName\lnName\...
-     */
-    public static String addressOf(IECObject object){
-        StringBuilder address = new StringBuilder(object.getName());
-        while(object!=null){
-            object = object.getParent();
-            if(object!=null && object.getClass()!= CLD.class)
-                address.insert(0, object.getName() + "\\");
-        }
-        return address.toString();
-    }
-
-
-    /**
-     * Абсолютный адрес объекта + тип
-     * прим. iedName(IED)\ldName(LD)\lnName(LN)\...
-     */
-    public static String advAddressOf(IECObject object){
-        StringBuilder address = new StringBuilder(object.getName() + "(" + object.getClass().getSimpleName() + ")");
-        while(object!=null){
-            object = object.getParent();
-            if(object!=null && object.getClass()!=CLD.class)
-                address.insert(0, object.getName() + "(" + object.getClass().getSimpleName() + ")" + "\\");
-        }
-        return address.toString();
-    }
-
-
-
-
 
 
     /**

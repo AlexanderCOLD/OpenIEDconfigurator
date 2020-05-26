@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -20,15 +21,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "LN")
 public class LN extends IECObject {
 
-    /** Датасет с входящими объектами */
-    private final ObservableList<DS> dataSetInput = FXCollections.observableArrayList(); { dataSetInput.addListener(this::listChanged); }
+    /** Вложенные объекты */
+    @XmlElement(name = "DO")
+    private final ObservableList<DO> dataObjects = FXCollections.observableArrayList(); { dataObjects.addListener(this::listChanged); }
 
-    /** Датасет с исходящими объектами */
-    private final ObservableList<DS> dataSetOutput = FXCollections.observableArrayList(); { dataSetOutput.addListener(this::listChanged); }
-
+    /** Атрибуты объекта */
+    @XmlElement(name = "DA")
+    private final ObservableList<DA> attributes = FXCollections.observableArrayList(); { attributes.addListener(this::listChanged); }
 
 
     public String toString(){
-        return String.format("%s %s", (name!=null && !name.equals("unknown"))?name: type, (type !=null && !type.equals("unknown"))?("("+ type +")"):"");
+        String type = this.type!=null ? this.type : "err";
+        String name = this.name!=null ? this.name : "err";
+        return String.format("%s (%s)", name, type);
     }
 }

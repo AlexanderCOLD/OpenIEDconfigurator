@@ -1,6 +1,7 @@
 package tools;
 
 import application.GUI;
+import controllers.dialogs.IECInfoDialog;
 import controllers.dialogs.InfoDialog;
 import controllers.dialogs.library.LibraryDialog;
 import javafx.application.Platform;
@@ -55,10 +56,10 @@ public class Settings {
 			GUI.getStage().setWidth(Settings.mainResolution[0]); GUI.getStage().setHeight(Settings.mainResolution[1]);
 			GUI.getStage().setX(Settings.mainLayout[0]); GUI.getStage().setY(Settings.mainLayout[1]);
 
-			InfoDialog.setResolution(infoResolution[0], infoResolution[1]);
-			InfoDialog.setLayout(infoLayout[0], infoLayout[1]);
-			InfoDialog.setShowing(infoVisible);
-			InfoDialog.setLock(infoLock);
+			IECInfoDialog.setResolution(infoResolution[0], infoResolution[1]);
+			IECInfoDialog.setLayout(infoLayout[0], infoLayout[1]);
+			IECInfoDialog.setShowing(infoVisible);
+			IECInfoDialog.setLock(infoLock);
 
 			LibraryDialog.setResolution(libResolution[0], libResolution[1]);
 			LibraryDialog.setLayout(libLayout[0], libLayout[1]);
@@ -74,10 +75,10 @@ public class Settings {
 		mainResolution = new double[] { GUI.getStage().getWidth(), GUI.getStage().getHeight() };
 		mainLayout = new double[] { GUI.getStage().getX(), GUI.getStage().getY() };
 
-		infoResolution = InfoDialog.getResolution();
-		infoLayout = InfoDialog.getLayout();
-		infoVisible = InfoDialog.isShowing();
-		infoLock = InfoDialog.isLock();
+		infoResolution = IECInfoDialog.getResolution();
+		infoLayout = IECInfoDialog.getLayout();
+		infoVisible = IECInfoDialog.isShowing();
+		infoLock = IECInfoDialog.isLock();
 
 		libResolution = LibraryDialog.getResolution();
 		libLayout = LibraryDialog.getLayout();

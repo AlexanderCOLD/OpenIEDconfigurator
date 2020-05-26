@@ -1,16 +1,10 @@
 package iec61850;
 
-import iec61850.objects.SCL;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.annotation.PostConstruct;
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.UUID;
 
 /**
  * @author Александр Холодов
@@ -34,8 +28,8 @@ public class DO  extends IECObject {
 
 
     public String toString(){
-        String type = this.type!=null ? "{"+this.type.replaceAll("iec_","")+"}":"(err)";
-        String name = this.name!=null ? this.name.replaceAll("in_","").replaceAll("out_",""):"(err)";
-        return String.format("%s %s", type, name);
+        String type = this.type!=null ? this.type.replaceAll("iec_","") : "err";
+        String name = this.name!=null ? this.name.replaceAll("in_","").replaceAll("out_","").replaceAll("set_","") : "err";
+        return String.format("%s (%s)", name, type);
     }
 }

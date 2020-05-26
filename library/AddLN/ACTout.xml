@@ -5,156 +5,34 @@
     <description>ACTout node</description>
     <layoutX>-1.0</layoutX>
     <layoutY>-1.0</layoutY>
-    <dataSetInput>
-        <name>InputDS</name>
-        <description>DataSet for input connections</description>
+    <tags></tags>
+    <DO>
+        <name>ACT</name>
+        <type>ACT</type>
+        <description>Сигнал срабатывания</description>
+        <cppName>out_ACT</cppName>
+        <cppType>iec_ACT</cppType>
         <layoutX>-1.0</layoutX>
         <layoutY>-1.0</layoutY>
-        <intgPd>0</intgPd>
-        <bufTime>0</bufTime>
-        <DA>
-            <name>in_general</name>
-            <type>BOOLEAN</type>
-            <description>Общий сигнал срабатывания</description>
-            <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-        </DA>
-        <DA>
-            <name>in_phsA</name>
-            <type>BOOLEAN</type>
-            <description>Сигнал срабатывания фазы А</description>
-            <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-        </DA>
-        <DA>
-            <name>in_phsB</name>
-            <type>BOOLEAN</type>
-            <description>Сигнал срабатывания фазы B</description>
-            <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-        </DA>
-        <DA>
-            <name>in_phsC</name>
-            <type>BOOLEAN</type>
-            <description>Сигнал срабатывания фазы C</description>
-            <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-        </DA>
-        <DA>
-            <name>in_neut</name>
-            <type>BOOLEAN</type>
-            <description>Сигнал срабатывания по нулевому контуру</description>
-            <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-        </DA>
-        <DA>
-            <name>in_validity</name>
-            <type>uint8</type>
-            <description>Атрибут качества</description>
-            <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-        </DA>
-    </dataSetInput>
-    <dataSetOutput>
-        <name>OutputDS</name>
-        <description>DataSet for output connections</description>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <intgPd>0</intgPd>
-        <bufTime>0</bufTime>
+        <tags></tags>
         <DO>
-            <name>out_ACT</name>
-            <type>ACT</type>
-            <description>Сигнал срабатывания</description>
-            <cppType>iec_ACT</cppType>
+            <name>q</name>
+            <type>Quality</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
             <layoutX>-1.0</layoutX>
             <layoutY>-1.0</layoutY>
-            <DO>
-                <name>q</name>
-                <type>Quality</type>
-                <description>Описание отсутствует</description>
-                <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <DA>
-                    <name>validity</name>
-                    <type>UNSIGNED CHAR</type>
-                    <description>Описание отсутствует</description>
-                    <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
-                    <value>0</value>
-                    <minValue>0</minValue>
-                    <maxValue>0</maxValue>
-                    <defaultValue>0</defaultValue>
-                    <step>0</step>
-                </DA>
-            </DO>
+            <tags></tags>
             <DA>
-                <name>general</name>
+                <name>validity</name>
                 <type>UNSIGNED CHAR</type>
                 <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
                 <layoutX>-1.0</layoutX>
                 <layoutY>-1.0</layoutY>
-                <value>0</value>
-                <minValue>0</minValue>
-                <maxValue>0</maxValue>
-                <defaultValue>0</defaultValue>
-                <step>0</step>
-            </DA>
-            <DA>
-                <name>phsA</name>
-                <type>UNSIGNED CHAR</type>
-                <description>Описание отсутствует</description>
-                <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <value>0</value>
-                <minValue>0</minValue>
-                <maxValue>0</maxValue>
-                <defaultValue>0</defaultValue>
-                <step>0</step>
-            </DA>
-            <DA>
-                <name>phsB</name>
-                <type>UNSIGNED CHAR</type>
-                <description>Описание отсутствует</description>
-                <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <value>0</value>
-                <minValue>0</minValue>
-                <maxValue>0</maxValue>
-                <defaultValue>0</defaultValue>
-                <step>0</step>
-            </DA>
-            <DA>
-                <name>phsC</name>
-                <type>UNSIGNED CHAR</type>
-                <description>Описание отсутствует</description>
-                <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <value>0</value>
-                <minValue>0</minValue>
-                <maxValue>0</maxValue>
-                <defaultValue>0</defaultValue>
-                <step>0</step>
-            </DA>
-            <DA>
-                <name>neut</name>
-                <type>UNSIGNED CHAR</type>
-                <description>Описание отсутствует</description>
-                <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
+                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -162,5 +40,140 @@
                 <step>0</step>
             </DA>
         </DO>
-    </dataSetOutput>
+        <DA>
+            <name>general</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>general</cppName>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>phsA</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsA</cppName>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>phsB</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsB</cppName>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>phsC</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsC</cppName>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>neut</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>neut</cppName>
+            <cppType>unsigned char</cppType>
+            <layoutX>-1.0</layoutX>
+            <layoutY>-1.0</layoutY>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DA>
+        <name>general</name>
+        <type>BOOLEAN</type>
+        <description>Общий сигнал срабатывания</description>
+        <cppName>in_general</cppName>
+        <cppType>unsigned char</cppType>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <tags></tags>
+    </DA>
+    <DA>
+        <name>phsA</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания фазы А</description>
+        <cppName>in_phsA</cppName>
+        <cppType>unsigned char</cppType>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <tags></tags>
+    </DA>
+    <DA>
+        <name>phsB</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания фазы B</description>
+        <cppName>in_phsB</cppName>
+        <cppType>unsigned char</cppType>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <tags></tags>
+    </DA>
+    <DA>
+        <name>phsC</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания фазы C</description>
+        <cppName>in_phsC</cppName>
+        <cppType>unsigned char</cppType>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <tags></tags>
+    </DA>
+    <DA>
+        <name>neut</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания по нулевому контуру</description>
+        <cppName>in_neut</cppName>
+        <cppType>unsigned char</cppType>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <tags></tags>
+    </DA>
+    <DA>
+        <name>validity</name>
+        <type>uint8</type>
+        <description>Атрибут качества</description>
+        <cppName>in_validity</cppName>
+        <cppType>unsigned char</cppType>
+        <layoutX>-1.0</layoutX>
+        <layoutY>-1.0</layoutY>
+        <tags></tags>
+    </DA>
 </LN>

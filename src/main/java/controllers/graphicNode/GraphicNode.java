@@ -6,20 +6,22 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import application.GUI;
+import controllers.dialogs.AssistantDialog;
 import controllers.dialogs.TripPointDialog;
 import controllers.link.Link;
+import controllers.tree.TreeController;
 import iec61850.*;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
@@ -34,8 +36,8 @@ public class GraphicNode extends AnchorPane {
     @FXML private Label title_bar;
     @FXML private AnchorPane mainPanel;
 
-    private static final String selectedStyle = "-fx-background-color: -fx-second-color; -fx-border-color: #2d46d5; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2";
-    private static final DropShadow selectedShadow = new DropShadow( BlurType.ONE_PASS_BOX, Color.BLUE, 15, 0.0, 0, 0);
+    private static final String selectedStyle = "-fx-background-color: -fx-second-color; -fx-border-color: #cd0733; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2";
+    private static final DropShadow selectedShadow = new DropShadow( BlurType.ONE_PASS_BOX, Color.RED, 15, 0.0, 0, 0);
 
     private static final String selectedAddStyle = "-fx-background-color: -fx-second-color; -fx-border-color: #24dc26; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2";
     private static final DropShadow selectedAddShadow = new DropShadow( BlurType.ONE_PASS_BOX, Color.GREEN, 15, 0.0, 0, 0);
@@ -44,8 +46,6 @@ public class GraphicNode extends AnchorPane {
     private static final DropShadow shadow = new DropShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0,0.8), 15, 0.0, 0, 0);
 
     private final ContextMenu contextMenu = new ContextMenu();
-
-    private final StringProperty name = new SimpleStringProperty();
     private final BooleanProperty selected = new SimpleBooleanProperty(false);
 
     private final ArrayList<Connector> connectors = new ArrayList<>(); // Все коннекторы
@@ -92,20 +92,28 @@ public class GraphicNode extends AnchorPane {
         if(value.getClass()==LN.class){
             LN ln = (LN) value;
 
-            /* Фильруем уставки */
-            ArrayList<IECObject> inputDOList = ln.getDataSetInput().get(0).getDataObject().stream().filter(aDo -> !aDo.getName().contains("set_")).collect(Collectors.toCollection(ArrayList::new));
-            ArrayList<IECObject> inputDAList = ln.getDataSetInput().get(0).getAttributes().stream().filter(aDo -> !aDo.getName().contains("set_")).collect(Collectors.toCollection(ArrayList::new));
+            /* Фильруем входные структуры */
+            ArrayList<IECObject> inputDOList = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("in_")).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> inputDAList = ln.getAttributes().stream().filter(aDo -> aDo.getCppName().contains("in_")).collect(Collectors.toCollection(ArrayList::new));
+
+            /* Фильруем выходные структуры */
+            ArrayList<IECObject> outputDOList = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("out_")).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> outputDAList = ln.getAttributes().stream().filter(aDo -> aDo.getCppName().contains("out_")).collect(Collectors.toCollection(ArrayList::new));
+
+
+            IECObject setDO = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("set_")).findFirst().orElse(null);
+            IECObject setDA = ln.getAttributes().stream().filter(aDo -> aDo.getCppName().contains("set_")).findFirst().orElse(null);
 
             /* Наличие уставок / настроек */
-            hasSettins = (inputDOList.size()!=ln.getDataSetInput().get(0).getDataObject().size()) || (inputDAList.size()!=ln.getDataSetInput().get(0).getAttributes().size());
+            hasSettins = (setDO!=null || setDA!=null);
 
             /* Добавляем входящие коннекторы */
-            for(IECObject iecObject:inputDOList) appendConnector(iecObject, ConnectorType.inputConnector, ConnectorPosition.left);
-            for(IECObject iecObject:inputDAList) appendConnector(iecObject, ConnectorType.inputConnector, ConnectorPosition.left);
+            for(IECObject iecObject: inputDOList) appendConnector(iecObject, ConnectorType.inputConnector, ConnectorPosition.left);
+            for(IECObject iecObject: inputDAList) appendConnector(iecObject, ConnectorType.inputConnector, ConnectorPosition.left);
 
             /* Добавляем исходящие коннекторы */
-            for(IECObject iecObject:ln.getDataSetOutput().get(0).getDataObject()) appendConnector(iecObject, ConnectorType.outputConnector, ConnectorPosition.right);
-            for(IECObject iecObject:ln.getDataSetOutput().get(0).getAttributes()) appendConnector(iecObject, ConnectorType.outputConnector, ConnectorPosition.right);
+            for(IECObject iecObject: outputDOList) appendConnector(iecObject, ConnectorType.outputConnector, ConnectorPosition.right);
+            for(IECObject iecObject: outputDAList) appendConnector(iecObject, ConnectorType.outputConnector, ConnectorPosition.right);
         }
         else if(value.getClass()==DS.class){
             DS ds = (DS) value;
@@ -115,10 +123,10 @@ public class GraphicNode extends AnchorPane {
             ConnectorPosition pos = ConnectorPosition.left;
 
             /* Если GOOSE_Input -> исходящие и справа */
-            if(DSType.GOOSE_Input.toString().equals(ds.getType())){ type = ConnectorType.outputConnector; pos = ConnectorPosition.right; }
+            if(DSType.GOOSE_IN.toString().equals(ds.getType())){ type = ConnectorType.outputConnector; pos = ConnectorPosition.right; }
 
             /* Добавляем коннекторы */
-            for(IECObject object:ds.getDataObject()) appendConnector(object, type, pos);
+            for(IECObject object:ds.getDataObjects()) appendConnector(object, type, pos);
             for(IECObject object:ds.getAttributes()) appendConnector(object, type, pos);
         }
     }
@@ -155,6 +163,9 @@ public class GraphicNode extends AnchorPane {
 
     @FXML
     private void initialize() {
+        setCursor(Cursor.HAND);
+        addEventFilter(MouseEvent.MOUSE_CLICKED, e->{ if(e.getClickCount()==2 && hasSettins) TripPointDialog.show((LN) iecObject); });
+
         selected.addListener((o, ov, nv) ->{
             if(nv) {
                 if(!iecObject.getTags().contains("additional")) { setEffect(selectedShadow); setStyle(selectedStyle); }
@@ -163,18 +174,28 @@ public class GraphicNode extends AnchorPane {
             else { setEffect(shadow); setStyle(style); }
         });
 
-        MenuItem remove = new MenuItem("Удалить");
         MenuItem settings = new MenuItem("Параметры");
+        MenuItem rename = new MenuItem("Переименовать");
+        MenuItem remove = new MenuItem("Удалить");
 
-        contextMenu.getItems().addAll(settings, remove);
+        contextMenu.getItems().addAll(settings, rename, remove);
 
         contextMenu.setOnShowing(e -> {
             contextMenu.getItems().clear();
-            if(hasSettins) contextMenu.getItems().addAll(settings, remove); else contextMenu.getItems().addAll(remove);
+
+            if(hasSettins) contextMenu.getItems().add(settings);
+            if(iecObject.getTags().contains("additional")) contextMenu.getItems().add(rename);
+            contextMenu.getItems().add(remove);
         });
 
-        remove.setOnAction(e -> remove());
-        settings.setOnAction(e -> { if(iecObject.getClass()==LN.class) TripPointDialog.show((LN) iecObject); });
+        settings.setOnAction(e -> { TripPointDialog.show((LN) iecObject); });
+
+        rename.setOnAction(e->{
+            String name = AssistantDialog.requestText("Новое название", "Введите новое название", iecObject.getName());
+            if(name!=null) { iecObject.setName(name); title_bar.setText(iecObject.toString()); TreeController.refresh(); }
+        });
+
+        remove.setOnAction(e -> { if(AssistantDialog.requestConfirm("Подтверждение", "Удалить элемент " + iecObject.getName())) remove(); });
 
         setOnContextMenuRequested(e -> {
             if(GUI.getCurrentContextMenu()!=null) GUI.getCurrentContextMenu().hide();
@@ -192,11 +213,7 @@ public class GraphicNode extends AnchorPane {
         if(iecObject.getTags().contains("additional")){
             LD ld = CLDUtils.parentOf(LD.class, iecObject);
             if(iecObject.getClass()==LN.class) ld.getLogicalNodeList().remove((LN) iecObject);
-            else if(iecObject.getClass()==DS.class){
-                ld.getMmsOutputDS().remove((DS) iecObject);
-                ld.getGooseInputDS().remove((DS) iecObject);
-                ld.getGooseOutputDS().remove((DS) iecObject);
-            }
+            else if(iecObject.getClass()==DS.class) ld.getDataSets().remove((DS) iecObject);
             GraphicNodeController.getProjectNodeList().remove(iecObject.getUID());
         }
 
@@ -232,10 +249,6 @@ public class GraphicNode extends AnchorPane {
     public boolean isSelected() { return selected.get(); }
     public BooleanProperty selectedProperty() { return selected; }
     public void setSelected(boolean selected) { this.selected.set(selected); }
-
-    public String getName() { return name.get(); }
-    public StringProperty nameProperty() { return name; }
-    public void setName(String name) { this.name.set(name); }
 
     /**
      * Объект МЭК 61850

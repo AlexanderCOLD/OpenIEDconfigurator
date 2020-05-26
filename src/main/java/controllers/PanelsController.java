@@ -48,6 +48,7 @@ public class PanelsController {
     /* Объекты МЭК 61850 (LD) */
     private static final HashMap<String, IECObject> iecObjects = new HashMap<>();
 
+
     /**
      * Создать вкладки при загрузке нового проекта
      * @param cld - новый CLD

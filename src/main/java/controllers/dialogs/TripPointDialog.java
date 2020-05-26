@@ -270,11 +270,11 @@ public class TripPointDialog extends AnchorPane{
 	 */
 	public static void show(LN logicalNode) {
 
-		List<DO> doList = logicalNode.getDataSetInput().get(0).getDataObject().stream()
-				.filter(aDo -> aDo.getName().contains("set_"))
+		List<DO> doList = logicalNode.getDataObjects().stream()
+				.filter(aDo -> aDo.getCppName().contains("set_"))
 				.collect(Collectors.toList());
-		List<DA> daList = logicalNode.getDataSetInput().get(0).getAttributes().stream()
-				.filter(aDo -> aDo.getName().contains("set_"))
+		List<DA> daList = logicalNode.getAttributes().stream()
+				.filter(aDo -> aDo.getCppName().contains("set_"))
 				.collect(Collectors.toList());
 
 		self.objectList.clear(); self.objectList.addAll(doList); self.objectList.addAll(daList);
