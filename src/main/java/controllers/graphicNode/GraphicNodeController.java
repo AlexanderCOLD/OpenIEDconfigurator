@@ -6,8 +6,6 @@ import controllers.link.LinkController;
 import controllers.object.DragContainer;
 import iec61850.*;
 import javafx.collections.FXCollections;
-import javafx.collections.MapChangeListener;
-import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -15,7 +13,7 @@ import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import org.apache.commons.io.FilenameUtils;
 import tools.SaveLoadObject;
 
@@ -92,7 +90,7 @@ public class GraphicNodeController {
 
                 /* Внесение DS из шаблона */
                 ln.getDataObjects().clear(); for(DO dos:temp.getDataObjects()) ln.getDataObjects().add(dos);
-                ln.getAttributes().clear(); for(DA das:temp.getAttributes()) ln.getAttributes().add(das);
+                ln.getDataAttributes().clear(); for(DA das:temp.getDataAttributes()) ln.getDataAttributes().add(das);
 
                 return;
             }

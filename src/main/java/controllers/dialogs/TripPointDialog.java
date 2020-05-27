@@ -244,13 +244,13 @@ public class TripPointDialog extends AnchorPane{
 	 */
 	private void fillItem(TreeItem<Object> root, DO dataObject){
 		root.setExpanded(true);
-		for(DO doCont:dataObject.getContent()){ TreeItem<Object> doItem = getDOItem(doCont); doItem.setExpanded(true); root.getChildren().add(doItem); }
-		for(DA daCont:dataObject.getAttributes()){ TreeItem<Object> daItem = getDAItem(daCont); root.setExpanded(true); root.getChildren().add(daItem); }
+		for(DO doCont:dataObject.getDataObjects()){ TreeItem<Object> doItem = getDOItem(doCont); doItem.setExpanded(true); root.getChildren().add(doItem); }
+		for(DA daCont:dataObject.getDataAttributes()){ TreeItem<Object> daItem = getDAItem(daCont); root.setExpanded(true); root.getChildren().add(daItem); }
 
 		for(TreeItem<Object> doItem:root.getChildren())
 			if(doItem.getValue().getClass()==DO.class) {
 				DO doCont = (DO) doItem.getValue();
-				if(!doCont.getAttributes().isEmpty() || !doCont.getContent().isEmpty()) fillItem(doItem, doCont);
+				if(!doCont.getDataAttributes().isEmpty() || !doCont.getDataObjects().isEmpty()) fillItem(doItem, doCont);
 			}
 	}
 
@@ -273,7 +273,7 @@ public class TripPointDialog extends AnchorPane{
 		List<DO> doList = logicalNode.getDataObjects().stream()
 				.filter(aDo -> aDo.getCppName().contains("set_"))
 				.collect(Collectors.toList());
-		List<DA> daList = logicalNode.getAttributes().stream()
+		List<DA> daList = logicalNode.getDataAttributes().stream()
 				.filter(aDo -> aDo.getCppName().contains("set_"))
 				.collect(Collectors.toList());
 

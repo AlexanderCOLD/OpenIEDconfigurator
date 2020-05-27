@@ -1,0 +1,343 @@
+/* -------------------------------- Common -------------------------------- */
+.root {
+    -fx-background-color: -fx-third-color;
+    -fx-border-color: -fx-third-color;
+}
+.text {
+    -fx-fill: white;
+}
+.context-menu{
+    -fx-background-color: -fx-third-color;
+}
+
+/* -------------------------------- Scroll-pane -------------------------------- */
+.scroll-pane {
+    -fx-background-color: -fx-third-color;
+}
+.scroll-bar {
+    -fx-background-color: -fx-third-color;
+}
+/* Скролл-кнопка */
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-first-color;
+    -fx-background-radius: 5em;
+}
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color :derive( -fx-first-color, 10.0%);
+}
+/* Фоновая панель */
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent; -fx-background-radius: 0em;
+}
+/* Фоновая панель */
+.scroll-bar .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent; -fx-background-radius: 0em;
+}
+.scroll-bar:horizontal,
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+/* Стрелочки */
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+    -fx-shape : "";
+    -fx-padding :0.0 0.0;
+}
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+    -fx-shape : "";
+    -fx-padding :0.0 0.0;
+}
+.increment-button,
+.decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+.scroll-bar:horizontal .increment-button,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0;
+    -fx-padding :0.0 0.0 7.0 0.0;
+} /* Размеры */
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0;
+    -fx-padding :0.0 7.0 0.0 0.0;
+} /* Размеры */
+
+/* -------------------------------- TabPane -------------------------------- */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: -fx-third-color;
+    -fx-opacity: 1;
+}
+.tab-pane{
+    -fx-tab-min-height: 20px;
+    -fx-tab-min-width: 70px;
+    -fx-background-insets: 0;
+}
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab{
+    -fx-background-color: -fx-second-color;
+    -fx-cursor: hand;
+}
+.tab-pane .tab:selected{
+    -fx-background-color: -fx-first-color;
+}
+.tab-pane .tab:hover{
+    -fx-background-color: -fx-first-color;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+.tab .tab-label{
+    -fx-alignment: CENTER;
+    -fx-text-fill: WHITE;
+    -fx-font-size: 12px;
+}
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: WHITE;
+}
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 1 1 1 1;
+}
+
+.tab-down-button{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0 0 5 0;
+}
+.tab-down-button:hover{
+    -fx-background-color: -fx-first-color;
+    -fx-color: -fx-third-color;
+}
+.control-buttons-tab{
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+}
+.tab-down-button .arrow{
+    -fx-background-color: -fx-first-color, -fx-second-color;
+    -fx-background-insets: 0 0 -2 0, 1;
+    -fx-padding: 2.857 5 2.857 5;
+    -fx-shape: "M 0 0 H 7 L 3.5 4 z";
+}
+.tab-down-button .arrow:hover{
+    -fx-background-color: -fx-second-color, -fx-first-color;
+}
+/* -------------------------------- MenuBar -------------------------------- */
+.menu-bar{
+    -fx-background-color: -fx-third-color;
+    -fx-border-color: -fx-first-color;
+    -fx-border-width: 1;
+    -fx-padding: 0 0 0 25;
+}
+.menu-item:hover, menu-item:focused{
+    -fx-background-color: -fx-first-color;
+}
+
+.menu:hover {
+     -fx-background-color: -fx-first-color;
+ }
+
+/* -------------------------------- SplitPane -------------------------------- */
+.split-pane {
+    -fx-background-insets: 0;
+    -fx-padding: 0 0 0 0;
+}
+
+.split-pane:vertical > .split-pane-divider,
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-radius: 0;
+    -fx-border-width: 0;
+    -fx-pref-width: 3;
+    -fx-background-color: -fx-third-color;
+}
+
+/* -------------------------------- Accordion -------------------------------- */
+.accordion{
+    -fx-border-color: -fx-first-color;
+    -fx-border-width: 1;
+}
+.titled-pane .content{
+    -fx-border-color: -fx-first-color;
+    -fx-border-width: 1;
+}
+.titled-pane > .title {
+    -fx-color: -fx-third-color;
+    -fx-background-radius : 0.0;
+}
+.titled-pane > .title:hover {
+    -fx-color: -fx-first-color;
+    -fx-background-radius : 0.0;
+}
+/* -------------------------------- TextArea -------------------------------- */
+/*.text-area{*/
+/*    -fx-border-width: 0;*/
+/*    -fx-border-radius: 0;*/
+/*    -fx-font-family: Consolas;*/
+/*    -fx-font-size: 12px;*/
+/*    -fx-text-fill: WHITE;*/
+/*}*/
+/*.text-area .content{*/
+/*    -fx-background-color: -fx-fourth-color;*/
+/*}*/
+.text-area{
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-font-family: Consolas;
+    -fx-font-size: 12px;
+    -fx-text-fill: WHITE;
+    -fx-background-color: rgba(0,0,0,0.0);
+}
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+/* -------------------------------- TextFlow -------------------------------- */
+.text-flow{
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: -fx-fourth-color;
+}
+/* -------------------------------- TreeView -------------------------------- */
+.tree-view .tree-cell {
+    -fx-background-color: -fx-fourth-color ;
+}
+.tree-view {
+    -fx-background-color: -fx-fourth-color;
+}
+
+.tree-view .tree-cell {
+    -fx-max-height: 20;
+    -fx-background-color: transparent;
+    -fx-font-size: 14;
+}
+
+.tree-view .tree-cell:selected {
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-first-color;
+}
+
+.tree-view .tree-cell:filled:hover {
+    -fx-background-color: -fx-second-color;
+}
+
+.tree-view .tree-cell > .tree-disclosure-node > .arrow  {
+    -fx-background-color: red;
+}
+/* -------------------------------- TableView -------------------------------- */
+.table-view .column-header, .table-view .filler {
+    -fx-size: 20;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-insets: 0 10 1 0;
+
+    /*-fx-background-color: transparent;*/
+    /*-fx-border-color: transparent transparent derive(-fx-first-color, 80%) transparent;*/
+}
+
+.table-view {
+    -fx-base: -fx-fourth-color;
+    -fx-control-inner-background: transparent;
+    -fx-background-color: -fx-fourth-color;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 2;
+    -fx-border-color: -fx-fourth-color;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-first-color;
+}
+
+/* -------------------------------- TreeTableView -------------------------------- */
+.tree-table-view{
+    -fx-base: -fx-fourth-color;
+    -fx-control-inner-background: transparent;
+    -fx-background-color: -fx-fourth-color;
+    -fx-table-cell-border-color: -fx-second-color;
+    -fx-table-header-border-color: white;
+    -fx-padding: 2;
+    -fx-border-color: -fx-fourth-color;
+    -fx-border-width: 1;
+}
+.tree-table-view .column-header, .table-view .filler {
+    -fx-size: 25;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-insets: 0 1 1 0;
+    -fx-border-color: -fx-second-color;
+    -fx-background-color: -fx-fourth-color;
+}
+
+.tree-table-view .column-header .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.tree-table-row-cell {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.tree-table-row-cell:odd {
+    -fx-background-color: -fx-fourth-color, derive(-fx-fourth-color,-10%);
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.tree-table-row-cell:selected {
+    -fx-background-color: -fx-second-color, -fx-third-color, -fx-fourth-color;
+    -fx-background-insets: 0, 1, 20;
+}
+
+.tree-table-row-cell:selected:odd {
+    -fx-background-color: -fx-second-color, -fx-third-color, -fx-fourth-color;
+    -fx-background-insets: 0, 1, 20;
+}
+/* -------------------------------- Button -------------------------------- */
+.button {
+    -fx-background-color: -fx-third-color;
+    -fx-padding: 1 0 1 0;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: -fx-first-color;
+}

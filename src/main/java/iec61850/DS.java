@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Александр Холодов
@@ -17,6 +18,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 @Getter @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "DS")
 public class DS extends IECObject {
 
     /** Название датасета из CID (список всех датасетов)*/
@@ -34,7 +36,7 @@ public class DS extends IECObject {
 
     /** Атрибуты датасета */
     @XmlElement(name = "DA")
-    private final ObservableList<DA> attributes = FXCollections.observableArrayList(); { attributes.addListener(this::listChanged); }
+    private final ObservableList<DA> dataAttributes = FXCollections.observableArrayList(); { dataAttributes.addListener(this::listChanged); }
 
 
     public String toString(){

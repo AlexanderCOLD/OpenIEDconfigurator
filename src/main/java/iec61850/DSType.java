@@ -10,5 +10,5 @@ public enum DSType {
     GOOSE_IN,
     GOOSE_OUT,
     MMS_OUT,
-    SV
+    SVCB
 }

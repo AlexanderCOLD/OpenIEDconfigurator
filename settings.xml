@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <settings>
-    <infoLayout>1433.0</infoLayout>
-    <infoLayout>49.0</infoLayout>
+    <infoLayout>1414.0</infoLayout>
+    <infoLayout>118.0</infoLayout>
     <infoLock>true</infoLock>
     <infoResolution>461.0</infoResolution>
-    <infoResolution>297.0</infoResolution>
+    <infoResolution>361.0</infoResolution>
     <infoVisible>true</infoVisible>
     <lastCIDPath>C:\Users\ALEXCOLD\Desktop\testCLD\testCLD.cid</lastCIDPath>
     <lastCLDPath>C:\Users\ALEXCOLD\Desktop\testCLD\testCLD.cld</lastCLDPath>
-    <libLayout>1442.0</libLayout>
-    <libLayout>378.0</libLayout>
+    <libLayout>1413.0</libLayout>
+    <libLayout>483.0</libLayout>
     <libLock>true</libLock>
-    <libResolution>355.0</libResolution>
+    <libResolution>435.0</libResolution>
     <libResolution>433.0</libResolution>
     <libVisible>true</libVisible>
-    <mainLayout>67.0</mainLayout>
-    <mainLayout>39.0</mainLayout>
+    <mainLayout>47.0</mainLayout>
+    <mainLayout>103.0</mainLayout>
     <mainResolution>1363.0</mainResolution>
     <mainResolution>817.0</mainResolution>
     <spHdivide>0.8342002600780234</spHdivide>

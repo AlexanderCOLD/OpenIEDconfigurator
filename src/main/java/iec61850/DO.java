@@ -19,11 +19,11 @@ public class DO  extends IECObject {
 
     /** Вложенные объекты */
     @XmlElement(name = "DO")
-    private final ObservableList<DO> content = FXCollections.observableArrayList(); { content.addListener(this::listChanged); }
+    private final ObservableList<DO> dataObjects = FXCollections.observableArrayList(); { dataObjects.addListener(this::listChanged); }
 
     /** Атрибуты объекта */
     @XmlElement(name = "DA")
-    private final ObservableList<DA> attributes = FXCollections.observableArrayList(); { attributes.addListener(this::listChanged); }
+    private final ObservableList<DA> dataAttributes = FXCollections.observableArrayList(); { dataAttributes.addListener(this::listChanged); }
 
 
 

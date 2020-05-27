@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion fx:id="accordion" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <panes>
+          <TitledPane fx:id="titledPane" animated="false" collapsible="false" text="Параметры">
+               <content>
+                  <TreeTableView fx:id="treeTableView" prefHeight="200.0" prefWidth="900.0">
+                    <columns>
+                      <TreeTableColumn fx:id="nameColumn" minWidth="170.0" prefWidth="170.0" sortable="false" text="Название" />
+                      <TreeTableColumn fx:id="typeColumn" minWidth="120.0" prefWidth="120.0" sortable="false" style="-fx-alignment: CENTER;" text="Тип" />
+                        <TreeTableColumn fx:id="descColumn" minWidth="250.0" prefWidth="250.0" sortable="false" style="-fx-alignment: CENTER;" text="Описание" />
+                        <TreeTableColumn fx:id="valueColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Значение" />
+                        <TreeTableColumn fx:id="minColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Мин. значение" />
+                        <TreeTableColumn fx:id="maxColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Макс. значение" />
+                        <TreeTableColumn fx:id="stepColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Шаг изменения" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TreeTableView>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <Label layoutX="335.0" layoutY="5.0" onMouseClicked="#close" text="✕" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+   </children></fx:root>

@@ -81,8 +81,8 @@ public class IECInfoDialog extends AnchorPane {
     public IECInfoDialog() {
         self = this;
 
-        xListener = (e, ov, nv)->{ stage.setX(nv.doubleValue() + GUI.getStage().getWidth() + localX); };
-        yListener = (e, ov, nv)->{ stage.setY(nv.doubleValue() + GUI.getStage().getHeight() + localY); };
+        xListener = (e, ov, nv)->{ stage.setX(nv.doubleValue() + localX); };
+        yListener = (e, ov, nv)->{ stage.setY(nv.doubleValue() + localY); };
         mousePressed = e->{
             dragOffsetX = e.getScreenX() - stage.getX(); dragOffsetY = e.getScreenY() - stage.getY();
             if(dragOffsetY<7 || dragOffsetY>25 || dragOffsetX<7 || dragOffsetX>(stage.getWidth()-7)) draggable = false; else draggable = true; // Границы перетаскивания
@@ -173,8 +173,8 @@ public class IECInfoDialog extends AnchorPane {
         self.lock.setSelected(state);
         if(state) {
             self.lock.setStyle("-fx-background-color: transparent; -fx-text-fill: RED; ");
-            self.localX =  self.stage.getX() - GUI.getStage().getX() - GUI.getStage().getWidth();
-            self.localY =  self.stage.getY() - GUI.getStage().getY() - GUI.getStage().getHeight();
+            self.localX =  self.stage.getX() - GUI.getStage().getX();
+            self.localY =  self.stage.getY() - GUI.getStage().getY();
             self.stage.removeEventFilter(MouseEvent.MOUSE_DRAGGED, self.mouseDragged);
             GUI.getStage().xProperty().addListener(self.xListener);
             GUI.getStage().yProperty().addListener(self.yListener);
@@ -187,10 +187,7 @@ public class IECInfoDialog extends AnchorPane {
         }
     }
 
-    public static void setLayout(double x, double y){
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        if(x<screenBounds.getMaxX() && y<screenBounds.getMaxY()){ self.stage.setX(x); self.stage.setY(y); }
-    }
+    public static void setLayout(double x, double y){ self.stage.setX(x); self.stage.setY(y); }
     public static double[] getLayout(){ return new double[] { self.stage.getX(), self.stage.getY() }; }
 
     public static void setResolution(double x, double y){ self.stage.setWidth(x); self.stage.setHeight(y); }
@@ -199,6 +196,8 @@ public class IECInfoDialog extends AnchorPane {
     public static boolean isShowing(){ return self.stage.isShowing(); }
     public static void setShowing(boolean state){ if(!state) self.stage.hide(); else self.stage.show(); }
     public static void switchVisibility(){ if(self.stage.isShowing()) self.stage.hide(); else self.stage.show(); }
+
+    public static IECInfoDialog get(){ return self; }
 
     @Getter @Setter
     public static class IECProperty {

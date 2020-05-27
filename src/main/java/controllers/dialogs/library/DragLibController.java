@@ -2,14 +2,11 @@ package controllers.dialogs.library;
 
 import application.GUI;
 import controllers.dialogs.AssistantDialog;
-import iec61850.CLDUtils;
+import iec61850.*;
 import controllers.PanelsController;
 import controllers.graphicNode.GraphicNode;
 import controllers.graphicNode.GraphicNodeController;
 import controllers.object.DragContainer;
-import iec61850.IECObject;
-import iec61850.LD;
-import iec61850.LN;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.input.ClipboardContent;
@@ -119,33 +116,51 @@ public class DragLibController {
 		 * Элемент брошен в проект
 		 */
 		dragDropped = e -> {
-			String name = ((LN) shadowNode.getIecObject()).getType();
 
-			File lib = new File(String.format("library/AddLN/%s.xml",name));
-			if(!lib.exists()) lib = new File(String.format("library/LN/%s.xml",name));
-			if(!lib.exists()){ System.err.println("Library: " + name + " is not found"); return; }
+			try {
+				String name = shadowNode.getIecObject().getType();
 
-			String objectName = AssistantDialog.requestText("Введите название", "Введите уникальное название элемента", shadowNode.getIecObject().getName());
-			if(objectName==null) return;
+				File lib = new File(String.format("library/AddLN/%s.xml",name));
+				if(!lib.exists()) lib = new File(String.format("library/LN/%s.xml",name));
+				if(!lib.exists()) lib = new File(String.format("library/DS/%s.xml",name));
+				if(!lib.exists()){ System.err.println("Library: " + name + " is not found"); return; }
 
-			/* Создаем LN и добавляем в текущий LD */
-			LN ln = SaveLoadObject.load(LN.class, lib);
-			LD ld = (LD) PanelsController.getSelectedIECObject();
+				String objectName = AssistantDialog.requestText("Введите название", "Введите уникальное название элемента", shadowNode.getIecObject().getName());
+				if(objectName==null) return;
 
-			if(ln==null || ld==null) { System.err.println("Error of element creating"); return; }
+				/* LD в который помещаем новый объект */
+				LD ld = (LD) PanelsController.getSelectedIECObject(); if(ld==null) { System.err.println("LD not found"); return; }
 
-			ln.getTags().add("additional");
-			ln.setName(objectName);
-			ld.getLogicalNodeList().add(ln);
-			for(IECObject iecObject: CLDUtils.objectListOf(ln)) iecObject.getTags().add("additional");
+				IECObject iecObject = null;
 
-			/* Создание граф. элемента и установка в панель */
-			GraphicNode node = GraphicNodeController.createGraphicNode(ln);
-			GraphicNodeController.getProjectNodeList().put(ln.getUID(), node);
-			PanelsController.getSelectedPanel().getChildren().add(node);
+				/* Если LN, создаем и добавляем в текущий LD */
+				if(lib.getPath().contains("LN")){
+					LN ln = SaveLoadObject.load(LN.class, lib);
+					ld.getLogicalNodeList().add((LN) ln);
+					iecObject = ln;
+				}
+				else if(lib.getPath().contains("DS")){
+					DS ds = SaveLoadObject.load(DS.class, lib);
+					ld.getDataSets().add(ds);
+					iecObject = ds;
+				}
 
-			Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());
-			node.relocate(point.getX() - offsetX, point.getY() - offsetY); node.updateGrid();
+				if(iecObject==null) { System.err.println("Error of element creating"); return; }
+
+				/* Задаем тэги дополнительного элемента */
+				iecObject.setName(objectName);
+				iecObject.getTags().add("additional");
+				for(IECObject obj: CLDUtils.objectListOf(iecObject)) obj.getTags().add("additional");
+
+				/* Создание граф. элемента и установка в панель */
+				GraphicNode node = GraphicNodeController.createGraphicNode(iecObject);
+				GraphicNodeController.getProjectNodeList().put(iecObject.getUID(), node);
+				PanelsController.getSelectedPanel().getChildren().add(node);
+
+				Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());
+				node.relocate(point.getX() - offsetX, point.getY() - offsetY); node.updateGrid();
+
+			} catch (Exception exception) { exception.printStackTrace(); }
 
 			e.setDropCompleted(true);
 			e.consume();

@@ -82,7 +82,9 @@ public class GUI extends AnchorPane{
 		menuBar.setOnMouseDragged(e -> { stage.setX(e.getScreenX() + xOffset); stage.setY(e.getScreenY() + yOffset); });
 		menuBar.setOnMouseClicked(e->{ if(e.getClickCount()==2) maximize(); });
 
-		Settings.loadSettings();
+		LibraryDialog.get();
+		IECInfoDialog.get();
+
 		ProjectController.openLastProject();
 	}
 
@@ -110,7 +112,6 @@ public class GUI extends AnchorPane{
 	private Text textBuffer(String message){ Text text; if(messageArea.getChildren().size()>500) { text = (Text) messageArea.getChildren().get(0); messageArea.getChildren().remove(text); } else text = new Text(); text.setText(String.format("%s    %s\n",self.dateFormat.format(new Date()), message)); return text; }
 
 	private boolean exitRequest(){ return AssistantDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
-
 
 	@FXML private void handleOpen(){ if(!AssistantDialog.requestConfirm("Подтверждение","Создать новый проект?\nНесохраненные данные будут утеряны")) return;  ProjectController.openNewCID(FileChooserDialog.openCIDFile()); }
 	@FXML public void handleImportCLD(){ if(!AssistantDialog.requestConfirm("Подтверждение","Импортировать CLD?\nНесохраненные данные будут утеряны")) return; ProjectController.importCLD(FileChooserDialog.openCLDFile()); }

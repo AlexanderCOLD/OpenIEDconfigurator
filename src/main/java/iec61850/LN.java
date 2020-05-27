@@ -27,7 +27,7 @@ public class LN extends IECObject {
 
     /** Атрибуты объекта */
     @XmlElement(name = "DA")
-    private final ObservableList<DA> attributes = FXCollections.observableArrayList(); { attributes.addListener(this::listChanged); }
+    private final ObservableList<DA> dataAttributes = FXCollections.observableArrayList(); { dataAttributes.addListener(this::listChanged); }
 
 
     public String toString(){

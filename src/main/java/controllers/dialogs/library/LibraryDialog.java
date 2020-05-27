@@ -4,6 +4,7 @@ import application.GUI;
 import application.Main;
 import controllers.ResizeController;
 import controllers.graphicNode.GraphicNode;
+import iec61850.DS;
 import iec61850.LN;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -48,20 +49,18 @@ public class LibraryDialog extends AnchorPane {
     @FXML private ToggleButton lock;
     @FXML private FlowPane libraryPane, addLibraryPane;
 
-    private static LibraryDialog self;
+    private static LibraryDialog self = new LibraryDialog();
     private boolean draggable = false;
     private double dragOffsetX, dragOffsetY; // поправка при перетаскивании на позицию мышки
     private double localX, localY; // координаты относительно главного окна
-    private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
-    private ChangeListener<? super Number> xListener, yListener;
+    private final EventHandler<? super MouseEvent> mouseDragged, mousePressed;
+    private final ChangeListener<? super Number> xListener, yListener;
     private final Stage stage = new Stage();
-    private final Scene scene = new Scene(this);
 
-    public LibraryDialog() { self = this; initializeDialog(); }
-
-    void initializeDialog(){
-        xListener = (e, ov, nv)->{ stage.setX(nv.doubleValue() + GUI.getStage().getWidth() + localX); };
-        yListener = (e, ov, nv)->{ stage.setY(nv.doubleValue() + GUI.getStage().getHeight() + localY); };
+    public LibraryDialog() {
+        self = this;
+        xListener = (e, ov, nv)->{ stage.setX(nv.doubleValue() + localX); };
+        yListener = (e, ov, nv)->{ stage.setY(nv.doubleValue() + localY); };
         mousePressed = e->{
             dragOffsetX = e.getScreenX() - stage.getX(); dragOffsetY = e.getScreenY() - stage.getY();
             if(dragOffsetY<7 || dragOffsetY>25 || dragOffsetX<7 || dragOffsetX>(stage.getWidth()-7)) draggable = false; else draggable = true; // Границы перетаскивания
@@ -76,6 +75,7 @@ public class LibraryDialog extends AnchorPane {
         try { fxmlLoader.load(); } catch (IOException exception) { throw new RuntimeException(exception); }
         ImageView icon = new ImageView(new Image(Main.class.getResource("/view/image/Icon.png").toString())); icon.setFitWidth(20); icon.setFitHeight(20); getChildren().add(icon); icon.setLayoutX(4); icon.setLayoutY(5);
         stage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(this);
         stage.setScene(scene);
         stage.initOwner(GUI.getStage());
         scene.getStylesheets().add("view/CSS/" + GUI.colorStyle + ".css");
@@ -94,13 +94,25 @@ public class LibraryDialog extends AnchorPane {
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
-        addLibraryPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 5; -fx-vgap:5; -fx-padding: 5 5 5 5; -fx-background-color: -fx-fourth-color,\n" +
+        addLibraryPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 10; -fx-vgap:10; -fx-padding: 10 10 10 10; -fx-background-color: -fx-fourth-color,\n" +
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
-        File addLibrary = new File("library/AddLN/");
-        if(addLibrary.exists()){
-            for(File lib:addLibrary.listFiles()){
+        File library = new File("library/DS/");
+        if(library.exists()){
+            for(File lib:library.listFiles()){
+                if(lib.isDirectory()) continue;
+                DS ds = SaveLoadObject.load(DS.class, lib);
+                if(ds == null) continue;
+                GraphicNode graphicNode = new GraphicNode(ds);
+                addLibraryPane.getChildren().add(graphicNode);
+                DragLibController.addToController(graphicNode);
+            }
+        }
+
+        library = new File("library/AddLN/");
+        if(library.exists()){
+            for(File lib:library.listFiles()){
                 if(lib.isDirectory()) continue;
                 LN ln = SaveLoadObject.load(LN.class, lib);
                 if(ln == null) continue;
@@ -110,7 +122,7 @@ public class LibraryDialog extends AnchorPane {
             }
         }
 
-        File library = new File("library/LN/");
+        library = new File("library/LN/");
         if(library.exists()){
             for(File lib:library.listFiles()){
                 if(lib.isDirectory()) continue;
@@ -145,17 +157,13 @@ public class LibraryDialog extends AnchorPane {
     }
 
     @FXML private void close(){ setShowing(false); }
-    public static boolean isLock(){
-        if(self==null) self = new LibraryDialog();
-        return self.lock.isSelected();
-    }
+    public static boolean isLock(){ return self.lock.isSelected(); }
     public static void setLock(boolean state){
-        if(self==null) self = new LibraryDialog();
         self.lock.setSelected(state);
         if(state) {
             self.lock.setStyle("-fx-background-color: transparent; -fx-text-fill: RED; ");
-            self.localX =  self.stage.getX() - GUI.getStage().getX() - GUI.getStage().getWidth();
-            self.localY =  self.stage.getY() - GUI.getStage().getY() - GUI.getStage().getHeight();
+            self.localX =  self.stage.getX() - GUI.getStage().getX();
+            self.localY =  self.stage.getY() - GUI.getStage().getY();
             self.stage.removeEventFilter(MouseEvent.MOUSE_DRAGGED, self.mouseDragged);
             GUI.getStage().xProperty().addListener(self.xListener);
             GUI.getStage().yProperty().addListener(self.yListener);
@@ -168,45 +176,16 @@ public class LibraryDialog extends AnchorPane {
         }
     }
 
-    public static void setLayout(double x, double y){
-        if(self==null) self = new LibraryDialog();
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        if(x<screenBounds.getMaxX() && y<screenBounds.getMaxY()){ self.stage.setX(x); self.stage.setY(y); }
-    }
-    public static double[] getLayout(){
-        if(self==null) self = new LibraryDialog();
-        return new double[] { self.stage.getX(), self.stage.getY() };
-    }
+    public static void setLayout(double x, double y){ self.stage.setX(x); self.stage.setY(y); }
+    public static double[] getLayout(){ return new double[] { self.stage.getX(), self.stage.getY() }; }
 
-    public static void setResolution(double x, double y){
-        if(self==null) self = new LibraryDialog();
-        self.stage.setWidth(x);
-        self.stage.setHeight(y);
-    }
-    public static double[] getResolution(){
-        if(self==null) self = new LibraryDialog();
-        return new double[] { self.stage.getWidth(), self.stage.getHeight() };
-    }
+    public static void setResolution(double x, double y){ self.stage.setWidth(x); self.stage.setHeight(y); }
+    public static double[] getResolution(){ return new double[] { self.stage.getWidth(), self.stage.getHeight() }; }
 
-    public static boolean isShowing(){
-        if(self==null) self = new LibraryDialog();
-        return self.stage.isShowing();
-    }
-    public static void setShowing(boolean state){
-        if(self==null) self = new LibraryDialog();
-        if(!state) self.stage.hide(); else self.stage.show();
-    }
-    public static void switchVisibility(){
-        if(self==null) self = new LibraryDialog();
-        if(self.stage.isShowing()) self.stage.hide(); else self.stage.show();
-    }
+    public static boolean isShowing(){ return self.stage.isShowing(); }
+    public static void setShowing(boolean state){ if(!state) self.stage.hide(); else self.stage.show(); }
+    public static void switchVisibility(){ if(self.stage.isShowing()) self.stage.hide(); else self.stage.show(); }
 
-    public static FlowPane getLibraryPane(){
-        if(self==null) self = new LibraryDialog();
-        return self.libraryPane;
-    }
-    public static AnchorPane get(){
-        if(self==null) self = new LibraryDialog();
-        return self;
-    }
+    public static FlowPane getLibraryPane(){ return self.libraryPane; }
+    public static AnchorPane get(){ return self; }
 }

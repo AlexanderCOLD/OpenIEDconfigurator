@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="265.0" prefWidth="275.0" style="-fx-border-color: -fx-first-color; -fx-background-color: BLACK;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion fx:id="accord" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <panes>
+          <TitledPane collapsible="false" text="       Параметры">
+               <content>
+                  <TableView fx:id="tableView" prefHeight="157.0" prefWidth="477.0">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <ToggleButton fx:id="lock" mnemonicParsing="false" style="-fx-background-color: transparent;" text="🔒" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="1.0" />
+      <Label onMouseClicked="#close" text="✕" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+   </children>
+</fx:root>

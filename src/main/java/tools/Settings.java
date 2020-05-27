@@ -44,7 +44,8 @@ public class Settings {
 	 * (При стерте программы)
 	 */
 	public static void loadSettings(){
-		new Thread(() -> { try { Thread.sleep(500); } catch (Exception ignored) {} Platform.runLater(Settings::load);	}) {{ start(); }};
+		Platform.runLater(Settings::load);
+//		new Thread(() -> { try { Thread.sleep(500); } catch (Exception ignored) {} 	}) {{ start(); }};
 	}
 
 

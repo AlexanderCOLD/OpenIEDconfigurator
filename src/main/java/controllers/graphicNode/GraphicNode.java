@@ -94,15 +94,15 @@ public class GraphicNode extends AnchorPane {
 
             /* Фильруем входные структуры */
             ArrayList<IECObject> inputDOList = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("in_")).collect(Collectors.toCollection(ArrayList::new));
-            ArrayList<IECObject> inputDAList = ln.getAttributes().stream().filter(aDo -> aDo.getCppName().contains("in_")).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> inputDAList = ln.getDataAttributes().stream().filter(aDo -> aDo.getCppName().contains("in_")).collect(Collectors.toCollection(ArrayList::new));
 
             /* Фильруем выходные структуры */
             ArrayList<IECObject> outputDOList = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("out_")).collect(Collectors.toCollection(ArrayList::new));
-            ArrayList<IECObject> outputDAList = ln.getAttributes().stream().filter(aDo -> aDo.getCppName().contains("out_")).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> outputDAList = ln.getDataAttributes().stream().filter(aDo -> aDo.getCppName().contains("out_")).collect(Collectors.toCollection(ArrayList::new));
 
 
             IECObject setDO = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("set_")).findFirst().orElse(null);
-            IECObject setDA = ln.getAttributes().stream().filter(aDo -> aDo.getCppName().contains("set_")).findFirst().orElse(null);
+            IECObject setDA = ln.getDataAttributes().stream().filter(aDo -> aDo.getCppName().contains("set_")).findFirst().orElse(null);
 
             /* Наличие уставок / настроек */
             hasSettins = (setDO!=null || setDA!=null);
@@ -123,11 +123,13 @@ public class GraphicNode extends AnchorPane {
             ConnectorPosition pos = ConnectorPosition.left;
 
             /* Если GOOSE_Input -> исходящие и справа */
-            if(DSType.GOOSE_IN.toString().equals(ds.getType())){ type = ConnectorType.outputConnector; pos = ConnectorPosition.right; }
+            if(DSType.GOOSE_IN.toString().equals(ds.getType()) || DSType.SVCB.toString().equals(ds.getType())){
+                type = ConnectorType.outputConnector; pos = ConnectorPosition.right;
+            }
 
             /* Добавляем коннекторы */
             for(IECObject object:ds.getDataObjects()) appendConnector(object, type, pos);
-            for(IECObject object:ds.getAttributes()) appendConnector(object, type, pos);
+            for(IECObject object:ds.getDataAttributes()) appendConnector(object, type, pos);
         }
     }
 
