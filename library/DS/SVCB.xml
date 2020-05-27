@@ -5,7 +5,17 @@
     <description>SV control block</description>
     <layoutX>-1.0</layoutX>
     <layoutY>-1.0</layoutY>
-    <tags></tags>
+    
+
+    <DA>
+        <name>APPID</name>
+        <type>uint16</type>
+        <description>Идентификатор приложения</description>
+        <cppName>set_APPID</cppName>
+        <cppType>unsigned short</cppType>
+        <value>01:0C:CD:04:00:00</value>
+        <defaultValue>01:0C:CD:04:00:00</defaultValue>
+    </DA>
 
     <DO>
         <name>AmpSV_A</name>
@@ -13,27 +23,18 @@
         <description>Ток фазы "А"</description>
         <cppName>in_AmpSV_A</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -47,9 +48,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>
@@ -63,27 +61,18 @@
         <description>Ток фазы "B"</description>
         <cppName>in_AmpSV_B</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -97,9 +86,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>
@@ -113,27 +99,18 @@
         <description>Ток фазы "C"</description>
         <cppName>in_AmpSV_C</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -147,9 +124,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>
@@ -163,27 +137,18 @@
         <description>Ток нейтрали</description>
         <cppName>in_AmpSV_N</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -197,9 +162,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>
@@ -214,27 +176,18 @@
         <description>Напряжение фазы "А"</description>
         <cppName>in_VoltSV_A</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -248,9 +201,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>
@@ -264,27 +214,18 @@
         <description>Напряжение фазы "B"</description>
         <cppName>in_VoltSV_B</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -298,9 +239,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>
@@ -314,27 +252,18 @@
         <description>Напряжение фазы "C"</description>
         <cppName>in_VoltSV_C</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -348,9 +277,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>
@@ -364,27 +290,18 @@
         <description>Напряжение нейтрали</description>
         <cppName>in_VoltSV_N</cppName>
         <cppType>iec_SAV</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
-        <tags></tags>
         <DO>
             <name>q</name>
             <type>Quality</type>
             <description>Качество сигнала</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <DA>
                 <name>validity</name>
                 <type>BitString</type>
                 <description>Битстринг меток качества</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned short</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
-                <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
                 <maxValue>0</maxValue>
@@ -398,9 +315,6 @@
             <description>Описание отсутствует</description>
             <cppName>instMag</cppName>
             <cppType>float</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
-            <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
             <maxValue>0</maxValue>

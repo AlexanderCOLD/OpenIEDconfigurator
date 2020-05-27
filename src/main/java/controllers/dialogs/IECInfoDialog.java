@@ -141,12 +141,24 @@ public class IECInfoDialog extends AnchorPane {
             branchTemp.put(entry.getKey(), new ArrayList<>(entry.getValue()));
 
         root.getChildren().clear(); root.setExpanded(true);
-        root.getChildren().add(takeBranch(new IECProperty("Prop", "Type", "Тип объекта", object.getType())));
-        root.getChildren().add(takeBranch(new IECProperty("Prop", "Name", "Название объекта", object.getName())));
-        root.getChildren().add(takeBranch(new IECProperty("Prop", "Desc", "Описание объекта", object.getDescription())));
-        root.getChildren().add(takeBranch(new IECProperty("Prop", "Parent", "Родительский объект", object.getParent()!=null ? object.getParent().toString() : null)));
-        root.getChildren().add(takeBranch(new IECProperty("Prop", "Coord", "Координаты", "["+object.getLayoutX()+ " : " +object.getLayoutY()+"]")));
-        root.getChildren().add(takeBranch(new IECProperty("Prop", "Tags", "Тэги объекта", object.getTags().toString())));
+
+        if(object.getType()!=null)
+            root.getChildren().add(takeBranch(new IECProperty("Prop", "Type", "Тип объекта", object.getType())));
+
+        if(object.getName()!=null)
+            root.getChildren().add(takeBranch(new IECProperty("Prop", "Name", "Название объекта", object.getName())));
+
+        if(object.getDescription()!=null)
+            root.getChildren().add(takeBranch(new IECProperty("Prop", "Desc", "Описание объекта", object.getDescription())));
+
+        if(object.getParent()!=null)
+            root.getChildren().add(takeBranch(new IECProperty("Prop", "Parent", "Родительский объект", object.getParent().toString())));
+
+        if(object.getLayoutX()!=null)
+            root.getChildren().add(takeBranch(new IECProperty("Prop", "Coord", "Координаты", "["+object.getLayoutX()+ " : " +object.getLayoutY()+"]")));
+
+        if(!object.getTags().isEmpty())
+            root.getChildren().add(takeBranch(new IECProperty("Prop", "Tags", "Тэги объекта", object.getTags().toString())));
 
         fillTree(root, object.getChildren());
     }

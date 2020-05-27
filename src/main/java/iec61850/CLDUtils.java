@@ -92,24 +92,23 @@ public class CLDUtils {
     }
 
     /**
-     * Добавить дополнительный логический узел
+     * Добавить дополнительный LN/DS
      * @param objectList - текущая объектная модель
-     * @param object - дополнительный логический узел
+     * @param object - дополнительный LN/DS
      * @return true если успешно добавлен
      */
     private static boolean appendObject(HashMap<String, IECObject> objectList, Map.Entry<String, IECObject> object){
-        if(object.getValue().getClass()==LN.class){
-            String ldPath = new File(object.getKey()).getParent();
-            try {
+        try {
+            if(object.getValue().getClass()==LN.class || object.getValue().getClass()==DS.class) {
+                String ldPath = new File(object.getKey()).getParent();
                 LD ld = (LD) objectList.get(ldPath);
-                ld.getLogicalNodeList().add((LN) object.getValue());
-                return true;
+                if (ld==null) { GUI.writeErrMessage("Невозможно добавить объект " + object.getValue().getName() + ", путь не найден " + ldPath); return false; }
+
+                if(object.getValue().getClass()==LN.class) { ld.getLogicalNodeList().add((LN) object.getValue()); return true; }
+                else if(object.getValue().getClass()==DS.class) { ld.getDataSets().add((DS) object.getValue());  return true; }
             }
-            catch (Exception e) {
-                GUI.writeErrMessage("Невозможно добавить объект " + object.getValue().getName()+ ", путь не найден " + ldPath);
-                return false;
-            }
-        }
+
+        } catch (Exception e) { GUI.writeErrMessage("Невозможно добавить объект " + object.getValue().getName()); }
         return false;
     }
 

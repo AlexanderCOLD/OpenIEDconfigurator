@@ -130,7 +130,7 @@ public class Link extends Polyline {
 	 * upButtomOffset - смещение Average над или под элементом
 	 * totalOffset - итоговое смещение
 	 */
-	private final double minExtension = 15, averOffset = 0.50, upButtomOffset = 10;
+	private final double minExtension = 15, averOffset = 0.35, upButtomOffset = 10;
 	private double connectorOffset = 0;
 
 	/**

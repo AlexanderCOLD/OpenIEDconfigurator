@@ -38,6 +38,7 @@ public class GraphicNodeController {
     private static final ArrayList<File> templateList = new ArrayList<File>(){{
         File lnLib = new File("library/LN/"); if(lnLib.exists()) for(File file:lnLib.listFiles()) add(file);
         File addLnLib = new File("library/AddLN/"); if(addLnLib.exists()) for(File file:addLnLib.listFiles()) add(file);
+        File dsLnLib = new File("library/DS/"); if(addLnLib.exists()) for(File file:dsLnLib.listFiles()) add(file);
     }};
 
 
@@ -48,10 +49,9 @@ public class GraphicNodeController {
      */
     public static GraphicNode createGraphicNode(IECObject iecObject){
         GraphicNode node = new GraphicNode(iecObject);
-
         GraphicNodeController.addHandlers(node);
-        for (Connector connector:node.getConnectors()) LinkController.addConnectorHandlers(connector);
-
+        for (Connector connector:node.getConnectors())
+            LinkController.addConnectorHandlers(connector);
         return node;
     }
 
@@ -104,9 +104,9 @@ public class GraphicNodeController {
      * 									     Обработчики граф. элементов
      */
     private static final ArrayList<Node> nodeList = new ArrayList<>();                   // Граф. элементы которым добавили обработчики
-    private static EventHandler<MouseEvent> dragDetected;
+    private static final EventHandler<MouseEvent> dragDetected;
     private static EventHandler<DragEvent> dragEvent, dragDone;
-    private static EventHandler<MouseEvent> mouseClicked;
+    private static final EventHandler<MouseEvent> mouseClicked;
 
     private static double offsetX, offsetY; // для обработчиков
     private static GraphicNode graphicNode; // для обработчиков

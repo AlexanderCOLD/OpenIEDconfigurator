@@ -55,7 +55,7 @@ public class IECObject {
     protected String cppType;
 
     /** Координаты для GUI ({-1;-1} - значит не отрисован) */
-    protected double layoutX = -1, layoutY = -1; // Координаты
+    protected Double layoutX, layoutY; // Координаты
 
     /**
      * Дополнительные теги:

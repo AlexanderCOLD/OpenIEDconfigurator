@@ -223,7 +223,7 @@ public class GraphicNode extends AnchorPane {
         for(Link link: new ArrayList<>(connections)) link.remove();
 
         /* Обнуляем координаты */
-        iecObject.setLayoutX(-1.0); iecObject.setLayoutY(-1.0);
+        iecObject.setLayoutX(null); iecObject.setLayoutY(null);
 
         /* Непосредсвенно удаляем из графики */
         if(getParent()!=null) ((Pane)getParent()).getChildren().remove(this);

@@ -3,8 +3,6 @@
     <name>ACTout</name>
     <type>ACTout</type>
     <description>ACTout node</description>
-    <layoutX>-1.0</layoutX>
-    <layoutY>-1.0</layoutY>
     <tags></tags>
     <DO>
         <name>ACT</name>
@@ -12,8 +10,6 @@
         <description>Сигнал срабатывания</description>
         <cppName>out_ACT</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -21,8 +17,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -30,8 +24,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -46,8 +38,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -61,8 +51,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -76,8 +64,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -91,8 +77,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -106,8 +90,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -122,8 +104,6 @@
         <description>Общий сигнал срабатывания</description>
         <cppName>in_general</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
     </DA>
     <DA>
@@ -132,8 +112,6 @@
         <description>Сигнал срабатывания фазы А</description>
         <cppName>in_phsA</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
     </DA>
     <DA>
@@ -142,8 +120,6 @@
         <description>Сигнал срабатывания фазы B</description>
         <cppName>in_phsB</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
     </DA>
     <DA>
@@ -152,8 +128,6 @@
         <description>Сигнал срабатывания фазы C</description>
         <cppName>in_phsC</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
     </DA>
     <DA>
@@ -162,8 +136,6 @@
         <description>Сигнал срабатывания по нулевому контуру</description>
         <cppName>in_neut</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
     </DA>
     <DA>
@@ -172,8 +144,6 @@
         <description>Атрибут качества</description>
         <cppName>in_validity</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
     </DA>
 </LN>

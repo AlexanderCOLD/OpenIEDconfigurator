@@ -3,8 +3,6 @@
     <name>SVTR</name>
     <type>SVTR</type>
     <description>SVTR node</description>
-    <layoutX>-1.0</layoutX>
-    <layoutY>-1.0</layoutY>
     <tags></tags>
     <DO>
         <name>PhV1</name>
@@ -12,8 +10,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_PhV1</cppName>
         <cppType>iec_WYE</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>phsA</name>
@@ -21,8 +17,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -30,8 +24,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -39,8 +31,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -54,8 +44,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -70,8 +58,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -79,8 +65,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -96,8 +80,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -105,8 +87,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -114,8 +94,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -129,8 +107,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -145,8 +121,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -154,8 +128,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -171,8 +143,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -180,8 +150,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -189,8 +157,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -204,8 +170,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -220,8 +184,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -229,8 +191,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -246,8 +206,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -255,8 +213,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -264,8 +220,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -279,8 +233,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -295,8 +247,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -304,8 +254,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -322,8 +270,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_PhV2</cppName>
         <cppType>iec_WYE</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>phsA</name>
@@ -331,8 +277,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -340,8 +284,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -349,8 +291,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -364,8 +304,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -380,8 +318,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -389,8 +325,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -406,8 +340,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -415,8 +347,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -424,8 +354,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -439,8 +367,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -455,8 +381,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -464,8 +388,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -481,8 +403,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -490,8 +410,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -499,8 +417,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -514,8 +430,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -530,8 +444,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -539,8 +451,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -556,8 +466,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -565,8 +473,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -574,8 +480,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -589,8 +493,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -605,8 +507,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -614,8 +514,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -632,8 +530,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_A</cppName>
         <cppType>iec_WYE</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>phsA</name>
@@ -641,8 +537,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -650,8 +544,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -659,8 +551,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -674,8 +564,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -690,8 +578,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -699,8 +585,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -716,8 +600,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -725,8 +607,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -734,8 +614,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -749,8 +627,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -765,8 +641,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -774,8 +648,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -791,8 +663,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -800,8 +670,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -809,8 +677,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -824,8 +690,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -840,8 +704,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -849,8 +711,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -866,8 +726,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -875,8 +733,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -884,8 +740,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -899,8 +753,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -915,8 +767,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -924,8 +774,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -942,8 +790,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_SeqV</cppName>
         <cppType>iec_SEQ</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>c1</name>
@@ -951,8 +797,6 @@
             <description>Описание отсутствует</description>
             <cppName>c1</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -960,8 +804,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -969,8 +811,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -984,8 +824,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1000,8 +838,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -1009,8 +845,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1026,8 +860,6 @@
             <description>Описание отсутствует</description>
             <cppName>c2</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -1035,8 +867,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -1044,8 +874,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1059,8 +887,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1075,8 +901,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -1084,8 +908,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1101,8 +923,6 @@
             <description>Описание отсутствует</description>
             <cppName>c3</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -1110,8 +930,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -1119,8 +937,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1134,8 +950,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1150,8 +964,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -1159,8 +971,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1177,8 +987,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_SeqA</cppName>
         <cppType>iec_SEQ</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>c1</name>
@@ -1186,8 +994,6 @@
             <description>Описание отсутствует</description>
             <cppName>c1</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -1195,8 +1001,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -1204,8 +1008,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1219,8 +1021,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1235,8 +1035,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -1244,8 +1042,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1261,8 +1057,6 @@
             <description>Описание отсутствует</description>
             <cppName>c2</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -1270,8 +1064,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -1279,8 +1071,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1294,8 +1084,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1310,8 +1098,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -1319,8 +1105,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1336,8 +1120,6 @@
             <description>Описание отсутствует</description>
             <cppName>c3</cppName>
             <cppType>iec_CMV</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DO>
                 <name>cVal</name>
@@ -1345,8 +1127,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>mag</name>
@@ -1354,8 +1134,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>mag</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1369,8 +1147,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>ang</cppName>
                     <cppType>float</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1385,8 +1161,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <DA>
                     <name>validity</name>
@@ -1394,8 +1168,6 @@
                     <description>Описание отсутствует</description>
                     <cppName>validity</cppName>
                     <cppType>unsigned char</cppType>
-                    <layoutX>-1.0</layoutX>
-                    <layoutY>-1.0</layoutY>
                     <tags></tags>
                     <value>0</value>
                     <minValue>0</minValue>
@@ -1412,8 +1184,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_Pos</cppName>
         <cppType>iec_SPS</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -1421,8 +1191,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -1430,8 +1198,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -1446,8 +1212,6 @@
             <description>Описание отсутствует</description>
             <cppName>stVal</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1462,8 +1226,6 @@
         <description>Описание отсутствует</description>
         <cppName>out_BlkV</cppName>
         <cppType>iec_SPS</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -1471,8 +1233,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -1480,8 +1240,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -1496,8 +1254,6 @@
             <description>Описание отсутствует</description>
             <cppName>stVal</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1512,8 +1268,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_Mod</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1527,8 +1281,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_SeqMod</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1542,8 +1294,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_CBMod</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1557,8 +1307,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrValVImb</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1572,8 +1320,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_RatA</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1587,8 +1333,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_RatB</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1602,8 +1346,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_RatC</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1617,8 +1359,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_Rat0</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1632,8 +1372,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_RatA1</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1647,8 +1385,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrValAMin</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1662,8 +1398,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrValVMin</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1677,8 +1411,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrValNgSeqA</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1692,8 +1424,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrValNgSeqV</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1707,8 +1437,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrValZerSeqA</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1722,8 +1450,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrValZerSeqV</cppName>
         <cppType>float</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>

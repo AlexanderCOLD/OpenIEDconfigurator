@@ -35,12 +35,8 @@ public class TreeController {
 
     private static final HashMap<String, TreeItem<IECObject>> branches = new HashMap<>();  // key - UID of IECObject, value - IECObjects
 
-    private static Object selectedItem; // for dragging
+    private static Object selectedItem;   // for dragging
     private static Object selectedObject; // selected LN/DS
-    private static IED selectedIED; // selected IED
-    private static LD selectedLD; // selected LD
-    private static LN selectedLN; // selected LN
-    private static DS selectedDS; // selected DS
 
     private static void initialize(){
         iedIcon = new Image(Main.class.getResource("/view/image/IEDIcon.png").toString());
@@ -120,21 +116,8 @@ public class TreeController {
      */
     public static void setSelectedObject(IECObject selectedObject) {
         if(selectedObject!=null && selectedObject != TreeController.selectedObject){
-
             TreeController.selectedObject = selectedObject;
-            TreeController.selectedIED = CLDUtils.parentOf(IED.class, selectedObject);
-            TreeController.selectedLD = CLDUtils.parentOf(LD.class, selectedObject);
-            TreeController.selectedLN = CLDUtils.parentOf(LN.class, selectedObject);
-            TreeController.selectedDS = CLDUtils.parentOf(DS.class, selectedObject);
-
             Platform.runLater(() -> tree.getSelectionModel().select(branches.get(selectedObject.getUID())));
-
-//            System.out.println("");
-//            System.out.println(" selectedObject: " + selectedObject);
-//            System.out.println(" selectedIED: " + selectedIED);
-//            System.out.println(" selectedLD: " + selectedLD);
-//            System.out.println(" selectedLN: " + selectedLN);
-//            System.out.println(" selectedDS: " + selectedDS);
         }
     }
 
@@ -178,11 +161,5 @@ public class TreeController {
 
     /** Обновить дерево */
     public static void refresh(){ tree.refresh(); }
-
-    public static Object getSelectedObject() { return selectedObject; }
-    public static IED getSelectedIED() { return selectedIED; }
-    public static LD getSelectedLD() { return selectedLD; }
-    public static LN getSelectedLN() { return selectedLN; }
-    public static DS getSelectedDS() { return selectedDS; }
     public static Object getSelectedItem() { return selectedItem; }
 }

@@ -56,12 +56,19 @@ public class ProjectController {
             selectedObject = iecObject;
 
             LD tab = CLDUtils.parentOf(LD.class, iecObject);
-            IECObject iecObjectGE = CLDUtils.parentOf(LN.class, iecObject);
-            if(iecObject==null) iecObjectGE = CLDUtils.parentOf(DS.class, iecObject);
+            IECObject iecGN = iecObject;
 
-            GraphicNodeController.setSelectedObject(iecObjectGE);       // Выделяем графический элемент
-            TreeController.setSelectedObject(iecObject);                // Выделяем ветку дерева
-            PanelsController.setSelectedObject(tab);                    // Переходим на нужную вкладку
+            /* Если выделен не DS и не LN, то найти их */
+            if(iecObject.getClass()!=LN.class && iecObject.getClass()!=DS.class){
+                findGN:{
+                    iecGN = CLDUtils.parentOf(LN.class, iecObject); if(iecGN!=null) break findGN;
+                    iecGN = CLDUtils.parentOf(DS.class, iecObject);
+                }
+            }
+
+            GraphicNodeController.setSelectedObject(iecGN);       // Выделяем графический элемент
+            TreeController.setSelectedObject(iecObject);          // Выделяем ветку дерева
+            PanelsController.setSelectedObject(tab);              // Переходим на нужную вкладку
         }
     }
 
@@ -137,11 +144,11 @@ public class ProjectController {
         /* Удаляем такущие графические элементы (с панелей), если элемент дополнительный - будет удален навсегда */
         for(GraphicNode graphicNode: new ArrayList<>(GraphicNodeController.getActiveNodeList().values())) graphicNode.remove();
 
-
         /* Добавить в проект дополнительные (графические) элементы */
         ObservableList<IECObject> appendedList = CLDUtils.appendCLD(newCld, cld);
         for(IECObject iecObject:appendedList){
-            if(iecObject.getClass()==LN.class) GraphicNodeController.getProjectNodeList().put(iecObject.getUID(), GraphicNodeController.createGraphicNode(iecObject));
+            if(iecObject.getClass()==LN.class || iecObject.getClass()==DS.class)
+                GraphicNodeController.getProjectNodeList().put(iecObject.getUID(), GraphicNodeController.createGraphicNode(iecObject));
         }
 
         /* Скопировать данные из нового CLD */
@@ -154,14 +161,10 @@ public class ProjectController {
             LD ld = CLDUtils.parentOf(LD.class, iecObject);
             AnchorPane pane = PanelsController.getPanel(ld);
 
-            double layoutX = iecObject.getLayoutX(), layoutY = iecObject.getLayoutY();
+            Double layoutX = iecObject.getLayoutX(), layoutY = iecObject.getLayoutY();
 
             /* Если координаты есть, отрисовываем граф. элемент и задаем координаты */
-            if(Double.compare(layoutX, -1.0) != 0 && Double.compare(layoutY, -1.0) != 0){
-                pane.getChildren().add(graphicNode);
-                graphicNode.relocate(layoutX, layoutY);
-                Platform.runLater(graphicNode::updateGrid);
-            }
+            if(layoutX!=null){ pane.getChildren().add(graphicNode); graphicNode.relocate(layoutX, layoutY); Platform.runLater(graphicNode::updateGrid); }
         }
 
 

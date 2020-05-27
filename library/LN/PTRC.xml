@@ -3,8 +3,6 @@
     <name>PTRC</name>
     <type>PTRC</type>
     <description>PTRC node</description>
-    <layoutX>-1.0</layoutX>
-    <layoutY>-1.0</layoutY>
     <tags></tags>
     <DO>
         <name>InRef1</name>
@@ -12,8 +10,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef1</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -21,8 +17,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -30,8 +24,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -46,8 +38,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -61,8 +51,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -76,8 +64,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -91,8 +77,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -106,8 +90,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -122,8 +104,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef2</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -131,8 +111,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -140,8 +118,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -156,8 +132,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -171,8 +145,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -186,8 +158,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -201,8 +171,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -216,8 +184,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -232,8 +198,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef3</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -241,8 +205,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -250,8 +212,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -266,8 +226,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -281,8 +239,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -296,8 +252,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -311,8 +265,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -326,8 +278,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -342,8 +292,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef4</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -351,8 +299,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -360,8 +306,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -376,8 +320,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -391,8 +333,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -406,8 +346,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -421,8 +359,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -436,8 +372,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -452,8 +386,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef5</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -461,8 +393,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -470,8 +400,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -486,8 +414,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -501,8 +427,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -516,8 +440,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -531,8 +453,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -546,8 +466,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -562,8 +480,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef6</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -571,8 +487,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -580,8 +494,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -596,8 +508,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -611,8 +521,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -626,8 +534,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -641,8 +547,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -656,8 +560,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -672,8 +574,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef7</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -681,8 +581,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -690,8 +588,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -706,8 +602,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -721,8 +615,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -736,8 +628,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -751,8 +641,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -766,8 +654,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -782,8 +668,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef8</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -791,8 +675,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -800,8 +682,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -816,8 +696,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -831,8 +709,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -846,8 +722,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -861,8 +735,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -876,8 +748,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -892,8 +762,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef9</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -901,8 +769,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -910,8 +776,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -926,8 +790,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -941,8 +803,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -956,8 +816,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -971,8 +829,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -986,8 +842,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1001,8 +855,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1016,8 +868,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1031,8 +881,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1046,8 +894,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1061,8 +907,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1077,8 +921,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef10</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -1086,8 +928,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -1095,8 +935,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -1111,8 +949,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1126,8 +962,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1141,8 +975,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1156,8 +988,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1171,8 +1001,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1186,8 +1014,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1201,8 +1027,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1216,8 +1040,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1231,8 +1053,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1246,8 +1066,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1262,8 +1080,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef11</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -1271,8 +1087,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -1280,8 +1094,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -1296,8 +1108,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1311,8 +1121,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1326,8 +1134,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1341,8 +1147,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1356,8 +1160,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1371,8 +1173,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1386,8 +1186,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1401,8 +1199,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1416,8 +1212,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1431,8 +1225,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1447,8 +1239,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef12</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -1456,8 +1246,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -1465,8 +1253,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -1481,8 +1267,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1496,8 +1280,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1511,8 +1293,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1526,8 +1306,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1541,8 +1319,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1556,8 +1332,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1571,8 +1345,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1586,8 +1358,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1601,8 +1371,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1616,8 +1384,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1632,8 +1398,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef13</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -1641,8 +1405,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -1650,8 +1412,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -1666,8 +1426,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1681,8 +1439,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1696,8 +1452,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1711,8 +1465,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1726,8 +1478,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1741,8 +1491,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1756,8 +1504,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1771,8 +1517,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1786,8 +1530,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1801,8 +1543,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1817,8 +1557,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef14</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -1826,8 +1564,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -1835,8 +1571,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -1851,8 +1585,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1866,8 +1598,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1881,8 +1611,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1896,8 +1624,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1911,8 +1637,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1926,8 +1650,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1941,8 +1663,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1956,8 +1676,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1971,8 +1689,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -1986,8 +1702,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2002,8 +1716,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef15</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2011,8 +1723,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2020,8 +1730,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2036,8 +1744,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2051,8 +1757,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2066,8 +1770,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2081,8 +1783,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2096,8 +1796,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2111,8 +1809,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2126,8 +1822,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2141,8 +1835,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2156,8 +1848,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2171,8 +1861,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2187,8 +1875,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_InRef16</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2196,8 +1882,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2205,8 +1889,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2221,8 +1903,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2236,8 +1916,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2251,8 +1929,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2266,8 +1942,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2281,8 +1955,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2296,8 +1968,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2311,8 +1981,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2326,8 +1994,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2341,8 +2007,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2356,8 +2020,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2372,8 +2034,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_Blk1</cppName>
         <cppType>iec_SPS</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2381,8 +2041,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2390,8 +2048,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2406,8 +2062,6 @@
             <description>Описание отсутствует</description>
             <cppName>stVal</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2422,8 +2076,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_Blk2</cppName>
         <cppType>iec_SPS</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2431,8 +2083,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2440,8 +2090,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2456,8 +2104,6 @@
             <description>Описание отсутствует</description>
             <cppName>stVal</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2472,8 +2118,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_Blk3</cppName>
         <cppType>iec_SPS</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2481,8 +2125,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2490,8 +2132,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2506,8 +2146,6 @@
             <description>Описание отсутствует</description>
             <cppName>stVal</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2522,8 +2160,6 @@
         <description>Описание отсутствует</description>
         <cppName>in_Blk4</cppName>
         <cppType>iec_SPS</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2531,8 +2167,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2540,8 +2174,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2556,8 +2188,6 @@
             <description>Описание отсутствует</description>
             <cppName>stVal</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2572,8 +2202,6 @@
         <description>Сигнал срабатывания</description>
         <cppName>out_Op</cppName>
         <cppType>iec_ACT</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2581,8 +2209,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2590,8 +2216,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2606,8 +2230,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2621,8 +2243,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2636,8 +2256,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2651,8 +2269,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2666,8 +2282,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2682,8 +2296,6 @@
         <description>Описание отсутствует</description>
         <cppName>out_Str</cppName>
         <cppType>iec_ACD</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
@@ -2691,8 +2303,6 @@
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <DA>
                 <name>validity</name>
@@ -2700,8 +2310,6 @@
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
                 <cppType>unsigned char</cppType>
-                <layoutX>-1.0</layoutX>
-                <layoutY>-1.0</layoutY>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -2716,8 +2324,6 @@
             <description>Описание отсутствует</description>
             <cppName>general</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2731,8 +2337,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirGeneral</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2746,8 +2350,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2761,8 +2363,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsA</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2776,8 +2376,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2791,8 +2389,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsB</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2806,8 +2402,6 @@
             <description>Описание отсутствует</description>
             <cppName>phsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2821,8 +2415,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirPhsC</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2836,8 +2428,6 @@
             <description>Описание отсутствует</description>
             <cppName>neut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2851,8 +2441,6 @@
             <description>Описание отсутствует</description>
             <cppName>dirNeut</cppName>
             <cppType>unsigned char</cppType>
-            <layoutX>-1.0</layoutX>
-            <layoutY>-1.0</layoutY>
             <tags></tags>
             <value>0</value>
             <minValue>0</minValue>
@@ -2867,8 +2455,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_TrMod</cppName>
         <cppType>unsigned char</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2882,8 +2468,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_TrPlsTmms</cppName>
         <cppType>int</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2897,8 +2481,6 @@
         <description>Описание отсутствует</description>
         <cppName>set_TrPlsTmms2</cppName>
         <cppType>int</cppType>
-        <layoutX>-1.0</layoutX>
-        <layoutY>-1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
