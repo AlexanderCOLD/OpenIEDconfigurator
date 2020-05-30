@@ -2,6 +2,8 @@ package controllers.dialogs;
 
 import application.GUI;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +33,7 @@ public class AssistantDialog extends AnchorPane {
     @FXML private Button button1, button2;
     @FXML private TextArea textArea;
 
-    private static AssistantDialog self;
+    private static AssistantDialog self = new AssistantDialog();
     private boolean draggable = false;
     private double dragOffsetX, dragOffsetY; // поправка при перетаскивании на позицию мышки
     private EventHandler<? super MouseEvent> mouseDragged, mousePressed;
@@ -64,7 +66,7 @@ public class AssistantDialog extends AnchorPane {
         stage.setAlwaysOnTop(true);
         stage.initModality(Modality.APPLICATION_MODAL); // Остальные окна недоступны пока открыто это
         stage.addEventFilter(KeyEvent.KEY_PRESSED, e->{ if(e.getCode()== KeyCode.ESCAPE) close(); if(e.getCode()==KeyCode.ENTER) ok(); });
-        stage.focusedProperty().addListener(e-> Platform.runLater(() -> textField.requestFocus()));
+        stage.focusedProperty().addListener(e-> Platform.runLater(() -> { textField.requestFocus(); textField.positionCaret(textField.getLength()); }));
         textArea.setEditable(false);
         textArea.setWrapText(true);
     }
@@ -86,7 +88,6 @@ public class AssistantDialog extends AnchorPane {
      * @param info - текст ошибки
      */
     public static void requestError(String title, String info){
-        if(self==null) self = new AssistantDialog();
         self.icon.setText("❌");
         self.textArea.setVisible(true);
         self.textField.setVisible(false);
@@ -110,7 +111,6 @@ public class AssistantDialog extends AnchorPane {
      * @return - boolean true/false
      */
     public static boolean requestConfirm(String title, String info){
-        if(self==null) self = new AssistantDialog();
         self.icon.setText("?");
         self.textArea.setVisible(true);
         self.textField.setVisible(false);
@@ -136,7 +136,6 @@ public class AssistantDialog extends AnchorPane {
      * @return - String text
      */
     public static String requestText(String title, String info){
-        if(self==null) self = new AssistantDialog();
         self.icon.setText("");
         self.textArea.setVisible(false);
         self.textField.setVisible(true);
@@ -163,7 +162,6 @@ public class AssistantDialog extends AnchorPane {
      * @return - String text
      */
     public static String requestText(String title, String info, String initText){
-        if(self==null) self = new AssistantDialog();
         self.icon.setText("");
         self.textArea.setVisible(false);
         self.textField.setVisible(true);

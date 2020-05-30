@@ -200,7 +200,7 @@ public class PanelsController {
     /**
      * Задать TabPane (Во время старта программы)
      */
-    public static void setTabPane(TabPane tabPane) {
+    public static void initialize(TabPane tabPane) {
         PanelsController.tabPane = tabPane;
         PanelsController.tabPane.getSelectionModel().selectedItemProperty().addListener(tabChangeListener);
     }

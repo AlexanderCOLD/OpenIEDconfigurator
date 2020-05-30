@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SCL xmlns="http://www.iec.ch/61850/2006/SCL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <IED name="IED_1" desc="Устройство товой защиты" >
+    <AccessPoint name="accessPoint1">
+      <Server>
+        <Authentication/>
+        <LDevice ldName="PTOC" inst="LD_PTOC_1" desc="Токовая защита" >
+          <LN0 inst="1" lnClass="LLN0" lnType="LLN01"> 
+		  
+		    <DataSet name="GOOSE_OUT">
+              <FCDA ldInst="LD_PTOC_1" lnClass="PTOC" lnInst="1" doName="Op" daName="general" />
+              <FCDA ldInst="LD_PTOC_1" lnClass="PTOC" lnInst="1" doName="Op" daName="phsA" />
+			  <FCDA ldInst="LD_PTOC_1" lnClass="PTOC" lnInst="1" doName="Op" daName="phsB" />
+			  <FCDA ldInst="LD_PTOC_1" lnClass="PTOC" lnInst="1" doName="Op" daName="phsC" />
+			  <FCDA ldInst="LD_PTOC_1" lnClass="PTOC" lnInst="1" doName="Str" daName="general" />
+			  
+			  <FCDA ldInst="LD_PTOC_1" lnClass="PTRC" lnInst="1" doName="Op" daName="general" />
+              <FCDA ldInst="LD_PTOC_1" lnClass="PTRC" lnInst="1" doName="Op" daName="phsA" />
+			  <FCDA ldInst="LD_PTOC_1" lnClass="PTRC" lnInst="1" doName="Op" daName="phsB" />
+			  <FCDA ldInst="LD_PTOC_1" lnClass="PTRC" lnInst="1" doName="Op" daName="phsC" />
+			  <FCDA ldInst="LD_PTOC_1" lnClass="PTRC" lnInst="1" doName="Str" daName="general" />
+            </DataSet>
+			
+			<!-- Список Исходящих GOOSE датасетов -->
+            <GSEControl name="gcbPTOC" datSet="GOOSE_OUT" confRev="100" appID="IED_1/LD_PTOC_1">
+              <!-- <IEDName ldInst="LD_PTOC_1" lnClass="LLN0" apRef="S1">AA1G1Q01A1</IEDName> -->
+            </GSEControl> 
+			
+			<!-- Исходящий MMS датасет -->
+			<!--
+			<ReportControl name="rcbMeasFlt" rptID="AA1G1Q01A1LD0/LLN0.rcbMeasFlt" datSet="MeasFlt" confRev="300" intgPd="3000" bufTime="100" buffered="true">
+              <TrgOps dchg="true" qchg="true" />
+              <OptFields />
+              <RptEnabled max="2">
+                <ClientLN iedName="AA1OPC1" apRef="S1" ldInst="LD0" lnClass="IHMI" lnInst="1" />
+                <ClientLN iedName="AA1OPC2" apRef="S1" ldInst="LD0" lnClass="IHMI" lnInst="1" />
+              </RptEnabled>
+            </ReportControl>
+			-->
+			
+			<!-- Входящий GOOSE датасет -->
+            <Inputs>
+              <ExtRef iedName="IED_1" ldInst="LD_PTOC_1" lnClass="PTOC" lnInst="1" doName="VStr1" daName="general" serviceType="GOOSE" srcLDInst="LD_PTOC_1" srcCBName="gcbDATA1" />
+              <ExtRef iedName="IED_1" ldInst="LD_PTOC_1" lnClass="PTOC" lnInst="1" doName="VStr2" daName="general" serviceType="GOOSE" srcLDInst="LD_PTOC_1" srcCBName="gcbDATA1" />
+            </Inputs>
+		  
+		  
+		  <!-- Перечень узлов -->
+		  </LN0>
+		  <LN inst="1" lnClass="PTOC"  desc="Узел токовой защита"> </LN>
+		  <LN inst="1" lnClass="IRMXU" desc="Узел расчета векторов"> </LN>
+          <LN inst="2" lnClass="IRMXU" desc="Узел расчета векторов"> </LN>
+          <LN inst="1" lnClass="PTOV"  desc="Узел выявления перенапряжения"> </LN>
+		  <LN inst="2" lnClass="PTOV"  desc="Узел выявления перенапряжения"> </LN>
+          <LN inst="1" lnClass="PTUV"  desc="Узел выявления понижения напряжения"> </LN>
+		  <LN inst="2" lnClass="PTUV"  desc="Узел выявления понижения напряжения"> </LN>		  
+          <LN inst="1" lnClass="RDIR"  desc="Узел направления мощности"> </LN>
+          <LN inst="1" lnClass="PTRC"  desc="Узел формирования отключения"> </LN>
+        </LDevice>
+      </Server>
+    </AccessPoint>
+  </IED>
+</SCL>

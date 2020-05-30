@@ -20,10 +20,10 @@
             <tags></tags>
             <DA>
                 <name>validity</name>
-                <type>UNSIGNED CHAR</type>
+                <type>UNSIGNED SHORT</type>
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
-                <cppType>unsigned char</cppType>
+                <cppType>unsigned short</cppType>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -62,10 +62,10 @@
             <tags></tags>
             <DA>
                 <name>validity</name>
-                <type>UNSIGNED CHAR</type>
+                <type>UNSIGNED SHORT</type>
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
-                <cppType>unsigned char</cppType>
+                <cppType>unsigned short</cppType>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -104,10 +104,10 @@
             <tags></tags>
             <DA>
                 <name>validity</name>
-                <type>UNSIGNED CHAR</type>
+                <type>UNSIGNED SHORT</type>
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
-                <cppType>unsigned char</cppType>
+                <cppType>unsigned short</cppType>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -146,94 +146,10 @@
             <tags></tags>
             <DA>
                 <name>validity</name>
-                <type>UNSIGNED CHAR</type>
+                <type>UNSIGNED SHORT</type>
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
-                <cppType>unsigned char</cppType>
-                <tags></tags>
-                <value>0</value>
-                <minValue>0</minValue>
-                <maxValue>0</maxValue>
-                <defaultValue>0</defaultValue>
-                <step>0</step>
-            </DA>
-        </DO>
-        <DA>
-            <name>stVal</name>
-            <type>UNSIGNED CHAR</type>
-            <description>Описание отсутствует</description>
-            <cppName>stVal</cppName>
-            <cppType>unsigned char</cppType>
-            <tags></tags>
-            <value>0</value>
-            <minValue>0</minValue>
-            <maxValue>0</maxValue>
-            <defaultValue>0</defaultValue>
-            <step>0</step>
-        </DA>
-    </DO>
-    <DO>
-        <name>SPS5</name>
-        <type>SPS</type>
-        <description>Входной сигнал 5</description>
-        <cppName>in_SPS5</cppName>
-        <cppType>iec_SPS</cppType>
-        <tags></tags>
-        <DO>
-            <name>q</name>
-            <type>Quality</type>
-            <description>Описание отсутствует</description>
-            <cppName>q</cppName>
-            <cppType>iec_Quality</cppType>
-            <tags></tags>
-            <DA>
-                <name>validity</name>
-                <type>UNSIGNED CHAR</type>
-                <description>Описание отсутствует</description>
-                <cppName>validity</cppName>
-                <cppType>unsigned char</cppType>
-                <tags></tags>
-                <value>0</value>
-                <minValue>0</minValue>
-                <maxValue>0</maxValue>
-                <defaultValue>0</defaultValue>
-                <step>0</step>
-            </DA>
-        </DO>
-        <DA>
-            <name>stVal</name>
-            <type>UNSIGNED CHAR</type>
-            <description>Описание отсутствует</description>
-            <cppName>stVal</cppName>
-            <cppType>unsigned char</cppType>
-            <tags></tags>
-            <value>0</value>
-            <minValue>0</minValue>
-            <maxValue>0</maxValue>
-            <defaultValue>0</defaultValue>
-            <step>0</step>
-        </DA>
-    </DO>
-    <DO>
-        <name>SPS6</name>
-        <type>SPS</type>
-        <description>Входной сигнал 6</description>
-        <cppName>in_SPS6</cppName>
-        <cppType>iec_SPS</cppType>
-        <tags></tags>
-        <DO>
-            <name>q</name>
-            <type>Quality</type>
-            <description>Описание отсутствует</description>
-            <cppName>q</cppName>
-            <cppType>iec_Quality</cppType>
-            <tags></tags>
-            <DA>
-                <name>validity</name>
-                <type>UNSIGNED CHAR</type>
-                <description>Описание отсутствует</description>
-                <cppName>validity</cppName>
-                <cppType>unsigned char</cppType>
+                <cppType>unsigned short</cppType>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>
@@ -259,7 +175,7 @@
     <DO>
         <name>SPS</name>
         <type>SPS</type>
-        <description>Выходной сигнал, объединенный по схеме ИЛИ</description>
+        <description>Недублированное состояние</description>
         <cppName>out_SPS</cppName>
         <cppType>iec_SPS</cppType>
         <tags></tags>
@@ -272,10 +188,10 @@
             <tags></tags>
             <DA>
                 <name>validity</name>
-                <type>UNSIGNED CHAR</type>
+                <type>UNSIGNED SHORT</type>
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
-                <cppType>unsigned char</cppType>
+                <cppType>unsigned short</cppType>
                 <tags></tags>
                 <value>0</value>
                 <minValue>0</minValue>

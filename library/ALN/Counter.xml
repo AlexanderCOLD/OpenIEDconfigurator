@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>Counter</name>
+    <type>Counter</type>
+    <description>Counter node</description>
+    <tags></tags>
+    <DA>
+        <name>Input</name>
+        <type>boolean</type>
+        <description>Входной сигнал</description>
+        <cppName>in_Input</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Reset</name>
+        <type>boolean</type>
+        <description>Cброс счетчика</description>
+        <cppName>in_Reset</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Output</name>
+        <type>boolean</type>
+        <description>Выходной сигнал</description>
+        <cppName>out_Output</cppName>
+        <cppType>unsigned int</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <cppType>iec_Originator</cppType>
+    <tags></tags>
+    <DA>
+        <name>orCat</name>
+        <type>UNSIGNED CHAR</type>
+        <description>Описание отсутствует</description>
+        <cppName>orCat</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value>0</value>
+        <minValue>0</minValue>
+        <maxValue>0</maxValue>
+        <defaultValue>0</defaultValue>
+        <step>0</step>
+    </DA>
+</DO>

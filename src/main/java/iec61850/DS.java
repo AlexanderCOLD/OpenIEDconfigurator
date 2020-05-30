@@ -21,14 +21,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "DS")
 public class DS extends IECObject {
 
-    /** Название датасета из CID (список всех датасетов)*/
-    private String datSetName;
-
-    /** ID датасета (appID - для GOOSE, rptID - для ММС)*/
-    private String ID;
-
-    /** Параметры ММС */
-    private int intgPd, bufTime;
+//    /** Название датасета из CID (список всех датасетов)*/
+//    private String datSetName;
+//
+//    /** ID датасета (appID - для GOOSE, rptID - для ММС)*/
+//    private String ID;
+//
+//    /** Параметры ММС */
+//    private int intgPd, bufTime;
 
     /** Вложенные объекты */
     @XmlElement(name = "DO")

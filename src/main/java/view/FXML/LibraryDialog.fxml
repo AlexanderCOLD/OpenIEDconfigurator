@@ -28,7 +28,16 @@
                               </ScrollPane>
                            </content>
                       </Tab>
-                      <Tab text="Базовые узлы">
+                      <Tab text="Преобр. узлы">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true">
+                                 <content>
+                                    <FlowPane fx:id="convPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: -fx-fourth-color;" />
+                                 </content>
+                              </ScrollPane>
+                           </content>
+                      </Tab>
+                        <Tab text="Базовые узлы">
                            <content>
                               <ScrollPane fitToHeight="true" fitToWidth="true">
                                  <content>
@@ -36,7 +45,7 @@
                                  </content>
                               </ScrollPane>
                            </content>
-                      </Tab>
+                        </Tab>
                     </tabs>
                   </TabPane>
                </content>

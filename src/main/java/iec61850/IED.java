@@ -30,7 +30,7 @@ public class IED extends IECObject{
 
 
     public String toString(){
-        String type = this.type!=null ? this.type : this.description;
+        String type = this.description!=null ? this.description : this.type;
         String name = this.name!=null ? this.name : "err";
         return String.format("%s (%s)", name, type);
     }

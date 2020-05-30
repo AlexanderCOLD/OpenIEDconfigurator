@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>ACDin</name>
+    <type>ACDin</type>
+    <description>ACDin node</description>
+    <tags></tags>
+    <DO>
+        <name>ACD</name>
+        <type>ACD</type>
+        <description>Сигнал пуска направленной защиты</description>
+        <cppName>in_ACD</cppName>
+        <cppType>iec_ACD</cppType>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>Quality</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DA>
+                <name>validity</name>
+                <type>UNSIGNED SHORT</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned short</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DA>
+            <name>general</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>general</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>dirGeneral</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>dirGeneral</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>phsA</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsA</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>dirPhsA</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>dirPhsA</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>phsB</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsB</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>dirPhsB</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>dirPhsB</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>phsC</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsC</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>dirPhsC</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>dirPhsC</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>neut</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>neut</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>dirNeut</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>dirNeut</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DA>
+        <name>general</name>
+        <type>BOOLEAN</type>
+        <description>Общий сигнал срабатывания</description>
+        <cppName>out_general</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>dirGeneral</name>
+        <type>ENUMERATED</type>
+        <description>Общее направление короткого замыкания</description>
+        <cppName>out_dirGeneral</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>phsA</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания фазы А</description>
+        <cppName>out_phsA</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>dirPhsA</name>
+        <type>ENUMERATED</type>
+        <description>Направление короткого замыкания для фазы A</description>
+        <cppName>out_dirPhsA</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>phsB</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания фазы B</description>
+        <cppName>out_phsB</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>dirPhsB</name>
+        <type>ENUMERATED</type>
+        <description>Направление короткого замыкания для фазы B</description>
+        <cppName>out_dirPhsB</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>phsC</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания фазы C</description>
+        <cppName>out_phsC</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>dirPhsC</name>
+        <type>ENUMERATED</type>
+        <description>Направление короткого замыкания для фазы C</description>
+        <cppName>out_dirPhsC</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>neut</name>
+        <type>BOOLEAN</type>
+        <description>Сигнал срабатывания по нулевому контуру</description>
+        <cppName>out_neut</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>dirNeut</name>
+        <type>ENUMERATED</type>
+        <description>Направление короткого замыкания для нулевого контура</description>
+        <cppName>out_dirNeut</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества</description>
+        <cppName>out_q</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

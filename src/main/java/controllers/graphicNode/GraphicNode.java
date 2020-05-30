@@ -6,8 +6,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import application.GUI;
+import application.Main;
 import controllers.dialogs.AssistantDialog;
-import controllers.dialogs.TripPointDialog;
+import controllers.dialogs.EditorDialog;
 import controllers.link.Link;
 import controllers.tree.TreeController;
 import iec61850.*;
@@ -19,11 +20,15 @@ import javafx.scene.Cursor;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 /**
  * @author Александр Холодов
@@ -35,7 +40,7 @@ public class GraphicNode extends AnchorPane {
 
     @FXML private Label title_bar;
     @FXML private AnchorPane mainPanel;
-
+    private static final Image nodeIcon = new Image(Main .class.getResource("/view/image/node.png").toString());
     private static final String selectedStyle = "-fx-background-color: -fx-second-color; -fx-border-color: #cd0733; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 2";
     private static final DropShadow selectedShadow = new DropShadow( BlurType.ONE_PASS_BOX, Color.RED, 15, 0.0, 0, 0);
 
@@ -44,6 +49,8 @@ public class GraphicNode extends AnchorPane {
 
     private static final String style = "-fx-background-color: -fx-second-color; -fx-border-color: -fx-first-color; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-width: 1.5";
     private static final DropShadow shadow = new DropShadow(BlurType.THREE_PASS_BOX, Color.rgb(0,0,0,0.8), 15, 0.0, 0, 0);
+
+    private final Tooltip tooltip = new Tooltip(){{ setFont(Font.font(14)); }};
 
     private final ContextMenu contextMenu = new ContextMenu();
     private final BooleanProperty selected = new SimpleBooleanProperty(false);
@@ -70,8 +77,25 @@ public class GraphicNode extends AnchorPane {
         setId(UUID.randomUUID().toString());
         setStyle(style);
         setEffect(shadow);
-        setMaxHeight(100);
+        setMaxHeight(30);
         mainPanel.setStyle("-fx-background-color: -fx-third-color");
+    }
+
+    /**
+     * Устанавливанет Model (LN, Dataset ...)
+     * Загрузка без коннекторов
+     * @param value - объект
+     */
+    public void setIecSimple(IECObject value){
+        this.iecObject = value;
+        setId(value.getUID());
+        title_bar.setText(value.getName());
+        ImageView img = new ImageView(nodeIcon);
+        getChildren().add(img); img.relocate(15,22);
+        setMinSize(50,60);
+        setMaxSize(50,60);
+        connectors.clear();
+        mainPanel.getChildren().clear();
     }
 
     /**
@@ -81,6 +105,10 @@ public class GraphicNode extends AnchorPane {
     public void setIecObject(IECObject value) {
         if(iecObject!=null){ System.err.println("IEC object is already exists"); return; }
         this.iecObject = value;
+
+//        tooltip.setOnShowing(e -> { tooltip.setText(iecObject!=null? iecObject.getDescription() : ""); });
+//        tooltip.setStyle("-fx-background-color: transparent;");
+//        Tooltip.install(this, tooltip);
 
         setId(value.getUID());
         title_bar.setText(value.toString());
@@ -93,19 +121,31 @@ public class GraphicNode extends AnchorPane {
             LN ln = (LN) value;
 
             /* Фильруем входные структуры */
-            ArrayList<IECObject> inputDOList = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("in_")).collect(Collectors.toCollection(ArrayList::new));
-            ArrayList<IECObject> inputDAList = ln.getDataAttributes().stream().filter(aDo -> aDo.getCppName().contains("in_")).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> inputDOList = ln.getDataObjects().stream()
+                    .filter(aDo -> aDo.getCppName().contains("in_"))
+                    .collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> inputDAList = ln.getDataAttributes().stream()
+                    .filter(aDo -> aDo.getCppName().contains("in_"))
+                    .collect(Collectors.toCollection(ArrayList::new));
 
             /* Фильруем выходные структуры */
-            ArrayList<IECObject> outputDOList = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("out_")).collect(Collectors.toCollection(ArrayList::new));
-            ArrayList<IECObject> outputDAList = ln.getDataAttributes().stream().filter(aDo -> aDo.getCppName().contains("out_")).collect(Collectors.toCollection(ArrayList::new));
-
-
-            IECObject setDO = ln.getDataObjects().stream().filter(aDo -> aDo.getCppName().contains("set_")).findFirst().orElse(null);
-            IECObject setDA = ln.getDataAttributes().stream().filter(aDo -> aDo.getCppName().contains("set_")).findFirst().orElse(null);
+            ArrayList<IECObject> outputDOList = ln.getDataObjects().stream()
+                    .filter(aDo -> aDo.getCppName().contains("out_"))
+                    .collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> outputDAList = ln.getDataAttributes().stream()
+                    .filter(aDo -> aDo.getCppName().contains("out_"))
+                    .collect(Collectors.toCollection(ArrayList::new));
 
             /* Наличие уставок / настроек */
-            hasSettins = (setDO!=null || setDA!=null);
+            settings:{
+                ln.getDataObjects().stream()
+                        .filter(aDo -> aDo.getCppName()!=null && aDo.getCppName().contains("set_"))
+                        .findFirst().ifPresent(setDO -> hasSettins = true);
+                if(hasSettins) break settings;
+                ln.getDataAttributes().stream()
+                        .filter(aDo -> aDo.getCppName()!=null && aDo.getCppName().contains("set_"))
+                        .findFirst().ifPresent(setDA -> hasSettins = true);
+            }
 
             /* Добавляем входящие коннекторы */
             for(IECObject iecObject: inputDOList) appendConnector(iecObject, ConnectorType.inputConnector, ConnectorPosition.left);
@@ -118,6 +158,25 @@ public class GraphicNode extends AnchorPane {
         else if(value.getClass()==DS.class){
             DS ds = (DS) value;
 
+            /* Фильруем входные структуры */
+            ArrayList<IECObject> doList = ds.getDataObjects().stream()
+                    .filter(aDo -> !(aDo.getCppName()!=null && aDo.getCppName().contains("set_")))
+                    .collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<IECObject> daList = ds.getDataAttributes().stream()
+                    .filter(aDo -> !(aDo.getCppName()!=null && aDo.getCppName().contains("set_")))
+                    .collect(Collectors.toCollection(ArrayList::new));
+
+            /* Наличие уставок / настроек */
+            settings:{
+                ds.getDataObjects().stream()
+                        .filter(aDo -> aDo.getCppName()!=null && aDo.getCppName().contains("set_"))
+                        .findFirst().ifPresent(setDO -> hasSettins = true);
+                if(hasSettins) break settings;
+                ds.getDataAttributes().stream()
+                        .filter(aDo -> aDo.getCppName()!=null && aDo.getCppName().contains("set_"))
+                        .findFirst().ifPresent(setDA -> hasSettins = true);
+            }
+
             /* Если GOOSE_Output или MMS_Output -> входящие и слева */
             ConnectorType type = ConnectorType.inputConnector;
             ConnectorPosition pos = ConnectorPosition.left;
@@ -128,8 +187,8 @@ public class GraphicNode extends AnchorPane {
             }
 
             /* Добавляем коннекторы */
-            for(IECObject object:ds.getDataObjects()) appendConnector(object, type, pos);
-            for(IECObject object:ds.getDataAttributes()) appendConnector(object, type, pos);
+            for(IECObject object: doList) appendConnector(object, type, pos);
+            for(IECObject object: daList) appendConnector(object, type, pos);
         }
     }
 
@@ -153,12 +212,12 @@ public class GraphicNode extends AnchorPane {
         if(borderPane==null){
             borderPane = new BorderPane(); mainPanel.getChildren().add(borderPane);
             AnchorPane.setLeftAnchor(borderPane,0.0); AnchorPane.setRightAnchor(borderPane,0.0);
-            AnchorPane.setTopAnchor(borderPane,15.0 * (mainPanel.getChildren().size()-1));
+            AnchorPane.setTopAnchor(borderPane,12.0 * (mainPanel.getChildren().size()-1) + 10);
         }
 //      borderPane.setStyle("-fx-border-color: RED; -fx-border-width: 1");
 
         /* Создаем коннектор и размещаем */
-        Connector c = new Connector(this, object, type, position);
+        Connector c = new Connector(this, object, type, position); c.getConnectorPane().toBack(); c.toFront();
         if(position==ConnectorPosition.left) borderPane.setLeft(c.getConnectorPane()); else borderPane.setRight(c.getConnectorPane());
         connectors.add(c);
     }
@@ -166,7 +225,7 @@ public class GraphicNode extends AnchorPane {
     @FXML
     private void initialize() {
         setCursor(Cursor.HAND);
-        addEventFilter(MouseEvent.MOUSE_CLICKED, e->{ if(e.getClickCount()==2 && hasSettins) TripPointDialog.show((LN) iecObject); });
+        addEventFilter(MouseEvent.MOUSE_CLICKED, e->{ if(e.getClickCount()==2 && hasSettins) EditorDialog.show(iecObject); });
 
         selected.addListener((o, ov, nv) ->{
             if(nv) {
@@ -190,11 +249,19 @@ public class GraphicNode extends AnchorPane {
             contextMenu.getItems().add(remove);
         });
 
-        settings.setOnAction(e -> { TripPointDialog.show((LN) iecObject); });
+        settings.setOnAction(e -> { EditorDialog.show(iecObject); });
 
         rename.setOnAction(e->{
-            String name = AssistantDialog.requestText("Новое название", "Введите новое название", iecObject.getName());
-            if(name!=null) { iecObject.setName(name); title_bar.setText(iecObject.toString()); TreeController.refresh(); }
+            String initName = iecObject.getType().toLowerCase(); long instance = iecObject.getInstance()!=null ? iecObject.getInstance() : 1;
+            String name = AssistantDialog.requestText("Введите название", "Введите номер экземпляра", initName+"_"+instance);
+            if(name!=null){
+                name = name.replaceAll(" ",""); if(name.equals(initName+"_"+instance)) return;
+                String[] nameSplit = name.split("_"); if(nameSplit.length!=2) return;
+                if(!nameSplit[0].equals(initName)) return;
+                try { instance = Long.parseLong(nameSplit[1]); } catch (Exception exc) { return; }
+            } else return;
+            iecObject.setName(name); iecObject.setInstance(instance);
+            title_bar.setText(iecObject.toString()); TreeController.refresh();
         });
 
         remove.setOnAction(e -> { if(AssistantDialog.requestConfirm("Подтверждение", "Удалить элемент " + iecObject.getName())) remove(); });

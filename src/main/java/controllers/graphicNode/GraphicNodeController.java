@@ -13,6 +13,8 @@ import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 import org.apache.commons.io.FilenameUtils;
 import tools.SaveLoadObject;
@@ -36,9 +38,10 @@ public class GraphicNodeController {
 
     /** Лист шаблонов библиотеки */
     private static final ArrayList<File> templateList = new ArrayList<File>(){{
-        File lnLib = new File("library/LN/"); if(lnLib.exists()) for(File file:lnLib.listFiles()) add(file);
-        File addLnLib = new File("library/AddLN/"); if(addLnLib.exists()) for(File file:addLnLib.listFiles()) add(file);
-        File dsLnLib = new File("library/DS/"); if(addLnLib.exists()) for(File file:dsLnLib.listFiles()) add(file);
+        File lnLib = new File("library/LN/"); if(lnLib.exists()) addAll(Arrays.asList(Objects.requireNonNull(lnLib.listFiles())));
+        File dsLnLib = new File("library/DS/"); if(dsLnLib.exists()) addAll(Arrays.asList(Objects.requireNonNull(dsLnLib.listFiles())));
+        File addLnLib = new File("library/ALN/"); if(addLnLib.exists()) addAll(Arrays.asList(Objects.requireNonNull(addLnLib.listFiles())));
+        File convLnLib = new File("library/CLN/"); if(convLnLib.exists()) addAll(Arrays.asList(Objects.requireNonNull(convLnLib.listFiles())));
     }};
 
 
@@ -74,7 +77,7 @@ public class GraphicNodeController {
         /* Создаем графические элементы */
         for(IECObject iecObject:iecObjects){
             if(iecObject.getClass()==DS.class){ projectNodeList.put(iecObject.getUID(), createGraphicNode(iecObject)); }
-            if(iecObject.getClass()==LN.class){ fillByTemplate((LN) iecObject); projectNodeList.put(iecObject.getUID(), createGraphicNode(iecObject)); }
+            if(iecObject.getClass()==LN.class){ projectNodeList.put(iecObject.getUID(), createGraphicNode(iecObject)); }
         }
     }
 

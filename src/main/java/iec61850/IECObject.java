@@ -38,6 +38,8 @@ public class IECObject {
     /** Адрес объекта */
     @XmlTransient
     protected final IECAddress address = new IECAddress(this);
+    @XmlTransient
+    protected final IECCppAddress cppAddress = new IECCppAddress(this);
 
     /** Уникальное имя */
     protected String name;
@@ -53,6 +55,9 @@ public class IECObject {
 
     /** Класс С++ */
     protected String cppType;
+
+    /** Номер экземпляра */
+    private Long instance;
 
     /** Координаты для GUI ({-1;-1} - значит не отрисован) */
     protected Double layoutX, layoutY; // Координаты

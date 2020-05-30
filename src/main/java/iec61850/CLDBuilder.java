@@ -1,12 +1,15 @@
 package iec61850;
 
 import application.GUI;
+import controllers.graphicNode.GraphicNodeController;
 import iec61850.objects.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author Александр Холодов
@@ -17,14 +20,54 @@ import java.util.Optional;
 public class CLDBuilder {
 
     /**
-     * Извлекает IED лист из SCL
+     * Создает CLD из CID
      * @param scl - Искомый SCL
      * @return - CLD
      */
     public static CLD buildCLD(SCL scl){
         CLD cld = new CLD();
-        if(scl.getIED()!=null) for(TIED ied:scl.getIED()) Optional.ofNullable(extractIED(ied)).ifPresent(cld.getIedList()::add);
+        for(TIED ied:scl.getIED()) Optional.ofNullable(extractIED(ied)).ifPresent(cld.getIedList()::add);
+        fillDatasets(cld);
         return cld;
+    }
+
+    /** Поиск типо данных для датасетов */
+    private static void fillDatasets(CLD cld){
+        for(IED ied: cld.getIedList()){
+            for(LD ld: ied.getLogicalDeviceList()){
+
+                /* Поиск всех DS и LN в проекте */
+                ObservableList<IECObject> iecObjects = CLDUtils.objectListOf(ld);
+                ObservableList<IECObject> lnList = FXCollections.observableArrayList(iecObjects.stream().filter(o -> o.getClass()==LN.class).collect(Collectors.toList()));
+                ObservableList<IECObject> dsList = FXCollections.observableArrayList(iecObjects.stream().filter(o -> o.getClass()==DS.class).collect(Collectors.toList()));
+
+                /* Дополнение логических узлов объектной моделью */
+                lnList.forEach(ln -> GraphicNodeController.fillByTemplate((LN) ln));
+
+                HashMap<String, IECObject> ldMap = CLDUtils.mapOf(ld.getChildren());
+
+                if(dsList.isEmpty()) continue;
+
+                /* Поиск типов */
+                for(IECObject ds: dsList){
+                    for(DA da: ((DS) ds).getDataAttributes()){
+
+                        /* Путь до объекта */
+                        String daPath = ied.getName() + "/" + ld.getName() + "/" + da.getName();
+
+                        IECObject sourceAttribute = ldMap.get(daPath);
+                        if(sourceAttribute==null) continue;
+
+                        IECObject object = sourceAttribute;
+                        while (object!=null) if(object.getParent().getClass()!=LN.class) object = object.getParent(); else break;
+
+                        da.setType(object.getType());
+                        da.setCppType(object.getCppType());
+                    }
+                }
+
+            }
+        }
     }
 
     /**
@@ -34,17 +77,22 @@ public class CLDBuilder {
      */
     private static IED extractIED(TIED source){
         IED ied = new IED();
-        if(source.getName()==null) { GUI.writeErrMessage("IED:  "+ ied + "- is not contain name"); }
-        ied.setName(source.getName()!=null ? source.getName() : "unknown");
+
+        /* Имя экземпляра IED */
+        if(source.getName()==null) {
+            ied.setName("unknown"); ied.setCppName("unknown");
+            GUI.writeErrMessage("IED:  "+ ied + "- не имеет названия");
+        } else { ied.setName(source.getName().toLowerCase()); ied.setCppName(ied.getName()); }
+
+        /* Описание IED */
         ied.setDescription(source.getDesc()!=null ? source.getDesc() : "unknown");
 
+        /* Извлечение LD */
         /* Если существует Access Point, если в нем есть Server, если в сервере есть LD's, то извлекаем их */
         try {
             List<TLDevice> logicalDeviceList = source.getAccessPoint().get(0).getServer().getLDevice();
             for(TLDevice tld:logicalDeviceList) Optional.ofNullable(extractLD(tld)).ifPresent(ied.getLogicalDeviceList()::add);
-        }
-        catch (Exception e) { GUI.writeErrMessage(String.format("IED: %s is not contain logical devices", StringOf(source))); }
-
+        } catch (Exception e) { GUI.writeErrMessage(String.format("IED: %s не имеет логических узлов", ied.getName())); }
         return ied;
     }
 
@@ -55,115 +103,195 @@ public class CLDBuilder {
      */
     private static LD extractLD(TLDevice source){
         LD ld = new LD();
-        if(source.getLdName()==null) { GUI.writeErrMessage("LD:  "+ StringOf(source) + "- is not contain name"); }
-        ld.setName(source.getLdName()!=null ? source.getLdName() : "unknown");
+
+        /* Имя LD */
+        if(source.getLdName()==null) {
+            ld.setType("unknown");
+            GUI.writeErrMessage(String.format("LD: %s - не имеет названия", source));
+        } else ld.setType(source.getLdName());
+
+        /* Имя экземпляра LD (Instance) */
+        if(source.getInst()==null) {
+            ld.setName("unknown");
+            GUI.writeErrMessage(String.format("LD: %s - не имеет названия экземпляра", source));
+        } else { ld.setName(source.getInst().toLowerCase()); ld.setCppName(ld.getName()); }
+
+        /* Описание LD */
         ld.setDescription(source.getDesc()!=null ? source.getDesc(): "unknown");
 
         /* Извлекаем логические узлы если есть */
-        List<TLN> tlnList = source.getLN();
-        if(tlnList!=null) for(TLN tln:source.getLN()) Optional.ofNullable(extractLN(tln)).ifPresent(ld.getLogicalNodeList()::add);
+        for(TLN tln:source.getLN()) Optional.ofNullable(extractLN(tln)).ifPresent(ld.getLogicalNodeList()::add);
 
-        /* Извлекаем датасеты */
-        List<TDataSet> tDataSetList = source.getLN0().getDataSet(); // Общий лист со всеми исходящими датасетами (GOOSE и MMS)
-        List<TGSEControl> outputGooseList = source.getLN0().getGSEControl();     // Описание исходящих гусей (содержатся в dataSetList)
-        List<TReportControl> outputMMSList = source.getLN0().getReportControl(); // Описание исходящих MMS (содержатся в dataSetList)
+        if(source.getLN0()==null){
+            GUI.writeErrMessage(String.format("LD %s не имеет узла LN0", source.getLdName()));
+            return ld;
+        }
+
+        /* Извлекаем датасеты (отличны от null) */
+        List<TDataSet> tDataSetList = source.getLN0().getDataSet();               // Общий лист со всеми исходящими датасетами (GOOSE и MMS)
+        List<TGSEControl> outputGooseList = source.getLN0().getGSEControl();      // Описание исходящих гусей (содержатся в dataSetList)
+        List<TReportControl> outputMMSList = source.getLN0().getReportControl();  // Описание исходящих MMS (содержатся в dataSetList)
+        List<TExtRef> inputGooseDS = source.getLN0().getInputs()!=null ?          // Датасет входящих гусей
+                source.getLN0().getInputs().getExtRef() : new ArrayList<>();
+
+
 
         /* Извлечение исходящих гусей */
-        if(outputGooseList!=null && tDataSetList!=null){
+        for(TGSEControl tgseControl:outputGooseList){
+            DS ds = new DS();
 
-            for(TGSEControl gseCtrlBlock:outputGooseList){
-                DS ds = new DS();
-                if(gseCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain name", DSType.GOOSE_OUT.toString(), StringOf(gseCtrlBlock)));
-                if(gseCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is not contain DatSet name", DSType.GOOSE_OUT.toString(), StringOf(gseCtrlBlock)));
-                ds.setType(DSType.GOOSE_OUT.toString());
-                ds.setName(gseCtrlBlock.getName()!=null ? gseCtrlBlock.getName() : "unknown");
-                ds.setDatSetName(gseCtrlBlock.getDatSet()!=null ? gseCtrlBlock.getDatSet() : "unknown");
-                ds.setDescription(gseCtrlBlock.getDesc()!=null ? gseCtrlBlock.getDesc() : "unknown");
-                ds.setID(gseCtrlBlock.getAppID()!=null ? gseCtrlBlock.getAppID() : "unknown");
+            /* Название DS */
+            if(tgseControl.getName()==null) {
+                ds.setName("unknown");
+                GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - не имеет названия", DSType.GOOSE_OUT.toString(), tgseControl));
+            } else ds.setName(tgseControl.getName());
 
-                for(TDataSet tDataSet:tDataSetList){
-                    if(ds.getDatSetName().equals(tDataSet.getName())){
+            /* Тип DS */
+            ds.setType(DSType.GOOSE_OUT.toString());
 
-                        ObservableList<DO> dataObjectList = FXCollections.observableArrayList();
-                        for(Object obj:tDataSet.getFCDAOrFCCB()){
-                            if(obj.getClass()==TFCDA.class){
-                                TFCDA tfcda = ((TFCDA) obj);
-                                DO dataObject = new DO();
-                                if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_OUT.toString(), StringOf(tfcda)));
-                                if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_OUT.toString(), StringOf(tfcda)));
-                                dataObject.setType(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
-                                dataObject.setName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
-                                dataObjectList.add(dataObject);
+            /* Описание */
+            ds.setDescription(tgseControl.getDesc()!=null ? tgseControl.getDesc() : "Датасет исходящих GOOSE сообщений");
+
+            /* Имя datSet */
+            String datSetName = null;
+            if(tgseControl.getDatSet()==null) {
+                GUI.writeErrMessage(String.format("%s DataSet: GSEControlBlock  %s - is не имеет DatSetName", DSType.GOOSE_OUT.toString(), tgseControl));
+                datSetName = "unknown";
+            } else datSetName = tgseControl.getDatSet();
+
+
+            /* Добавление атрибута: Имя datSet */
+            DA dsNameAttr = createDA("String", "datSetName","set_datSetName", "Название datSet", datSetName);
+            ds.getDataAttributes().add(dsNameAttr);
+
+            /* Добавление атрибута: Идентификатор приложения */
+            DA appIdAttr = createDA("String", "appID", "set_appID", "Идентификатор приложения", tgseControl.getAppID()!=null ? tgseControl.getAppID() : "unknown");
+            ds.getDataAttributes().add(appIdAttr);
+
+            /* Добавление атрибута: Идентификатор приложения */
+            DA macAttr = createDA("String", "MAC", "set_mac", "Сетевой адрес", "01:0C:CD:04:00:00");
+            ds.getDataAttributes().add(macAttr);
+
+            /* Добавление атрибута: Идентификатор приложения */
+            DA goCbArr = createDA("String", "gocbRef", "set_gocbRef", "Ссылка на GOOSE Control block", "");
+            ds.getDataAttributes().add(goCbArr);
+
+            /* Добавление атрибута: Идентификатор приложения */
+            DA goID = createDA("String", "goID", "set_goID", "Идентификатор GOOSE", "");
+            ds.getDataAttributes().add(goID);
+
+            /* Извлечение Объектов и Атрибутов */
+            for(TDataSet tDataSet:tDataSetList){
+                if(datSetName.equals("unknown")) break;
+                if(datSetName.equals(tDataSet.getName())){
+
+                    /* Functionally Constrained Data Attributes // Functionally Constrained ControlBlock */
+                    for(Object object:tDataSet.getFCDAOrFCCB()){
+                        if(object.getClass()==TFCDA.class){
+                            TFCDA tfcda = ((TFCDA) object);
+
+                            if(tfcda.getDaName()!=null && tfcda.getDoName()!=null){
+                                String lnClass = !tfcda.getLnClass().isEmpty() ? tfcda.getLnClass().get(0).toLowerCase() : "err"; // Узел (класс) в котором нужные атрибуты
+                                String inst = tfcda.getLnInst();                                                                  // Номер экземпляра узла
+                                String type = lnClass + "_" + inst;                                                               // Класс в котором нужные атрибуты
+                                String name = lnClass + "_" + inst + "/" + tfcda.getDoName() + "/" + tfcda.getDaName();           // Путь до атрибута
+                                DA dataAttribute = createDA(type, name, name, "Объект данных","");
+                                ds.getDataAttributes().add(dataAttribute);
                             }
+                            else GUI.writeErrMessage(String.format("FCDA %s не имеет dataObject/dataAttribute", tfcda));
                         }
-
-                        for(DO doc:dataObjectList) ds.getDataObjects().add(doc);
-                        ld.getDataSets().add(ds);
-
-                        break;
+                        else if(object.getClass()==TFCCB.class){ System.err.println("TFCCB is exists"); }
                     }
+
+                    /* Датасет найдет, объекты и атрибуты извлечены */
+                    ld.getDataSets().add(ds); break;
                 }
             }
         }
 
         /* Извлечение входящих гусей */
-        if(source.getLN0().getInputs()!=null && source.getLN0().getInputs().getExtRef()!=null){
-            List<TExtRef> extRefList = source.getLN0().getInputs().getExtRef();
+        if(!inputGooseDS.isEmpty()){
+            DS ds = new DS();
+            ds.setType(DSType.GOOSE_IN.toString());
+            ds.setName("GOOSE_IN");
 
-            DS dataSet = new DS();
-            dataSet.setType(DSType.GOOSE_IN.toString());
-            dataSet.setName("GOOSE_IN");
+            /* Добавление атрибута: Имя datSet */
+            DA dsNameAttr = createDA("String", "datSetName","set_datSetName", "Название datSet", "");
+            ds.getDataAttributes().add(dsNameAttr);
 
-            for(TExtRef tExtRef:extRefList){
-                DO dataObject = new DO();
-                if(tExtRef.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.GOOSE_IN.toString(), StringOf(tExtRef)));
-                if(tExtRef.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.GOOSE_IN.toString(), StringOf(tExtRef)));
-                dataObject.setType(tExtRef.getDoName()!=null ? tExtRef.getDoName(): "unknown");
-                dataObject.setName(tExtRef.getDaName()!=null ? tExtRef.getDaName(): "unknown");
-                dataSet.getDataObjects().add(dataObject);
+            /* Добавление атрибута: Идентификатор приложения */
+            DA appIdAttr = createDA("String", "appID", "set_appID", "Идентификатор приложения", "");
+            ds.getDataAttributes().add(appIdAttr);
+
+            /* Добавление атрибута: Идентификатор приложения */
+            DA macAttr = createDA("String", "MAC", "set_mac", "Сетевой адрес", "01:0C:CD:04:00:00");
+            ds.getDataAttributes().add(macAttr);
+
+            /* Добавление атрибута: Идентификатор приложения */
+            DA goCbArr = createDA("String", "gocbRef", "set_gocbRef", "Ссылка на GOOSE Control block", "");
+            ds.getDataAttributes().add(goCbArr);
+
+            /* Добавление атрибута: Идентификатор приложения */
+            DA goID = createDA("String", "goID", "set_goID", "Идентификатор GOOSE", "");
+            ds.getDataAttributes().add(goID);
+
+            /* Наполнение атрибутами */
+            for(TExtRef tExtRef:inputGooseDS){
+                if(tExtRef.getDoName()!=null && tExtRef.getDaName()!=null){
+                    String lnClass = !tExtRef.getLnClass().isEmpty() ? tExtRef.getLnClass().get(0).toLowerCase() : "err"; // Узел (класс) в котором нужные атрибуты
+                    String inst = tExtRef.getLnInst();                                                                    // Номер экземпляра узла
+                    String type = lnClass + "_" + inst;                                                                   // Класс в котором нужные атрибуты
+                    String name = lnClass + "_" + inst + "/" + tExtRef.getDoName() + "/" + tExtRef.getDaName();           // Путь до атрибута
+                    DA dataAttribute = createDA(type, name, name, "Объект данных","");
+                    ds.getDataAttributes().add(dataAttribute);
+                } else GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - не имеет объектов", DSType.GOOSE_IN.toString(), tExtRef));
             }
-
-            ld.getDataSets().add(dataSet);
+            ld.getDataSets().add(ds);
         }
+
 
         /* Извлечение исходящих отчетов (MMS) */
-        if(outputMMSList!=null && tDataSetList!=null){
+        for(TReportControl reportCtrlBlock:outputMMSList){
+            DS ds = new DS();
+            ds.setType(DSType.MMS_OUT.toString());
 
-            for(TReportControl reportCtrlBlock:outputMMSList){
-                DS ds = new DS();
-                ds.setType(DSType.MMS_OUT.toString());
+//            if(reportCtrlBlock.getName()==null) {
+//                GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain name", DSType.MMS_OUT.toString(), reportCtrlBlock));
+//            }
+//            if(reportCtrlBlock.getDatSet()==null) {
+//                GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain DatSet name", DSType.MMS_OUT.toString(), reportCtrlBlock));
+//            }
 
-                if(reportCtrlBlock.getName()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain name", DSType.MMS_OUT.toString(), StringOf(reportCtrlBlock)));
-                if(reportCtrlBlock.getDatSet()==null) GUI.writeErrMessage(String.format("%s DataSet:  %s - is not contain DatSet name", DSType.MMS_OUT.toString(), StringOf(reportCtrlBlock)));
-                ds.setName(reportCtrlBlock.getName()!=null ? reportCtrlBlock.getName() : "unknown");
-                ds.setDatSetName(reportCtrlBlock.getDatSet()!=null ? reportCtrlBlock.getDatSet() : "unknown");
-                ds.setDescription(reportCtrlBlock.getDesc()!=null ? reportCtrlBlock.getDesc() : "unknown");
-                ds.setID(reportCtrlBlock.getRptID()!=null ? reportCtrlBlock.getRptID() : "unknown");
+//            ds.setName(reportCtrlBlock.getName()!=null ? reportCtrlBlock.getName() : "unknown");
+//            ds.setDatSetName(reportCtrlBlock.getDatSet()!=null ? reportCtrlBlock.getDatSet() : "unknown");
+//            ds.setDescription(reportCtrlBlock.getDesc()!=null ? reportCtrlBlock.getDesc() : "unknown");
+//            ds.setID(reportCtrlBlock.getRptID()!=null ? reportCtrlBlock.getRptID() : "unknown");
 
-                for(TDataSet tDataSet:tDataSetList){
-                    if(ds.getDatSetName().equals(tDataSet.getName())){
+//            for(TDataSet tDataSet:tDataSetList){
+//                if(ds.getDatSetName().equals(tDataSet.getName())){
+//
+//                    ObservableList<DO> dataObjectList = FXCollections.observableArrayList();
+//                    for(Object obj:tDataSet.getFCDAOrFCCB()){
+//                        if(obj.getClass()==TFCDA.class){
+//                            TFCDA tfcda = ((TFCDA) obj);
+//                            DO dataObject = new DO();
+//                            if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.MMS_OUT.toString(), StringOf(tfcda)));
+//                            if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.MMS_OUT.toString(), StringOf(tfcda)));
+//                            dataObject.setType(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
+//                            dataObject.setName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
+//                            dataObjectList.add(dataObject);
+//                        }
+//                    }
+//
+//                    for(DO doc:dataObjectList) ds.getDataObjects().add(doc);
+//                    ld.getDataSets().add(ds);
+//
+//                    break;
+//                }
+//            }
 
-                        ObservableList<DO> dataObjectList = FXCollections.observableArrayList();
-                        for(Object obj:tDataSet.getFCDAOrFCCB()){
-                            if(obj.getClass()==TFCDA.class){
-                                TFCDA tfcda = ((TFCDA) obj);
-                                DO dataObject = new DO();
-                                if(tfcda.getDoName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain name", DSType.MMS_OUT.toString(), StringOf(tfcda)));
-                                if(tfcda.getDaName()==null) GUI.writeErrMessage(String.format("%s DataSet, Data Object:  %s - is not contain attribute name", DSType.MMS_OUT.toString(), StringOf(tfcda)));
-                                dataObject.setType(tfcda.getDoName()!=null ? tfcda.getDoName(): "unknown");
-                                dataObject.setName(tfcda.getDaName()!=null ? tfcda.getDaName(): "unknown");
-                                dataObjectList.add(dataObject);
-                            }
-                        }
-
-                        for(DO doc:dataObjectList) ds.getDataObjects().add(doc);
-                        ld.getDataSets().add(ds);
-
-                        break;
-                    }
-                }
-            }
         }
+
         return ld;
     }
 
@@ -173,19 +301,31 @@ public class CLDBuilder {
      * @return - LN
      */
     private static LN extractLN(TLN source){
-        LN ln = new LN();
-        if(source.getLnType()==null) { GUI.writeErrMessage("LN:  "+ StringOf(source) + "- is not contain type"); }
-        ln.setType((source.getLnClass()!=null && source.getLnClass().size()>0 && source.getLnClass().get(0)!=null) ? source.getLnClass().get(0) : "unknown");
-        ln.setName(source.getLnType()!=null ? source.getLnType() : ln.getType());
-        ln.setDescription(source.getDesc()!=null ? source.getDesc() : "unknown");
-        return ln;
+        LN logicalNode = new LN();
+
+        /** Тип класса */
+        logicalNode.setType((source.getLnClass().size()>0) ? source.getLnClass().get(0) : "unknown");
+        /** Номер экземпляра */
+        logicalNode.setInstance(source.getInst());
+        /** Имя экземпляра */
+        logicalNode.setName((logicalNode.getType() + "_" + logicalNode.getInstance()).toLowerCase());
+        logicalNode.setCppName(logicalNode.getName());
+        /** Описание узла */
+        logicalNode.setDescription(source.getDesc()!=null ? source.getDesc() : "unknown");
+
+        if(source.getLnClass().isEmpty()) GUI.writeErrMessage(String.format("LN %s не имеет класса", source));
+        return logicalNode;
     }
 
-    private static String StringOf(Object object) {
-        String result = "{";
-        for (Field field : object.getClass().getDeclaredFields()) { field.setAccessible(true); try { Object value = field.get(object); if(value!=null) result += String.format(" %s: [%s] ", field.getName(), value); } catch (IllegalAccessException ignored) { } }
-        result += "}";
-        return result;
+    /** Создать атрибут */
+    private static DA createDA(String type, String name, String cppName, String desc, String value){
+        DA da = new DA(); da.setType(type); da.setName(name); da.setCppName(cppName); da.setDescription(desc); da.setValue(value);
+        return da;
     }
 
+    /** Создать объект */
+    private static DO createDO(String type, String name, String desc){
+        DO dataObject = new DO(); dataObject.setType(type); dataObject.setName(name); dataObject.setDescription(desc);
+        return dataObject;
+    }
 }

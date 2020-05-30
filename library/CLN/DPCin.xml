@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>DPCin</name>
+    <type>DPCin</type>
+    <description>DPCin node</description>
+    <tags></tags>
+    <DO>
+        <name>DPC</name>
+        <type>DPC</type>
+        <description>Дублированное управление и состояние</description>
+        <cppName>in_DPC</cppName>
+        <cppType>iec_DPC</cppType>
+        <tags></tags>
+        <DO>
+            <name>pulseConfig</name>
+            <type>PulseConfig</type>
+            <description>Описание отсутствует</description>
+            <cppName>pulseConfig</cppName>
+            <cppType>iec_PulseConfig</cppType>
+            <tags></tags>
+            <DA>
+                <name>cmdQual</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>cmdQual</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>onDur</name>
+                <type>UNSIGNED INT</type>
+                <description>Описание отсутствует</description>
+                <cppName>onDur</cppName>
+                <cppType>unsigned int</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>offDur</name>
+                <type>UNSIGNED INT</type>
+                <description>Описание отсутствует</description>
+                <cppName>offDur</cppName>
+                <cppType>unsigned int</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+            <DA>
+                <name>numPls</name>
+                <type>UNSIGNED INT</type>
+                <description>Описание отсутствует</description>
+                <cppName>numPls</cppName>
+                <cppType>unsigned int</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>origin</name>
+            <type>Originator</type>
+            <description>Описание отсутствует</description>
+            <cppName>origin</cppName>
+            <cppType>iec_Originator</cppType>
+            <tags></tags>
+            <DA>
+                <name>orCat</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>orCat</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DO>
+            <name>q</name>
+            <type>Quality</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DA>
+                <name>validity</name>
+                <type>UNSIGNED SHORT</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned short</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DA>
+            <name>stSeld</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>stSeld</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>opOk</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>opOk</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>ctlModel</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>ctlModel</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>stVal</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DA>
+        <name>stSeld</name>
+        <type>BOOLEAN</type>
+        <description>Состояние контролируемых данных имеет статус selected</description>
+        <cppName>out_stSeld</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>opOk</name>
+        <type>BOOLEAN</type>
+        <description>Команда срабатывания была принята</description>
+        <cppName>out_opOk</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>ctlModel</name>
+        <type>ENUMERATED</type>
+        <description>Значение модели управления</description>
+        <cppName>out_ctlModel</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>cmdQual</name>
+        <type>ENUMERATED</type>
+        <description>Тип выходного сигнала</description>
+        <cppName>out_cmdQual</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>onDur</name>
+        <type>INT32U</type>
+        <description>Длительность импульса</description>
+        <cppName>out_onDur</cppName>
+        <cppType>unsigned int</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>offDur</name>
+        <type>INT32U</type>
+        <description>Временной промежуток между двумя импульсами</description>
+        <cppName>out_offDur</cppName>
+        <cppType>unsigned int</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>numPls</name>
+        <type>INT32U</type>
+        <description>Число генерируемых импульсов</description>
+        <cppName>out_numPls</cppName>
+        <cppType>unsigned int</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>orCat</name>
+        <type>FLOAT32</type>
+        <description>Категория инициатора, который вызвал изменение значения</description>
+        <cppName>out_orCat</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>stVal</name>
+        <type>BOOLEAN</type>
+        <description>Значение состояния</description>
+        <cppName>out_stVal</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества</description>
+        <cppName>out_q</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

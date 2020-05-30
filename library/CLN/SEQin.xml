@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>SEQin</name>
+    <type>SEQin</type>
+    <description>SEQin node</description>
+    <tags></tags>
+    <DO>
+        <name>SEQ</name>
+        <type>SEQ</type>
+        <description>Комплексные значения симметричных составляющих</description>
+        <cppName>in_SEQ</cppName>
+        <cppType>iec_SEQ</cppType>
+        <tags></tags>
+        <DO>
+            <name>c1</name>
+            <type>CMV</type>
+            <description>Описание отсутствует</description>
+            <cppName>c1</cppName>
+            <cppType>iec_CMV</cppType>
+            <tags></tags>
+            <DO>
+                <name>cVal</name>
+                <type>Vector</type>
+                <description>Описание отсутствует</description>
+                <cppName>cVal</cppName>
+                <cppType>iec_Vector</cppType>
+                <tags></tags>
+                <DA>
+                    <name>mag</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>mag</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+                <DA>
+                    <name>ang</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>ang</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppName>q</cppName>
+                <cppType>iec_Quality</cppType>
+                <tags></tags>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED SHORT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>validity</cppName>
+                    <cppType>unsigned short</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+        </DO>
+        <DO>
+            <name>c2</name>
+            <type>CMV</type>
+            <description>Описание отсутствует</description>
+            <cppName>c2</cppName>
+            <cppType>iec_CMV</cppType>
+            <tags></tags>
+            <DO>
+                <name>cVal</name>
+                <type>Vector</type>
+                <description>Описание отсутствует</description>
+                <cppName>cVal</cppName>
+                <cppType>iec_Vector</cppType>
+                <tags></tags>
+                <DA>
+                    <name>mag</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>mag</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+                <DA>
+                    <name>ang</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>ang</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppName>q</cppName>
+                <cppType>iec_Quality</cppType>
+                <tags></tags>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED SHORT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>validity</cppName>
+                    <cppType>unsigned short</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+        </DO>
+        <DO>
+            <name>c3</name>
+            <type>CMV</type>
+            <description>Описание отсутствует</description>
+            <cppName>c3</cppName>
+            <cppType>iec_CMV</cppType>
+            <tags></tags>
+            <DO>
+                <name>cVal</name>
+                <type>Vector</type>
+                <description>Описание отсутствует</description>
+                <cppName>cVal</cppName>
+                <cppType>iec_Vector</cppType>
+                <tags></tags>
+                <DA>
+                    <name>mag</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>mag</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+                <DA>
+                    <name>ang</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>ang</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppName>q</cppName>
+                <cppType>iec_Quality</cppType>
+                <tags></tags>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED SHORT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>validity</cppName>
+                    <cppType>unsigned short</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+        </DO>
+    </DO>
+    <DA>
+        <name>mag_c1</name>
+        <type>FLOAT32</type>
+        <description>Модуль комплексного значения прямой последовательности</description>
+        <cppName>out_mag_c1</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>ang_c1</name>
+        <type>FLOAT32</type>
+        <description>Угол комплексного значения прямой последовательности</description>
+        <cppName>out_ang_c1</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q_c1</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества комплексного значения прямой последовательности</description>
+        <cppName>out_q_c1</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>mag_c2</name>
+        <type>FLOAT32</type>
+        <description>Модуль комплексного значения обратной последовательности</description>
+        <cppName>out_mag_c2</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>ang_c2</name>
+        <type>FLOAT32</type>
+        <description>Угол комплексного значения обратной последовательности</description>
+        <cppName>out_ang_c2</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q_c2</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества комплексного значения обратной последовательности</description>
+        <cppName>out_q_c2</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>mag_c3</name>
+        <type>FLOAT32</type>
+        <description>Модуль комплексного значения нулевой последовательности</description>
+        <cppName>out_mag_c3</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>ang_c3</name>
+        <type>FLOAT32</type>
+        <description>Угол комплексного значения нулевой последовательности</description>
+        <cppName>out_ang_c3</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q_c3</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества комплексного значения нулевой последовательности</description>
+        <cppName>out_q_c3</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

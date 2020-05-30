@@ -103,6 +103,7 @@ public class IECInfoDialog extends AnchorPane {
         scene.getStylesheets().add("view/CSS/" + GUI.colorStyle + ".css");
         scene.getStylesheets().add("view/CSS/stylesheet.css");
         ResizeController.addStage(stage);
+        addEventFilter(MouseEvent.MOUSE_ENTERED, e-> { stage.requestFocus(); });
     }
 
     @FXML
@@ -133,7 +134,6 @@ public class IECInfoDialog extends AnchorPane {
 
     /** Show data of object */
     public static void setObject(IECObject object){
-        self.stage.show();
         if(!self.stage.isShowing()) return;
         /* Буффер ветвей */
         branchTemp = new HashMap<>();
@@ -143,22 +143,25 @@ public class IECInfoDialog extends AnchorPane {
         root.getChildren().clear(); root.setExpanded(true);
 
         if(object.getType()!=null)
-            root.getChildren().add(takeBranch(new IECProperty("Prop", "Type", "Тип объекта", object.getType())));
+            root.getChildren().add(takeBranch(new IECProperty("String", "Type", "Тип объекта", object.getType())));
 
         if(object.getName()!=null)
-            root.getChildren().add(takeBranch(new IECProperty("Prop", "Name", "Название объекта", object.getName())));
+            root.getChildren().add(takeBranch(new IECProperty("String", "Name", "Название объекта", object.getName())));
+
+        if(object.getInstance()!=null)
+            root.getChildren().add(takeBranch(new IECProperty("Long", "Instance", "Номер экземпляра", object.getInstance().toString())));
 
         if(object.getDescription()!=null)
-            root.getChildren().add(takeBranch(new IECProperty("Prop", "Desc", "Описание объекта", object.getDescription())));
+            root.getChildren().add(takeBranch(new IECProperty("String", "Desc", "Описание объекта", object.getDescription())));
 
         if(object.getParent()!=null)
-            root.getChildren().add(takeBranch(new IECProperty("Prop", "Parent", "Родительский объект", object.getParent().toString())));
+            root.getChildren().add(takeBranch(new IECProperty("IECObject", "Parent", "Родительский объект", object.getParent().toString())));
 
         if(object.getLayoutX()!=null)
-            root.getChildren().add(takeBranch(new IECProperty("Prop", "Coord", "Координаты", "["+object.getLayoutX()+ " : " +object.getLayoutY()+"]")));
+            root.getChildren().add(takeBranch(new IECProperty("Double[]", "Coord", "Координаты", "["+object.getLayoutX()+ " : " +object.getLayoutY()+"]")));
 
         if(!object.getTags().isEmpty())
-            root.getChildren().add(takeBranch(new IECProperty("Prop", "Tags", "Тэги объекта", object.getTags().toString())));
+            root.getChildren().add(takeBranch(new IECProperty("String", "Tags", "Тэги объекта", object.getTags().toString())));
 
         fillTree(root, object.getChildren());
     }
@@ -166,7 +169,7 @@ public class IECInfoDialog extends AnchorPane {
     /** Наполнить дерево объектами */
     private static void fillTree(TreeItem<Object> root, ObservableList<IECObject> children){
         for(IECObject iecObject: children){
-            TreeItem<Object> item = takeBranch(iecObject); root.getChildren().add(item); item.setExpanded(true);
+            TreeItem<Object> item = takeBranch(iecObject); root.getChildren().add(item); item.setExpanded(false);
             if(!iecObject.getChildren().isEmpty()) fillTree(item, iecObject.getChildren());
         }
     }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>AmoreB</name>
+    <type>AmoreB</type>
+    <description>AmoreB node</description>
+    <tags></tags>
+    <DA>
+        <name>Input</name>
+        <type>boolean</type>
+        <description>Входной сигнал</description>
+        <cppName>in_Input</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Output</name>
+        <type>boolean</type>
+        <description>Выходной сигнал</description>
+        <cppName>out_Output</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

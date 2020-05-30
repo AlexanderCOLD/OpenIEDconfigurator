@@ -11,6 +11,10 @@
         <cppName>in_S</cppName>
         <cppType>unsigned char</cppType>
         <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
     </DA>
     <DA>
         <name>R</name>
@@ -32,6 +36,10 @@
         <cppName>out_Q</cppName>
         <cppType>unsigned char</cppType>
         <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
     </DA>
     <DA>
         <name>Q_p</name>

@@ -72,7 +72,7 @@ public class TreeController {
      * (при запуске программы)
      * @param tree - дерево
      */
-    public static void setTree(TreeView tree) {
+    public static void initialize(TreeView tree) {
         TreeController.tree = tree;
         TreeController.tree.setRoot(root);
         root.setExpanded(true);

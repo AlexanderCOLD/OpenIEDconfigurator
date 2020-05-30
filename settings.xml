@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <settings>
-    <infoLayout>1414.0</infoLayout>
-    <infoLayout>118.0</infoLayout>
-    <infoLock>true</infoLock>
-    <infoResolution>461.0</infoResolution>
+    <infoLayout>1482.0</infoLayout>
+    <infoLayout>43.0</infoLayout>
+    <infoLock>false</infoLock>
+    <infoResolution>439.0</infoResolution>
     <infoResolution>361.0</infoResolution>
     <infoVisible>true</infoVisible>
-    <lastCIDPath>C:\Users\ALEXCOLD\Desktop\testCLD\testCLD.cid</lastCIDPath>
-    <lastCLDPath>C:\Users\ALEXCOLD\Desktop\testCLD\testCLD.cld</lastCLDPath>
-    <libLayout>1413.0</libLayout>
-    <libLayout>483.0</libLayout>
-    <libLock>true</libLock>
-    <libResolution>435.0</libResolution>
-    <libResolution>433.0</libResolution>
+    <lastCIDPath>C:\Users\ALEXCOLD\Desktop\PTOCtest2\PTOCtest2.cid</lastCIDPath>
+    <lastCLDPath>C:\Users\ALEXCOLD\Desktop\PTOCtest2\PTOCtest2.cld</lastCLDPath>
+    <libLayout>1494.0</libLayout>
+    <libLayout>507.0</libLayout>
+    <libLock>false</libLock>
+    <libResolution>390.0</libResolution>
+    <libResolution>381.0</libResolution>
     <libVisible>true</libVisible>
-    <mainLayout>47.0</mainLayout>
-    <mainLayout>103.0</mainLayout>
-    <mainResolution>1363.0</mainResolution>
-    <mainResolution>817.0</mainResolution>
-    <spHdivide>0.8342002600780234</spHdivide>
-    <spVdivide>0.23804267844002944</spVdivide>
+    <mainLayout>5.0</mainLayout>
+    <mainLayout>3.0</mainLayout>
+    <mainResolution>1802.0</mainResolution>
+    <mainResolution>887.0</mainResolution>
+    <spHdivide>0.843558282208589</spHdivide>
+    <spVdivide>0.1582313681868743</spVdivide>
 </settings>

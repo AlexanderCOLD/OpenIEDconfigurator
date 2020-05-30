@@ -7,7 +7,7 @@
     <DO>
         <name>A1</name>
         <type>WYE</type>
-        <description>Трехфазная группа токов</description>
+        <description>Описание отсутствует</description>
         <cppName>in_A1</cppName>
         <cppType>iec_WYE</cppType>
         <tags></tags>
@@ -267,7 +267,7 @@
     <DO>
         <name>A2</name>
         <type>WYE</type>
-        <description>Трехфазная группа токов</description>
+        <description>Описание отсутствует</description>
         <cppName>in_A2</cppName>
         <cppType>iec_WYE</cppType>
         <tags></tags>
@@ -527,7 +527,7 @@
     <DO>
         <name>A3</name>
         <type>WYE</type>
-        <description>Трехфазная группа токов</description>
+        <description>Описание отсутствует</description>
         <cppName>in_A3</cppName>
         <cppType>iec_WYE</cppType>
         <tags></tags>
@@ -1089,7 +1089,7 @@
     <DO>
         <name>DifAClc</name>
         <type>WYE</type>
-        <description>Трехфазная группа дифференциальных токов </description>
+        <description>Описание отсутствует</description>
         <cppName>out_DifAClc</cppName>
         <cppType>iec_WYE</cppType>
         <tags></tags>
@@ -1349,7 +1349,7 @@
     <DO>
         <name>Rst</name>
         <type>WYE</type>
-        <description>Трехфазная группа тормозных токов </description>
+        <description>Описание отсутствует</description>
         <cppName>out_Rst</cppName>
         <cppType>iec_WYE</cppType>
         <tags></tags>
@@ -1608,26 +1608,28 @@
     </DO>
     <DA>
         <name>CompMod1</name>
-        <type>SPG (boolean)</type>
-        <description>Компенсация емкостного тока линии,[0] – Выведено,[1] – Введено</description>
+        <type>UNSIGNED CHAR</type>
+        <description>Описание отсутствует</description>
         <cppName>set_CompMod1</cppName>
         <cppType>unsigned char</cppType>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
+        <maxValue>0</maxValue>
         <defaultValue>0</defaultValue>
-        <step>1</step>
+        <step>0</step>
     </DA>
     <DA>
         <name>b</name>
-        <type>ASG (single)</type>
-        <description>Емкостная проводимость линии, См</description>
+        <type>FLOAT</type>
+        <description>Описание отсутствует</description>
         <cppName>set_b</cppName>
         <cppType>float</cppType>
         <tags></tags>
-        <value>1</value>
-        <minValue>0,01</minValue>
-        <defaultValue>1</defaultValue>
-        <step>1</step>
+        <value>0</value>
+        <minValue>0</minValue>
+        <maxValue>0</maxValue>
+        <defaultValue>0</defaultValue>
+        <step>0</step>
     </DA>
 </LN>

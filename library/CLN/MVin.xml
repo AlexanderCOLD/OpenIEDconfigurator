@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>MVin</name>
+    <type>MVin</type>
+    <description>MVin node</description>
+    <tags></tags>
+    <DO>
+        <name>MV</name>
+        <type>MV</type>
+        <description>Измеряемые значения</description>
+        <cppName>in_MV</cppName>
+        <cppType>iec_MV</cppType>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>Quality</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DA>
+                <name>validity</name>
+                <type>UNSIGNED SHORT</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned short</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DA>
+            <name>mag</name>
+            <type>FLOAT</type>
+            <description>Описание отсутствует</description>
+            <cppName>mag</cppName>
+            <cppType>float</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DA>
+        <name>mag</name>
+        <type>FLOAT32</type>
+        <description>Мгновенное значение</description>
+        <cppName>out_mag</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества</description>
+        <cppName>out_q</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

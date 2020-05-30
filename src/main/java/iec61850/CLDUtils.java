@@ -100,7 +100,8 @@ public class CLDUtils {
     private static boolean appendObject(HashMap<String, IECObject> objectList, Map.Entry<String, IECObject> object){
         try {
             if(object.getValue().getClass()==LN.class || object.getValue().getClass()==DS.class) {
-                String ldPath = new File(object.getKey()).getParent();
+                String ldPath = new File(object.getKey()).getParent().replaceAll("\\\\", "/");
+
                 LD ld = (LD) objectList.get(ldPath);
                 if (ld==null) { GUI.writeErrMessage("Невозможно добавить объект " + object.getValue().getName() + ", путь не найден " + ldPath); return false; }
 
@@ -119,7 +120,13 @@ public class CLDUtils {
      * @param cld - файл CLD
      * @return - Словарь объектов, key - абсолютный адрес
      */
-    private static HashMap<String, IECObject> mapOf(CLD cld){  return fillObjectMap(new HashMap<>(), cld.getChildren()); }
+    public static HashMap<String, IECObject> mapOf(CLD cld){  return fillObjectMap(new HashMap<>(), cld.getChildren()); }
+    /**
+     * Создать словать объектов
+     * @param objects - файл CLD
+     * @return - Словарь объектов, key - абсолютный адрес
+     */
+    public static HashMap<String, IECObject> mapOf(ObservableList<IECObject> objects){  return fillObjectMap(new HashMap<>(), objects); }
     /** Наполнить словать объектами (рекурсия) */
     private static HashMap<String, IECObject> fillObjectMap(HashMap<String, IECObject> map, ObservableList<IECObject> objectList){
         for(IECObject object:objectList) map.put(object.getAddress().fullWithSlash(), object);

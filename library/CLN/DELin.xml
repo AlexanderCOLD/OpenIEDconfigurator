@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>DELin</name>
+    <type>DELin</type>
+    <description>DELin node</description>
+    <tags></tags>
+    <DO>
+        <name>DEL</name>
+        <type>DEL</type>
+        <description>Векторы полных сопротивлений междуфазных контуров</description>
+        <cppName>in_DEL</cppName>
+        <cppType>iec_DEL</cppType>
+        <tags></tags>
+        <DO>
+            <name>phsAB</name>
+            <type>CMV</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsAB</cppName>
+            <cppType>iec_CMV</cppType>
+            <tags></tags>
+            <DO>
+                <name>cVal</name>
+                <type>Vector</type>
+                <description>Описание отсутствует</description>
+                <cppName>cVal</cppName>
+                <cppType>iec_Vector</cppType>
+                <tags></tags>
+                <DA>
+                    <name>mag</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>mag</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+                <DA>
+                    <name>ang</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>ang</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppName>q</cppName>
+                <cppType>iec_Quality</cppType>
+                <tags></tags>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED SHORT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>validity</cppName>
+                    <cppType>unsigned short</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+        </DO>
+        <DO>
+            <name>phsBC</name>
+            <type>CMV</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsBC</cppName>
+            <cppType>iec_CMV</cppType>
+            <tags></tags>
+            <DO>
+                <name>cVal</name>
+                <type>Vector</type>
+                <description>Описание отсутствует</description>
+                <cppName>cVal</cppName>
+                <cppType>iec_Vector</cppType>
+                <tags></tags>
+                <DA>
+                    <name>mag</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>mag</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+                <DA>
+                    <name>ang</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>ang</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppName>q</cppName>
+                <cppType>iec_Quality</cppType>
+                <tags></tags>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED SHORT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>validity</cppName>
+                    <cppType>unsigned short</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+        </DO>
+        <DO>
+            <name>phsCA</name>
+            <type>CMV</type>
+            <description>Описание отсутствует</description>
+            <cppName>phsCA</cppName>
+            <cppType>iec_CMV</cppType>
+            <tags></tags>
+            <DO>
+                <name>cVal</name>
+                <type>Vector</type>
+                <description>Описание отсутствует</description>
+                <cppName>cVal</cppName>
+                <cppType>iec_Vector</cppType>
+                <tags></tags>
+                <DA>
+                    <name>mag</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>mag</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+                <DA>
+                    <name>ang</name>
+                    <type>FLOAT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>ang</cppName>
+                    <cppType>float</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+            <DO>
+                <name>q</name>
+                <type>Quality</type>
+                <description>Описание отсутствует</description>
+                <cppName>q</cppName>
+                <cppType>iec_Quality</cppType>
+                <tags></tags>
+                <DA>
+                    <name>validity</name>
+                    <type>UNSIGNED SHORT</type>
+                    <description>Описание отсутствует</description>
+                    <cppName>validity</cppName>
+                    <cppType>unsigned short</cppType>
+                    <tags></tags>
+                    <value>0</value>
+                    <minValue>0</minValue>
+                    <maxValue>0</maxValue>
+                    <defaultValue>0</defaultValue>
+                    <step>0</step>
+                </DA>
+            </DO>
+        </DO>
+    </DO>
+    <DA>
+        <name>mag_phsAB</name>
+        <type>FLOAT32</type>
+        <description>Модуль комплексного значения междуфазного сопротивления AB</description>
+        <cppName>out_mag_phsAB</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>ang_phsAB</name>
+        <type>FLOAT32</type>
+        <description>Угол комплексного значения междуфазного сопротивления AB</description>
+        <cppName>out_ang_phsAB</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q_phsAB</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества междуфазного сопротивления AB</description>
+        <cppName>out_q_phsAB</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>mag_phsBC</name>
+        <type>FLOAT32</type>
+        <description>Модуль комплексного значения междуфазного сопротивления BC</description>
+        <cppName>out_mag_phsBC</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>ang_phsBC</name>
+        <type>FLOAT32</type>
+        <description>Угол комплексного значения междуфазного сопротивления BC</description>
+        <cppName>out_ang_phsBC</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q_phsBC</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества междуфазного сопротивления BC</description>
+        <cppName>out_q_phsBC</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>mag_phsCA</name>
+        <type>FLOAT32</type>
+        <description>Модуль комплексного значения междуфазного сопротивления CA</description>
+        <cppName>out_mag_phsCA</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>ang_phsCA</name>
+        <type>FLOAT32</type>
+        <description>Угол комплексного значения междуфазного сопротивления CA</description>
+        <cppName>out_ang_phsCA</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q_phsCA</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества междуфазного сопротивления CA</description>
+        <cppName>out_q_phsCA</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

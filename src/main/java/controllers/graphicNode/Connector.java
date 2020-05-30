@@ -1,11 +1,18 @@
 package controllers.graphicNode;
 
 import iec61850.IECObject;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.transform.Scale;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,15 +27,18 @@ import lombok.Setter;
 @Getter @Setter
 public class Connector extends AnchorPane {
 
-    private static final double size = 7;
+    private static final DropShadow selected = new DropShadow( BlurType.ONE_PASS_BOX, Color.RED, 15, 0.7, 0, 0);
     private static final String unselectedStyle = "-fx-background-color: WHITE; -fx-background-radius: 5";
     private static final String selectedStyle = "-fx-background-color: RED; -fx-background-radius: 5";
-    private final Scale scale = new Scale();
+    private static final double size = 7;
+    private final Scale scale = new Scale(1.0,1.0,size/2,size/2);
+    private final Tooltip tooltip = new Tooltip(){{ setFont(Font.font(14)); }};
     private GraphicNode graphicNode;
     private IECObject iecObject;
     private ConnectorType connectorType;
     private ConnectorPosition position;
     private AnchorPane connectorPane;
+    private Label label;
 
     /**
      * Создать коннектор для графического элемента
@@ -42,16 +52,18 @@ public class Connector extends AnchorPane {
     }
 
     private void initialize(){
-//        Tooltip tooltip=new Tooltip("Description");
-//        Tooltip.install(this, tooltip);
+        tooltip.setOnShowing(e -> { tooltip.setText(iecObject.getDescription()); });
+        tooltip.setStyle("-fx-background-color: transparent;");
+        Tooltip.install(this, tooltip);
 
+        setPadding(new Insets(-2, -3, -2, -3));
+        getTransforms().add(scale);
         setPrefSize(size,size);
-        scale.setPivotX(size/2);  scale.setPivotY(size/2); getTransforms().add(scale);
-        setSelected(false);
 
-        Label label = new Label(){{
+        label = new Label(){{
+            setPadding(new Insets(-7, -2, -7, -2));
             setTextFill(Color.WHITE);
-            /*label.setFont(Font.font(10.0));*/
+            setFont(Font.font(10.0));
             textProperty().bind(new SimpleStringProperty(){
                 @Override
                 public String get() {
@@ -64,25 +76,32 @@ public class Connector extends AnchorPane {
                 }
             });
         }};
+        Tooltip.install(label, tooltip);
 
         /* Прозрачная панелька на которой лежит коннектор */
         connectorPane = new AnchorPane(){{
-            setStyle("-fx-background-color: transparent");
+            setStyle("-fx-background-color: transparent;");
+            setPadding(new Insets(-2, -5, -2, -5));
+            setPrefHeight(5); setMaxHeight(5);
             getChildren().add(Connector.this);
             getChildren().add(label);
         }};
 
-        AnchorPane.setTopAnchor(label, 3.0); AnchorPane.setLeftAnchor(label, 7.0); AnchorPane.setRightAnchor(label, 7.0);
-        AnchorPane.setTopAnchor(this, 8.0);
+        AnchorPane.setTopAnchor(label, 2.0); AnchorPane.setLeftAnchor(label, 12.0); AnchorPane.setRightAnchor(label, 12.0);
+        AnchorPane.setTopAnchor(this, 0.0);
 
         /* Выставляет положение коннектора и лейбла в зависимости от положения коннектора на граф. элементе */
-        if(position==ConnectorPosition.left){ AnchorPane.setLeftAnchor(this, -5.0); label.setAlignment(Pos.CENTER_LEFT); } else{ AnchorPane.setRightAnchor(this, -5.0); label.setAlignment(Pos.CENTER_RIGHT); }
+        if(position==ConnectorPosition.left){ AnchorPane.setLeftAnchor(this, 0.0); label.setAlignment(Pos.CENTER_LEFT); }
+        else{ AnchorPane.setRightAnchor(this, 0.0); label.setAlignment(Pos.CENTER_RIGHT); }
+
+        setSelected(false);
     }
 
-    /**
-     * Стиль коннектора
-     */
-    public void setSelected(boolean value){ if(value) { setStyle(selectedStyle); scale.setX(1.5); scale.setY(1.5); toFront(); } else { setStyle(unselectedStyle); scale.setX(1.0); scale.setY(1.0); }  }
+    /** Стиль коннектора */
+    public void setSelected(boolean value){
+        if(value) { setStyle(selectedStyle); scale.setX(2.0); scale.setY(2.0); label.setEffect(selected); }
+        else { setStyle(unselectedStyle); scale.setX(1.0); scale.setY(1.0); label.setEffect(null); }
+    }
 
     public String toString(){ if(iecObject !=null) return iecObject.toString(); else return "unknown"; }
 }

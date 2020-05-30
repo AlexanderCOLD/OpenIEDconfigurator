@@ -44,9 +44,9 @@ public class Link extends Polyline {
 			targetGraphicNode.layoutYProperty().addListener(yt);
 
 			setOnMouseEntered(e->{ setStrokeWidth(selectedWidth); setStroke(Color.web("#dc4b48")); toFront(); });
-			setOnMouseExited(e-> { setStrokeWidth(originalWidth); setStroke(Color.WHITE); setCursor(Cursor.DEFAULT); });
+			setOnMouseExited(e-> { setStrokeWidth(originalWidth); setStroke(Color.WHITE); toBack(); });
 
-			toFront();
+			toBack();
 			initContextMenu();
 			setStrokeWidth(originalWidth);
 			setStroke(Color.WHITE);
@@ -171,8 +171,4 @@ public class Link extends Polyline {
 	}
 	public void setSourceConnector(Connector sourceConnector) {	this.sourceConnector = sourceConnector;	sourceGraphicNode = sourceConnector==null ? null : sourceConnector.getGraphicNode(); }
 	public void setTargetConnector(Connector targetConnector) {	this.targetConnector = targetConnector;	targetGraphicNode = targetConnector==null ? null : targetConnector.getGraphicNode(); }
-
-	public Point2D getSourcePoint() { return sourcePoint; }
-	public Point2D getTargetPoint() { return targetPoint; }
-	public double getConnectorOffset() { return connectorOffset; }
 }

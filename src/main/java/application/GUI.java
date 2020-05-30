@@ -49,6 +49,7 @@ public class GUI extends AnchorPane{
 	@FXML private SplitPane splitPaneH, splitPaneV;
 	@FXML private TextFlow messageArea;
 	@FXML private ScrollPane messageScrollPane;
+	@FXML private FlowPane buttonsPane;
 
 	public GUI() {
 		self = this;
@@ -81,6 +82,7 @@ public class GUI extends AnchorPane{
 		menuBar.setOnMousePressed(e -> { xOffset = stage.getX() - e.getScreenX(); yOffset = stage.getY() - e.getScreenY(); });
 		menuBar.setOnMouseDragged(e -> { stage.setX(e.getScreenX() + xOffset); stage.setY(e.getScreenY() + yOffset); });
 		menuBar.setOnMouseClicked(e->{ if(e.getClickCount()==2) maximize(); });
+		stage.maximizedProperty().addListener((o, ov, nv) -> { IECInfoDialog.setShowing(!nv); LibraryDialog.setShowing(!nv); });
 
 		LibraryDialog.get();
 		IECInfoDialog.get();
@@ -95,8 +97,10 @@ public class GUI extends AnchorPane{
 
 	@FXML private void initialize() {
 		addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {if(currentContextMenu!=null) { currentContextMenu.hide(); currentContextMenu = null; }});
-		PanelsController.setTabPane(tabPane);
-		TreeController.setTree(tree);
+		addEventFilter(MouseEvent.MOUSE_ENTERED, e-> { stage.requestFocus(); });
+		PanelsController.initialize(tabPane);
+		TreeController.initialize(tree);
+		ButtonsController.initialize(buttonsPane);
 
 		PanelsController.createNewTab("Project", "PROJECT");
 
@@ -113,16 +117,17 @@ public class GUI extends AnchorPane{
 
 	private boolean exitRequest(){ return AssistantDialog.requestConfirm("Подтверждение закрытия OpenIEDconfigurator", "Выйти из OpenIEDconfigurator?\nНесохраненные данные могут быть утеряны"); }
 
-	@FXML private void handleOpen(){ if(!AssistantDialog.requestConfirm("Подтверждение","Создать новый проект?\nНесохраненные данные будут утеряны")) return;  ProjectController.openNewCID(FileChooserDialog.openCIDFile()); }
+	@FXML public void compilePRJ(){ System.out.println("Compile"); }
+	@FXML public void handleOpen(){ if(!AssistantDialog.requestConfirm("Подтверждение","Создать новый проект?\nНесохраненные данные будут утеряны")) return;  ProjectController.openNewCID(FileChooserDialog.openCIDFile()); }
 	@FXML public void handleImportCLD(){ if(!AssistantDialog.requestConfirm("Подтверждение","Импортировать CLD?\nНесохраненные данные будут утеряны")) return; ProjectController.importCLD(FileChooserDialog.openCLDFile()); }
-	@FXML private void handleSave() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } if(ProjectController.fileCLD != null) ProjectController.saveProject(ProjectController.fileCLD); else handleSaveAs(); }
+	@FXML public void handleSave() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } if(ProjectController.fileCLD != null) ProjectController.saveProject(ProjectController.fileCLD); else handleSaveAs(); }
 	@FXML public void handleSaveAs() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } ProjectController.saveProject(FileChooserDialog.saveCLDFile()); }
-	@FXML private void switchInfo(){ IECInfoDialog.switchVisibility();	}
-	@FXML private void switchLibrary(){ LibraryDialog.switchVisibility(); }
-	@FXML private void aboutProgram(){ AboutProgramDialog.show();}
-	@FXML private void minimize(){ stage.setIconified(true); }
-	@FXML private void maximize(){ stage.setMaximized(!stage.isMaximized()); }
-	@FXML private void close() { if(exitRequest()){ Settings.save(); Platform.exit(); System.exit(0); } }
+	@FXML public void switchInfo(){ IECInfoDialog.switchVisibility();	}
+	@FXML public void switchLibrary(){ LibraryDialog.switchVisibility(); }
+	@FXML public void aboutProgram(){ AboutProgramDialog.show(); }
+	@FXML public void minimize(){ stage.setIconified(true); }
+	@FXML public void maximize(){ stage.setMaximized(!stage.isMaximized()); }
+	@FXML public void close() { if(exitRequest()){ Settings.save(); Platform.exit(); System.exit(0); } }
 
 	public static GUI get() { return self; }
 	public static Label getZoomLabel() { return self.zoomLabel; }

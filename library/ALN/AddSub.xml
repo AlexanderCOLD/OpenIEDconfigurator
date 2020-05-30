@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>AddSub</name>
+    <type>AddSub</type>
+    <description>AddSub node</description>
+    <tags></tags>
+    <DA>
+        <name>Add1</name>
+        <type>single</type>
+        <description>Уменьшаемое число 1</description>
+        <cppName>in_Add1</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Add2</name>
+        <type>single</type>
+        <description>Уменьшаемое число 2</description>
+        <cppName>in_Add2</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Add3</name>
+        <type>single</type>
+        <description>Уменьшаемое число 3</description>
+        <cppName>in_Add3</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Add4</name>
+        <type>single</type>
+        <description>Уменьшаемое число 4</description>
+        <cppName>in_Add4</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Sub1</name>
+        <type>single</type>
+        <description>Вычитаемое число 1</description>
+        <cppName>in_Sub1</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Sub2</name>
+        <type>single</type>
+        <description>Вычитаемое число 2</description>
+        <cppName>in_Sub2</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Sub3</name>
+        <type>single</type>
+        <description>Вычитаемое число 2</description>
+        <cppName>in_Sub3</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Sub4</name>
+        <type>single</type>
+        <description>Вычитаемое число 4</description>
+        <cppName>in_Sub4</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Output</name>
+        <type>boolean</type>
+        <description>Выходной сигнал</description>
+        <cppName>out_Output</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

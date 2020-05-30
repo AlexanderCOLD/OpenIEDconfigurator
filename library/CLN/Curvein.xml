@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>Curvein</name>
+    <type>Curvein</type>
+    <description>Curvein node</description>
+    <tags></tags>
+    <DO>
+        <name>Curve</name>
+        <type>Curve</type>
+        <description>Определение кривой</description>
+        <cppName>in_Curve</cppName>
+        <cppType>iec_Curve</cppType>
+        <tags></tags>
+        <DA>
+            <name>setCharact</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>setCharact</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>setParA</name>
+            <type>FLOAT</type>
+            <description>Описание отсутствует</description>
+            <cppName>setParA</cppName>
+            <cppType>float</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>setParB</name>
+            <type>FLOAT</type>
+            <description>Описание отсутствует</description>
+            <cppName>setParB</cppName>
+            <cppType>float</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>setParC</name>
+            <type>FLOAT</type>
+            <description>Описание отсутствует</description>
+            <cppName>setParC</cppName>
+            <cppType>float</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>setParD</name>
+            <type>FLOAT</type>
+            <description>Описание отсутствует</description>
+            <cppName>setParD</cppName>
+            <cppType>float</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>setParE</name>
+            <type>FLOAT</type>
+            <description>Описание отсутствует</description>
+            <cppName>setParE</cppName>
+            <cppType>float</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+        <DA>
+            <name>setParF</name>
+            <type>FLOAT</type>
+            <description>Описание отсутствует</description>
+            <cppName>setParF</cppName>
+            <cppType>float</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DA>
+        <name>setCharact</name>
+        <type>ENUMERATED</type>
+        <description>Описание характеристики кривой</description>
+        <cppName>out_setCharact</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>setParA</name>
+        <type>FLOAT32</type>
+        <description>Настройка параметра A</description>
+        <cppName>out_setParA</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>setParB</name>
+        <type>FLOAT32</type>
+        <description>Настройка параметра B</description>
+        <cppName>out_setParB</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>setParC</name>
+        <type>FLOAT32</type>
+        <description>Настройка параметра C</description>
+        <cppName>out_setParC</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>setParD</name>
+        <type>FLOAT32</type>
+        <description>Настройка параметра D</description>
+        <cppName>out_setParD</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>setParE</name>
+        <type>FLOAT32</type>
+        <description>Настройка параметра E</description>
+        <cppName>out_setParE</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>setParF</name>
+        <type>FLOAT32</type>
+        <description>Настройка параметра F</description>
+        <cppName>out_setParF</cppName>
+        <cppType>float</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

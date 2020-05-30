@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>ENSout</name>
+    <type>ENSout</type>
+    <description>ENSout node</description>
+    <tags></tags>
+    <DO>
+        <name>ENS</name>
+        <type>ENS</type>
+        <description>Нумерованное состояние</description>
+        <cppName>out_ENS</cppName>
+        <cppType>iec_ENS</cppType>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>Quality</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DA>
+                <name>validity</name>
+                <type>UNSIGNED SHORT</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned short</cppType>
+                <tags></tags>
+                <value>0</value>
+                <minValue>0</minValue>
+                <maxValue>0</maxValue>
+                <defaultValue>0</defaultValue>
+                <step>0</step>
+            </DA>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DA>
+        <name>stVal</name>
+        <type>BOOLEAN</type>
+        <description>Значение состояния</description>
+        <cppName>in_stVal</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>q</name>
+        <type>FLOAT16</type>
+        <description>Атрибут качества</description>
+        <cppName>in_q</cppName>
+        <cppType>unsigned short</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

@@ -23,10 +23,10 @@
                       <TreeTableColumn fx:id="nameColumn" minWidth="170.0" prefWidth="170.0" sortable="false" text="Название" />
                       <TreeTableColumn fx:id="typeColumn" minWidth="120.0" prefWidth="120.0" sortable="false" style="-fx-alignment: CENTER;" text="Тип" />
                         <TreeTableColumn fx:id="descColumn" minWidth="250.0" prefWidth="250.0" sortable="false" style="-fx-alignment: CENTER;" text="Описание" />
-                        <TreeTableColumn fx:id="valueColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Значение" />
-                        <TreeTableColumn fx:id="minColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Мин. значение" />
-                        <TreeTableColumn fx:id="maxColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Макс. значение" />
-                        <TreeTableColumn fx:id="stepColumn" minWidth="70.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Шаг изменения" />
+                        <TreeTableColumn fx:id="valueColumn" minWidth="120.0" prefWidth="120.0" sortable="false" style="-fx-alignment: CENTER;" text="Значение" />
+                        <TreeTableColumn fx:id="minColumn" minWidth="50.0" prefWidth="50.0" sortable="false" style="-fx-alignment: CENTER;" text="Мин. значение" />
+                        <TreeTableColumn fx:id="maxColumn" minWidth="50.0" prefWidth="50.0" sortable="false" style="-fx-alignment: CENTER;" text="Макс. значение" />
+                        <TreeTableColumn fx:id="stepColumn" minWidth="50.0" prefWidth="50.0" sortable="false" style="-fx-alignment: CENTER;" text="Шаг изменения" />
                     </columns>
                      <columnResizePolicy>
                         <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>OR</name>
+    <type>OR</type>
+    <description>OR node</description>
+    <tags></tags>
+    <DA>
+        <name>Input1</name>
+        <type>boolean</type>
+        <description>Входной сигнал 1</description>
+        <cppName>in_Input1</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Input2</name>
+        <type>boolean</type>
+        <description>Входной сигнал 2</description>
+        <cppName>in_Input2</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Input3</name>
+        <type>boolean</type>
+        <description>Входной сигнал 3</description>
+        <cppName>in_Input3</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Input4</name>
+        <type>boolean</type>
+        <description>Входной сигнал 4</description>
+        <cppName>in_Input4</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+    <DA>
+        <name>Output</name>
+        <type>boolean</type>
+        <description>Выходной сигнал</description>
+        <cppName>out_Output</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value></value>
+        <minValue></minValue>
+        <defaultValue></defaultValue>
+        <step>&#xD;</step>
+    </DA>
+</LN>

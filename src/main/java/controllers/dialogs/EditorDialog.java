@@ -9,11 +9,10 @@ import java.util.stream.IntStream;
 import application.GUI;
 import application.Main;
 import controllers.ResizeController;
-import iec61850.DA;
-import iec61850.DO;
-import iec61850.LN;
+import iec61850.*;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -35,11 +34,11 @@ import javafx.util.converter.DefaultStringConverter;
  * @author Александр Холодов
  * @created 02/2020
  * @project OpenIEDconfigurator
- * @description Редактор уставок
+ * @description Редактор параметров
  */
-public class TripPointDialog extends AnchorPane{
+public class EditorDialog extends AnchorPane{
 
-	private static final TripPointDialog self = new TripPointDialog();
+	private static final EditorDialog self = new EditorDialog();
 	private final Image lnIcon = new Image(Main.class.getResource("/view/image/LNIcon.png").toString());
 	private final Image doIcon = new Image(Main.class.getResource("/view/image/DOIcon.png").toString());
 	private final Image daIcon = new Image(Main.class.getResource("/view/image/DAIcon.png").toString());
@@ -72,12 +71,12 @@ public class TripPointDialog extends AnchorPane{
 		}} ));
 	}};
 	/* Логический узел и Уставки */
-	private LN logicalNode;
+	private IECObject iecObject;
 	private final ArrayList<Object> objectList = new ArrayList<>();
 
-	public TripPointDialog() {
+	public EditorDialog() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("/view/FXML/TripPointDialog.fxml"));
+		loader.setLocation(Main.class.getResource("/view/FXML/EditorDialog.fxml"));
 		loader.setRoot(this);
 		loader.setController(this);
 		try { loader.load(); } catch (IOException e) { e.printStackTrace();	}
@@ -116,8 +115,8 @@ public class TripPointDialog extends AnchorPane{
 
 	@FXML
 	private void initialize() {
-		stage.setMinWidth(900); stage.setMinHeight(300);
-		stage.setWidth(900); stage.setHeight(300);
+		stage.setMinWidth(1300); stage.setMinHeight(400);
+		stage.setWidth(1300); stage.setHeight(400);
 		stage.setOnShowing(event -> onShowing()); stage.setOnHiding(event -> onHiding());
 		accordion.setExpandedPane(titledPane);
 		treeTableView.setRoot(rootItem);
@@ -125,12 +124,14 @@ public class TripPointDialog extends AnchorPane{
 
 		/* Внесение данных из объекта в таблицу */
 		nameColumn.setCellValueFactory(p -> {
+			if(p.getValue().getValue().getClass()==DS.class) return new SimpleStringProperty(((DS) p.getValue().getValue()).getName());
 			if(p.getValue().getValue().getClass()==LN.class) return new SimpleStringProperty(((LN) p.getValue().getValue()).getName());
 			if(p.getValue().getValue().getClass()==DO.class) return new SimpleStringProperty(((DO) p.getValue().getValue()).getName().replaceAll("set_",""));
 			if(p.getValue().getValue().getClass()==DA.class) return new SimpleStringProperty(((DA) p.getValue().getValue()).getName().replaceAll("set_",""));
 			return null;
 		});
 		typeColumn.setCellValueFactory(p -> {
+			if(p.getValue().getValue().getClass()==DS.class) return new SimpleStringProperty(((DS) p.getValue().getValue()).getType());
 			if(p.getValue().getValue().getClass()==LN.class) return new SimpleStringProperty(((LN) p.getValue().getValue()).getType());
 			if(p.getValue().getValue().getClass()==DO.class) return new SimpleStringProperty(((DO) p.getValue().getValue()).getType().replaceAll("iec_",""));
 			if(p.getValue().getValue().getClass()==DA.class) return new SimpleStringProperty(((DA) p.getValue().getValue()).getType().replaceAll("iec_",""));
@@ -216,14 +217,14 @@ public class TripPointDialog extends AnchorPane{
 	 * Вызов во время открытия
 	 */
 	private void onShowing(){
-		titledPane.setText("Параметры - " + logicalNode.getName());
+		titledPane.setText("Параметры - " + iecObject.getName());
 		itemsDOBuffer = new ArrayList<>(itemsDOList);
 		itemsDABuffer = new ArrayList<>(itemsDAList);
 		for(TreeItem<Object> item: itemsDOBuffer) item.getChildren().clear();
 		for(TreeItem<Object> item: itemsDABuffer) item.getChildren().clear();
 		rootItem.getChildren().clear();
 
-		rootItem.setValue(logicalNode); rootItem.setExpanded(true);
+		rootItem.setValue(iecObject); rootItem.setExpanded(true);
 
 		/* Наполнение таблицы параметрами */
 		for(Object dataObject: objectList){
@@ -268,17 +269,23 @@ public class TripPointDialog extends AnchorPane{
 	/**
 	 * Показать окно
 	 */
-	public static void show(LN logicalNode) {
+	public static void show(IECObject iecObject) {
 
-		List<DO> doList = logicalNode.getDataObjects().stream()
+		ObservableList<DO> dataObjects = null;
+		ObservableList<DA> dataAttributes = null;
+		if(iecObject.getClass()==LN.class) { dataObjects = ((LN) iecObject).getDataObjects(); dataAttributes = ((LN) iecObject).getDataAttributes(); }
+		if(iecObject.getClass()== DS.class) { dataObjects = ((DS) iecObject).getDataObjects(); dataAttributes = ((DS) iecObject).getDataAttributes(); }
+		if(dataObjects==null || dataAttributes==null) return;
+
+		List<DO> doList = dataObjects.stream()
 				.filter(aDo -> aDo.getCppName().contains("set_"))
 				.collect(Collectors.toList());
-		List<DA> daList = logicalNode.getDataAttributes().stream()
+		List<DA> daList = dataAttributes.stream()
 				.filter(aDo -> aDo.getCppName().contains("set_"))
 				.collect(Collectors.toList());
 
 		self.objectList.clear(); self.objectList.addAll(doList); self.objectList.addAll(daList);
-		self.logicalNode = logicalNode;
+		self.iecObject = iecObject;
 		self.stage.showAndWait();
 	}
 

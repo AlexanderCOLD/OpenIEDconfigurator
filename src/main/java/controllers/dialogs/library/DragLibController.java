@@ -9,10 +9,7 @@ import controllers.graphicNode.GraphicNodeController;
 import controllers.object.DragContainer;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.TransferMode;
+import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import tools.SaveLoadObject;
 
@@ -31,8 +28,9 @@ public class DragLibController {
 	private GraphicNode shadowNode;
 	private final HashMap<String, GraphicNode> shadowNodes = new HashMap<>(); // key = UID, теневые иконки
 
-	private EventHandler<DragEvent> dragEnteredGUI, dragExitedGUI;
-	private EventHandler<DragEvent> dragOverGUI, dragOverLib, dragDropped, dragDone;
+	private final EventHandler<DragEvent> dragEnteredGUI, dragExitedGUI;
+	private final EventHandler<DragEvent> dragOverGUI, dragOverLib, dragDropped;
+	private EventHandler<DragEvent> dragDone;
 	private double offsetX, offsetY;
 	private final ClipboardContent content = new ClipboardContent(){{put(new DataFormat(), new DragContainer());}};
 
@@ -42,9 +40,10 @@ public class DragLibController {
 	public static void addToController(GraphicNode node){
 		if(self==null) self = new DragLibController();
 
-		GraphicNode shadowNode = new GraphicNode(node.getIecObject()); shadowNode.setOpacity(0.3);
+		GraphicNode shadowNode = new GraphicNode(node.getIecObject());
 		self.shadowNodes.put(node.getId(), shadowNode);
 		self.addDragDetection(node);
+		LibraryTooltip.addGraphicNode(node);
 	}
 
 	/**
@@ -73,6 +72,7 @@ public class DragLibController {
 			shadowNode.startDragAndDrop(TransferMode.COPY).setContent(content);
 			shadowNode.relocate(e.getSceneX(), e.getSceneY());
 			shadowNode.setMouseTransparent(true);
+			shadowNode.setOpacity(0.5);
 			shadowNode.toFront();
 			e.consume();
 		});
@@ -116,17 +116,29 @@ public class DragLibController {
 		 * Элемент брошен в проект
 		 */
 		dragDropped = e -> {
+			e.setDropCompleted(true);
+			e.consume();
 
 			try {
 				String name = shadowNode.getIecObject().getType();
 
-				File lib = new File(String.format("library/AddLN/%s.xml",name));
-				if(!lib.exists()) lib = new File(String.format("library/LN/%s.xml",name));
-				if(!lib.exists()) lib = new File(String.format("library/DS/%s.xml",name));
-				if(!lib.exists()){ System.err.println("Library: " + name + " is not found"); return; }
+				File libTemplate;
+				findLib:{
+					libTemplate = new File(String.format("library/LN/%s.xml",name));  if(libTemplate.exists()) break findLib;
+					libTemplate = new File(String.format("library/ALN/%s.xml",name)); if(libTemplate.exists()) break findLib;
+					libTemplate = new File(String.format("library/CLN/%s.xml",name)); if(libTemplate.exists()) break findLib;
+					libTemplate = new File(String.format("library/DS/%s.xml",name));  if(!libTemplate.exists()) { System.err.println("Library: " + name + " is not found"); return; }
+				}
 
-				String objectName = AssistantDialog.requestText("Введите название", "Введите уникальное название элемента", shadowNode.getIecObject().getName());
-				if(objectName==null) return;
+				/* Парсинг названия */
+				String initName = shadowNode.getIecObject().getName().toLowerCase(); long instance = 0;
+				String objectName = AssistantDialog.requestText("Введите название", "Введите номер экземпляра", initName+"_");
+				if(objectName!=null){
+					objectName = objectName.replaceAll(" ",""); if(objectName.equals(initName+"_")) return;
+					String[] nameSplit = objectName.split("_"); if(nameSplit.length!=2) return;
+					if(!nameSplit[0].equals(initName)) return;
+					try { instance = Long.parseLong(nameSplit[1]); } catch (Exception exc) { return; }
+				} else return;
 
 				/* LD в который помещаем новый объект */
 				LD ld = (LD) PanelsController.getSelectedIECObject(); if(ld==null) { System.err.println("LD not found"); return; }
@@ -134,13 +146,13 @@ public class DragLibController {
 				IECObject iecObject = null;
 
 				/* Если LN, создаем и добавляем в текущий LD */
-				if(lib.getPath().contains("LN")){
-					LN ln = SaveLoadObject.load(LN.class, lib);
+				if(libTemplate.getPath().contains("LN")){
+					LN ln = SaveLoadObject.load(LN.class, libTemplate);
 					ld.getLogicalNodeList().add((LN) ln);
 					iecObject = ln;
 				}
-				else if(lib.getPath().contains("DS")){
-					DS ds = SaveLoadObject.load(DS.class, lib);
+				else if(libTemplate.getPath().contains("DS")){
+					DS ds = SaveLoadObject.load(DS.class, libTemplate);
 					ld.getDataSets().add(ds);
 					iecObject = ds;
 				}
@@ -150,6 +162,7 @@ public class DragLibController {
 				/* Задаем тэги дополнительного элемента */
 				iecObject.setName(objectName);
 				iecObject.getTags().add("additional");
+				iecObject.setInstance(instance);
 				for(IECObject obj: CLDUtils.objectListOf(iecObject)) obj.getTags().add("additional");
 
 				/* Создание граф. элемента и установка в панель */
@@ -161,9 +174,6 @@ public class DragLibController {
 				node.relocate(point.getX() - offsetX, point.getY() - offsetY); node.updateGrid();
 
 			} catch (Exception exception) { exception.printStackTrace(); }
-
-			e.setDropCompleted(true);
-			e.consume();
 		};
 
 

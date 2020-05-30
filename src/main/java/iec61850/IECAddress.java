@@ -29,26 +29,26 @@ public class IECAddress {
      * get(LD.class, DS class, ...)
      * @return "ied.ld.ln.do"
      */
-    public String fullWithDots(){ return get(".", (Class<?>[]) getParentsClass()); }
+    public String fullWithDots(){ return get(".", getParentsClass()); }
 
     /**
      * Получить выборочный адрес объекта (с слэшами)
      * get(LD.class, DS class, ...)
      * @param list - перечень объектов из которых будет состояеть адрес
-     * @return "ied\ld\ln\do"
+     * @return "ied/ld/ln/do"
      */
-    public String withSlash(Class<?>... list) { return get("\\", list); }
+    public String withSlash(Class<?>... list) { return get("/", list); }
 
     /**
      * Получить выборочный адрес объекта (с слэшами)
      * get(LD.class, DS class, ...)
-     * @return "ied\ld\ln\do"
+     * @return "ied/ld/ln/do"
      */
-    public String fullWithSlash() { return get("\\", (Class<?>[]) getParentsClass()); }
+    public String fullWithSlash() { return get("/", getParentsClass()); }
 
     /**
      * Получить адрес объекта
-     * get("\\", LD.class, DS class, ...)
+     * get("/", LD.class, DS class, ...)
      * @param list - перечень объектов из которых будет состояеть адрес
      */
     public String get(String divider, Class<?>... list){

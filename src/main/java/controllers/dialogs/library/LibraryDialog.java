@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.CacheHint;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -35,6 +36,7 @@ import tools.SaveLoadObject;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * @author Александр Холодов
@@ -47,7 +49,7 @@ public class LibraryDialog extends AnchorPane {
 
     @FXML private Accordion accord;
     @FXML private ToggleButton lock;
-    @FXML private FlowPane libraryPane, addLibraryPane;
+    @FXML private FlowPane libraryPane, addLibraryPane, convPane;
 
     private static LibraryDialog self = new LibraryDialog();
     private boolean draggable = false;
@@ -87,6 +89,7 @@ public class LibraryDialog extends AnchorPane {
     private void initialize() {
         accord.setExpandedPane(accord.getPanes().get(0));
         stage.addEventFilter(MouseEvent.MOUSE_PRESSED, mousePressed);
+        addEventFilter(MouseEvent.MOUSE_ENTERED, e-> { stage.requestFocus(); });
         lock.setOnMouseClicked(e-> setLock(lock.isSelected()) );
         setLock(false);
 
@@ -98,39 +101,67 @@ public class LibraryDialog extends AnchorPane {
                 "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
                 "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
 
+        convPane.setStyle("-fx-border-color: -fx-first-color; -fx-hgap: 10; -fx-vgap:10; -fx-padding: 10 10 10 10; -fx-background-color: -fx-fourth-color,\n" +
+                "        linear-gradient(from 0.1px 0.0px to 15.1px  0.0px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%),\n" +
+                "        linear-gradient(from 0.0px 0.1px to  0.0px 15.1px, repeat, rgba(119,119,119,0.15) 3%, transparent 0%);");
+
         File library = new File("library/DS/");
         if(library.exists()){
-            for(File lib:library.listFiles()){
+            for(File lib: Objects.requireNonNull(library.listFiles())){
                 if(lib.isDirectory()) continue;
                 DS ds = SaveLoadObject.load(DS.class, lib);
                 if(ds == null) continue;
-                GraphicNode graphicNode = new GraphicNode(ds);
+                GraphicNode graphicNode = new GraphicNode();
+                graphicNode.setIecSimple(ds);
                 addLibraryPane.getChildren().add(graphicNode);
                 DragLibController.addToController(graphicNode);
+                graphicNode.setCache(true);
+                graphicNode.setCacheHint(CacheHint.SPEED);
             }
         }
 
-        library = new File("library/AddLN/");
+        library = new File("library/ALN/");
         if(library.exists()){
-            for(File lib:library.listFiles()){
+            for(File lib: Objects.requireNonNull(library.listFiles())){
                 if(lib.isDirectory()) continue;
                 LN ln = SaveLoadObject.load(LN.class, lib);
                 if(ln == null) continue;
-                GraphicNode graphicNode = new GraphicNode(ln);
+                GraphicNode graphicNode = new GraphicNode();
+                graphicNode.setIecSimple(ln);
                 addLibraryPane.getChildren().add(graphicNode);
                 DragLibController.addToController(graphicNode);
+                graphicNode.setCache(true);
+                graphicNode.setCacheHint(CacheHint.SPEED);
+            }
+        }
+
+        library = new File("library/CLN/");
+        if(library.exists()){
+            for(File lib: Objects.requireNonNull(library.listFiles())){
+                if(lib.isDirectory()) continue;
+                LN ln = SaveLoadObject.load(LN.class, lib);
+                if(ln == null) continue;
+                GraphicNode graphicNode = new GraphicNode();
+                graphicNode.setIecSimple(ln);
+                convPane.getChildren().add(graphicNode);
+                DragLibController.addToController(graphicNode);
+                graphicNode.setCache(true);
+                graphicNode.setCacheHint(CacheHint.SPEED);
             }
         }
 
         library = new File("library/LN/");
         if(library.exists()){
-            for(File lib:library.listFiles()){
+            for(File lib: Objects.requireNonNull(library.listFiles())){
                 if(lib.isDirectory()) continue;
                 LN ln = SaveLoadObject.load(LN.class, lib);
                 if(ln == null) continue;
-                GraphicNode graphicNode = new GraphicNode(ln);
+                GraphicNode graphicNode = new GraphicNode();
+                graphicNode.setIecSimple(ln);
                 libraryPane.getChildren().add(graphicNode);
                 DragLibController.addToController(graphicNode);
+                graphicNode.setCache(true);
+                graphicNode.setCacheHint(CacheHint.SPEED);
             }
         }
 
@@ -188,4 +219,5 @@ public class LibraryDialog extends AnchorPane {
 
     public static FlowPane getLibraryPane(){ return self.libraryPane; }
     public static AnchorPane get(){ return self; }
+    public static Stage getStage() { return self.stage; }
 }
