@@ -10,6 +10,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_A</cppName>
         <cppType>iec_WYE</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>phsA</name>
@@ -20,7 +22,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -54,7 +56,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -83,7 +85,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -117,7 +119,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -146,7 +148,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -180,7 +182,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -209,7 +211,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -243,7 +245,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -270,6 +272,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_PPV</cppName>
         <cppType>iec_DEL</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>phsAB</name>
@@ -280,7 +284,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -314,7 +318,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -343,7 +347,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -377,7 +381,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -406,7 +410,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -440,7 +444,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -467,6 +471,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_SeqA</cppName>
         <cppType>iec_SEQ</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>c1</name>
@@ -477,7 +483,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -511,7 +517,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -540,7 +546,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -574,7 +580,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -603,7 +609,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -637,7 +643,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -664,6 +670,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_SeqV</cppName>
         <cppType>iec_SEQ</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>c1</name>
@@ -674,7 +682,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -708,7 +716,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -737,7 +745,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -771,7 +779,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -800,7 +808,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -834,7 +842,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -861,10 +869,12 @@
         <description>Описание отсутствует</description>
         <cppName>in_Blk</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -903,10 +913,12 @@
         <description>Описание отсутствует</description>
         <cppName>out_Dir</cppName>
         <cppType>iec_ACD</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -1062,6 +1074,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_FctMod</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1075,6 +1089,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_ChrAng</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1088,6 +1104,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_MinFwdAng</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1101,6 +1119,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_MinRvAng</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1114,6 +1134,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_MaxFwdAng</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1127,6 +1149,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_MaxRvAng</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1140,6 +1164,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_BlkValA</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1153,6 +1179,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_BlkValV</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1166,6 +1194,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_PolRat</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1179,6 +1209,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_PolTmms</cppName>
         <cppType>int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>

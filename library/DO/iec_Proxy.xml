@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <type>Proxy</type>
+    <cppType>iec_Proxy</cppType>
+    <tags></tags>
+    <DO>
+        <name>stVal</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>stVal</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>q</name>
+        <type>QUALITY</type>
+        <description>Описание отсутствует</description>
+        <cppName>q</cppName>
+        <cppType>iec_Quality</cppType>
+        <tags></tags>
+        <DO>
+            <name>validity</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>validity</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+        </DO>
+    </DO>
+</DO>

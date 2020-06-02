@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DO>
+    <type>HMV</type>
     <cppType>iec_HMV</cppType>
     <tags></tags>
     <DO>
-        <name>har[17]</name>
+        <name>har[16]</name>
         <type>CMV</type>
         <description>Описание отсутствует</description>
-        <cppName>har[17]</cppName>
+        <cppName>har[16]</cppName>
         <cppType>iec_CMV</cppType>
         <tags></tags>
         <DO>
             <name>cVal</name>
-            <type>Vector</type>
+            <type>VECTOR</type>
             <description>Описание отсутствует</description>
             <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
@@ -45,24 +46,19 @@
         </DO>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
             <tags></tags>
-            <DA>
+            <DO>
                 <name>validity</name>
-                <type>UNSIGNED SHORT</type>
+                <type>UNSIGNED CHAR</type>
                 <description>Описание отсутствует</description>
                 <cppName>validity</cppName>
-                <cppType>unsigned short</cppType>
+                <cppType>unsigned char</cppType>
                 <tags></tags>
-                <value>0</value>
-                <minValue>0</minValue>
-                <maxValue>0</maxValue>
-                <defaultValue>0</defaultValue>
-                <step>0</step>
-            </DA>
+            </DO>
         </DO>
     </DO>
 </DO>

@@ -135,7 +135,6 @@ public class CLDBuilder {
                 source.getLN0().getInputs().getExtRef() : new ArrayList<>();
 
 
-
         /* Извлечение исходящих гусей */
         for(TGSEControl tgseControl:outputGooseList){
             DS ds = new DS();
@@ -303,14 +302,14 @@ public class CLDBuilder {
     private static LN extractLN(TLN source){
         LN logicalNode = new LN();
 
-        /** Тип класса */
+        /* Тип класса */
         logicalNode.setType((source.getLnClass().size()>0) ? source.getLnClass().get(0) : "unknown");
-        /** Номер экземпляра */
+        /* Номер экземпляра */
         logicalNode.setInstance(source.getInst());
-        /** Имя экземпляра */
+        /* Имя экземпляра */
         logicalNode.setName((logicalNode.getType() + "_" + logicalNode.getInstance()).toLowerCase());
         logicalNode.setCppName(logicalNode.getName());
-        /** Описание узла */
+        /* Описание узла */
         logicalNode.setDescription(source.getDesc()!=null ? source.getDesc() : "unknown");
 
         if(source.getLnClass().isEmpty()) GUI.writeErrMessage(String.format("LN %s не имеет класса", source));
@@ -319,13 +318,15 @@ public class CLDBuilder {
 
     /** Создать атрибут */
     private static DA createDA(String type, String name, String cppName, String desc, String value){
-        DA da = new DA(); da.setType(type); da.setName(name); da.setCppName(cppName); da.setDescription(desc); da.setValue(value);
+        DA da = new DA();
+        da.setType(type); da.setName(name); da.setCppName(cppName); da.setDescription(desc); da.setValue(value); da.setLayoutX(1.0); da.setLayoutY(1.0);
         return da;
     }
 
     /** Создать объект */
     private static DO createDO(String type, String name, String desc){
-        DO dataObject = new DO(); dataObject.setType(type); dataObject.setName(name); dataObject.setDescription(desc);
+        DO dataObject = new DO();
+        dataObject.setType(type); dataObject.setName(name); dataObject.setDescription(desc); dataObject.setLayoutX(1.0); dataObject.setLayoutY(1.0);
         return dataObject;
     }
 }

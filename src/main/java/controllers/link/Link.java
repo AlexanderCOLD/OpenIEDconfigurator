@@ -52,6 +52,8 @@ public class Link extends Polyline {
 			setStroke(Color.WHITE);
 			sourceGraphicNode.getConnections().add(this);
 			targetGraphicNode.getConnections().add(this);
+			sourceConnector.getConnections().add(this);
+			targetConnector.getConnections().add(this);
 			Point2D srsPoint = sourceGraphicNode.sceneToLocal(sourceConnector.localToScene(sourceConnector.getWidth()/2,sourceConnector.getHeight()/2));
 			Point2D trgPoint = targetGraphicNode.sceneToLocal(targetConnector.localToScene(targetConnector.getWidth()/2,targetConnector.getHeight()/2));
 			connectorOffset = Math.max(srsPoint.getY(), trgPoint.getY())/2;
@@ -93,6 +95,8 @@ public class Link extends Polyline {
 
 		sourceGraphicNode.getConnections().remove(this);
 		targetGraphicNode.getConnections().remove(this);
+		sourceConnector.getConnections().remove(this);
+		targetConnector.getConnections().remove(this);
 	}
 
 	public void updatePosition(){ updateStartPosition(); updateEndPosition(); }

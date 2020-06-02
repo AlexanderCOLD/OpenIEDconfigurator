@@ -6,25 +6,31 @@
     <tags></tags>
     <DA>
         <name>Input</name>
-        <type>boolean</type>
+        <type>BOOLEAN</type>
         <description>Входной сигнал</description>
         <cppName>in_Input</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Output</name>
-        <type>boolean</type>
+        <type>BOOLEAN</type>
         <description>Выходной сигнал</description>
         <cppName>out_Output</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

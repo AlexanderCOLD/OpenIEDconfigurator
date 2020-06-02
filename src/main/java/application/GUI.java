@@ -119,9 +119,9 @@ public class GUI extends AnchorPane{
 
 	@FXML public void compilePRJ(){ System.out.println("Compile"); }
 	@FXML public void handleOpen(){ if(!AssistantDialog.requestConfirm("Подтверждение","Создать новый проект?\nНесохраненные данные будут утеряны")) return;  ProjectController.openNewCID(FileChooserDialog.openCIDFile()); }
-	@FXML public void handleImportCLD(){ if(!AssistantDialog.requestConfirm("Подтверждение","Импортировать CLD?\nНесохраненные данные будут утеряны")) return; ProjectController.importCLD(FileChooserDialog.openCLDFile()); }
-	@FXML public void handleSave() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } if(ProjectController.fileCLD != null) ProjectController.saveProject(ProjectController.fileCLD); else handleSaveAs(); }
-	@FXML public void handleSaveAs() { if(ProjectController.cld==null) { GUI.writeErrMessage("Nothing to save"); return; } ProjectController.saveProject(FileChooserDialog.saveCLDFile()); }
+	@FXML public void handleImportCLD(){ if(ProjectController.fileCID==null) { GUI.writeErrMessage("CID отсутствует"); return; } if(!AssistantDialog.requestConfirm("Подтверждение","Импортировать CLD?\nНесохраненные данные будут утеряны")) return; ProjectController.importCLD(FileChooserDialog.openCLDFile()); }
+	@FXML public void handleSave() { if(ProjectController.cld==null) { GUI.writeErrMessage("Проект отсутствует"); return; } if(ProjectController.fileCLD != null) ProjectController.saveProject(ProjectController.fileCLD); else handleSaveAs(); }
+	@FXML public void handleSaveAs() { if(ProjectController.cld==null) { GUI.writeErrMessage("Проект отсутствует"); return; } ProjectController.saveProject(FileChooserDialog.saveCLDFile()); }
 	@FXML public void switchInfo(){ IECInfoDialog.switchVisibility();	}
 	@FXML public void switchLibrary(){ LibraryDialog.switchVisibility(); }
 	@FXML public void aboutProgram(){ AboutProgramDialog.show(); }

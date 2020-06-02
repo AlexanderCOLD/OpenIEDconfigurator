@@ -10,10 +10,12 @@
         <description>Комплексные измеряемые значения</description>
         <cppName>in_CMV</cppName>
         <cppType>iec_CMV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>cVal</name>
-            <type>Vector</type>
+            <type>VECTOR</type>
             <description>Описание отсутствует</description>
             <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
@@ -47,7 +49,7 @@
         </DO>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -70,12 +72,15 @@
     <DA>
         <name>mag</name>
         <type>FLOAT32</type>
-        <description>Мгновенное значение</description>
+        <description>Модуль комплексного значения</description>
         <cppName>out_mag</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -85,9 +90,12 @@
         <description>Угол комплексного значения</description>
         <cppName>out_ang</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -97,9 +105,12 @@
         <description>Атрибут качества</description>
         <cppName>out_q</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

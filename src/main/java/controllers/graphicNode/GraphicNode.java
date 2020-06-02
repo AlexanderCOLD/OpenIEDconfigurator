@@ -2,6 +2,7 @@ package controllers.graphicNode;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -14,9 +15,11 @@ import controllers.tree.TreeController;
 import iec61850.*;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -89,7 +92,7 @@ public class GraphicNode extends AnchorPane {
     public void setIecSimple(IECObject value){
         this.iecObject = value;
         setId(value.getUID());
-        title_bar.setText(value.getName());
+        title_bar.setText(value.getType());
         ImageView img = new ImageView(nodeIcon);
         getChildren().add(img); img.relocate(15,22);
         setMinSize(50,60);
@@ -106,9 +109,9 @@ public class GraphicNode extends AnchorPane {
         if(iecObject!=null){ System.err.println("IEC object is already exists"); return; }
         this.iecObject = value;
 
-//        tooltip.setOnShowing(e -> { tooltip.setText(iecObject!=null? iecObject.getDescription() : ""); });
-//        tooltip.setStyle("-fx-background-color: transparent;");
-//        Tooltip.install(this, tooltip);
+        tooltip.setOnShowing(e -> { tooltip.setText(iecObject!=null? iecObject.getDescription() : ""); });
+        tooltip.setStyle("-fx-background-color: transparent;");
+        Tooltip.install(this, tooltip);
 
         setId(value.getUID());
         title_bar.setText(value.toString());
@@ -199,7 +202,16 @@ public class GraphicNode extends AnchorPane {
      * @param position - слева / справа
      */
     private void appendConnector(IECObject object, ConnectorType type, ConnectorPosition position){
-        /* Поиск свободной панели, на которой можно разместить коннектор */
+        if(object.getLayoutX()==null) return;
+        BorderPane borderPane = takeBorder(position);
+        /* Создаем коннектор и размещаем */
+        Connector c = new Connector(this, object, type, position); c.toFront();
+        if(position==ConnectorPosition.left) borderPane.setLeft(c.getConnectorPane()); else borderPane.setRight(c.getConnectorPane());
+        connectors.add(c);
+    }
+
+    /** Поиск свободной панели, на которой можно разместить коннектор */
+    private BorderPane takeBorder(ConnectorPosition position){
         BorderPane borderPane = (BorderPane) mainPanel.getChildren().stream().filter(node -> {
             if(node.getClass()==BorderPane.class) {
                 if(position==ConnectorPosition.left && ((BorderPane) node).getLeft()==null) return true;
@@ -215,11 +227,25 @@ public class GraphicNode extends AnchorPane {
             AnchorPane.setTopAnchor(borderPane,12.0 * (mainPanel.getChildren().size()-1) + 10);
         }
 //      borderPane.setStyle("-fx-border-color: RED; -fx-border-width: 1");
+        return borderPane;
+    }
 
-        /* Создаем коннектор и размещаем */
-        Connector c = new Connector(this, object, type, position); c.getConnectorPane().toBack(); c.toFront();
-        if(position==ConnectorPosition.left) borderPane.setLeft(c.getConnectorPane()); else borderPane.setRight(c.getConnectorPane());
-        connectors.add(c);
+    /** Убирает коннекторы у которых отсутствуют координаты*/
+    public void restConnectors(){
+        ArrayList<Connector> leftConnectors = connectors.stream().filter(c -> c.getPosition()==ConnectorPosition.left).collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<Connector> rightConnectors = connectors.stream().filter(c -> c.getPosition()==ConnectorPosition.right).collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<BorderPane> borders = mainPanel.getChildren().stream().filter(n -> n.getClass()==BorderPane.class).map(BorderPane.class::cast).collect(Collectors.toCollection(ArrayList::new));
+        borders.forEach(b -> { b.setLeft(null); b.setRight(null); });
+
+        for(Connector c: leftConnectors){
+            if(c.getIecObject().getLayoutX()!=null) takeBorder(ConnectorPosition.left).setLeft(c);
+            else for(Link link: new ArrayList<>(c.getConnections())) link.remove();
+        }
+        for(Connector c: rightConnectors){
+            if(c.getIecObject().getLayoutX()!=null) takeBorder(ConnectorPosition.right).setRight(c);
+            else for(Link link: new ArrayList<>(c.getConnections())) link.remove();
+        }
+        borders.forEach(b-> { if(b.getLeft()==null && b.getRight()==null) mainPanel.getChildren().remove(b);  });
     }
 
     @FXML

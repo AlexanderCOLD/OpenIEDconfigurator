@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <type>Timestamp</type>
+    <cppType>iec_Timestamp</cppType>
+    <tags></tags>
+    <DO>
+        <name>SecondSinceEpoch</name>
+        <type>LONG LONG</type>
+        <description>Описание отсутствует</description>
+        <cppName>SecondSinceEpoch</cppName>
+        <cppType>long long</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>FractionOfSecond</name>
+        <type>INT</type>
+        <description>Описание отсутствует</description>
+        <cppName>FractionOfSecond</cppName>
+        <cppType>int</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>TimeQuality</name>
+        <type>TIME_QUALITY</type>
+        <description>Описание отсутствует</description>
+        <cppName>TimeQuality</cppName>
+        <cppType>iec_Time_Quality</cppType>
+        <tags></tags>
+        <DO>
+            <name>LeapSecondsKnown</name>
+            <type>BOOL</type>
+            <description>Описание отсутствует</description>
+            <cppName>LeapSecondsKnown</cppName>
+            <cppType>bool</cppType>
+            <tags></tags>
+        </DO>
+        <DO>
+            <name>ClockFailure</name>
+            <type>BOOL</type>
+            <description>Описание отсутствует</description>
+            <cppName>ClockFailure</cppName>
+            <cppType>bool</cppType>
+            <tags></tags>
+        </DO>
+        <DO>
+            <name>ClockNotSynchronized</name>
+            <type>BOOL</type>
+            <description>Описание отсутствует</description>
+            <cppName>ClockNotSynchronized</cppName>
+            <cppType>bool</cppType>
+            <tags></tags>
+        </DO>
+        <DO>
+            <name>TimeAccuracy</name>
+            <type>CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>TimeAccuracy</cppName>
+            <cppType>char</cppType>
+            <tags></tags>
+        </DO>
+    </DO>
+</DO>

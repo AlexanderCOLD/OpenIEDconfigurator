@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <type>DetailQual</type>
+    <cppType>iec_DetailQual</cppType>
+    <tags></tags>
+    <DO>
+        <name>overflow</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>overflow</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>outOfRange</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>outOfRange</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>badReference</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>badReference</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>oscillatory</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>oscillatory</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>failure</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>failure</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>oldData</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>oldData</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>inconsistent</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>inconsistent</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>inaccurate</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>inaccurate</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+</DO>

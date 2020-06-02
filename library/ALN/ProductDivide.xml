@@ -6,109 +6,136 @@
     <tags></tags>
     <DA>
         <name>Multiplier1</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Множитель 1</description>
         <cppName>in_Multiplier1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Multiplier2</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Множитель 2</description>
         <cppName>in_Multiplier2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Multiplier3</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Множитель 3</description>
         <cppName>in_Multiplier3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Multiplier4</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Множитель 4</description>
         <cppName>in_Multiplier4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Divider1</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Делитель 1</description>
         <cppName>in_Divider1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Divider2</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Делитель 2</description>
         <cppName>in_Divider2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Divider3</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Делитель 3</description>
         <cppName>in_Divider3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Divider4</name>
-        <type>single</type>
+        <type>SINGLE</type>
         <description>Делитель 4</description>
         <cppName>in_Divider4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Output</name>
-        <type>boolean</type>
+        <type>SINGLE</type>
         <description>Выходной сигнал</description>
         <cppName>out_Output</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

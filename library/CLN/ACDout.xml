@@ -10,10 +10,12 @@
         <description>Сигнал пуска направленной защиты</description>
         <cppName>out_ACD</cppName>
         <cppType>iec_ACD</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -166,12 +168,15 @@
     <DA>
         <name>general</name>
         <type>BOOLEAN</type>
-        <description>Общий сигнал срабатывания</description>
+        <description>Общий сигнал пуска направленной защиты</description>
         <cppName>in_general</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -181,21 +186,27 @@
         <description>Общее направление короткого замыкания</description>
         <cppName>in_dirGeneral</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>phsA</name>
         <type>BOOLEAN</type>
-        <description>Сигнал срабатывания фазы А</description>
+        <description>Сигнал пуска фазы А</description>
         <cppName>in_phsA</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -205,21 +216,27 @@
         <description>Направление короткого замыкания для фазы A</description>
         <cppName>in_dirPhsA</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>phsB</name>
         <type>BOOLEAN</type>
-        <description>Сигнал срабатывания фазы B</description>
+        <description>Сигнал пуска фазы B</description>
         <cppName>in_phsB</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -229,21 +246,27 @@
         <description>Направление короткого замыкания для фазы B</description>
         <cppName>in_dirPhsB</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>phsC</name>
         <type>BOOLEAN</type>
-        <description>Сигнал срабатывания фазы C</description>
+        <description>Сигнал пуска фазы C</description>
         <cppName>in_phsC</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -253,21 +276,27 @@
         <description>Направление короткого замыкания для фазы C</description>
         <cppName>in_dirPhsC</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>neut</name>
         <type>BOOLEAN</type>
-        <description>Сигнал срабатывания по нулевому контуру</description>
+        <description>Сигнал пуска по нулевому контуру</description>
         <cppName>in_neut</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -277,9 +306,12 @@
         <description>Направление короткого замыкания для нулевого контура</description>
         <cppName>in_dirNeut</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -289,9 +321,12 @@
         <description>Атрибут качества</description>
         <cppName>in_q</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <type>Mod</type>
+    <cppType>iec_Mod</cppType>
+    <tags></tags>
+    <DO>
+        <name>stVal</name>
+        <type>UINT8_T</type>
+        <description>Описание отсутствует</description>
+        <cppName>stVal</cppName>
+        <cppType>uint8_t</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>q</name>
+        <type>QUALITY</type>
+        <description>Описание отсутствует</description>
+        <cppName>q</cppName>
+        <cppType>iec_Quality</cppType>
+        <tags></tags>
+        <DO>
+            <name>validity</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>validity</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+        </DO>
+    </DO>
+    <DA>
+        <name>ctlModel</name>
+        <type>UNSIGNED CHAR</type>
+        <description>Описание отсутствует</description>
+        <cppName>ctlModel</cppName>
+        <cppType>unsigned char</cppType>
+        <tags></tags>
+        <value>0</value>
+        <minValue>0</minValue>
+        <maxValue>0</maxValue>
+        <defaultValue>0</defaultValue>
+        <step>0</step>
+    </DA>
+</DO>

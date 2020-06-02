@@ -10,10 +10,12 @@
         <description>Входной сигнал 1</description>
         <cppName>in_SPS1</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -52,10 +54,12 @@
         <description>Входной сигнал 2</description>
         <cppName>in_SPS2</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -94,10 +98,12 @@
         <description>Входной сигнал 3</description>
         <cppName>in_SPS3</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -136,10 +142,12 @@
         <description>Входной сигнал 4</description>
         <cppName>in_SPS4</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -175,13 +183,15 @@
     <DO>
         <name>SPS</name>
         <type>SPS</type>
-        <description>Недублированное состояние</description>
+        <description>Выходной сигнал, объединенный по схеме ИЛИ</description>
         <cppName>out_SPS</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>

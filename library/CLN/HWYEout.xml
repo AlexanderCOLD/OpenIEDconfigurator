@@ -10,6 +10,8 @@
         <description>Описание отсутствует</description>
         <cppName>out_HWYE</cppName>
         <cppType>iec_HWYE</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>phsAHar[17]</name>
@@ -20,7 +22,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -54,7 +56,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -83,7 +85,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -117,7 +119,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -146,7 +148,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -180,7 +182,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -209,7 +211,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -243,7 +245,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -270,9 +272,12 @@
         <description>Модуль комплексного значения постоянной составляющей фазы A</description>
         <cppName>in_mag_phsA_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -282,9 +287,12 @@
         <description>Угол комплексного значения постоянной составляющей фазы A</description>
         <cppName>in_ang_phsA_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -294,9 +302,12 @@
         <description>Атрибут качества постоянной составляющей фазы A</description>
         <cppName>in_q_phsA_0</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -306,9 +317,12 @@
         <description>Модуль комплексного значения первой гармоники фазы A</description>
         <cppName>in_mag_phsA_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -318,9 +332,12 @@
         <description>Угол комплексного значения первой гармоники фазы A</description>
         <cppName>in_ang_phsA_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -330,9 +347,12 @@
         <description>Атрибут качества комплексного значения первой гармоники фазы A</description>
         <cppName>in_q_phsA_1</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -342,9 +362,12 @@
         <description>Модуль комплексного значения второй гармоники фазы A</description>
         <cppName>in_mag_phsA_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -354,9 +377,12 @@
         <description>Угол комплексного значения второй гармоники фазы A</description>
         <cppName>in_ang_phsA_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -366,9 +392,12 @@
         <description>Атрибут качества комплексного значения второй гармоники фазы A</description>
         <cppName>in_q_phsA_2</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -378,9 +407,12 @@
         <description>Модуль комплексного значения третьей гармоники фазы A</description>
         <cppName>in_mag_phsA_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -390,9 +422,12 @@
         <description>Угол комплексного значения третьей гармоники фазы A</description>
         <cppName>in_ang_phsA_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -402,9 +437,12 @@
         <description>Атрибут качества комплексного значения третьей гармоники фазы A</description>
         <cppName>in_q_phsA_3</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -414,9 +452,12 @@
         <description>Модуль комплексного значения четвертой гармоники фазы A</description>
         <cppName>in_mag_phsA_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -426,9 +467,12 @@
         <description>Угол комплексного значения четвертой гармоники фазы A</description>
         <cppName>in_ang_phsA_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -438,9 +482,12 @@
         <description>Атрибут качества комплексного значения четвертой гармоники фазы A</description>
         <cppName>in_q_phsA_4</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -450,9 +497,12 @@
         <description>Модуль комплексного значения пятой гармоники фазы A</description>
         <cppName>in_mag_phsA_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -462,9 +512,12 @@
         <description>Угол комплексного значения пятой гармоники фазы A</description>
         <cppName>in_ang_phsA_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -474,9 +527,12 @@
         <description>Атрибут качества комплексного значения пятой гармоники фазы A</description>
         <cppName>in_q_phsA_5</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -486,9 +542,12 @@
         <description>Модуль комплексного значения шестой гармоники фазы A</description>
         <cppName>in_mag_phsA_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -498,9 +557,12 @@
         <description>Угол комплексного значения шестой гармоники фазы A</description>
         <cppName>in_ang_phsA_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -510,9 +572,12 @@
         <description>Атрибут качества комплексного значения шестой гармоники фазы A</description>
         <cppName>in_q_phsA_6</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -522,9 +587,12 @@
         <description>Модуль комплексного значения седьмой гармоники фазы A</description>
         <cppName>in_mag_phsA_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -534,9 +602,12 @@
         <description>Угол комплексного значения седьмой гармоники фазы A</description>
         <cppName>in_ang_phsA_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -546,9 +617,12 @@
         <description>Атрибут качества комплексного значения седьмой гармоники фазы A</description>
         <cppName>in_q_phsA_7</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -558,9 +632,12 @@
         <description>Модуль комплексного значения восьмой гармоники фазы A</description>
         <cppName>in_mag_phsA_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -570,9 +647,12 @@
         <description>Угол комплексного значения восьмой гармоники фазы A</description>
         <cppName>in_ang_phsA_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -582,9 +662,12 @@
         <description>Атрибут качества комплексного значения восьмой гармоники фазы A</description>
         <cppName>in_q_phsA_8</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -594,9 +677,12 @@
         <description>Модуль комплексного значения девятой гармоники фазы A</description>
         <cppName>in_mag_phsA_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -606,9 +692,12 @@
         <description>Угол комплексного значения девятой гармоники фазы A</description>
         <cppName>in_ang_phsA_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -618,9 +707,12 @@
         <description>Атрибут качества комплексного значения девятой гармоники фазы A</description>
         <cppName>in_q_phsA_9</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -630,9 +722,12 @@
         <description>Модуль комплексного значения десятой гармоники фазы A</description>
         <cppName>in_mag_phsA_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -642,9 +737,12 @@
         <description>Угол комплексного значения десятой гармоники фазы A</description>
         <cppName>in_ang_phsA_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -654,9 +752,12 @@
         <description>Атрибут качества комплексного значения десятой гармоники фазы A</description>
         <cppName>in_q_phsA_10</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -666,9 +767,12 @@
         <description>Модуль комплексного значения одиннадцатой гармоники фазы A</description>
         <cppName>in_mag_phsA_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -678,9 +782,12 @@
         <description>Угол комплексного значения одиннадцатой гармоники фазы A</description>
         <cppName>in_ang_phsA_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -690,9 +797,12 @@
         <description>Атрибут качества комплексного значения одиннадцатой гармоники фазы A</description>
         <cppName>in_q_phsA_11</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -702,9 +812,12 @@
         <description>Модуль комплексного значения двенадцатой гармоники фазы A</description>
         <cppName>in_mag_phsA_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -714,9 +827,12 @@
         <description>Угол комплексного значения двенадцатой гармоники фазы A</description>
         <cppName>in_ang_phsA_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -726,9 +842,12 @@
         <description>Атрибут качества комплексного значения двенадцатой гармоники фазы A</description>
         <cppName>in_q_phsA_12</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -738,9 +857,12 @@
         <description>Модуль комплексного значения тринадцатой гармоники фазы A</description>
         <cppName>in_mag_phsA_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -750,9 +872,12 @@
         <description>Угол комплексного значения тринадцатой гармоники фазы A</description>
         <cppName>in_ang_phsA_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -762,9 +887,12 @@
         <description>Атрибут качества комплексного значения тринадцатой гармоники фазы A</description>
         <cppName>in_q_phsA_13</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -774,9 +902,12 @@
         <description>Модуль комплексного значения четырнадцатой гармоники фазы A</description>
         <cppName>in_mag_phsA_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -786,9 +917,12 @@
         <description>Угол комплексного значения четырнадцатой гармоники фазы A</description>
         <cppName>in_ang_phsA_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -798,9 +932,12 @@
         <description>Атрибут качества комплексного значения четырнадцатой гармоники фазы A</description>
         <cppName>in_q_phsA_14</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -810,9 +947,12 @@
         <description>Модуль комплексного значения пятнадцатой гармоники фазы A</description>
         <cppName>in_mag_phsA_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -822,9 +962,12 @@
         <description>Угол комплексного значения пятнадцатой гармоники фазы A</description>
         <cppName>in_ang_phsA_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -834,6 +977,8 @@
         <description>Атрибут качества комплексного значения</description>
         <cppName>in_q_phsA_15</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
     </DA>
     <DA>
@@ -842,6 +987,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsA_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -855,6 +1002,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsA_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -868,6 +1017,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsA_16</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -881,6 +1032,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -894,6 +1047,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -907,6 +1062,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_0</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -920,6 +1077,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -933,6 +1092,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -946,6 +1107,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_1</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -959,6 +1122,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -972,6 +1137,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -985,6 +1152,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_2</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -998,6 +1167,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1011,6 +1182,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1024,6 +1197,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_3</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1037,6 +1212,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1050,6 +1227,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1063,6 +1242,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_4</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1076,6 +1257,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1089,6 +1272,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1102,6 +1287,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_5</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1115,6 +1302,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1128,6 +1317,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1141,6 +1332,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_6</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1154,6 +1347,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1167,6 +1362,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1180,6 +1377,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_7</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1193,6 +1392,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1206,6 +1407,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1219,6 +1422,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_8</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1232,6 +1437,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1245,6 +1452,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1258,6 +1467,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_9</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1271,6 +1482,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1284,6 +1497,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1297,6 +1512,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_10</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1310,6 +1527,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1323,6 +1542,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1336,6 +1557,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_11</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1349,6 +1572,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1362,6 +1587,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1375,6 +1602,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_12</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1388,6 +1617,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1401,6 +1632,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1414,6 +1647,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_13</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1427,6 +1662,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1440,6 +1677,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1453,6 +1692,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_14</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1466,6 +1707,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1479,6 +1722,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1492,6 +1737,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_15</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1505,6 +1752,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsB_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1518,6 +1767,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsB_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1531,6 +1782,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsB_16</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1544,6 +1797,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1557,6 +1812,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1570,6 +1827,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_0</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1583,6 +1842,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1596,6 +1857,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1609,6 +1872,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_1</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1622,6 +1887,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1635,6 +1902,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1648,6 +1917,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_2</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1661,6 +1932,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1674,6 +1947,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1687,6 +1962,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_3</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1700,6 +1977,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1713,6 +1992,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1726,6 +2007,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_4</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1739,6 +2022,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1752,6 +2037,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1765,6 +2052,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_5</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1778,6 +2067,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1791,6 +2082,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1804,6 +2097,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_6</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1817,6 +2112,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1830,6 +2127,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1843,6 +2142,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_7</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1856,6 +2157,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1869,6 +2172,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1882,6 +2187,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_8</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1895,6 +2202,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1908,6 +2217,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1921,6 +2232,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_9</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1934,6 +2247,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1947,6 +2262,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1960,6 +2277,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_10</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1973,6 +2292,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1986,6 +2307,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -1999,6 +2322,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_11</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2012,6 +2337,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2025,6 +2352,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2038,6 +2367,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_12</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2051,6 +2382,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2064,6 +2397,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2077,6 +2412,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_13</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2090,6 +2427,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2103,6 +2442,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2116,6 +2457,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_14</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2129,6 +2472,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2142,6 +2487,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2155,6 +2502,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_15</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2168,6 +2517,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_phsC_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2181,6 +2532,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_phsC_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2194,6 +2547,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_phsC_16</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2207,6 +2562,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2220,6 +2577,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_0</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2233,6 +2592,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_0</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2246,6 +2607,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2259,6 +2622,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2272,6 +2637,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_1</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2285,6 +2652,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2298,6 +2667,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2311,6 +2682,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_2</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2324,6 +2697,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2337,6 +2712,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2350,6 +2727,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_3</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2363,6 +2742,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2376,6 +2757,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_4</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2389,6 +2772,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_4</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2402,6 +2787,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2415,6 +2802,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_5</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2428,6 +2817,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_5</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2441,6 +2832,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2454,6 +2847,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_6</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2467,6 +2862,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_6</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2480,6 +2877,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2493,6 +2892,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_7</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2506,6 +2907,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_7</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2519,6 +2922,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2532,6 +2937,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_8</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2545,6 +2952,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_8</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2558,6 +2967,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2571,6 +2982,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_9</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2584,6 +2997,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_9</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2597,6 +3012,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2610,6 +3027,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_10</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2623,6 +3042,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_10</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2636,6 +3057,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2649,6 +3072,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_11</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2662,6 +3087,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_11</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2675,6 +3102,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2688,6 +3117,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_12</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2701,6 +3132,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_12</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2714,6 +3147,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2727,6 +3162,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_13</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2740,6 +3177,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_13</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2753,6 +3192,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2766,6 +3207,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_14</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2779,6 +3222,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_14</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2792,6 +3237,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2805,6 +3252,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_15</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2818,6 +3267,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_15</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2831,6 +3282,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_mag_Neut_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2844,6 +3297,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_ang_Neut_16</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -2857,6 +3312,8 @@
         <description>Описание отсутствует</description>
         <cppName>in_q_Neut_16</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>

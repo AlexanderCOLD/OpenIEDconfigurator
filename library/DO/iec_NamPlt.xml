@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <type>NamPlt</type>
+    <cppType>iec_NamPlt</cppType>
+    <tags></tags>
+    <DO>
+        <name>vendor</name>
+        <type>UNSIGNED CHAR*</type>
+        <description>Описание отсутствует</description>
+        <cppName>vendor</cppName>
+        <cppType>unsigned char*</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>swRev</name>
+        <type>UNSIGNED CHAR*</type>
+        <description>Описание отсутствует</description>
+        <cppName>swRev</cppName>
+        <cppType>unsigned char*</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>d</name>
+        <type>UNSIGNED CHAR*</type>
+        <description>Описание отсутствует</description>
+        <cppName>d</cppName>
+        <cppType>unsigned char*</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>configRev</name>
+        <type>UNSIGNED CHAR*</type>
+        <description>Описание отсутствует</description>
+        <cppName>configRev</cppName>
+        <cppType>unsigned char*</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>ldNs</name>
+        <type>UNSIGNED CHAR*</type>
+        <description>Описание отсутствует</description>
+        <cppName>ldNs</cppName>
+        <cppType>unsigned char*</cppType>
+        <tags></tags>
+    </DO>
+</DO>

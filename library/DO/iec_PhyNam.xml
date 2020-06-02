@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <type>PhyNam</type>
+    <cppType>iec_PhyNam</cppType>
+    <tags></tags>
+    <DO>
+        <name>vendor</name>
+        <type>UNSIGNED CHAR*</type>
+        <description>Описание отсутствует</description>
+        <cppName>vendor</cppName>
+        <cppType>unsigned char*</cppType>
+        <tags></tags>
+    </DO>
+</DO>

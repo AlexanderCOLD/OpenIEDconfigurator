@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DO>
+    <type>Curve</type>
     <cppType>iec_Curve</cppType>
     <tags></tags>
     <DA>

@@ -6,14 +6,16 @@
     <tags></tags>
     <DO>
         <name>Str</name>
-        <type>BOOLEAN</type>
-        <description>Сигнал пуска</description>
+        <type>ACD</type>
+        <description>Описание отсутствует</description>
         <cppName>in_Str</cppName>
         <cppType>iec_ACD</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -169,10 +171,12 @@
         <description>Описание отсутствует</description>
         <cppName>in_Pos</cppName>
         <cppType>iec_DPC</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>pulseConfig</name>
-            <type>PulseConfig</type>
+            <type>PULSECONFIG</type>
             <description>Описание отсутствует</description>
             <cppName>pulseConfig</cppName>
             <cppType>iec_PulseConfig</cppType>
@@ -232,7 +236,7 @@
         </DO>
         <DO>
             <name>origin</name>
-            <type>Originator</type>
+            <type>ORIGINATOR</type>
             <description>Описание отсутствует</description>
             <cppName>origin</cppName>
             <cppType>iec_Originator</cppType>
@@ -253,7 +257,7 @@
         </DO>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -331,10 +335,12 @@
         <description>Описание отсутствует</description>
         <cppName>in_StrV</cppName>
         <cppType>iec_ACD</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -490,10 +496,12 @@
         <description>Описание отсутствует</description>
         <cppName>in_Blk</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -532,10 +540,12 @@
         <description>Описание отсутствует</description>
         <cppName>out_StrAUA</cppName>
         <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -570,14 +580,16 @@
     </DO>
     <DO>
         <name>Op</name>
-        <type>BOOLEAN</type>
-        <description>Сигнал срабатывания</description>
+        <type>ACT</type>
+        <description>Описание отсутствует</description>
         <cppName>out_Op</cppName>
         <cppType>iec_ACT</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -668,6 +680,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_OpDITmms</cppName>
         <cppType>int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -681,6 +695,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_OpMod</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>
@@ -694,6 +710,8 @@
         <description>Описание отсутствует</description>
         <cppName>set_StrDITmms1</cppName>
         <cppType>int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>0</value>
         <minValue>0</minValue>

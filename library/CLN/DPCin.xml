@@ -10,10 +10,12 @@
         <description>Дублированное управление и состояние</description>
         <cppName>in_DPC</cppName>
         <cppType>iec_DPC</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>pulseConfig</name>
-            <type>PulseConfig</type>
+            <type>PULSECONFIG</type>
             <description>Описание отсутствует</description>
             <cppName>pulseConfig</cppName>
             <cppType>iec_PulseConfig</cppType>
@@ -73,7 +75,7 @@
         </DO>
         <DO>
             <name>origin</name>
-            <type>Originator</type>
+            <type>ORIGINATOR</type>
             <description>Описание отсутствует</description>
             <cppName>origin</cppName>
             <cppType>iec_Originator</cppType>
@@ -94,7 +96,7 @@
         </DO>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -172,9 +174,12 @@
         <description>Состояние контролируемых данных имеет статус selected</description>
         <cppName>out_stSeld</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -184,9 +189,12 @@
         <description>Команда срабатывания была принята</description>
         <cppName>out_opOk</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -196,9 +204,12 @@
         <description>Значение модели управления</description>
         <cppName>out_ctlModel</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -208,9 +219,12 @@
         <description>Тип выходного сигнала</description>
         <cppName>out_cmdQual</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -220,9 +234,12 @@
         <description>Длительность импульса</description>
         <cppName>out_onDur</cppName>
         <cppType>unsigned int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -232,9 +249,12 @@
         <description>Временной промежуток между двумя импульсами</description>
         <cppName>out_offDur</cppName>
         <cppType>unsigned int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -244,9 +264,12 @@
         <description>Число генерируемых импульсов</description>
         <cppName>out_numPls</cppName>
         <cppType>unsigned int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -256,21 +279,27 @@
         <description>Категория инициатора, который вызвал изменение значения</description>
         <cppName>out_orCat</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>stVal</name>
-        <type>BOOLEAN</type>
-        <description>Значение состояния</description>
+        <type>FLOAT32</type>
+        <description>Положение выключателя</description>
         <cppName>out_stVal</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -280,9 +309,12 @@
         <description>Атрибут качества</description>
         <cppName>out_q</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

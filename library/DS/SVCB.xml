@@ -40,6 +40,8 @@
         <description>Ток фазы "А"</description>
         <cppName>out_AmpSV_A</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>
@@ -78,6 +80,8 @@
         <description>Ток фазы "B"</description>
         <cppName>out_AmpSV_B</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>
@@ -116,6 +120,8 @@
         <description>Ток фазы "C"</description>
         <cppName>out_AmpSV_C</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>
@@ -154,6 +160,8 @@
         <description>Ток нейтрали</description>
         <cppName>out_AmpSV_N</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>
@@ -193,6 +201,8 @@
         <description>Напряжение фазы "А"</description>
         <cppName>out_VoltSV_A</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>
@@ -231,6 +241,8 @@
         <description>Напряжение фазы "B"</description>
         <cppName>out_VoltSV_B</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>
@@ -269,6 +281,8 @@
         <description>Напряжение фазы "C"</description>
         <cppName>out_VoltSV_C</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>
@@ -307,6 +321,8 @@
         <description>Напряжение нейтрали</description>
         <cppName>out_VoltSV_N</cppName>
         <cppType>iec_SAV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <DO>
             <name>q</name>
             <type>Quality</type>

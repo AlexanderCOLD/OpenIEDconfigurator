@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DO>
+    <type>SAV</type>
     <cppType>iec_SAV</cppType>
     <tags></tags>
     <DO>
         <name>q</name>
-        <type>Quality</type>
+        <type>QUALITY</type>
         <description>Описание отсутствует</description>
         <cppName>q</cppName>
         <cppType>iec_Quality</cppType>
         <tags></tags>
-        <DA>
+        <DO>
             <name>validity</name>
-            <type>UNSIGNED SHORT</type>
+            <type>UNSIGNED CHAR</type>
             <description>Описание отсутствует</description>
             <cppName>validity</cppName>
-            <cppType>unsigned short</cppType>
+            <cppType>unsigned char</cppType>
             <tags></tags>
-            <value>0</value>
-            <minValue>0</minValue>
-            <maxValue>0</maxValue>
-            <defaultValue>0</defaultValue>
-            <step>0</step>
-        </DA>
+        </DO>
     </DO>
     <DA>
         <name>instMag</name>

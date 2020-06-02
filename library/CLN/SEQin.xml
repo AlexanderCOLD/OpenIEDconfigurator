@@ -10,6 +10,8 @@
         <description>Комплексные значения симметричных составляющих</description>
         <cppName>in_SEQ</cppName>
         <cppType>iec_SEQ</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>c1</name>
@@ -20,7 +22,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -54,7 +56,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -83,7 +85,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -117,7 +119,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -146,7 +148,7 @@
             <tags></tags>
             <DO>
                 <name>cVal</name>
-                <type>Vector</type>
+                <type>VECTOR</type>
                 <description>Описание отсутствует</description>
                 <cppName>cVal</cppName>
                 <cppType>iec_Vector</cppType>
@@ -180,7 +182,7 @@
             </DO>
             <DO>
                 <name>q</name>
-                <type>Quality</type>
+                <type>QUALITY</type>
                 <description>Описание отсутствует</description>
                 <cppName>q</cppName>
                 <cppType>iec_Quality</cppType>
@@ -207,9 +209,12 @@
         <description>Модуль комплексного значения прямой последовательности</description>
         <cppName>out_mag_c1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -219,9 +224,12 @@
         <description>Угол комплексного значения прямой последовательности</description>
         <cppName>out_ang_c1</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -231,9 +239,12 @@
         <description>Атрибут качества комплексного значения прямой последовательности</description>
         <cppName>out_q_c1</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -243,9 +254,12 @@
         <description>Модуль комплексного значения обратной последовательности</description>
         <cppName>out_mag_c2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -255,9 +269,12 @@
         <description>Угол комплексного значения обратной последовательности</description>
         <cppName>out_ang_c2</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -267,9 +284,12 @@
         <description>Атрибут качества комплексного значения обратной последовательности</description>
         <cppName>out_q_c2</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -279,9 +299,12 @@
         <description>Модуль комплексного значения нулевой последовательности</description>
         <cppName>out_mag_c3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -291,9 +314,12 @@
         <description>Угол комплексного значения нулевой последовательности</description>
         <cppName>out_ang_c3</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -303,9 +329,12 @@
         <description>Атрибут качества комплексного значения нулевой последовательности</description>
         <cppName>out_q_c3</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

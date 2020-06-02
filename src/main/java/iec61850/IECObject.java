@@ -59,7 +59,7 @@ public class IECObject {
     /** Номер экземпляра */
     private Long instance;
 
-    /** Координаты для GUI ({-1;-1} - значит не отрисован) */
+    /** Координаты для GUI (null - значит не отрисован) */
     protected Double layoutX, layoutY; // Координаты
 
     /**

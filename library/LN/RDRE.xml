@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LN>
+    <name>RDRE</name>
+    <type>RDRE</type>
+    <description>RDRE node</description>
+    <tags></tags>
+    <DO>
+        <name>TrgMod</name>
+        <type>ENS</type>
+        <description>Параметр</description>
+        <cppName>set_TrgMod</cppName>
+        <cppType>iec_ENS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>UNSIGNED CHAR</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>unsigned char</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>PreTmms</name>
+        <type>INS</type>
+        <description>Время записи до кз (ms)</description>
+        <cppName>set_PreTmms</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>PstTmms</name>
+        <type>INS</type>
+        <description>Время записи после кз (ms)</description>
+        <cppName>set_PstTmms</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>MemFull</name>
+        <type>INS</type>
+        <description>Переполнение записи</description>
+        <cppName>set_MemFull</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>MaxNumRcd</name>
+        <type>INS</type>
+        <description>Максимальное количество записи</description>
+        <cppName>set_MaxNumRcd</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>PerTrgTms</name>
+        <type>INS</type>
+        <description>Период записи (ms)</description>
+        <cppName>set_PerTrgTms</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>ExclTmms</name>
+        <type>INS</type>
+        <description>Интервал времени повторных запусков (ms)</description>
+        <cppName>set_ExclTmms</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>RcdMod</name>
+        <type>INS</type>
+        <description>Режим перезаписи</description>
+        <cppName>set_RcdMod</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>StoRte</name>
+        <type>INS</type>
+        <description>Частота дискретизации Гц</description>
+        <cppName>set_StoRte</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>RdcMade</name>
+        <type>SPS</type>
+        <description>Запись окончена. Импульсный выход</description>
+        <cppName>out_RdcMade</cppName>
+        <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>BOOL</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>bool</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>FltNum</name>
+        <type>INS</type>
+        <description>Номер КЗ</description>
+        <cppName>out_FltNum</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>GnFltNum</name>
+        <type>INS</type>
+        <description>Номер КЗЗ</description>
+        <cppName>out_GnFltNum</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>RcdStr</name>
+        <type>SPS</type>
+        <description>Пуск записи</description>
+        <cppName>out_RcdStr</cppName>
+        <cppType>iec_SPS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>BOOL</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>bool</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+    <DO>
+        <name>MemUsed</name>
+        <type>INS</type>
+        <description>Использование памяти в %</description>
+        <cppName>out_MemUsed</cppName>
+        <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
+        <tags></tags>
+        <DO>
+            <name>q</name>
+            <type>QUALITY</type>
+            <description>Описание отсутствует</description>
+            <cppName>q</cppName>
+            <cppType>iec_Quality</cppType>
+            <tags></tags>
+            <DO>
+                <name>validity</name>
+                <type>UNSIGNED CHAR</type>
+                <description>Описание отсутствует</description>
+                <cppName>validity</cppName>
+                <cppType>unsigned char</cppType>
+                <tags></tags>
+            </DO>
+        </DO>
+        <DA>
+            <name>stVal</name>
+            <type>INT</type>
+            <description>Описание отсутствует</description>
+            <cppName>stVal</cppName>
+            <cppType>int</cppType>
+            <tags></tags>
+            <value>0</value>
+            <minValue>0</minValue>
+            <maxValue>0</maxValue>
+            <defaultValue>0</defaultValue>
+            <step>0</step>
+        </DA>
+    </DO>
+</LN>

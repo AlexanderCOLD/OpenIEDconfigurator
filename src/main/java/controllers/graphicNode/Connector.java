@@ -1,7 +1,7 @@
 package controllers.graphicNode;
 
+import controllers.link.Link;
 import iec61850.IECObject;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,13 +9,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.transform.Scale;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
 
 /**
  * @author Александр Холодов
@@ -39,6 +40,7 @@ public class Connector extends AnchorPane {
     private ConnectorPosition position;
     private AnchorPane connectorPane;
     private Label label;
+    private final ArrayList<Link> connections = new ArrayList<>();
 
     /**
      * Создать коннектор для графического элемента
@@ -102,6 +104,7 @@ public class Connector extends AnchorPane {
         if(value) { setStyle(selectedStyle); scale.setX(2.0); scale.setY(2.0); label.setEffect(selected); }
         else { setStyle(unselectedStyle); scale.setX(1.0); scale.setY(1.0); label.setEffect(null); }
     }
+    public ArrayList<Link> getConnections() { return connections; }
 
     public String toString(){ if(iecObject !=null) return iecObject.toString(); else return "unknown"; }
 }

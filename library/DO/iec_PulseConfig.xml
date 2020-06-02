@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DO>
+    <type>PulseConfig</type>
     <cppType>iec_PulseConfig</cppType>
     <tags></tags>
     <DA>

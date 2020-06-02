@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DO>
+    <type>SPS</type>
     <cppType>iec_SPS</cppType>
     <tags></tags>
     <DO>
         <name>q</name>
-        <type>Quality</type>
+        <type>QUALITY</type>
         <description>Описание отсутствует</description>
         <cppName>q</cppName>
         <cppType>iec_Quality</cppType>

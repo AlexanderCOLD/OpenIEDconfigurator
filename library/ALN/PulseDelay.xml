@@ -10,33 +10,42 @@
         <description>Сигнал пуска</description>
         <cppName>in_Str</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>dt</name>
-        <type>int32</type>
+        <type>INT32</type>
         <description>Уставка времени срабатывания, мс</description>
         <cppName>set_dt</cppName>
         <cppType>int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>10</value>
         <minValue>0</minValue>
+        <maxValue>1000000</maxValue>
         <defaultValue>10</defaultValue>
         <step>1&#xD;</step>
     </DA>
     <DA>
         <name>st</name>
-        <type>uint8</type>
+        <type>UINT8</type>
         <description>Шаг модели, мс</description>
         <cppName>set_st</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value>1</value>
         <minValue>-</minValue>
+        <maxValue>-</maxValue>
         <defaultValue>1</defaultValue>
         <step>-&#xD;</step>
     </DA>
@@ -46,9 +55,12 @@
         <description>Сигнал срабатывания</description>
         <cppName>out_Op</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

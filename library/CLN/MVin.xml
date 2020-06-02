@@ -10,10 +10,12 @@
         <description>Измеряемые значения</description>
         <cppName>in_MV</cppName>
         <cppType>iec_MV</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -49,12 +51,15 @@
     <DA>
         <name>mag</name>
         <type>FLOAT32</type>
-        <description>Мгновенное значение</description>
+        <description>Измеряемое значение</description>
         <cppName>out_mag</cppName>
         <cppType>float</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -64,9 +69,12 @@
         <description>Атрибут качества</description>
         <cppName>out_q</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

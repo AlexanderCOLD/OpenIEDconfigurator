@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DO>
+    <type>SEQ</type>
     <cppType>iec_SEQ</cppType>
     <tags></tags>
     <DO>
@@ -11,7 +12,7 @@
         <tags></tags>
         <DO>
             <name>cVal</name>
-            <type>Vector</type>
+            <type>VECTOR</type>
             <description>Описание отсутствует</description>
             <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
@@ -45,7 +46,7 @@
         </DO>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -74,7 +75,7 @@
         <tags></tags>
         <DO>
             <name>cVal</name>
-            <type>Vector</type>
+            <type>VECTOR</type>
             <description>Описание отсутствует</description>
             <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
@@ -108,7 +109,7 @@
         </DO>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -137,7 +138,7 @@
         <tags></tags>
         <DO>
             <name>cVal</name>
-            <type>Vector</type>
+            <type>VECTOR</type>
             <description>Описание отсутствует</description>
             <cppName>cVal</cppName>
             <cppType>iec_Vector</cppType>
@@ -171,7 +172,7 @@
         </DO>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>

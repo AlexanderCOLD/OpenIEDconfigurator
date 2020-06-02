@@ -10,10 +10,12 @@
         <description>Целочисленное состояние</description>
         <cppName>in_INS</cppName>
         <cppType>iec_INS</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <DO>
             <name>q</name>
-            <type>Quality</type>
+            <type>QUALITY</type>
             <description>Описание отсутствует</description>
             <cppName>q</cppName>
             <cppType>iec_Quality</cppType>
@@ -48,13 +50,16 @@
     </DO>
     <DA>
         <name>stVal</name>
-        <type>BOOLEAN</type>
-        <description>Значение состояния</description>
+        <type>INT32</type>
+        <description>Значение состояния данных</description>
         <cppName>out_stVal</cppName>
         <cppType>int</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
@@ -64,9 +69,12 @@
         <description>Атрибут качества</description>
         <cppName>out_q</cppName>
         <cppType>unsigned short</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DO>
+    <type>Time_Quality</type>
+    <cppType>iec_Time_Quality</cppType>
+    <tags></tags>
+    <DO>
+        <name>LeapSecondsKnown</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>LeapSecondsKnown</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>ClockFailure</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>ClockFailure</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>ClockNotSynchronized</name>
+        <type>BOOL</type>
+        <description>Описание отсутствует</description>
+        <cppName>ClockNotSynchronized</cppName>
+        <cppType>bool</cppType>
+        <tags></tags>
+    </DO>
+    <DO>
+        <name>TimeAccuracy</name>
+        <type>CHAR</type>
+        <description>Описание отсутствует</description>
+        <cppName>TimeAccuracy</cppName>
+        <cppType>char</cppType>
+        <tags></tags>
+    </DO>
+</DO>

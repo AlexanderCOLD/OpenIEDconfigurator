@@ -6,61 +6,76 @@
     <tags></tags>
     <DA>
         <name>Input1</name>
-        <type>boolean</type>
+        <type>BOOLEAN</type>
         <description>Входной сигнал 1</description>
         <cppName>in_Input1</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Input2</name>
-        <type>boolean</type>
+        <type>BOOLEAN</type>
         <description>Входной сигнал 2</description>
         <cppName>in_Input2</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Input3</name>
-        <type>boolean</type>
+        <type>BOOLEAN</type>
         <description>Входной сигнал 3</description>
         <cppName>in_Input3</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Input4</name>
-        <type>boolean</type>
+        <type>BOOLEAN</type>
         <description>Входной сигнал 4</description>
         <cppName>in_Input4</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>
     <DA>
         <name>Output</name>
-        <type>boolean</type>
+        <type>BOOLEAN</type>
         <description>Выходной сигнал</description>
         <cppName>out_Output</cppName>
         <cppType>unsigned char</cppType>
+        <layoutX>1.0</layoutX>
+        <layoutY>1.0</layoutY>
         <tags></tags>
         <value></value>
         <minValue></minValue>
+        <maxValue></maxValue>
         <defaultValue></defaultValue>
         <step>&#xD;</step>
     </DA>

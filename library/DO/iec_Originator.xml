@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DO>
+    <type>Originator</type>
     <cppType>iec_Originator</cppType>
     <tags></tags>
     <DA>
