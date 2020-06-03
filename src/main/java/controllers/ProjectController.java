@@ -3,7 +3,6 @@ package controllers;
 import application.GUI;
 import controllers.dialogs.AssistantDialog;
 import controllers.dialogs.IECInfoDialog;
-import controllers.dialogs.InfoDialog;
 import controllers.graphicNode.Connector;
 import controllers.graphicNode.GraphicNode;
 import controllers.graphicNode.GraphicNodeController;
@@ -165,6 +164,9 @@ public class ProjectController {
 
             /* Если координаты есть, отрисовываем граф. элемент и задаем координаты */
             if(layoutX!=null){ pane.getChildren().add(graphicNode); graphicNode.relocate(layoutX, layoutY); Platform.runLater(graphicNode::updateGrid); }
+
+            /* Обновить коннекторы */
+            graphicNode.refreshConnectors();
         }
 
 

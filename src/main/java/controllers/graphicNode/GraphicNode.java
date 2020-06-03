@@ -9,10 +9,12 @@ import java.util.stream.Collectors;
 import application.GUI;
 import application.Main;
 import controllers.dialogs.AssistantDialog;
+import controllers.dialogs.ConnectorDialog;
 import controllers.dialogs.EditorDialog;
 import controllers.link.Link;
 import controllers.tree.TreeController;
 import iec61850.*;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
@@ -202,12 +204,11 @@ public class GraphicNode extends AnchorPane {
      * @param position - слева / справа
      */
     private void appendConnector(IECObject object, ConnectorType type, ConnectorPosition position){
-        if(object.getLayoutX()==null) return;
         BorderPane borderPane = takeBorder(position);
         /* Создаем коннектор и размещаем */
-        Connector c = new Connector(this, object, type, position); c.toFront();
+        Connector c = new Connector(this, object, type, position); c.toFront(); connectors.add(c);
+        if(object.getLayoutX()==null || object.getLayoutY()==null) return; // Если нет координат, не отрисовываем
         if(position==ConnectorPosition.left) borderPane.setLeft(c.getConnectorPane()); else borderPane.setRight(c.getConnectorPane());
-        connectors.add(c);
     }
 
     /** Поиск свободной панели, на которой можно разместить коннектор */
@@ -231,21 +232,27 @@ public class GraphicNode extends AnchorPane {
     }
 
     /** Убирает коннекторы у которых отсутствуют координаты*/
-    public void restConnectors(){
+    public void refreshConnectors(){
+        /* Сортировка коннекторов, очищение borderPanes */
         ArrayList<Connector> leftConnectors = connectors.stream().filter(c -> c.getPosition()==ConnectorPosition.left).collect(Collectors.toCollection(ArrayList::new));
         ArrayList<Connector> rightConnectors = connectors.stream().filter(c -> c.getPosition()==ConnectorPosition.right).collect(Collectors.toCollection(ArrayList::new));
         ArrayList<BorderPane> borders = mainPanel.getChildren().stream().filter(n -> n.getClass()==BorderPane.class).map(BorderPane.class::cast).collect(Collectors.toCollection(ArrayList::new));
         borders.forEach(b -> { b.setLeft(null); b.setRight(null); });
 
+        /* Заполнение свободных BorderPane коннекторами */
         for(Connector c: leftConnectors){
-            if(c.getIecObject().getLayoutX()!=null) takeBorder(ConnectorPosition.left).setLeft(c);
+            if(c.getIecObject().getLayoutX()!=null) takeBorder(ConnectorPosition.left).setLeft(c.getConnectorPane());
             else for(Link link: new ArrayList<>(c.getConnections())) link.remove();
         }
         for(Connector c: rightConnectors){
-            if(c.getIecObject().getLayoutX()!=null) takeBorder(ConnectorPosition.right).setRight(c);
+            if(c.getIecObject().getLayoutX()!=null) takeBorder(ConnectorPosition.right).setRight(c.getConnectorPane());
             else for(Link link: new ArrayList<>(c.getConnections())) link.remove();
         }
+        /* Если остались пустые BorderPane, удалить их */
         borders.forEach(b-> { if(b.getLeft()==null && b.getRight()==null) mainPanel.getChildren().remove(b);  });
+
+        /* Перерисовать соединения */
+        Platform.runLater(() -> connectors.forEach(c-> c.getConnections().forEach(Link::updatePosition)));
     }
 
     @FXML
@@ -262,6 +269,7 @@ public class GraphicNode extends AnchorPane {
         });
 
         MenuItem settings = new MenuItem("Параметры");
+        MenuItem connectors = new MenuItem("Коннекторы");
         MenuItem rename = new MenuItem("Переименовать");
         MenuItem remove = new MenuItem("Удалить");
 
@@ -272,10 +280,11 @@ public class GraphicNode extends AnchorPane {
 
             if(hasSettins) contextMenu.getItems().add(settings);
             if(iecObject.getTags().contains("additional")) contextMenu.getItems().add(rename);
-            contextMenu.getItems().add(remove);
+            contextMenu.getItems().addAll(connectors, remove);
         });
 
         settings.setOnAction(e -> { EditorDialog.show(iecObject); });
+        connectors.setOnAction(e ->{ ConnectorDialog.show(this); });
 
         rename.setOnAction(e->{
             String initName = iecObject.getType().toLowerCase(); long instance = iecObject.getInstance()!=null ? iecObject.getInstance() : 1;

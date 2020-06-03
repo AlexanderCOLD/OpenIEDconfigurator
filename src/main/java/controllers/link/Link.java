@@ -99,6 +99,7 @@ public class Link extends Polyline {
 		targetConnector.getConnections().remove(this);
 	}
 
+	/** Перерисовать соединение */
 	public void updatePosition(){ updateStartPosition(); updateEndPosition(); }
 
 	private void updateStartPosition(){

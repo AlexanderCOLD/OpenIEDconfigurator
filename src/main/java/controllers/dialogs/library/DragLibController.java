@@ -2,6 +2,7 @@ package controllers.dialogs.library;
 
 import application.GUI;
 import controllers.dialogs.AssistantDialog;
+import controllers.dialogs.ConnectorDialog;
 import iec61850.*;
 import controllers.PanelsController;
 import controllers.graphicNode.GraphicNode;
@@ -168,6 +169,10 @@ public class DragLibController {
 				/* Создание граф. элемента и установка в панель */
 				GraphicNode node = GraphicNodeController.createGraphicNode(iecObject);
 				GraphicNodeController.getProjectNodeList().put(iecObject.getUID(), node);
+
+				/* Редактор коннекторов */
+				ConnectorDialog.show(node);
+
 				PanelsController.getSelectedPanel().getChildren().add(node);
 
 				Point2D point = PanelsController.getSelectedPanel().sceneToLocal(e.getSceneX(), e.getSceneY());

@@ -62,6 +62,7 @@ public class IECObject {
     /** Координаты для GUI (null - значит не отрисован) */
     protected Double layoutX, layoutY; // Координаты
 
+
     /**
      * Дополнительные теги:
      *  "additional" - дополнительный элемент (LN) (если объекта нет в CID)

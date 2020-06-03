@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <fx:root prefHeight="265.0" prefWidth="275.0" style="-fx-border-color: -fx-first-color; -fx-background-color: BLACK;" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Accordion fx:id="accord" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Accordion fx:id="accordion" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <panes>
             <TitledPane fx:id="titledPane" animated="false" collapsible="false" text="       Параметры">
-                <content>
-                    <TreeTableView fx:id="treeTableView" prefHeight="200.0" prefWidth="500.0">
-                        <columns>
-                            <TreeTableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="170.0" sortable="false" text="Название" />
-                            <TreeTableColumn fx:id="valueColumn" minWidth="30.0" prefWidth="70.0" sortable="false" style="-fx-alignment: CENTER;" text="Значение" />
-                        </columns>
-                        <columnResizePolicy>
-                            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                        </columnResizePolicy>
-                    </TreeTableView>
-                </content>
+               <content>
+                  <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0">
+                     <items>
+                          <TreeTableView fx:id="treeTableView_L" prefHeight="200.0" prefWidth="500.0" showRoot="false">
+                              <columns>
+                                  <TreeTableColumn fx:id="nameColumn_L" minWidth="100.0" prefWidth="170.0" sortable="false" text="Название" />
+                                  <TreeTableColumn fx:id="valueColumn_L" minWidth="30.0" prefWidth="50.0" sortable="false" style="-fx-alignment: CENTER;" text="Значение" />
+                              </columns>
+                              <columnResizePolicy>
+                                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                              </columnResizePolicy>
+                          </TreeTableView>
+                        <TreeTableView fx:id="treeTableView_R" prefHeight="200.0" prefWidth="500.0" showRoot="false">
+                           <columnResizePolicy>
+                              <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TreeTableColumn fx:id="nameColumn_R" minWidth="100.0" prefWidth="170.0" sortable="false" text="Название" />
+                              <TreeTableColumn fx:id="valueColumn_R" minWidth="30.0" prefWidth="50.0" sortable="false" style="-fx-alignment: CENTER;" text="Значение" />
+                           </columns>
+                        </TreeTableView>
+                     </items>
+                  </SplitPane>
+               </content>
             </TitledPane>
         </panes>
       </Accordion>
-      <ToggleButton fx:id="lock" mnemonicParsing="false" style="-fx-background-color: transparent;" text="🔒" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="1.0" />
       <Label layoutX="885.0" layoutY="5.0" onMouseClicked="#close" text="✕" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
    </children>
 </fx:root>
