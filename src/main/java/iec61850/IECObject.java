@@ -38,8 +38,6 @@ public class IECObject {
     /** Адрес объекта */
     @XmlTransient
     protected final IECAddress address = new IECAddress(this);
-    @XmlTransient
-    protected final IECCppAddress cppAddress = new IECCppAddress(this);
 
     /** Уникальное имя */
     protected String name;
@@ -66,6 +64,7 @@ public class IECObject {
     /**
      * Дополнительные теги:
      *  "additional" - дополнительный элемент (LN) (если объекта нет в CID)
+     *  "oscillogram" - объект пишется в осциллограмму
      */
     @XmlList
     protected final ArrayList<String> tags = new ArrayList<>();

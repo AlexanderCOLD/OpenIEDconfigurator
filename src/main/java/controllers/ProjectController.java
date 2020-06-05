@@ -178,7 +178,7 @@ public class ProjectController {
         /* Все коннекторы (с адресами) */
         HashMap<String, Connector> connectorMap = new HashMap<>();
         for(GraphicNode node:GraphicNodeController.getActiveNodeList().values())
-            for(Connector connector:node.getConnectors()) connectorMap.put(connector.getIecObject().getAddress().fullWithSlash(), connector);
+            for(Connector connector:node.getConnectors()) connectorMap.put(connector.getIecObject().getAddress().get(), connector);
 
         /* Поиск коннекторов и восстановление */
         for(Connection connection:connectionList){
@@ -225,7 +225,7 @@ public class ProjectController {
 
             /* Создаем новые */
             for(Link link: LinkController.getConnections()){
-                Connection connection = new Connection(link.getSourceConnector().getIecObject().getAddress().fullWithSlash(), link.getTargetConnector().getIecObject().getAddress().fullWithSlash());
+                Connection connection = new Connection(link.getSourceConnector().getIecObject().getAddress().get(), link.getTargetConnector().getIecObject().getAddress().get());
                 LD currentLD = CLDUtils.parentOf(LD.class, (IECObject) link.getSourceConnector().getGraphicNode().getIecObject()); // Берем LD в котором находится данное соединение
                 if(currentLD != null) currentLD.getConnectionList().add(connection); else System.err.println("Connection: LD is not found");
             }

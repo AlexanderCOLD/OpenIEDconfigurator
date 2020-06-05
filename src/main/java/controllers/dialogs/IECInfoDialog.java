@@ -160,8 +160,7 @@ public class IECInfoDialog extends AnchorPane {
         if(object.getLayoutX()!=null)
             root.getChildren().add(takeBranch(new IECProperty("Double[]", "Coord", "Координаты", "["+object.getLayoutX()+ " : " +object.getLayoutY()+"]")));
 
-        if(!object.getTags().isEmpty())
-            root.getChildren().add(takeBranch(new IECProperty("String", "Tags", "Тэги объекта", object.getTags().toString())));
+        root.getChildren().add(takeBranch(new IECProperty("String", "Tags", "Тэги объекта", object.getTags().toString())));
 
         fillTree(root, object.getChildren());
     }

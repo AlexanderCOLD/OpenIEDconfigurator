@@ -1,7 +1,9 @@
 package iec61850;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.IntStream;
 
 /**
@@ -17,70 +19,69 @@ public class IECAddress {
     public IECAddress(IECObject iecObject){ this.iecObject = iecObject; }
 
     /**
-     * Получить выборочный адрес объекта (с точками)
-     * get(LD.class, DS class, ...)
-     * @param list - перечень объектов из которых будет состояеть адрес
-     * @return "ied.ld.ln.do"
-     */
-    public String withDots(Class<?>... list){ return get(".", list); }
-
-    /**
-     * Получить полный адрес объекта (с точками)
-     * get(LD.class, DS class, ...)
-     * @return "ied.ld.ln.do"
-     */
-    public String fullWithDots(){ return get(".", getParentsClass()); }
-
-    /**
-     * Получить выборочный адрес объекта (с слэшами)
-     * get(LD.class, DS class, ...)
-     * @param list - перечень объектов из которых будет состояеть адрес
-     * @return "ied/ld/ln/do"
-     */
-    public String withSlash(Class<?>... list) { return get("/", list); }
-
-    /**
-     * Получить выборочный адрес объекта (с слэшами)
+     * Получить полный адрес объекта
      * get(LD.class, DS class, ...)
      * @return "ied/ld/ln/do"
      */
-    public String fullWithSlash() { return get("/", getParentsClass()); }
-
-    /**
-     * Получить адрес объекта
-     * get("/", LD.class, DS class, ...)
-     * @param list - перечень объектов из которых будет состояеть адрес
-     */
-    public String get(String divider, Class<?>... list){
-        StringBuilder address = new StringBuilder();
-        for(Class<?> c:list){
-            IECObject object = parent(c);
-            if(object!=null && object.getName()!=null) address.append(object.getName()).append(divider);
+    public String get() {
+        StringBuilder address = new StringBuilder(iecObject.getName());
+        IECObject parent = iecObject.getParent();
+        while(parent!=null){
+            if(parent.getName() != null)
+                address.insert(0, "/").insert(0, parent.getName());
+            parent = parent.getParent();
         }
-        address.append(iecObject.getName());
         return address.toString();
     }
 
-    /** Перечень родительских классов */
-    private Class<?>[] getParentsClass(){
-        ArrayList<Class<?>> classList = new ArrayList<>();
+    /**
+     * Получить адрес объекта (с фильтрацией)
+     * get("/", LD.class, DS class, ...)
+     * @param list - перечень объектов которые не будут включены в адрес
+     */
+    public String get(Class<?>... list){
+        StringBuilder address = new StringBuilder(iecObject.getName());
+        List<Class<?>> filter = Arrays.asList(list);
         IECObject parent = iecObject.getParent();
-        while(parent!=null){ classList.add(parent.getClass()); parent = parent.getParent(); }
-        Collections.reverse(classList);
-        Class<?>[] result = new Class<?>[classList.size()];
-        IntStream.range(0, classList.size()).forEach(v -> result[v] = classList.get(v));
-        return result;
+        while(parent!=null){
+            if(parent.getName() != null && !filter.contains(parent.getClass()))
+                address.insert(0, "/").insert(0, parent.getName());
+            parent = parent.getParent();
+        }
+        return address.toString();
     }
 
     /**
-     * Взять родительский объект
-     * @param classType - тип объекта
-     * @return - родительский объект
+     * Получить c++ полный адрес объекта
+     * get(LD.class, DS class, ...)
+     * @return "ied/ld/ln/do"
      */
-    private IECObject parent(Class<?> classType){
-        IECObject iecObject = this.iecObject;
-        if(iecObject.getClass()==classType) return (IECObject) iecObject;
-        while(iecObject!=null){ iecObject = iecObject.getParent(); if(iecObject!=null && iecObject.getClass()==classType) return (IECObject) iecObject; }
-        return null;
+    public String getCpp() {
+        StringBuilder address = new StringBuilder(iecObject.getCppName());
+        IECObject parent = iecObject.getParent();
+        while(parent!=null){
+            if(parent.getCppName() != null)
+                address.insert(0, "/").insert(0, parent.getCppName());
+            parent = parent.getParent();
+        }
+        return address.toString();
+    }
+
+    /**
+     * Получить c++ адрес объекта (с фильтрацией)
+     * get("/", LD.class, DS class, ...)
+     * @param list - перечень объектов которые не будут включены в адрес
+     */
+    public String getCpp(Class<?>... list){
+        if(iecObject.getCppName()==null) return "error";
+        StringBuilder address = new StringBuilder(iecObject.getCppName());
+        List<Class<?>> filter = Arrays.asList(list);
+        IECObject parent = iecObject.getParent();
+        while(parent!=null){
+            if(parent.getCppName() != null && !filter.contains(parent.getClass()))
+                address.insert(0, "/").insert(0, parent.getCppName());
+            parent = parent.getParent();
+        }
+        return address.toString();
     }
 }

@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
  * @project OpenIEDconfigurator
  * @description - Адресс объекта МЭК61850
  */
+@Deprecated
 public class IECCppAddress {
 
     private final IECObject iecObject;

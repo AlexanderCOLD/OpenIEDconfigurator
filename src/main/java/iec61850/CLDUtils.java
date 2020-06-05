@@ -129,13 +129,10 @@ public class CLDUtils {
     public static HashMap<String, IECObject> mapOf(ObservableList<IECObject> objects){  return fillObjectMap(new HashMap<>(), objects); }
     /** Наполнить словать объектами (рекурсия) */
     private static HashMap<String, IECObject> fillObjectMap(HashMap<String, IECObject> map, ObservableList<IECObject> objectList){
-        for(IECObject object:objectList) map.put(object.getAddress().fullWithSlash(), object);
+        for(IECObject object:objectList) map.put(object.getAddress().get(), object);
         for(IECObject object:objectList) if(!object.getChildren().isEmpty()) fillObjectMap(map, object.getChildren());
         return map;
     }
-
-
-
 
 
     /**
@@ -163,8 +160,10 @@ public class CLDUtils {
     public static ObservableList<IECObject> objectListOf(IECObject iecObject){ return fillObjectList(FXCollections.observableArrayList(), iecObject.getChildren()); }
     /** Наполнить словать объектами (рекурсия) */
     private static ObservableList<IECObject> fillObjectList(ObservableList<IECObject> targetList, ObservableList<IECObject> objectList){
-        for(IECObject object:objectList) targetList.add(object);
-        for(IECObject object:objectList) if(!object.getChildren().isEmpty()) fillObjectList(targetList, object.getChildren());
+        for(IECObject object:objectList) {
+            targetList.add(object);
+            if(!object.getChildren().isEmpty()) fillObjectList(targetList, object.getChildren());
+        }
         return targetList;
     }
 

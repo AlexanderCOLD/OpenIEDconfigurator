@@ -11,6 +11,7 @@ import application.Main;
 import controllers.dialogs.AssistantDialog;
 import controllers.dialogs.ConnectorDialog;
 import controllers.dialogs.EditorDialog;
+import controllers.dialogs.OscillDialog;
 import controllers.link.Link;
 import controllers.tree.TreeController;
 import iec61850.*;
@@ -18,6 +19,7 @@ import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -270,6 +272,7 @@ public class GraphicNode extends AnchorPane {
 
         MenuItem settings = new MenuItem("Параметры");
         MenuItem connectors = new MenuItem("Коннекторы");
+        MenuItem oscill = new MenuItem("Сигналы");
         MenuItem rename = new MenuItem("Переименовать");
         MenuItem remove = new MenuItem("Удалить");
 
@@ -279,11 +282,13 @@ public class GraphicNode extends AnchorPane {
             contextMenu.getItems().clear();
 
             if(hasSettins) contextMenu.getItems().add(settings);
+            if(iecObject.getType().equals("RDRE")) contextMenu.getItems().add(oscill);
             if(iecObject.getTags().contains("additional")) contextMenu.getItems().add(rename);
             contextMenu.getItems().addAll(connectors, remove);
         });
 
         settings.setOnAction(e -> { EditorDialog.show(iecObject); });
+        oscill.setOnAction(e -> { OscillDialog.show(iecObject); });
         connectors.setOnAction(e ->{ ConnectorDialog.show(this); });
 
         rename.setOnAction(e->{
@@ -313,12 +318,23 @@ public class GraphicNode extends AnchorPane {
      */
     public void remove(){
 
+        LD currentLD = CLDUtils.parentOf(LD.class, iecObject);
+
         /* Если это дополнительный элемент, удаляем из проекта */
         if(iecObject.getTags().contains("additional")){
             LD ld = CLDUtils.parentOf(LD.class, iecObject);
             if(iecObject.getClass()==LN.class) ld.getLogicalNodeList().remove((LN) iecObject);
             else if(iecObject.getClass()==DS.class) ld.getDataSets().remove((DS) iecObject);
             GraphicNodeController.getProjectNodeList().remove(iecObject.getUID());
+        }
+
+        /* Если RDRE и последний - удалить теги "oscillogram" */
+        if(iecObject.getType().equals("RDRE")){
+            ObservableList<IECObject> ldList = CLDUtils.objectListOf(currentLD);
+            boolean hasRdre = ldList.stream()
+                    .filter(o-> o.getClass()==LN.class)
+                    .anyMatch(o-> o.getType().equals("RDRE"));
+            if(!hasRdre) ldList.stream().filter(o-> o.getClass()==DA.class).forEach(o-> o.getTags().remove("oscillogram"));
         }
 
         /* Удаляем все соединения */

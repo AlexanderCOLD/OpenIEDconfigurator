@@ -8,6 +8,7 @@ Project is contains new CLD (Configured Logic Description) file, which allows ma
 
 Версия 0.94 изменения
 1. Добавлен редактор коннекторов
+2. Добавлен узел Comtrade
 
 Версия 0.93 изменения
 1. Доработана библиотека
